@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Uma previsão do placar do conselho — v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "id", "evento_id", "conselho", "membro", "hipotese", "criterio", "rodada", "sinal", "prob_resistir", "evento", "mudaria", "desfecho", "observacao_desfecho", "decisao_usuario"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "id": {"$ref": "#/$defs/id"},
+    "evento_id": {"$ref": "#/$defs/id"},
+    "conselho": {"$ref": "#/$defs/id"},
+    "membro": {"$ref": "#/$defs/id"},
+    "hipotese": {"$ref": "#/$defs/id"},
+    "criterio": {"$ref": "#/$defs/id"},
+    "rodada": {"type": "integer", "enum": [1, 2]},
+    "sinal": {"type": "string", "enum": ["+", "0", "-", "?"]},
+    "prob_resistir": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+    "evento": {
+      "type": "object", "additionalProperties": false,
+      "required": ["descricao", "refuta_se"],
+      "properties": {"descricao": {"$ref": "#/$defs/texto"}, "refuta_se": {"$ref": "#/$defs/texto"}}
+    },
+    "mudaria": {"$ref": "#/$defs/texto"},
+    "desfecho": {"type": ["boolean", "null"]},
+    "observacao_desfecho": {
+      "type": ["object", "null"], "additionalProperties": false,
+      "required": ["referencia", "observado_em"],
+      "properties": {"referencia": {"$ref": "#/$defs/texto"}, "observado_em": {"type": "string", "format": "date-time"}}
+    },
+    "decisao_usuario": {
+      "type": ["object", "null"], "additionalProperties": false,
+      "required": ["escolha", "motivo", "objetivo", "referencia"],
+      "properties": {
+        "escolha": {"$ref": "#/$defs/texto"}, "motivo": {"$ref": "#/$defs/texto"},
+        "objetivo": {"$ref": "#/$defs/texto"}, "referencia": {"$ref": "#/$defs/texto"},
+        "revelar_identidades": {"type": "boolean"}
+      }
+    },
+    "otica": {"$ref": "#/$defs/texto"},
+    "especialidade": {"$ref": "#/$defs/texto"},
+    "modelo": {"$ref": "#/$defs/texto"},
+    "origem": {"$ref": "#/$defs/texto"}
+  },
+  "$defs": {
+    "id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"},
+    "texto": {"type": "string", "minLength": 1}
+  }
+}

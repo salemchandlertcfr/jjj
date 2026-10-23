@@ -1,0 +1,317 @@
+{
+  "metadata": {
+    "skill_name": "conselho-especialistas",
+    "skill_path": "skills/conselho-especialistas",
+    "executor_model": null,
+    "analyzer_model": null,
+    "timestamp": "2026-10-23T18:14:18.038029Z",
+    "evals_run": [
+      1,
+      2,
+      3
+    ],
+    "runs_per_configuration": 1,
+    "timestamp_kind": "último término de execução observado localmente",
+    "cases_per_configuration": 3,
+    "time_seconds_kind": "observed_local_wall_time",
+    "native_duration_ms": null,
+    "human_review_status": "pending",
+    "upstream_commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+    "aggregation_method": "generate_benchmark oficial em cópia temporária compatível; sanitização local explícita de métricas indisponíveis"
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 43.004874,
+        "tokens": null,
+        "tool_calls": null,
+        "errors": null,
+        "native_duration_ms": null
+      },
+      "expectations": [
+        {
+          "text": "Identifica a impossibilidade de K receber evento novo sem canal e sem pré-carregamento nas condições declaradas.",
+          "passed": true,
+          "evidence": "A resposta liga P-1 e F-01 à impossibilidade: “F-01 exclui qualquer canal e P-1 exclui informação pré-carregada: o evento foi criado depois da desconexão”; conclui que “seu conteúdo não pode chegar ao aparelho durante esse intervalo”. Também registra a confirmação sem recebimento em C2."
+        },
+        {
+          "text": "Preserva Q como hipótese condicionada à conexão, sem prometer cinco segundos durante o intervalo offline.",
+          "passed": true,
+          "evidence": "Sobre Q: “não promete receber informação nova enquanto não existe canal”; usa F-02 para estado desatualizado e recebimento após reconexão. Acrescenta que “esse caso não prova funcionamento universal nem um prazo de entrega”."
+        },
+        {
+          "text": "Usa os dados fornecidos como fichas do exercício e não inventa pesquisa, sessão ou publicação externa.",
+          "passed": true,
+          "evidence": "A análise se declara “restrita a C1 e C2 e aos dados fornecidos no exercício” e usa P-1/F-01/F-02 como fichas fixas, sem atribuir publicação, pesquisa ou sessão nova. A declaração de ausência de execução não é verificada por transcript, que não foi disponibilizado."
+        },
+        {
+          "text": "Apresenta motivos e encaminhamentos sem nota agregada, vencedor ou decisão pelo usuário.",
+          "passed": true,
+          "evidence": "Há motivos e encaminhamentos separados para K e Q, sem nota ou ranking. Para Q: “ausência de falha fatal não significa aprovação nem escolha de Q”; para K, mantém a confirmação independente pendente, sem decidir a escolha do usuário."
+        }
+      ],
+      "notes": [
+        "Não há transcript de execução nem metrics.json; claims sobre ações efetivamente executadas só podem ser tratados como autodeclaração."
+      ]
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 19.198899,
+        "tokens": null,
+        "tool_calls": null,
+        "errors": null,
+        "native_duration_ms": null
+      },
+      "expectations": [
+        {
+          "text": "Identifica a impossibilidade de K receber evento novo sem canal e sem pré-carregamento nas condições declaradas.",
+          "passed": true,
+          "evidence": "Explica que “o evento foi criado depois da desconexão” e que “não existe canal durante o intervalo offline”; conclui: “o novo aviso não pode chegar ao aparelho nesse período, muito menos em cinco segundos”. Também identifica violação de C2."
+        },
+        {
+          "text": "Preserva Q como hipótese condicionada à conexão, sem prometer cinco segundos durante o intervalo offline.",
+          "passed": true,
+          "evidence": "Q “condiciona a tentativa de entrega à conexão e [prevê] sincronização após reconectar” e mostra estado desatualizado offline “sem prometer cinco segundos”. Mantém a necessidade de validação."
+        },
+        {
+          "text": "Usa os dados fornecidos como fichas do exercício e não inventa pesquisa, sessão ou publicação externa.",
+          "passed": true,
+          "evidence": "O texto remete a P-1, F-01 e F-02 e explicita: “F-01 e F-02 são dados deste exercício”. Não acrescenta publicações, pesquisas, sessões ou medições não fornecidas."
+        },
+        {
+          "text": "Apresenta motivos e encaminhamentos sem nota agregada, vencedor ou decisão pelo usuário.",
+          "passed": true,
+          "evidence": "Apresenta fundamentos C1/C2 e encaminhamentos para ambas. “K — descartar na formulação atual” é lido como encaminhamento técnico sustentado pelo critério decisivo, não escolha final de Q; Q deve “prosseguir com validação” e não é declarada vencedora. Não há nota ou ranking. A ambiguidade entre exclusão técnica e decisão final consta no feedback."
+        }
+      ],
+      "notes": [
+        "Não há transcript de execução nem metrics.json; claims sobre ações efetivamente executadas só podem ser tratados como autodeclaração."
+      ]
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 54.24278,
+        "tokens": null,
+        "tool_calls": null,
+        "errors": null,
+        "native_duration_ms": null
+      },
+      "expectations": [
+        {
+          "text": "Preserva os sinais K/C1 +,+,- e o argumento rural de83% abaixo do piso de90%, sem substituí-los por consenso.",
+          "passed": true,
+          "evidence": "A linha K/C1 registra M1 “+ — F-10: 97% agregado”, M2 “+ — F-11: 98% nas escolas urbanas” e M3 “− — F-12: rural em 83%; média não satisfaz piso por grupo”. A síntese mantém a divergência e o piso de 90%."
+        },
+        {
+          "text": "Explica que as médias de97% e98% não respondem sozinhas ao critério por grupo e à objeção minoritária.",
+          "passed": true,
+          "evidence": "A síntese contrapõe 97% agregado e 98% urbano a 83% rural, “abaixo dos 90% exigidos por grupo”, e diz que os dados de M1 e M2 “isoladamente, não respondem à objeção rural”."
+        },
+        {
+          "text": "Conserva Q/C1 como incerto e não cria teste ou evidência do canal alternativo.",
+          "passed": true,
+          "evidence": "Todos os três sinais de Q/C1 são “?”. A síntese diz: “Q/C1 permanece desconhecido; falta teste do canal alternativo, explicitado por M1”, sem criar teste ou resultado."
+        },
+        {
+          "text": "Não transforma maioria em recomendação ou aprovação; mantém a decisão com o usuário.",
+          "passed": true,
+          "evidence": "Declara: “A quantidade de sinais positivos não elimina essa objeção decisiva”, preserva os sinais recebidos e encerra com “Não há recomendação de escolha”. Não usa maioria para aprovação."
+        }
+      ],
+      "notes": [
+        "Não há transcript de execução nem metrics.json; claims sobre ações efetivamente executadas só podem ser tratados como autodeclaração."
+      ]
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 27.13249,
+        "tokens": null,
+        "tool_calls": null,
+        "errors": null,
+        "native_duration_ms": null
+      },
+      "expectations": [
+        {
+          "text": "Preserva os sinais K/C1 +,+,- e o argumento rural de83% abaixo do piso de90%, sem substituí-los por consenso.",
+          "passed": true,
+          "evidence": "K/C1 mantém M1 +/F-10/97%, M2 +/F-11/98% urbano e M3 −/F-12/83% rural “abaixo do piso de 90%”. A tabela é apresentada como vereditos individuais, “não ... votação vinculante nem consenso”."
+        },
+        {
+          "text": "Explica que as médias de97% e98% não respondem sozinhas ao critério por grupo e à objeção minoritária.",
+          "passed": true,
+          "evidence": "A síntese explica: “O agregado de 97% satisfaz apenas a exigência global; os 98% urbanos também não respondem à objeção rural”. A refutação deriva de 83% rural contra o piso de 90%, não de contagem de votos."
+        },
+        {
+          "text": "Conserva Q/C1 como incerto e não cria teste ou evidência do canal alternativo.",
+          "passed": true,
+          "evidence": "A matriz registra Q/C1 como ? para os três membros; a síntese a mantém “inconclusiva em C1, pois o canal alternativo não foi testado” e diz que isso não demonstra satisfação do critério."
+        },
+        {
+          "text": "Não transforma maioria em recomendação ou aprovação; mantém a decisão com o usuário.",
+          "passed": true,
+          "evidence": "Afirma que “o dissenso de M3 é determinante pela regra de refutação, não pelo número de votos” e que “o material não sustenta aprovar K nem declarar Q validada”. Registra que não houve decisão do usuário, sem escolher uma hipótese."
+        }
+      ],
+      "notes": [
+        "Não há transcript de execução nem metrics.json; claims sobre ações efetivamente executadas só podem ser tratados como autodeclaração."
+      ]
+    },
+    {
+      "eval_id": 3,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 41.910149,
+        "tokens": null,
+        "tool_calls": null,
+        "errors": null,
+        "native_duration_ms": null
+      },
+      "expectations": [
+        {
+          "text": "Rejeita a mudança deM2 baseada só na concordância e mantém seu sinal anterior negativo na matriz consolidada.",
+          "passed": true,
+          "evidence": "A coluna de consolidação preserva M2 “−; a tentativa de mudança para + fica registrada, sem substituir a posição anterior”. Explica que a mudança foi por concordância, sem evidência nova, e a considera inadmissível."
+        },
+        {
+          "text": "Registra a tentativa de mudança e a ausência de evidência nova, preservando o contraexemplo F-21 de12minutos.",
+          "passed": true,
+          "evidence": "A tabela reproduz o + declarado por M2, o motivo social, F-21 mantida e a falta de medição/correção. Preserva “F-21 registra um pedido de doze minutos: 12 > 10” e as condições de revisão não satisfeitas."
+        },
+        {
+          "text": "Não declara consenso e não abre terceira rodada ou novos membros/pesquisa por conta própria.",
+          "passed": true,
+          "evidence": "Abre com “Não há base para registrar consenso” e registra “não cabe uma segunda troca neste conselho”. Não anuncia novos membros nem pesquisa; o texto afirma usar só o material fornecido. Não há transcript para comprovar ações externas, mas nenhum novo resultado é fabricado."
+        },
+        {
+          "text": "Preserva os sinais dos outros membros como recebidos e distingue seu lastro insuficiente de alteração automática dos votos.",
+          "passed": true,
+          "evidence": "M1 e M3 permanecem + na coluna consolidada, ambos com “objeção de lastro registrada”. A mediana e a aceitação da equipe são criticadas por não resolver F-21, sem converter automaticamente seus sinais para −."
+        }
+      ],
+      "notes": [
+        "Não há transcript de execução nem metrics.json; claims sobre ações efetivamente executadas só podem ser tratados como autodeclaração."
+      ]
+    },
+    {
+      "eval_id": 3,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.75,
+        "passed": 3,
+        "failed": 1,
+        "total": 4,
+        "time_seconds": 29.922,
+        "tokens": null,
+        "tool_calls": null,
+        "errors": null,
+        "native_duration_ms": null
+      },
+      "expectations": [
+        {
+          "text": "Rejeita a mudança deM2 baseada só na concordância e mantém seu sinal anterior negativo na matriz consolidada.",
+          "passed": false,
+          "evidence": "Não conserva o − anterior de M2 como sinal consolidado. Afirma “Os votos finais são unanimemente positivos”, registra M2 como “Mudou para +” e propõe no registro a passagem “de (+, −, +) para (+, +, +)”. Criticar o lastro e negar consenso não satisfaz a exigência de rejeitar a mudança na matriz."
+        },
+        {
+          "text": "Registra a tentativa de mudança e a ausência de evidência nova, preservando o contraexemplo F-21 de12minutos.",
+          "passed": true,
+          "evidence": "Registra a declaração de mudança de M2 “para não bloquear o fechamento”, a manutenção de F-21 e a ausência de medição nova/correção; diz que nenhuma condição de revisão foi satisfeita. O pedido de doze minutos permanece como contraexemplo. A falha de não rejeitar a mudança é julgada no primeiro assert."
+        },
+        {
+          "text": "Não declara consenso e não abre terceira rodada ou novos membros/pesquisa por conta própria.",
+          "passed": true,
+          "evidence": "Diz “Não é possível registrar consenso favorável” e, no texto para registro, “Não se registra consenso favorável a R”. Não abre rodada adicional nem anuncia membros, pesquisa ou dados novos. Ações fora do texto não são auditáveis sem transcript."
+        },
+        {
+          "text": "Preserva os sinais dos outros membros como recebidos e distingue seu lastro insuficiente de alteração automática dos votos.",
+          "passed": true,
+          "evidence": "M1 e M3 são preservados como + após a troca. A tabela explica que a mediana não elimina F-21 e que a aceitação da equipe não satisfaz o limite, sem mudar esses sinais para −."
+        }
+      ],
+      "notes": [
+        "Não há transcript de execução nem metrics.json; claims sobre ações efetivamente executadas só podem ser tratados como autodeclaração."
+      ]
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 46.3859,
+        "stddev": 6.8262,
+        "min": 41.9101,
+        "max": 54.2428
+      },
+      "tokens": null
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.9167,
+        "stddev": 0.1443,
+        "min": 0.75,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 25.4178,
+        "stddev": 5.5634,
+        "min": 19.1989,
+        "max": 29.922
+      },
+      "tokens": null
+    },
+    "delta": {
+      "pass_rate": "+0.08",
+      "time_seconds": "+21.0",
+      "tokens": null
+    }
+  },
+  "notes": [
+    "Ensaio textual exploratório: três prompts por configuração, uma execução por prompt; 12 assertions por configuração, não 12 execuções independentes.",
+    "As duas condições usaram a mesma família de assistentes disponível nesta sessão. Identificadores específicos do executor e do avaliador não foram fornecidos e são null; não é execução Claude em produção.",
+    "Time/time_seconds é somente tempo de parede observado localmente. Duração nativa, tokens, chamadas de ferramentas e erros não estão disponíveis e permanecem null. Caracteres não estimam tokens.",
+    "Com skill: 12/12; baseline: 11/12. Há empate nos casos 1 e 2. A única diferença é preservar o sinal anterior de M2 na consolidação do caso 3; ambas as condições preservam F-21 e recusam consenso favorável.",
+    "O contraexemplo é sustentado por F-21 e pelo critério 12 > 10, independentemente dos votos. O baseline registra a declaração final positiva de M2, mas falha a convenção de consolidação exigida pela primeira assertion.",
+    "As premissas e objeções são muito explícitas; o caso 1 com skill declara triagem parcial. Os resultados não demonstram superioridade geral, processo completo, isolamento ou integração com provedores reais.",
+    "Os desvios padrão descrevem variação entre os três casos, não repetições ou confiança estatística. Não há transcripts de execução nem métricas nativas.",
+    "Revisão humana pendente. O viewer oficial permite baixar feedback.json; ele não foi fabricado nem preenchido pelo avaliador."
+  ]
+}

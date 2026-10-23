@@ -1,0 +1,109 @@
+{
+  "expectations": [
+    {
+      "text": "Identifica a impossibilidade de K receber evento novo sem canal e sem pré-carregamento nas condições declaradas.",
+      "passed": true,
+      "evidence": "A resposta liga P-1 e F-01 à impossibilidade: “F-01 exclui qualquer canal e P-1 exclui informação pré-carregada: o evento foi criado depois da desconexão”; conclui que “seu conteúdo não pode chegar ao aparelho durante esse intervalo”. Também registra a confirmação sem recebimento em C2."
+    },
+    {
+      "text": "Preserva Q como hipótese condicionada à conexão, sem prometer cinco segundos durante o intervalo offline.",
+      "passed": true,
+      "evidence": "Sobre Q: “não promete receber informação nova enquanto não existe canal”; usa F-02 para estado desatualizado e recebimento após reconexão. Acrescenta que “esse caso não prova funcionamento universal nem um prazo de entrega”."
+    },
+    {
+      "text": "Usa os dados fornecidos como fichas do exercício e não inventa pesquisa, sessão ou publicação externa.",
+      "passed": true,
+      "evidence": "A análise se declara “restrita a C1 e C2 e aos dados fornecidos no exercício” e usa P-1/F-01/F-02 como fichas fixas, sem atribuir publicação, pesquisa ou sessão nova. A declaração de ausência de execução não é verificada por transcript, que não foi disponibilizado."
+    },
+    {
+      "text": "Apresenta motivos e encaminhamentos sem nota agregada, vencedor ou decisão pelo usuário.",
+      "passed": true,
+      "evidence": "Há motivos e encaminhamentos separados para K e Q, sem nota ou ranking. Para Q: “ausência de falha fatal não significa aprovação nem escolha de Q”; para K, mantém a confirmação independente pendente, sem decidir a escolha do usuário."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1.0
+  },
+  "execution_metrics": {
+    "tool_calls": null,
+    "total_tool_calls": null,
+    "total_steps": null,
+    "errors_encountered": null,
+    "total_tokens": null,
+    "output_chars": 1665,
+    "output_chars_scope": "Contagem exata de caracteres Unicode em outputs/resposta.md; não é estimativa de tokens.",
+    "transcript_chars": null
+  },
+  "timing": {
+    "total_tokens": null,
+    "duration_ms": null,
+    "observed_started_at": "2026-10-23T18:13:03Z",
+    "observed_finished_at": "2026-10-23T18:13:46.004874Z",
+    "observed_wall_seconds": 43.004874,
+    "executor_duration_seconds": null,
+    "grader_duration_seconds": null,
+    "total_duration_seconds": null,
+    "interpretation": "Somente timestamps e tempo de parede observados localmente; não são duração nativa do executor nem benchmark controlado. Durações nativas indisponíveis permanecem null."
+  },
+  "claims": [
+    {
+      "claim": "Nas premissas fornecidas, K não pode receber o evento novo durante o intervalo sem canal.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "O prompt fornece F-01 (nenhum canal), P-1 (evento ainda inexistente ao desconectar) e ausência de pré-carregamento; a conclusão decorre dessas premissas, sem depender de fonte externa."
+    },
+    {
+      "claim": "F-02 sustenta o comportamento observado de Q, mas não prova prazo ou funcionamento universal.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "F-02 descreve apenas estado desatualizado offline e recebimento após reconectar, sem cobertura universal ou prazo de cinco segundos."
+    },
+    {
+      "claim": "Não foram executados membros independentes, crítica separada, pesquisa externa ou chamadas a provedores.",
+      "type": "process",
+      "verified": false,
+      "evidence": "A resposta autodeclara esse limite; não há transcript ou registro de ferramentas entre os artefatos deste run para verificação independente. “verified: false” aqui significa não verificável, não evidência de execução oculta."
+    },
+    {
+      "claim": "A entrega é análise parcial, não uma triagem padrão concluída.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "A própria resposta identifica confirmação independente pendente e não apresenta pareceres de crítico e segundo refutador. Os quatro asserts avaliam conteúdo textual e não exigem esse processo."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [
+      "Não há transcript de execução nem metrics.json; claims sobre ações efetivamente executadas só podem ser tratados como autodeclaração."
+    ],
+    "needs_review": [],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Apresenta motivos e encaminhamentos sem nota agregada, vencedor ou decisão pelo usuário.",
+        "reason": "A expressão “decisão pelo usuário” não distingue uma conclusão técnica de refutação, autorizada por C1 decisivo, de escolher a solução em nome do usuário. Definir essa fronteira; neste grading, excluir a formulação impossível de K não equivale a escolher Q."
+      },
+      {
+        "reason": "As assertions não verificam a execução da “triagem padrão”. A resposta com skill declara que entregou análise parcial e que a confirmação independente está pendente. Se completar esse processo for objetivo, exigir evidência explícita das etapas ou formular o ensaio como triagem textual limitada."
+      }
+    ],
+    "overall": "As quatro assertions têm conteúdo substantivo, mas o caso explicita todas as premissas e ambas as condições passam. O resultado mede interpretação de um exercício fechado; não mede confirmação independente ou processo completo, nem demonstra vantagem da skill neste caso."
+  },
+  "grading_context": {
+    "inputs_read": [
+      "prompt.txt",
+      "eval_metadata.json",
+      "outputs/resposta.md",
+      "timing.json"
+    ],
+    "transcript_available": false,
+    "metrics_available": false,
+    "user_notes_available": false,
+    "source_scope": "Casos fictícios: verdade factual avaliada apenas contra as premissas e fichas fornecidas; sem verificação externa.",
+    "condition_policy": "Mesmos critérios para with_skill e without_skill; rótulos de condição visíveis, sem cegamento."
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "received_on": "2026-10-22",
+  "sources": [
+    {
+      "id": "S01",
+      "original_filename": "SKILL.md",
+      "path": "sources/originais/skill-creator.md",
+      "sha256": "dcd4803e61e913e6fc27294184cd3a71f09f5e924ff20c8a9a20173e7b3c2bcf",
+      "bytes": 33168
+    },
+    {
+      "id": "S02",
+      "original_filename": "Plano geral das skills — Etapa 1 (CIR) 72d0fdc1db19433e9101d1ac3b3015ef.md",
+      "path": "sources/originais/plano-geral-skills-cir.md",
+      "sha256": "d7e092e0e970565abe37e8d67c2ed8fdaf6319915ab2da0a5e86c57c98021237",
+      "bytes": 76498
+    },
+    {
+      "id": "S03",
+      "original_filename": "simulacao_etapa1.py",
+      "path": "sources/originais/simulacao_etapa1.py",
+      "sha256": "2903d58b8d947734276344017949068673cbfd207a0d49799c23bb5b165e33e6",
+      "bytes": 14122
+    },
+    {
+      "id": "S04",
+      "original_filename": "Plano detalhado — conselho-especialistas f31c25a61c914fd98fe1f1ad81c09ed4.md",
+      "path": "sources/originais/plano-conselho-especialistas.md",
+      "sha256": "4939720b2a5f73298a2df2d8be95caad9e1bd0aac338aadcd9cc4e2413ae4db6",
+      "bytes": 42888
+    },
+    {
+      "id": "S05",
+      "original_filename": "Plano da skill — Etapa 1 (método IDEAL) d9c7228935f8435a940a458f1fdec061.md",
+      "path": "sources/originais/plano-skill-etapa1-ideal.md",
+      "sha256": "e22b9b076344da2129e6809ca009070c694519f3fe62feeccb7ebda2c90a5528",
+      "bytes": 46433
+    },
+    {
+      "id": "S06",
+      "original_filename": "Método IDEAL — passo a passo 0a6e02fec42e47e09d4a10981b12849b.md",
+      "path": "sources/originais/metodo-ideal-passo-a-passo.md",
+      "sha256": "1ace3549cb1a0951685cb7f7b2cca1749591acef10f1c058cb621bbdb6f8c463",
+      "bytes": 7085
+    },
+    {
+      "id": "S07",
+      "original_filename": "Fluxograma aperfeiçoado — Etapa 1 (CIR) fb9015a39bb1406481763a2903aca006.md",
+      "path": "sources/originais/fluxograma-aperfeicoado-cir.md",
+      "sha256": "b766a625d50554980f6c1ca711f206d5f011c53af3b9dcc3c82015dfde7e75e2",
+      "bytes": 35051
+    },
+    {
+      "id": "S08",
+      "original_filename": "Fluxograma completo — Etapa 1 (método IDEAL em cic f1f71e3bd5e6487ebdfc94cd7e9fa161.md",
+      "path": "sources/originais/fluxograma-completo-ideal.md",
+      "sha256": "29a799ea506db41b54b06b979fe8154f1bc675a4f5940cc158b356eb90a999e9",
+      "bytes": 56368
+    },
+    {
+      "id": "S09",
+      "original_filename": "Etapa 1 — Concepção Ideal da Solução método IDEAL  629394b6e12b49c792805775c07e27d3.md",
+      "path": "sources/originais/concepcao-ideal-solucao.md",
+      "sha256": "8ceb1096e5abecccf22fd683d0ae6debedf23c0a32f13e8bd335f1851e3a905a",
+      "bytes": 68117
+    },
+    {
+      "id": "S10",
+      "original_filename": "Plano detalhado — etapa-1-cir (condutora) fccda0c36a5d403582b433a6f2b0657f.md",
+      "path": "sources/originais/plano-etapa-1-cir-condutora.md",
+      "sha256": "fd029ac8048c5d410be9ec521c938d272c1fb82ecf821bd7269ab2014a321088",
+      "bytes": 58367,
+      "received_on": "2026-10-22"
+    },
+    {
+      "id": "S11",
+      "original_filename": "Plano detalhado — conselho-especialistas f31c25a61c914fd98fe1f1ad81c09ed4.md",
+      "path": "sources/originais/plano-conselho-especialistas-revisado.md",
+      "sha256": "33268e2a5443223742c67b62943f963c47217efc1ec696f930d7c0bf6baf7286",
+      "bytes": 44541,
+      "received_on": "2026-10-23",
+      "revises": "S04",
+      "selected_for": "Implementação solicitada pelo usuário nesta revisão."
+    }
+  ]
+}

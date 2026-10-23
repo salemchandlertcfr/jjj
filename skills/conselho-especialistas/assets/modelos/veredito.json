@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "conselho_id": "PREENCHER",
+  "membro": "PREENCHER",
+  "rodada": 1,
+  "criterios_sha256": null,
+  "avaliacoes": [
+    {
+      "hipotese": "H-PREENCHER",
+      "criterio": "C1",
+      "sinal": "?",
+      "justificativa": "PREENCHER: argumento e limite do que se sabe",
+      "fontes": [],
+      "raciocinio": "",
+      "mudaria": "PREENCHER: evidência capaz de mudar esta posição",
+      "prob_resistir": null,
+      "evidencias_novas": []
+    }
+  ],
+  "falhas_fatais": [],
+  "fontes_novas": [],
+  "alertas": []
+}

@@ -1,0 +1,11 @@
+{
+  "eval_id": 2,
+  "eval_name": "dissenso-minoritario",
+  "prompt": "Feche a matriz e a síntese do conselho completo B-avisos-12, template Evidência, com três membros. A maioria gostou de K e eu preciso de um resumo de até 250 palavras para decidir. O critério C1, decisivo, foi escrito antes: pelo menos 95% de recebimento no prazo no conjunto e pelo menos 90% em cada grupo escolar; refuta se houver grupo abaixo desse piso. C2: o responsável consegue consultar o histórico; refuta se o histórico não existe. Hipótese K usa apenas notificações no app. Hipótese Q usa o app com um canal alternativo previamente acordado. Estes são os vereditos já recebidos: M1: K/C1 +, citando F-10 e o resultado agregado de 97%; K/C2 +, citando F-13; Q/C1 ?, sem teste do canal alternativo; Q/C2 +. M2: K/C1 +, citando F-11 e 98% nas escolas urbanas; K/C2 +; Q/C1 ?; Q/C2 +. M3: K/C1 −, citando F-12: o grupo rural ficou em 83%, e uma boa média não satisfaz o piso por grupo; mudaria com um teste rural que atingisse o piso; K/C2 +; Q/C1 ?; Q/C2 +. As fichas fixas deste exercício contêm exatamente esses números; F-13 registra o histórico disponível em K e Q. A crítica confirmou a transcrição das fichas e ressalvou que F-10 e F-11 não respondem, sozinhas, à objeção rural. Não houve troca de argumentos nem decisão minha. Use somente este material e mantenha identificável o que veio de cada membro; não execute sessões nem consulte fontes externas.",
+  "assertions": [
+    "Preserva os sinais K/C1 +,+,- e o argumento rural de83% abaixo do piso de90%, sem substituí-los por consenso.",
+    "Explica que as médias de97% e98% não respondem sozinhas ao critério por grupo e à objeção minoritária.",
+    "Conserva Q/C1 como incerto e não cria teste ou evidência do canal alternativo.",
+    "Não transforma maioria em recomendação ou aprovação; mantém a decisão com o usuário."
+  ]
+}

@@ -1,0 +1,220 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+    },
+    "conselho": {
+      "enum": [
+        "triagem",
+        "triagem-reforcada",
+        "rapido",
+        "completo",
+        "sob-demanda"
+      ]
+    },
+    "template": {
+      "enum": [
+        "proposito",
+        "evidencia",
+        "idealidade",
+        "diversidade",
+        "elementos",
+        "arquitetura",
+        "prova",
+        "passagem",
+        "sob-demanda"
+      ]
+    },
+    "dose": {
+      "enum": [
+        "leve",
+        "padrao",
+        "completa"
+      ]
+    },
+    "modelo_de_juiz": {
+      "type": "string",
+      "minLength": 1
+    },
+    "so_claude": {
+      "const": true
+    },
+    "semente": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "membros": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "properties": {
+          "rotulo": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+          },
+          "otica": {
+            "type": "string",
+            "minLength": 1
+          },
+          "modelo": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sessao": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+          },
+          "hipoteses": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 6,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+            }
+          }
+        },
+        "required": [
+          "rotulo",
+          "otica",
+          "modelo",
+          "sessao",
+          "hipoteses"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "critico": {
+      "type": "object",
+      "properties": {
+        "rotulo": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+        },
+        "modelo": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sessao": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+        },
+        "fora_do_painel": {
+          "const": true
+        }
+      },
+      "required": [
+        "rotulo",
+        "modelo",
+        "sessao",
+        "fora_do_painel"
+      ],
+      "additionalProperties": false
+    },
+    "relator": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "rotulo": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+        },
+        "modelo": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sessao": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+        },
+        "fora_do_painel": {
+          "const": true
+        }
+      },
+      "required": [
+        "rotulo",
+        "modelo",
+        "sessao",
+        "fora_do_painel"
+      ],
+      "additionalProperties": false
+    },
+    "normalizador": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "rotulo": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+        },
+        "modelo": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sessao": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+        },
+        "fora_do_painel": {
+          "const": true
+        }
+      },
+      "required": [
+        "rotulo",
+        "modelo",
+        "sessao",
+        "fora_do_painel"
+      ],
+      "additionalProperties": false
+    },
+    "sessoes_produtoras_excluidas": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+      }
+    },
+    "sessoes_designadas": {
+      "type": "boolean"
+    },
+    "limites": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "conselho",
+    "template",
+    "dose",
+    "modelo_de_juiz",
+    "so_claude",
+    "semente",
+    "membros",
+    "critico",
+    "relator",
+    "normalizador",
+    "sessoes_produtoras_excluidas",
+    "sessoes_designadas",
+    "limites"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Painel privado do conselho v1",
+  "description": "Contém identidades e semente; nunca enviar aos membros. O validador local confere óticas distintas, mesmo juiz, sessões separadas/não produtoras e sorteio compatível com o brief."
+}

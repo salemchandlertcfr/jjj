@@ -1,0 +1,80 @@
+{
+  "cenario_id": "certeza-total",
+  "modo": "teste_controlado",
+  "descricao": "Banco sintético com premissas explícitas. Não representa pesquisa de campo nem execução de modelo externo.",
+  "request": {
+    "schema_version": 1,
+    "id": "certeza-total",
+    "conselho": "rapido",
+    "template": "evidencia",
+    "dose": "padrao",
+    "pergunta": "Quais conceitos resistem ao critério de possibilidade de certeza com informação limitada?",
+    "criterios": [
+      {
+        "id": "C1",
+        "descricao": "A certeza prometida precisa ser possível com a informação fornecida.",
+        "refuta_se": "Há duas situações indistinguíveis na entrada que exigem respostas incompatíveis.",
+        "decisivo": true
+      }
+    ],
+    "criterios_fixados": {
+      "sha256": "27cf3aa6caef3d03c1b93048fb721b47a5f93d0581f3b68497cd87c1b4c6c1a2",
+      "em": "2026-10-23T10:00:00+00:00",
+      "antes_das_hipoteses": true,
+      "referencia": "CRITERIOS-CONGELADOS-TESTE-certeza-total"
+    },
+    "hipoteses": [
+      {
+        "id": "ORIGINAL-1",
+        "texto": "O sistema sempre identifica com 100% de certeza a ação correta, usando somente x, sem observar se está no mundo A ou B.",
+        "origem": "AUTORIA_PRIVADA_certeza-total_1"
+      },
+      {
+        "id": "ORIGINAL-2",
+        "texto": "O sistema explicita a ambiguidade entre A e B, pede a informação discriminante quando disponível e admite abstenção.",
+        "origem": "AUTORIA_PRIVADA_certeza-total_2"
+      }
+    ],
+    "fontes": [
+      {
+        "id": "F1",
+        "url": "https://example.org/fixtures/certeza-total",
+        "trecho": "Premissa do teste: os mundos A e B têm a mesma entrada observada x. Em A a ação correta é a; em B é b, com a diferente de b. Qualquer função determinística de x devolve o mesmo resultado nos dois mundos.",
+        "afirmacao": "A entrada x não identifica qual das duas ações incompatíveis é correta.",
+        "verificada": true
+      }
+    ],
+    "parecer": null,
+    "restricoes": {
+      "nao_buscar_workspace": "Não ler páginas do projeto. Usar somente fichas do dublê e raciocínio explícito."
+    },
+    "oticas": [
+      "refutador de método",
+      "especialista do domínio"
+    ],
+    "modo_teste": true
+  },
+  "modelo_de_juiz": {
+    "familia": "anthropic",
+    "modelo": "claude-juiz-ficticio-de-teste",
+    "nivel": "juiz",
+    "via": "duble-local",
+    "autorizado": true
+  },
+  "fontes_stub": [
+    {
+      "id": "F1",
+      "url": "https://example.org/fixtures/certeza-total",
+      "trecho": "Premissa do teste: os mundos A e B têm a mesma entrada observada x. Em A a ação correta é a; em B é b, com a diferente de b. Qualquer função determinística de x devolve o mesmo resultado nos dois mundos.",
+      "afirmacao": "A entrada x não identifica qual das duas ações incompatíveis é correta.",
+      "verificada": true
+    }
+  ],
+  "expectativas": {
+    "falha_fatal_esperada_no_texto": "sempre identifica com 100% de certeza",
+    "raciocinio_esperado": "Indistinguibilidade das entradas com resultados incompatíveis.",
+    "sem_vencedor": true,
+    "sem_descarte_automatico": true,
+    "aprovacao_de_critica_necessaria": true
+  }
+}

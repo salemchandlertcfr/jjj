@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:conselho-especialistas:veredito:1",
+  "title": "Veredito por membro — v1",
+  "$comment": "O validador Python também confere cobertura exata, fontes conhecidas, hash dos critérios e nova evidência na única troca. O schema não demonstra lastro científico.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "conselho_id", "membro", "rodada", "criterios_sha256", "avaliacoes"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "conselho_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$"},
+    "membro": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$"},
+    "rodada": {"type": "integer", "enum": [1, 2]},
+    "criterios_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "avaliacoes": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/avaliacao"}},
+    "falhas_fatais": {"type": "array", "items": {"$ref": "#/$defs/falha"}},
+    "fontes_novas": {"type": "array", "items": {"$ref": "#/$defs/fonte"}},
+    "alertas": {"type": "array", "items": {"type": "string"}}
+  },
+  "$defs": {
+    "ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "avaliacao": {
+      "type": "object", "additionalProperties": false,
+      "required": ["hipotese", "criterio", "sinal", "justificativa", "mudaria"],
+      "properties": {
+        "hipotese": {"type": "string", "minLength": 1},
+        "criterio": {"type": "string", "minLength": 1},
+        "sinal": {"enum": ["+", "0", "-", "?"]},
+        "justificativa": {"type": "string", "minLength": 1},
+        "fontes": {"$ref": "#/$defs/ids"},
+        "raciocinio": {"type": "string"},
+        "mudaria": {"type": "string", "minLength": 1},
+        "prob_resistir": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "evidencias_novas": {"$ref": "#/$defs/ids"},
+        "triagem": {"enum": ["sem falha fatal", "impossivel em principio", "dificil hoje", "fere um valor"]}
+      }
+    },
+    "falha": {
+      "type": "object", "additionalProperties": false,
+      "required": ["hipotese", "criterio", "motivo"],
+      "properties": {
+        "hipotese": {"type": "string", "minLength": 1},
+        "criterio": {"type": "string", "minLength": 1},
+        "motivo": {"type": "string", "minLength": 1},
+        "fontes": {"$ref": "#/$defs/ids"},
+        "raciocinio": {"type": "string"}
+      }
+    },
+    "fonte": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "url", "trecho", "afirmacao", "verificada"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "url": {"type": "string", "format": "uri"},
+        "trecho": {"type": "string", "minLength": 1},
+        "afirmacao": {"type": "string", "minLength": 1},
+        "verificada": {"type": "boolean"}
+      }
+    }
+  }
+}

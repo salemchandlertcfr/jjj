@@ -1,0 +1,84 @@
+{
+  "cenario_id": "dissenso-fonte-desconhecida",
+  "modo": "teste_controlado",
+  "descricao": "Banco sintético com premissas explícitas. Não representa pesquisa de campo nem execução de modelo externo.",
+  "request": {
+    "schema_version": 1,
+    "id": "dissenso-fonte-desconhecida",
+    "conselho": "rapido",
+    "template": "evidencia",
+    "dose": "padrao",
+    "pergunta": "Os resumos curtos propostos preservam o que a pessoa precisa para decidir?",
+    "criterios": [
+      {
+        "id": "C1",
+        "descricao": "O resumo deve preservar a informação necessária para a próxima decisão no contexto descrito.",
+        "refuta_se": "Um caso compatível com o contexto perde informação que muda a próxima decisão.",
+        "decisivo": true
+      }
+    ],
+    "criterios_fixados": {
+      "sha256": "b79e642ea9cfb1403aee2fd2c35e31793daea0ebf525c37391948fb8788359ad",
+      "em": "2026-10-23T10:00:00+00:00",
+      "antes_das_hipoteses": true,
+      "referencia": "CRITERIOS-CONGELADOS-TESTE-dissenso-fonte-desconhecida"
+    },
+    "hipoteses": [
+      {
+        "id": "ORIGINAL-1",
+        "texto": "Mostrar uma única frase com a próxima ação, omitindo contexto adicional em todos os casos.",
+        "origem": "AUTORIA_PRIVADA_dissenso-fonte-desconhecida_1"
+      },
+      {
+        "id": "ORIGINAL-2",
+        "texto": "Mostrar a próxima ação e tornar acessíveis as condições ou incertezas que possam mudá-la.",
+        "origem": "AUTORIA_PRIVADA_dissenso-fonte-desconhecida_2"
+      }
+    ],
+    "fontes": [
+      {
+        "id": "F1",
+        "url": "https://example.org/fixtures/resumo-ambiguidade",
+        "trecho": "Premissa do teste: em quatro situações descritas, o resumo curto preservou a próxima ação. O conjunto não incluiu mudanças de prazo nem condições de exceção. Não há medição de generalização.",
+        "afirmacao": "O exemplo sustenta apenas as quatro situações observadas, sem resolver exceções de prazo.",
+        "verificada": true
+      }
+    ],
+    "parecer": null,
+    "restricoes": {
+      "nao_buscar_workspace": "Não ler páginas do projeto. Usar somente fichas do dublê e raciocínio explícito."
+    },
+    "oticas": [
+      "refutador de método",
+      "especialista do domínio"
+    ],
+    "modo_teste": true
+  },
+  "modelo_de_juiz": {
+    "familia": "anthropic",
+    "modelo": "claude-juiz-ficticio-de-teste",
+    "nivel": "juiz",
+    "via": "duble-local",
+    "autorizado": true
+  },
+  "fontes_stub": [
+    {
+      "id": "F1",
+      "url": "https://example.org/fixtures/resumo-ambiguidade",
+      "trecho": "Premissa do teste: em quatro situações descritas, o resumo curto preservou a próxima ação. O conjunto não incluiu mudanças de prazo nem condições de exceção. Não há medição de generalização.",
+      "afirmacao": "O exemplo sustenta apenas as quatro situações observadas, sem resolver exceções de prazo.",
+      "verificada": true
+    }
+  ],
+  "expectativas": {
+    "preservar_sinais": [
+      "+",
+      "-",
+      "?"
+    ],
+    "argumento_minoritario": "A fonte não testou exceções que podem mudar a decisão.",
+    "fonte_desconhecida": "F-WORKSPACE-PRIVADA",
+    "veredito_com_fonte_desconhecida": "invalido_ou_pedido_de_correcao",
+    "sem_vencedor": true
+  }
+}

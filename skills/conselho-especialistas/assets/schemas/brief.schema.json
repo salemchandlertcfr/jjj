@@ -1,0 +1,197 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+    },
+    "conselho": {
+      "enum": [
+        "triagem",
+        "triagem-reforcada",
+        "rapido",
+        "completo",
+        "sob-demanda"
+      ]
+    },
+    "template": {
+      "enum": [
+        "proposito",
+        "evidencia",
+        "idealidade",
+        "diversidade",
+        "elementos",
+        "arquitetura",
+        "prova",
+        "passagem",
+        "sob-demanda"
+      ]
+    },
+    "dose": {
+      "enum": [
+        "leve",
+        "padrao",
+        "completa"
+      ]
+    },
+    "pergunta": {
+      "type": "string",
+      "minLength": 1
+    },
+    "criterios": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 100,
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+          },
+          "descricao": {
+            "type": "string",
+            "minLength": 1
+          },
+          "refuta_se": {
+            "type": "string",
+            "minLength": 1
+          },
+          "decisivo": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "descricao",
+          "refuta_se",
+          "decisivo"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "criterios_fixados": {
+      "type": "object",
+      "properties": {
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "em": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "antes_das_hipoteses": {
+          "const": true
+        },
+        "referencia": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "sha256",
+        "em",
+        "antes_das_hipoteses",
+        "referencia"
+      ],
+      "additionalProperties": false
+    },
+    "hipoteses": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 100,
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+          },
+          "texto": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 12000
+          }
+        },
+        "required": [
+          "id",
+          "texto"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "fontes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^https?://"
+          },
+          "trecho": {
+            "type": "string",
+            "minLength": 1
+          },
+          "afirmacao": {
+            "type": "string",
+            "minLength": 1
+          },
+          "verificada": {
+            "const": true
+          }
+        },
+        "required": [
+          "id",
+          "url",
+          "trecho",
+          "afirmacao",
+          "verificada"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "parecer": {
+      "type": [
+        "string",
+        "object",
+        "null"
+      ]
+    },
+    "restricoes": {
+      "type": [
+        "object",
+        "array",
+        "string"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "conselho",
+    "template",
+    "dose",
+    "pergunta",
+    "criterios",
+    "criterios_fixados",
+    "hipoteses",
+    "fontes",
+    "parecer",
+    "restricoes"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Brief público do conselho v1",
+  "description": "O validator local também confere hashes, normaliza nomes e procura marcas de autoria; o schema não prova anterioridade dos critérios nem mérito das fontes."
+}

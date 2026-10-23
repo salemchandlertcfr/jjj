@@ -1,0 +1,103 @@
+{
+  "expectations": [
+    {
+      "text": "Identifica a impossibilidade de K receber evento novo sem canal e sem pré-carregamento nas condições declaradas.",
+      "passed": true,
+      "evidence": "Explica que “o evento foi criado depois da desconexão” e que “não existe canal durante o intervalo offline”; conclui: “o novo aviso não pode chegar ao aparelho nesse período, muito menos em cinco segundos”. Também identifica violação de C2."
+    },
+    {
+      "text": "Preserva Q como hipótese condicionada à conexão, sem prometer cinco segundos durante o intervalo offline.",
+      "passed": true,
+      "evidence": "Q “condiciona a tentativa de entrega à conexão e [prevê] sincronização após reconectar” e mostra estado desatualizado offline “sem prometer cinco segundos”. Mantém a necessidade de validação."
+    },
+    {
+      "text": "Usa os dados fornecidos como fichas do exercício e não inventa pesquisa, sessão ou publicação externa.",
+      "passed": true,
+      "evidence": "O texto remete a P-1, F-01 e F-02 e explicita: “F-01 e F-02 são dados deste exercício”. Não acrescenta publicações, pesquisas, sessões ou medições não fornecidas."
+    },
+    {
+      "text": "Apresenta motivos e encaminhamentos sem nota agregada, vencedor ou decisão pelo usuário.",
+      "passed": true,
+      "evidence": "Apresenta fundamentos C1/C2 e encaminhamentos para ambas. “K — descartar na formulação atual” é lido como encaminhamento técnico sustentado pelo critério decisivo, não escolha final de Q; Q deve “prosseguir com validação” e não é declarada vencedora. Não há nota ou ranking. A ambiguidade entre exclusão técnica e decisão final consta no feedback."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1.0
+  },
+  "execution_metrics": {
+    "tool_calls": null,
+    "total_tool_calls": null,
+    "total_steps": null,
+    "errors_encountered": null,
+    "total_tokens": null,
+    "output_chars": 1349,
+    "output_chars_scope": "Contagem exata de caracteres Unicode em outputs/resposta.md; não é estimativa de tokens.",
+    "transcript_chars": null
+  },
+  "timing": {
+    "total_tokens": null,
+    "duration_ms": null,
+    "observed_started_at": "2026-10-23T18:13:13.014900+00:00",
+    "observed_finished_at": "2026-10-23T18:13:32.213799+00:00",
+    "observed_wall_seconds": 19.198899,
+    "executor_duration_seconds": null,
+    "grader_duration_seconds": null,
+    "total_duration_seconds": null,
+    "interpretation": "Somente timestamps e tempo de parede observados localmente; não são duração nativa do executor nem benchmark controlado. Durações nativas indisponíveis permanecem null."
+  },
+  "claims": [
+    {
+      "claim": "K viola C1 e C2 na formulação atual.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Sem canal e sem informação pré-carregada, o evento criado após desconexão não é recebido; a confirmação prometida não tem recebimento que a sustente. São as condições refutatórias expressas em C1 e C2."
+    },
+    {
+      "claim": "F-02 oferece evidência favorável ao comportamento observado de Q, sem demonstrar confiabilidade universal.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "A ficha fornecida relata estado desatualizado offline e recebimento após reconexão; a resposta limita a conclusão a esse teste e propõe validação adicional."
+    },
+    {
+      "claim": "Q pode continuar em validação sem ser declarada solução final.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "O encaminhamento é “prosseguir com validação”, com testes de quedas de conexão e correspondência da confirmação; não há aprovação universal ou escolha final."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [
+      "Não há transcript de execução nem metrics.json; claims sobre ações efetivamente executadas só podem ser tratados como autodeclaração."
+    ],
+    "needs_review": [],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Apresenta motivos e encaminhamentos sem nota agregada, vencedor ou decisão pelo usuário.",
+        "reason": "A expressão “decisão pelo usuário” não distingue uma conclusão técnica de refutação, autorizada por C1 decisivo, de escolher a solução em nome do usuário. Definir essa fronteira; neste grading, excluir a formulação impossível de K não equivale a escolher Q."
+      },
+      {
+        "reason": "As assertions não verificam a execução da “triagem padrão”. A resposta com skill declara que entregou análise parcial e que a confirmação independente está pendente. Se completar esse processo for objetivo, exigir evidência explícita das etapas ou formular o ensaio como triagem textual limitada."
+      }
+    ],
+    "overall": "As quatro assertions têm conteúdo substantivo, mas o caso explicita todas as premissas e ambas as condições passam. O resultado mede interpretação de um exercício fechado; não mede confirmação independente ou processo completo, nem demonstra vantagem da skill neste caso."
+  },
+  "grading_context": {
+    "inputs_read": [
+      "prompt.txt",
+      "eval_metadata.json",
+      "outputs/resposta.md",
+      "timing.json"
+    ],
+    "transcript_available": false,
+    "metrics_available": false,
+    "user_notes_available": false,
+    "source_scope": "Casos fictícios: verdade factual avaliada apenas contra as premissas e fichas fornecidas; sem verificação externa.",
+    "condition_policy": "Mesmos critérios para with_skill e without_skill; rótulos de condição visíveis, sem cegamento."
+  }
+}

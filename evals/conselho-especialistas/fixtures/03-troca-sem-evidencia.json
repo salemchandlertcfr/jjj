@@ -1,0 +1,92 @@
+{
+  "cenario_id": "troca-sem-evidencia",
+  "modo": "teste_controlado",
+  "descricao": "Banco sintético com premissas explícitas. Não representa pesquisa de campo nem execução de modelo externo.",
+  "request": {
+    "schema_version": 1,
+    "id": "troca-sem-evidencia",
+    "conselho": "rapido",
+    "template": "evidencia",
+    "dose": "padrao",
+    "pergunta": "Uma troca de argumentos pode alterar o julgamento sem novo lastro?",
+    "criterios": [
+      {
+        "id": "C1",
+        "descricao": "O resumo deve preservar a informação necessária para a próxima decisão no contexto descrito.",
+        "refuta_se": "Um caso compatível com o contexto perde informação que muda a próxima decisão.",
+        "decisivo": true
+      }
+    ],
+    "criterios_fixados": {
+      "sha256": "b79e642ea9cfb1403aee2fd2c35e31793daea0ebf525c37391948fb8788359ad",
+      "em": "2026-10-23T10:00:00+00:00",
+      "antes_das_hipoteses": true,
+      "referencia": "CRITERIOS-CONGELADOS-TESTE-troca-sem-evidencia"
+    },
+    "hipoteses": [
+      {
+        "id": "ORIGINAL-1",
+        "texto": "Exigir que toda condição relevante apareça na frase principal.",
+        "origem": "AUTORIA_PRIVADA_troca-sem-evidencia_1"
+      },
+      {
+        "id": "ORIGINAL-2",
+        "texto": "Permitir uma frase principal com acesso explícito às condições e incertezas relevantes.",
+        "origem": "AUTORIA_PRIVADA_troca-sem-evidencia_2"
+      }
+    ],
+    "fontes": [
+      {
+        "id": "F1",
+        "url": "https://example.org/fixtures/resumo-ambiguidade",
+        "trecho": "Premissa do teste: em quatro situações descritas, o resumo curto preservou a próxima ação. O conjunto não incluiu mudanças de prazo nem condições de exceção. Não há medição de generalização.",
+        "afirmacao": "O exemplo sustenta apenas as quatro situações observadas, sem resolver exceções de prazo.",
+        "verificada": true
+      }
+    ],
+    "parecer": null,
+    "restricoes": {
+      "nao_buscar_workspace": "Não ler páginas do projeto. Usar somente fichas do dublê e raciocínio explícito."
+    },
+    "oticas": [
+      "refutador de método",
+      "especialista do domínio"
+    ],
+    "modo_teste": true
+  },
+  "modelo_de_juiz": {
+    "familia": "anthropic",
+    "modelo": "claude-juiz-ficticio-de-teste",
+    "nivel": "juiz",
+    "via": "duble-local",
+    "autorizado": true
+  },
+  "fontes_stub": [
+    {
+      "id": "F1",
+      "url": "https://example.org/fixtures/resumo-ambiguidade",
+      "trecho": "Premissa do teste: em quatro situações descritas, o resumo curto preservou a próxima ação. O conjunto não incluiu mudanças de prazo nem condições de exceção. Não há medição de generalização.",
+      "afirmacao": "O exemplo sustenta apenas as quatro situações observadas, sem resolver exceções de prazo.",
+      "verificada": true
+    }
+  ],
+  "expectativas": {
+    "rodada_inicial": {
+      "primeiro_membro": "-",
+      "segundo_membro": "+"
+    },
+    "tentativa_rodada_2": {
+      "primeiro_membro": "+",
+      "evidencias_novas": [],
+      "motivo": "A maioria preferiu essa posição."
+    },
+    "resultado_esperado": "Mudança rejeitada; rodada anterior preservada. Uma terceira rodada não é permitida.",
+    "fonte_nova_para_controle": {
+      "id": "F2",
+      "url": "https://example.org/fixtures/excecao-explicita",
+      "trecho": "Premissa adicional do teste: todas as exceções relevantes estão visíveis no acesso explícito ao contexto e o próximo passo exige consultá-las antes de decidir.",
+      "afirmacao": "O acesso explícito do segundo conceito preserva as exceções neste cenário limitado.",
+      "verificada": true
+    }
+  }
+}

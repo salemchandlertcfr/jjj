@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "id": "PREENCHER",
+  "conselho": "rapido",
+  "template": "sob-demanda",
+  "dose": "padrao",
+  "pergunta": "PREENCHER: qual alegação deve resistir aos critérios prévios?",
+  "criterios": [
+    {
+      "id": "C1",
+      "descricao": "PREENCHER: condição observável",
+      "refuta_se": "PREENCHER: observação que refutaria a alegação",
+      "decisivo": false
+    }
+  ],
+  "criterios_fixados": {
+    "sha256": null,
+    "em": null,
+    "antes_das_hipoteses": true,
+    "referencia": "PREENCHER: registro anterior às hipóteses"
+  },
+  "hipoteses": [
+    {"id": "H-PREENCHER", "texto": "PREENCHER: hipótese anônima, sem mudar o sentido"}
+  ],
+  "fontes": [],
+  "parecer": null,
+  "restricoes": "PREENCHER: escopo público e ferramentas autorizadas"
+}
