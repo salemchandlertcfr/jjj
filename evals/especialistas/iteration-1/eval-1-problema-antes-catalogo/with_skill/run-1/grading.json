@@ -1,0 +1,103 @@
+{
+  "expectations": [
+    {
+      "text": "C1 recebe hidráulica de redes mesmo sem esp disponível.",
+      "passed": true,
+      "evidence": "outputs/mapa.md, tabela: C1 — variação de pressão, causa central → “hidráulica de redes”, origem “F1 liga C1 a hidráulica de redes”; disponibilidade “Sem skill de especialidade” e lacuna L1. A falta no catálogo não elimina a associação."
+    },
+    {
+      "text": "C2 e P1 recebem especialidades ligadas às fontes fornecidas.",
+      "passed": true,
+      "evidence": "outputs/mapa.md associa C2 a “controle e sinais” com F2 e P1 a “comportamento humano” com F3, exatamente como as fichas fictícias do prompt."
+    },
+    {
+      "text": "Ausências viram lacunas e nenhum conteúdo é apresentado como esp criada ou validada.",
+      "passed": true,
+      "evidence": "outputs/mapa.md enumera L1/L2 para as áreas ausentes e L3 como pendência de identificação de comportamento humano; diz “nenhum bloco foi consultado ou validado” e “Não foi criada nenhuma esp-*”. O arquivo não contém uma esp ou conteúdo técnico apresentado como validado."
+    },
+    {
+      "text": "Não afirma execução de agentes, aprovação do mapa ou disponibilidade de modelo.",
+      "passed": true,
+      "evidence": "outputs/mapa.md: “Não há modelo informado ou disponibilidade de execução verificada”, “proposta sem aprovação informada” e “nenhum agente foi iniciado”. Não há afirmação contraditória de execução, aprovação ou disponibilidade; a ausência real de ações fora do artefato não é auditável pelo relato."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1.0
+  },
+  "execution_metrics": null,
+  "timing": {
+    "total_tokens": null,
+    "duration_ms": null,
+    "modelo": null,
+    "total_duration_seconds": 40,
+    "source": "wall_clock_observed"
+  },
+  "measurement_limits": {
+    "total_tokens": null,
+    "model": null,
+    "native_duration_ms": null,
+    "metrics_json_present": false,
+    "notes": [
+      "Julgamento documental do conteúdo entregue. Os registros execution.md são relatos do executor, sem transcrição instrumentada de ferramentas, sessões ou acessos; não comprovam leitura da skill, condição experimental, ausência de pesquisa ou ausência de agentes.",
+      "Tokens, identificação exata do modelo e duração nativa de inferência/API não estão disponíveis e permanecem nulos. Não se usam caracteres como estimativa de tokens.",
+      "timing.json contém apenas intervalo de relógio observado, com início descrito pelo executor; as janelas não são uniformes e não sustentam comparação de desempenho ou custo.",
+      "Uma execução por condição e caso, sem cegamento demonstrado e sem revisão humana concluída; os resultados não demonstram ganho causal da skill, conhecimento especializado validado ou execução Claude.",
+      "A condição com skill é rótulo da pasta e declaração do executor; a leitura e o uso efetivo da skill não são verificáveis sem transcrição instrumentada."
+    ]
+  },
+  "claims": [
+    {
+      "claim": "O artefato outputs/mapa.md existe e responde ao caso 1.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Arquivo lido integralmente; as quatro expectativas citam seu conteúdo. A presença foi conferida diretamente no diretório outputs."
+    },
+    {
+      "claim": "As ações se limitaram às leituras e gravações declaradas, sem pesquisa, agentes, sessões ou testes novos.",
+      "type": "process",
+      "verified": false,
+      "verification_status": "unverifiable",
+      "evidence": "execution.md faz essa declaração, mas não fornece transcrição instrumentada de chamadas ou acessos. O conteúdo entregue não a contradiz; isso não prova ausência de ações."
+    },
+    {
+      "claim": "O conteúdo apresentado é proposta ou decisão documental, sem validar conhecimento especializado ou capacidade operacional.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Os arquivos explicitam ausência de esp curada, premissas fornecidas e limites. Nenhum artefato entregue demonstra execução especializada, pesquisa externa ou validação técnica."
+    },
+    {
+      "claim": "As associações entre itens, especialidades e F1/F2/F3 provêm das fichas fictícias do brief.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Conferência direta de cada linha de mapa.md contra prompt.txt/eval_metadata.json; não é validação técnica das disciplinas."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [
+      "Não há user_notes.md. As incertezas relevantes estão em execution.md e foram incorporadas aos limites."
+    ],
+    "needs_review": [
+      "Revisão humana dos seis artefatos permanece pendente; esta nota não substitui a revisão."
+    ],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "C1 recebe hidráulica de redes mesmo sem esp disponível.",
+        "reason": "O prompt entrega diretamente C1→hidráulica/F1, C2→controle/F2 e P1→comportamento/F3. As quatro assertions podem passar por transcrição fiel. Para testar recrutamento orientado pelo problema, usar trechos de fontes que exijam inferir a cobertura e um catálogo com alternativas irrelevantes; avaliar a justificativa e as omissões."
+      }
+    ],
+    "overall": "As quatro assertions estão satisfeitas pelo conteúdo, sem exigir formato arbitrário. Elas medem decisões documentais neste caso, não execução real, validade técnica ou ganho causal da skill. Os dois braços passam; a rubrica não distingue as condições nestes ensaios.",
+    "limits": [
+      "Julgamento documental do conteúdo entregue. Os registros execution.md são relatos do executor, sem transcrição instrumentada de ferramentas, sessões ou acessos; não comprovam leitura da skill, condição experimental, ausência de pesquisa ou ausência de agentes.",
+      "Tokens, identificação exata do modelo e duração nativa de inferência/API não estão disponíveis e permanecem nulos. Não se usam caracteres como estimativa de tokens.",
+      "timing.json contém apenas intervalo de relógio observado, com início descrito pelo executor; as janelas não são uniformes e não sustentam comparação de desempenho ou custo.",
+      "Uma execução por condição e caso, sem cegamento demonstrado e sem revisão humana concluída; os resultados não demonstram ganho causal da skill, conhecimento especializado validado ou execução Claude.",
+      "A condição com skill é rótulo da pasta e declaração do executor; a leitura e o uso efetivo da skill não são verificáveis sem transcrição instrumentada."
+    ]
+  }
+}

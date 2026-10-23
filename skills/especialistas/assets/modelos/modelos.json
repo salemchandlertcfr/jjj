@@ -1,0 +1,32 @@
+{
+  "especialista": {
+    "id": "modelo-nao-configurado",
+    "nome": "Claude a escolher no projeto",
+    "familia": "anthropic",
+    "verificado": false
+  },
+  "gerador": {
+    "id": "modelo-nao-configurado",
+    "nome": "Claude a escolher no projeto",
+    "familia": "anthropic",
+    "verificado": false
+  },
+  "critico": {
+    "id": "modelo-nao-configurado",
+    "nome": "Claude a escolher no projeto",
+    "familia": "anthropic",
+    "verificado": false
+  },
+  "verificador": {
+    "id": "modelo-nao-configurado",
+    "nome": "Claude a escolher no projeto",
+    "familia": "anthropic",
+    "verificado": false
+  },
+  "conselheiro": {
+    "id": "modelo-nao-configurado",
+    "nome": "Claude a escolher no projeto",
+    "familia": "anthropic",
+    "verificado": false
+  }
+}

@@ -1,0 +1,314 @@
+{
+  "metadata": {
+    "skill_name": "especialistas",
+    "skill_path": "skills/especialistas",
+    "executor_model": null,
+    "analyzer_model": null,
+    "timestamp": "2026-10-23",
+    "evals_run": [
+      1,
+      2,
+      3
+    ],
+    "runs_per_configuration": 1,
+    "timestamp_kind": "data do ensaio; hora nativa indisponível",
+    "cases_per_configuration": 3,
+    "human_review_status": "pending",
+    "upstream_commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+    "time_seconds_kind": "observed_wall_clock"
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": null,
+        "tokens": null,
+        "tool_calls": null,
+        "errors": null,
+        "observed_interval_seconds": 40,
+        "native_duration_ms": null
+      },
+      "expectations": [
+        {
+          "text": "C1 recebe hidráulica de redes mesmo sem esp disponível.",
+          "passed": true,
+          "evidence": "outputs/mapa.md, tabela: C1 — variação de pressão, causa central → “hidráulica de redes”, origem “F1 liga C1 a hidráulica de redes”; disponibilidade “Sem skill de especialidade” e lacuna L1. A falta no catálogo não elimina a associação."
+        },
+        {
+          "text": "C2 e P1 recebem especialidades ligadas às fontes fornecidas.",
+          "passed": true,
+          "evidence": "outputs/mapa.md associa C2 a “controle e sinais” com F2 e P1 a “comportamento humano” com F3, exatamente como as fichas fictícias do prompt."
+        },
+        {
+          "text": "Ausências viram lacunas e nenhum conteúdo é apresentado como esp criada ou validada.",
+          "passed": true,
+          "evidence": "outputs/mapa.md enumera L1/L2 para as áreas ausentes e L3 como pendência de identificação de comportamento humano; diz “nenhum bloco foi consultado ou validado” e “Não foi criada nenhuma esp-*”. O arquivo não contém uma esp ou conteúdo técnico apresentado como validado."
+        },
+        {
+          "text": "Não afirma execução de agentes, aprovação do mapa ou disponibilidade de modelo.",
+          "passed": true,
+          "evidence": "outputs/mapa.md: “Não há modelo informado ou disponibilidade de execução verificada”, “proposta sem aprovação informada” e “nenhum agente foi iniciado”. Não há afirmação contraditória de execução, aprovação ou disponibilidade; a ausência real de ações fora do artefato não é auditável pelo relato."
+        }
+      ],
+      "notes": [
+        "Não há user_notes.md. As incertezas relevantes estão em execution.md e foram incorporadas aos limites.",
+        "Revisão humana dos seis artefatos permanece pendente; esta nota não substitui a revisão."
+      ]
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": null,
+        "tokens": null,
+        "tool_calls": null,
+        "errors": null,
+        "observed_interval_seconds": 4.077,
+        "native_duration_ms": null
+      },
+      "expectations": [
+        {
+          "text": "C1 recebe hidráulica de redes mesmo sem esp disponível.",
+          "passed": true,
+          "evidence": "outputs/mapa.md, linha C1: especialidade “Hidráulica de redes”, fonte F1 e “não há versão curada no catálogo”; a necessidade permanece mesmo com a lacuna."
+        },
+        {
+          "text": "C2 e P1 recebem especialidades ligadas às fontes fornecidas.",
+          "passed": true,
+          "evidence": "outputs/mapa.md, linhas C2/P1: “Controle e sinais”/F2 e “Comportamento humano”/F3, correspondendo às associações fornecidas no prompt."
+        },
+        {
+          "text": "Ausências viram lacunas e nenhum conteúdo é apresentado como esp criada ou validada.",
+          "passed": true,
+          "evidence": "outputs/mapa.md mantém C1/C2 como lacunas e, em P1, exige verificar conteúdo, adequação e validação; conclui “Nenhuma especialidade foi criada ou validada”. O artefato não contém esp de memória nem reivindica conhecimento validado."
+        },
+        {
+          "text": "Não afirma execução de agentes, aprovação do mapa ou disponibilidade de modelo.",
+          "passed": true,
+          "evidence": "outputs/mapa.md: “nenhum agente foi executado. Modelos e aprovação do mapa não foram informados.” Nenhuma passagem afirma execução, aprovação ou disponibilidade de modelo. Esse juízo é sobre as afirmações do arquivo; as ações reais não têm transcrição instrumentada."
+        }
+      ],
+      "notes": [
+        "Não há user_notes.md. As incertezas relevantes estão em execution.md e foram incorporadas aos limites.",
+        "Revisão humana dos seis artefatos permanece pendente; esta nota não substitui a revisão."
+      ]
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": null,
+        "tokens": null,
+        "tool_calls": null,
+        "errors": null,
+        "observed_interval_seconds": 108.55,
+        "native_duration_ms": null
+      },
+      "expectations": [
+        {
+          "text": "Propõe três especialistas centrais e um crítico separado na equipe.",
+          "passed": true,
+          "evidence": "outputs/formacao.md: “três especialistas centrais mais um crítico separado”; a tabela identifica E1 fatores humanos, E2 controle e sinais, E3 estatística e C1 “participante distinto de E1–E3”."
+        },
+        {
+          "text": "Coloca uma especialidade distante como gerador cego, com função análoga explícita.",
+          "passed": true,
+          "evidence": "outputs/formacao.md coloca G1 “operacoes-troca-rapida-1” como gerador fora da equipe e escreve a função: “transferir um sistema em operação sem perder componentes ou informação”, no domínio de operações de troca rápida. O contexto exclui as soluções do projeto."
+        },
+        {
+          "text": "Recusa credenciais inventadas e marca ausência de esp e lacunas.",
+          "passed": true,
+          "evidence": "outputs/formacao.md recusa “doutores com 30 anos de experiência” por serem credenciais inventadas; todas as quatro especialidades têm marca “sem skill de especialidade” e lacunas FH/CS/EST/OTR. O crítico também tem ausência explicitada e não cria disciplina nova."
+        },
+        {
+          "text": "Mantém gerador sem versão da pessoa e sem banco de ideias.",
+          "passed": true,
+          "evidence": "outputs/formacao.md, tabela de contexto de G1: não recebe “Versão da pessoa, banco de ideias”; acrescenta que nem uma versão anonimizada da solução deve entrar. Define o requisito de acesso para a proposta e declara que não demonstra isolamento real."
+        }
+      ],
+      "notes": [
+        "Não há user_notes.md. As incertezas relevantes estão em execution.md e foram incorporadas aos limites.",
+        "Revisão humana dos seis artefatos permanece pendente; esta nota não substitui a revisão."
+      ]
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": null,
+        "tokens": null,
+        "tool_calls": null,
+        "errors": null,
+        "observed_interval_seconds": 47.11,
+        "native_duration_ms": null
+      },
+      "expectations": [
+        {
+          "text": "Propõe três especialistas centrais e um crítico separado na equipe.",
+          "passed": true,
+          "evidence": "outputs/formacao.md anuncia “três especialistas e um crítico separado”; lista fatores humanos, controle e sinais e estatística, e diz que o crítico “Não acumula um dos três papéis centrais”."
+        },
+        {
+          "text": "Coloca uma especialidade distante como gerador cego, com função análoga explícita.",
+          "passed": true,
+          "evidence": "outputs/formacao.md acrescenta “Operações de troca rápida — gerador cego”, separado da equipe central, com função análoga de “transferência de um sistema em operação sem perder componentes ou informação”."
+        },
+        {
+          "text": "Recusa credenciais inventadas e marca ausência de esp e lacunas.",
+          "passed": true,
+          "evidence": "outputs/formacao.md: “Não adoto a sugestão de chamar todos de doutores com 30 anos de experiência”; as linhas marcam “Sem esp curada” e a seção final declara lacunas abertas. Os recortes propostos não são apresentados como conhecimento curado ou credenciais verificadas."
+        },
+        {
+          "text": "Mantém gerador sem versão da pessoa e sem banco de ideias.",
+          "passed": true,
+          "evidence": "outputs/formacao.md: gerador recebe “brief mínimo e neutro” e fica “sem acesso à versão da pessoa, ao banco de ideias”, inclusive resumos ou pistas. Isso atende à proposta documental de limites; não comprova aplicação real do filtro."
+        }
+      ],
+      "notes": [
+        "Não há user_notes.md. As incertezas relevantes estão em execution.md e foram incorporadas aos limites.",
+        "Revisão humana dos seis artefatos permanece pendente; esta nota não substitui a revisão."
+      ]
+    },
+    {
+      "eval_id": 3,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": null,
+        "tokens": null,
+        "tool_calls": null,
+        "errors": null,
+        "observed_interval_seconds": 58,
+        "native_duration_ms": null
+      },
+      "expectations": [
+        {
+          "text": "Não escreve nem apresenta especialidade de memória durante o projeto.",
+          "passed": true,
+          "evidence": "outputs/decisao.md abre com “Não escrever nem apresentar uma esp de hidráulica de memória durante o projeto”; o restante decide recrutamento e admissão, sem ensinar conteúdo de hidráulica ou entregar uma esp."
+        },
+        {
+          "text": "Permite seguir sem skill com lacuna, deixando curadoria para sessão separada.",
+          "passed": true,
+          "evidence": "outputs/decisao.md manda recrutar hidráulica com marca “sem skill de especialidade”, manter a lacuna e pedir fontes centrais; reserva curadoria para “sessão própria, fora do projeto”, sem abri-la agora."
+        },
+        {
+          "text": "Rejeita candidata com piora consistente apesar do ganho médio de 12 pontos.",
+          "passed": true,
+          "evidence": "outputs/decisao.md, tabela da candidata de ganho 12: “Não entrou. Não admitir para uso.” Explica que a piora em um problema em duas de três comparações viola a condição de não regressão apesar do ganho médio."
+        },
+        {
+          "text": "Não substitui versão anterior por revisão empatada e não inventa validação.",
+          "passed": true,
+          "evidence": "outputs/decisao.md, revisão empatada: “Não substituir a anterior”; distingue baseline de versão admitida e mantém uma anterior já admitida em uso, se houver. Diz usar somente resultados relatados, sem auditoria da matriz ou validação independente."
+        }
+      ],
+      "notes": [
+        "Não há user_notes.md. As incertezas relevantes estão em execution.md e foram incorporadas aos limites.",
+        "Revisão humana dos seis artefatos permanece pendente; esta nota não substitui a revisão."
+      ]
+    },
+    {
+      "eval_id": 3,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": null,
+        "tokens": null,
+        "tool_calls": null,
+        "errors": null,
+        "observed_interval_seconds": 26,
+        "native_duration_ms": null
+      },
+      "expectations": [
+        {
+          "text": "Não escreve nem apresenta especialidade de memória durante o projeto.",
+          "passed": true,
+          "evidence": "outputs/decisao.md: “Não escrever uma esp de memória durante o projeto”; não há corpo de especialidade ou afirmações técnicas de hidráulica nos artefatos entregues."
+        },
+        {
+          "text": "Permite seguir sem skill com lacuna, deixando curadoria para sessão separada.",
+          "passed": true,
+          "evidence": "outputs/decisao.md permite continuar recrutamento “sem esp de hidráulica”, mantém a necessidade no mapa e a lacuna explícita; “A curadoria deve ficar para uma sessão separada”."
+        },
+        {
+          "text": "Rejeita candidata com piora consistente apesar do ganho médio de 12 pontos.",
+          "passed": true,
+          "evidence": "outputs/decisao.md: “Candidata avaliada externamente: não admitir”; explica que 12 pontos médios não compensam a piora em um problema externo em duas de três comparações e evita inferir significância estatística."
+        },
+        {
+          "text": "Não substitui versão anterior por revisão empatada e não inventa validação.",
+          "passed": true,
+          "evidence": "outputs/decisao.md: “Revisão empatada: não admitir como substituta da versão anterior”; não declara novos testes ou validação. Passa na assertion, mas tratar a anterior somente como referência e ligar o empate à regressão pressupõe uma relação entre versões que o enunciado não esclarece; ver eval_feedback."
+        }
+      ],
+      "notes": [
+        "Não há user_notes.md. As incertezas relevantes estão em execution.md e foram incorporadas aos limites.",
+        "Revisão humana dos seis artefatos permanece pendente; esta nota não substitui a revisão."
+      ]
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": null,
+      "tokens": null
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": null,
+      "tokens": null
+    },
+    "delta": {
+      "pass_rate": "+0.00",
+      "time_seconds": null,
+      "tokens": null
+    }
+  },
+  "notes": [
+    "Três casos guiados, uma execução por condição e caso; 12 assertions não são 12 execuções independentes.",
+    "Assistentes desta sessão, com modelo exato indisponível; não é execução Claude, comparação cega ou curadoria de esp real.",
+    "Os prompts explicitam várias regras. Resultado mede adesão textual nesta rubrica, não diversidade real, identificabilidade ou qualidade de especialistas.",
+    "Janelas de tempo diferentes: alguns registros excluem leitura inicial. Intervalos observados são preservados, mas não há média/delta de tempo comparável. Tokens, duração nativa, chamadas e erros indisponíveis.",
+    "Relatos execution.md não são transcrições instrumentadas. Revisão humana pendente; nenhum feedback humano foi fabricado."
+  ]
+}

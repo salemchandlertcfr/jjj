@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "etapa": "inicial",
+  "dose": "leve",
+  "itens": [
+    {
+      "id": "C1",
+      "tipo": "causa",
+      "texto": "variação de pressão impede transferência estável",
+      "central": true
+    },
+    {
+      "id": "K1",
+      "tipo": "contradicao",
+      "texto": "rapidez versus continuidade de informação",
+      "principio": true
+    },
+    {
+      "id": "P1",
+      "tipo": "parte",
+      "texto": "operadores precisam reconhecer o estado do sistema"
+    }
+  ],
+  "especialidades": [
+    {
+      "id": "S1",
+      "especialidade": "hidraulica de redes",
+      "cobre": [
+        "C1"
+      ],
+      "por_que": "disciplina ligada à função deste item no brief de teste",
+      "fontes": [
+        "F-TESTE"
+      ],
+      "esp": null,
+      "lacuna": "LAC-S1"
+    },
+    {
+      "id": "S2",
+      "especialidade": "controle e sinais",
+      "cobre": [
+        "K1"
+      ],
+      "por_que": "disciplina ligada à função deste item no brief de teste",
+      "fontes": [
+        "F-TESTE"
+      ],
+      "esp": null,
+      "lacuna": "LAC-S2"
+    },
+    {
+      "id": "S3",
+      "especialidade": "comportamento humano",
+      "cobre": [
+        "P1"
+      ],
+      "por_que": "disciplina ligada à função deste item no brief de teste",
+      "fontes": [
+        "F-TESTE"
+      ],
+      "esp": null,
+      "lacuna": "LAC-S3"
+    },
+    {
+      "id": "S4",
+      "especialidade": "operacoes de troca rapida",
+      "cobre": [
+        "K1"
+      ],
+      "por_que": "disciplina ligada à função deste item no brief de teste",
+      "fontes": [
+        "F-TESTE"
+      ],
+      "esp": null,
+      "lacuna": "LAC-S4"
+    }
+  ],
+  "temas": [],
+  "aprovacao": {
+    "aprovada": false,
+    "decisao": null
+  }
+}

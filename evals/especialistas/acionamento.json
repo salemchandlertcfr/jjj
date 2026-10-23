@@ -1,0 +1,82 @@
+[
+  {
+    "query": "Monte os especialistas e os conselhos do projeto na 2.7, com lacunas explícitas.",
+    "should_trigger": true
+  },
+  {
+    "query": "Que especialistas a equipe da 4.3 precisa na dose completa?",
+    "should_trigger": true
+  },
+  {
+    "query": "Monte geradores cegos por disciplina, com operadores diferentes.",
+    "should_trigger": true
+  },
+  {
+    "query": "Temos skill de hidráulica para verificar o mapa de redes?",
+    "should_trigger": true
+  },
+  {
+    "query": "Quero criar uma skill de especialidade em epidemiologia fora do projeto.",
+    "should_trigger": true
+  },
+  {
+    "query": "Monte um time para avaliar meu plano de negócios, sem fingir credenciais.",
+    "should_trigger": true
+  },
+  {
+    "query": "Atualize a fila de lacunas: falta comportamento humano no projeto de turnos.",
+    "should_trigger": true
+  },
+  {
+    "query": "A versão da esp foi contradita pela pesquisa; como registrar errata e retestar?",
+    "should_trigger": true
+  },
+  {
+    "query": "Recrute especialistas para os passos 3, 7 e 8 a partir deste cartão.",
+    "should_trigger": true
+  },
+  {
+    "query": "Preciso comparar a nova esp com a anterior antes de entrar na biblioteca.",
+    "should_trigger": true
+  },
+  {
+    "query": "Conduza a reunião da equipe da 4.3 com esses membros já recrutados.",
+    "should_trigger": false
+  },
+  {
+    "query": "Julgue qual das três hipóteses é a melhor pelos critérios.",
+    "should_trigger": false
+  },
+  {
+    "query": "Quantos participantes preciso para detectar este efeito?",
+    "should_trigger": false
+  },
+  {
+    "query": "Que óticas devem entrar no conselho completo?",
+    "should_trigger": false
+  },
+  {
+    "query": "Responda como se fosse o Taleb.",
+    "should_trigger": false
+  },
+  {
+    "query": "Pesquise o que a epidemiologia diz sobre vigilância.",
+    "should_trigger": false
+  },
+  {
+    "query": "Desenvolva uma solução hidráulica para esta rede.",
+    "should_trigger": false
+  },
+  {
+    "query": "Escreva dez ideias diferentes para o job.",
+    "should_trigger": false
+  },
+  {
+    "query": "Consolide os vereditos e preserve o dissenso.",
+    "should_trigger": false
+  },
+  {
+    "query": "Pergunte sobre meu propósito sem sugerir respostas.",
+    "should_trigger": false
+  }
+]

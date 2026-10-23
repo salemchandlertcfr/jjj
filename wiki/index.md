@@ -1,6 +1,6 @@
 # Índice da wiki
 
-Síntese dos doze anexos recebidos e registro das implementações alpha, revisados em 23/10/2026. Os estados distinguem o desenho proposto do comportamento já verificado.
+Síntese dos treze anexos recebidos e registro das implementações alpha, revisados em 23/10/2026. Os estados distinguem o desenho proposto do comportamento já verificado.
 
 | Página | Quando consultar |
 | --- | --- |
@@ -9,9 +9,10 @@ Síntese dos doze anexos recebidos e registro das implementações alpha, revisa
 | [Implementação do conselho](implementacao-conselho.md) | Preparar e consolidar julgamentos, integrar o pacote à condutora e consultar os limites do transporte. |
 | [Avaliação do conselho](avaliacao-conselho.md) | Consultar testes, comparação com e sem skill e revisão humana. |
 | [Implementação do grill](implementacao-grill.md) | Usar os modos de entrevista, os validadores locais e consultar testes e limites de integração. |
+| [Implementação de especialistas](implementacao-especialistas.md) | Recrutar pelo problema, validar fichas/blocos e preparar a curadoria separada de especialidades. |
 | [Método IDEAL](metodo-ideal.md) | Entender propósito, fases, idealidade e fronteiras da Etapa 1. |
 | [Fluxo da Etapa 1](fluxo-etapa1.md) | Percorrer temas, ciclos, doses, travas e retornos. |
-| [Arquitetura](arquitetura.md) | Distribuir responsabilidades entre as 13 skills; duas têm implementação alpha. |
+| [Arquitetura](arquitetura.md) | Distribuir responsabilidades entre as 13 skills e consultar o estado das implementações. |
 | [Contratos](contratos.md) | Consultar CIR, dossiê, pronto e passagem às etapas seguintes. |
 | [Conselho de especialistas](conselho-especialistas.md) | Entender avaliação independente, críticas e parecer. |
 | [Exemplo](exemplo.md) | Ver uma aplicação ilustrativa com entrada e saída. |

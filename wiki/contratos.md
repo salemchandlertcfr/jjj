@@ -21,6 +21,8 @@ Decisão: contexto, opções, escolha, evidência, dissenso, confiança e condi�
 
 O grill acrescenta perguntas, checagem e não perguntado em `grill/<sub-etapa>.md`, respostas literais em `grill/respostas.jsonl` e fatos sem autoria em `grill/conferir/<sub-etapa>.json`. Entendimento vai na saída da sub-etapa; paráfrases são leituras marcadas, e confirmação/leitura vinculam-se à versão atual. A condutora continua como única escritora. Contratos locais e limites em [implementação do grill](implementacao-grill.md); fonte: [S12, §§4, 8 e 11](../sources/originais/plano-grill-embasado.md).
 
+Especialistas devolve `especialistas.md` e fichas por formação/rodada para `fichas/<sub-etapa>-p<passo>.md`. Cada ficha transporta papel, especialidade, versão/hash da `esp-*` ou lacuna, módulos, cobertura/motivo, escola, equipamentos, modelo e visibilidade. O bloco inteiro abre o brief; o envelope acrescenta ficha/especialidade, e a entrega começa pelo selo. Hash da versão, do conteúdo selecionado e do transporte são distintos. Biblioteca e testes fechados não integram o dossiê. Veja [interfaces e limites](implementacao-especialistas.md); fonte: [S13, §§4 e 8–11](../sources/originais/plano-especialistas.md).
+
 ## CIR: conteúdo em 17 seções
 
 O CIR consolida a referência conceitual. Cada seção precisa ter origem no dossiê e ser compatível com as decisões; pode referenciar evidências detalhadas. ([S09, §8](../sources/originais/concepcao-ideal-solucao.md); [S08, sub-etapa 6.1](../sources/originais/fluxograma-completo-ideal.md))

@@ -1,6 +1,6 @@
 # Fontes e proveniência
 
-Doze arquivos distintos fornecidos pelo usuário, recebidos em **22 e 23/10/2026**. Essas datas não estabelecem quando foram escritos. Os nomes foram simplificados para caminhos estáveis; os bytes foram preservados. O [manifesto](manifest.json) registra ID, nome recebido, caminho, tamanho e SHA-256. O novo anexo `SKILL.md` repete S01 byte a byte; não recebeu outro ID.
+Treze arquivos distintos fornecidos pelo usuário, recebidos em **22 e 23/10/2026**. Essas datas não estabelecem quando foram escritos. Os nomes foram simplificados para caminhos estáveis; os bytes foram preservados. O [manifesto](manifest.json) registra ID, nome recebido, caminho, tamanho e SHA-256. O anexo repetido `SKILL.md` é igual a S01 byte a byte; não recebeu outro ID.
 
 | ID | Arquivo preservado | Uso na síntese e estado |
 | --- | --- | --- |
@@ -16,6 +16,7 @@ Doze arquivos distintos fornecidos pelo usuário, recebidos em **22 e 23/10/2026
 | S10 | [Plano detalhado — etapa-1-cir, condutora](originais/plano-etapa-1-cir-condutora.md) | Requisitos da primeira implementação: protocolo, dossiê, estados, briefs, registros, retomada e testes. Anexado após a documentação inicial. |
 | S11 | [Plano revisado — conselho-especialistas](originais/plano-conselho-especialistas-revisado.md) | Base ativa da implementação do conselho, explicitamente selecionada no pedido. Adota Claude primeiro, com sessões e óticas independentes, e resolve a divergência de famílias de S04. |
 | S12 | [Plano detalhado — grill-embasado](originais/plano-grill-embasado.md) | Selecionado pelo usuário para implementar perguntas embasadas, registro fiel, Entendimento e checagem. Integrações e metas conversacionais precisam de avaliação. |
+| S13 | [Plano detalhado — especialistas](originais/plano-especialistas.md) | Selecionado para recrutamento, biblioteca, fichas e curadoria com teste de ganho. A primeira leva de `esp-*` é candidata, não conhecimento já admitido. |
 
 ## Como interpretar as fontes
 
@@ -23,7 +24,7 @@ S02 e S08 orientam a síntese da arquitetura e do fluxo; S06/S09 explicam o mét
 
 Links dos originais para páginas de Notion, outros planos ou estudos foram mantidos. O conteúdo de destinos não anexados não foi presumido como parte da análise. Alegações científicas e números citados nos planos não foram todos auditados externamente; a wiki evita promovê-los a resultados demonstrados deste projeto.
 
-Os textos em `originais/` são material de referência. Sua preservação não ativa instruções nem instala recursos. Para criar o conselho, o usuário invocou S01 expressamente. Seus bytes foram comparados com o [skill-creator oficial da Anthropic](https://github.com/anthropics/skills/tree/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/skill-creator), revisão `dbd4588f9e1033efb41dad4bef2f7947c8993d44`, sob Apache 2.0. Auxiliares oficiais foram usados no workspace para gerar a avaliação; não foram incorporados como código do conselho. Essa atribuição não define a licença do projeto inteiro.
+Os textos em `originais/` são material de referência. Sua preservação não ativa instruções nem instala recursos. S01 foi invocado para o desenvolvimento e orienta também o trabalho sequencial do grill e de especialistas, com S12/S13 selecionados pelo usuário. Seus bytes foram comparados com o [skill-creator oficial da Anthropic](https://github.com/anthropics/skills/tree/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/skill-creator), revisão `dbd4588f9e1033efb41dad4bef2f7947c8993d44`, sob Apache 2.0. Auxiliares oficiais foram usados externamente para avaliações, sem vendorização. Essa atribuição não define a licença do projeto inteiro.
 
 ## Referências externas usadas na organização
 

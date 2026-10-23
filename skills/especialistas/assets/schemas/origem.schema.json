@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "description": "Metadados de ORIGEM; não atesta a veracidade das revisões.",
+  "required": [
+    "esp",
+    "versao",
+    "tag",
+    "fontes",
+    "licencas",
+    "conferencia",
+    "revisao",
+    "teste",
+    "valida_ate"
+  ],
+  "properties": {
+    "esp": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,99}$"
+    },
+    "versao": {
+      "type": "string"
+    },
+    "tag": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,99}$"
+    },
+    "fontes": {
+      "type": "array",
+      "minItems": 1
+    },
+    "licencas": {
+      "type": "array",
+      "minItems": 1
+    },
+    "conferencia": {
+      "type": "string"
+    },
+    "revisao": {
+      "type": "string"
+    },
+    "teste": {
+      "type": "string"
+    },
+    "valida_ate": {
+      "type": "string",
+      "format": "date"
+    }
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "id",
+    "subetapa",
+    "passo",
+    "dose",
+    "rodada",
+    "papel",
+    "nome",
+    "especialidade",
+    "esp",
+    "modulos",
+    "distante",
+    "cobre",
+    "por_que",
+    "fontes",
+    "ferramentas",
+    "modelo",
+    "ve",
+    "nao_ve",
+    "sessao"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,99}$"
+    },
+    "subetapa": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,99}$"
+    },
+    "passo": {
+      "enum": [
+        3,
+        7,
+        8
+      ]
+    },
+    "dose": {
+      "enum": [
+        "leve",
+        "padrao",
+        "completa"
+      ]
+    },
+    "rodada": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "grupo": {},
+    "papel": {
+      "enum": [
+        "especialista",
+        "gerador",
+        "critico",
+        "verificador",
+        "conselheiro"
+      ]
+    },
+    "nome": {},
+    "especialidade": {},
+    "esp": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "required": [
+            "id",
+            "versao",
+            "hash"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,99}$"
+            },
+            "versao": {
+              "type": "string"
+            },
+            "hash": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "modulos": {
+      "type": "array",
+      "maxItems": 3,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,99}$"
+      }
+    },
+    "escola": {},
+    "distante": {
+      "type": "boolean"
+    },
+    "funcao_analoga": {},
+    "cobre": {},
+    "por_que": {},
+    "fontes": {},
+    "ferramentas": {},
+    "modelo": {},
+    "ve": {},
+    "nao_ve": {},
+    "sessao": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,99}$"
+    },
+    "lacuna": {},
+    "operadores": {},
+    "semente": {},
+    "template": {},
+    "otica": {},
+    "excecao_mapa": {},
+    "motivo_escola": {}
+  },
+  "additionalProperties": false
+}

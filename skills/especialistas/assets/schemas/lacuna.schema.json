@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "id",
+    "especialidade",
+    "para_que",
+    "pedidos",
+    "central_ou_principio",
+    "gabarito",
+    "situacao",
+    "registrada_em"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,99}$"
+    },
+    "especialidade": {
+      "type": "string"
+    },
+    "para_que": {
+      "type": "string"
+    },
+    "pedidos": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "projeto",
+          "subetapa",
+          "ficha"
+        ]
+      }
+    },
+    "central_ou_principio": {
+      "type": "boolean"
+    },
+    "gabarito": {
+      "type": "boolean"
+    },
+    "situacao": {
+      "enum": [
+        "na_fila",
+        "em_curadoria",
+        "entrou",
+        "nao_entrou"
+      ]
+    },
+    "registrada_em": {
+      "type": "string",
+      "format": "date"
+    }
+  }
+}

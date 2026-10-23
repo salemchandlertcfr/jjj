@@ -1,0 +1,130 @@
+[
+  {
+    "id": "LAC-INICIAL-01",
+    "especialidade": "estatistica e inferencia causal",
+    "para_que": "candidata indicada por S13 §6.5, a confirmar pelo problema",
+    "pedidos": [
+      {
+        "projeto": "planejamento-biblioteca",
+        "subetapa": "curadoria",
+        "ficha": "CAND-1"
+      }
+    ],
+    "central_ou_principio": false,
+    "gabarito": false,
+    "situacao": "na_fila",
+    "registrada_em": "2026-10-23"
+  },
+  {
+    "id": "LAC-INICIAL-02",
+    "especialidade": "ciencia da decisao",
+    "para_que": "candidata indicada por S13 §6.5, a confirmar pelo problema",
+    "pedidos": [
+      {
+        "projeto": "planejamento-biblioteca",
+        "subetapa": "curadoria",
+        "ficha": "CAND-2"
+      }
+    ],
+    "central_ou_principio": false,
+    "gabarito": false,
+    "situacao": "na_fila",
+    "registrada_em": "2026-10-23"
+  },
+  {
+    "id": "LAC-INICIAL-03",
+    "especialidade": "comportamento humano",
+    "para_que": "candidata indicada por S13 §6.5, a confirmar pelo problema",
+    "pedidos": [
+      {
+        "projeto": "planejamento-biblioteca",
+        "subetapa": "curadoria",
+        "ficha": "CAND-3"
+      }
+    ],
+    "central_ou_principio": false,
+    "gabarito": false,
+    "situacao": "na_fila",
+    "registrada_em": "2026-10-23"
+  },
+  {
+    "id": "LAC-INICIAL-04",
+    "especialidade": "filosofia da ciencia",
+    "para_que": "candidata indicada por S13 §6.5, a confirmar pelo problema",
+    "pedidos": [
+      {
+        "projeto": "planejamento-biblioteca",
+        "subetapa": "curadoria",
+        "ficha": "CAND-4"
+      }
+    ],
+    "central_ou_principio": false,
+    "gabarito": false,
+    "situacao": "na_fila",
+    "registrada_em": "2026-10-23"
+  },
+  {
+    "id": "LAC-INICIAL-05",
+    "especialidade": "computacao e aprendizado de maquina",
+    "para_que": "candidata indicada por S13 §6.5, a confirmar pelo problema",
+    "pedidos": [
+      {
+        "projeto": "planejamento-biblioteca",
+        "subetapa": "curadoria",
+        "ficha": "CAND-5"
+      }
+    ],
+    "central_ou_principio": false,
+    "gabarito": false,
+    "situacao": "na_fila",
+    "registrada_em": "2026-10-23"
+  },
+  {
+    "id": "LAC-INICIAL-06",
+    "especialidade": "economia e incentivos",
+    "para_que": "candidata indicada por S13 §6.5, a confirmar pelo problema",
+    "pedidos": [
+      {
+        "projeto": "planejamento-biblioteca",
+        "subetapa": "curadoria",
+        "ficha": "CAND-6"
+      }
+    ],
+    "central_ou_principio": false,
+    "gabarito": false,
+    "situacao": "na_fila",
+    "registrada_em": "2026-10-23"
+  },
+  {
+    "id": "LAC-INICIAL-07",
+    "especialidade": "seguranca e adversarios",
+    "para_que": "candidata indicada por S13 §6.5, a confirmar pelo problema",
+    "pedidos": [
+      {
+        "projeto": "planejamento-biblioteca",
+        "subetapa": "curadoria",
+        "ficha": "CAND-7"
+      }
+    ],
+    "central_ou_principio": false,
+    "gabarito": false,
+    "situacao": "na_fila",
+    "registrada_em": "2026-10-23"
+  },
+  {
+    "id": "LAC-INICIAL-08",
+    "especialidade": "hidraulica de redes",
+    "para_que": "candidata indicada por S13 §6.5, a confirmar pelo problema",
+    "pedidos": [
+      {
+        "projeto": "planejamento-biblioteca",
+        "subetapa": "curadoria",
+        "ficha": "CAND-8"
+      }
+    ],
+    "central_ou_principio": false,
+    "gabarito": false,
+    "situacao": "na_fila",
+    "registrada_em": "2026-10-23"
+  }
+]

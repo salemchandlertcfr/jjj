@@ -1,0 +1,11 @@
+{
+  "eval_id": 1,
+  "eval_name": "problema-antes-catalogo",
+  "prompt": "Monte um mapa curto de especialistas para estabilizar a transferência de água entre reservatórios, sem pesquisar. Brief autorizado de teste: C1 é variação de pressão (central), C2 é rapidez versus continuidade de informação (contradição de princípio), P1 são operadores que precisam reconhecer o estado do sistema. As fichas fictícias F1/F2/F3 ligam esses itens, respectivamente, a hidráulica de redes, controle e sinais e comportamento humano. O catálogo só tem comportamento humano; não há versão curada de hidráulica ou controle. Não há modelos ou aprovação informados. Entregue mapa.md com cobertura por item e lacunas. Não finja execução de agentes ou disponibilidade de conhecimento.",
+  "assertions": [
+    "C1 recebe hidráulica de redes mesmo sem esp disponível.",
+    "C2 e P1 recebem especialidades ligadas às fontes fornecidas.",
+    "Ausências viram lacunas e nenhum conteúdo é apresentado como esp criada ou validada.",
+    "Não afirma execução de agentes, aprovação do mapa ou disponibilidade de modelo."
+  ]
+}

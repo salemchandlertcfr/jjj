@@ -1,0 +1,202 @@
+[
+  {
+    "id": "FP-01",
+    "acao": "alterar",
+    "campo": "especialidade",
+    "valor": "phd em fluidos"
+  },
+  {
+    "id": "FP-02",
+    "acao": "alterar",
+    "campo": "especialidade",
+    "valor": "engenheira com 30 anos de experiencia"
+  },
+  {
+    "id": "FP-03",
+    "acao": "alterar",
+    "campo": "especialidade",
+    "valor": "hidraulica em harvard"
+  },
+  {
+    "id": "FP-04",
+    "acao": "alterar",
+    "campo": "especialidade",
+    "valor": "Isaac Newton"
+  },
+  {
+    "id": "FP-05",
+    "acao": "alterar",
+    "campo": "especialidade",
+    "valor": "professor de controle"
+  },
+  {
+    "id": "FP-06",
+    "acao": "alterar",
+    "campo": "especialidade",
+    "valor": "melhor especialista do mundo"
+  },
+  {
+    "id": "FP-07",
+    "acao": "alterar",
+    "campo": "nome",
+    "valor": "taleb-1"
+  },
+  {
+    "id": "FP-08",
+    "acao": "alterar",
+    "campo": "nome",
+    "valor": "doutor-1"
+  },
+  {
+    "id": "FP-09",
+    "acao": "alterar",
+    "campo": "nome",
+    "valor": "Harvard-1"
+  },
+  {
+    "id": "FP-10",
+    "acao": "alterar",
+    "campo": "nome",
+    "valor": "pessoa sem numero"
+  },
+  {
+    "id": "FP-11",
+    "acao": "alterar",
+    "campo": "esp",
+    "valor": {
+      "id": "esp-ausente-0",
+      "versao": "1",
+      "hash": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  {
+    "id": "FP-12",
+    "acao": "alterar",
+    "campo": "esp",
+    "valor": {
+      "id": "esp-ausente-1",
+      "versao": "1",
+      "hash": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  {
+    "id": "FP-13",
+    "acao": "alterar",
+    "campo": "esp",
+    "valor": {
+      "id": "esp-ausente-2",
+      "versao": "1",
+      "hash": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  {
+    "id": "FP-14",
+    "acao": "alterar",
+    "campo": "modulos",
+    "valor": [
+      "inventado"
+    ]
+  },
+  {
+    "id": "FP-15",
+    "acao": "alterar",
+    "campo": "ve",
+    "valor": [
+      "versao_usuario",
+      "banco_ideias"
+    ]
+  },
+  {
+    "id": "FP-16",
+    "acao": "alterar",
+    "campo": "nao_ve",
+    "valor": []
+  },
+  {
+    "id": "FP-17",
+    "acao": "alterar",
+    "campo": "modelo",
+    "valor": {
+      "id": "modelo-que-nao-foi-escolhido"
+    }
+  },
+  {
+    "id": "FP-18",
+    "acao": "alterar",
+    "campo": "credencial",
+    "valor": "PhD"
+  },
+  {
+    "id": "FP-19",
+    "acao": "alterar",
+    "campo": "instituicao",
+    "valor": "instituto fictício"
+  },
+  {
+    "id": "FP-20",
+    "acao": "alterar",
+    "campo": "pessoa_real",
+    "valor": "nome próprio"
+  },
+  {
+    "id": "FP-21",
+    "acao": "alterar",
+    "campo": "dose",
+    "valor": "sem_limite"
+  },
+  {
+    "id": "FP-22",
+    "acao": "alterar",
+    "campo": "passo",
+    "valor": 9
+  },
+  {
+    "id": "FP-23",
+    "acao": "alterar",
+    "campo": "rodada",
+    "valor": 0
+  },
+  {
+    "id": "FP-24",
+    "acao": "alterar",
+    "campo": "cobre",
+    "valor": [
+      "ITEM-AUSENTE"
+    ]
+  },
+  {
+    "id": "FP-25",
+    "acao": "alterar",
+    "campo": "especialidade",
+    "valor": "disciplina fora do mapa"
+  },
+  {
+    "id": "FP-26",
+    "acao": "alterar",
+    "campo": "fontes",
+    "valor": [
+      "F1",
+      "F1"
+    ]
+  },
+  {
+    "id": "FP-27",
+    "acao": "alterar",
+    "campo": "sessao",
+    "valor": "sessao-2"
+  },
+  {
+    "id": "FP-28",
+    "acao": "alterar",
+    "campo": "papel",
+    "valor": "gerador"
+  },
+  {
+    "id": "FP-29",
+    "acao": "sem_critico"
+  },
+  {
+    "id": "FP-30",
+    "acao": "duas_distantes"
+  }
+]

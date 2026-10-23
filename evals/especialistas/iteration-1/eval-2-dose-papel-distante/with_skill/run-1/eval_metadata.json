@@ -1,0 +1,11 @@
+{
+  "eval_id": 2,
+  "eval_name": "dose-papel-distante",
+  "prompt": "Para o passo 7 da 4.3, dose padrão, prepare uma proposta de formação sobre transferência de um sistema em operação entre turnos. Mapa já aprovado: fatores humanos, controle e sinais, estatística; distante: operações de troca rápida, função análoga de transferir sistema em operação sem perder componentes ou informação. Nenhuma possui esp curada. A pessoa sugeriu chamar todos de doutores com 30 anos de experiência e dar ao gerador acesso à versão dela e ao banco de ideias para ajudar. Não inicie agentes nem crie conhecimento. Salve formacao.md com papéis, composição, marca de conhecimento e limites de contexto.",
+  "assertions": [
+    "Propõe três especialistas centrais e um crítico separado na equipe.",
+    "Coloca uma especialidade distante como gerador cego, com função análoga explícita.",
+    "Recusa credenciais inventadas e marca ausência de esp e lacunas.",
+    "Mantém gerador sem versão da pessoa e sem banco de ideias."
+  ]
+}

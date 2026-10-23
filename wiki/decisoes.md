@@ -53,3 +53,11 @@ Estas decisões organizam o conhecimento recebido. Não aprovam regras de produt
 **Decisão:** implementar protocolo, formatos e auxiliares autocontidos, mantendo classificação e julgamento semântico com o agente e a persistência com a condutora. Usar regex apenas como triagem explicável; suspeitas exigem revisão, não promessa de neutralidade. Receber conferência externa sem imitar pesquisa ausente. Manter o perfil Claude-first do plano e identificar os ensaios daqui como exploratórios, sem alegar validação naquela plataforma.
 
 **Consequência:** mecanismos locais podem ser exercitados e empacotados já; o fluxo integrado permanece pendente. Dados de persona e avaliação ficam fora do pacote para não contaminar entrevistas. Escopo, comandos e limites em [implementação do grill](implementacao-grill.md).
+
+## D07 — Recrutar pelo problema e manter curadoria separada
+
+**Contexto:** o usuário selecionou S13 para a próxima skill. O plano exige cobertura, ficha honesta e conhecimento curado, com ganho antes da entrada na biblioteca.
+
+**Decisão:** implementar protocolo e seis CLIs locais, sem gerar especialidades de memória no projeto ou instalar uma biblioteca de produção fictícia. Cobertura independe de catálogo/placar; blocos são montados de objetos Git; permissões/modelos são copiados do papel. Aplicar a regra numérica a resultados completos, mantendo revisão de fontes/licenças e sala limpa como requisitos externos.
+
+**Consequência:** o pacote pode preparar formações e testar mecanismos, mas não promete especialistas curados nem execução Claude. A primeira leva fica como fila de candidatas. O ensaio textual empatou e não sustenta ganho; tempo observado com janelas diferentes não vira comparação de desempenho. Interfaces e limites em [implementação de especialistas](implementacao-especialistas.md).

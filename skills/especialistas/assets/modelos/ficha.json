@@ -1,0 +1,28 @@
+{
+  "id": "E-4.3-p7-01",
+  "subetapa": "4.3",
+  "passo": 7,
+  "dose": "padrao",
+  "rodada": 1,
+  "grupo": "equipe",
+  "papel": "especialista",
+  "nome": "hidraulica-1",
+  "especialidade": "hidraulica de redes",
+  "esp": null,
+  "modulos": [],
+  "escola": null,
+  "distante": false,
+  "funcao_analoga": null,
+  "cobre": [
+    "C1"
+  ],
+  "por_que": "a causa de pressão precisa desta disciplina, mesmo sem skill",
+  "fontes": [
+    "F-TESTE"
+  ],
+  "ferramentas": [
+    "python"
+  ],
+  "sessao": "sessao-a-criar-1",
+  "lacuna": "LAC-S1"
+}

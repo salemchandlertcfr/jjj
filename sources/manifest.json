@@ -89,6 +89,14 @@
       "sha256": "49e091ea6d92bdfdabf3e2d51f787e0269537e17850850e9d2d29419fe043b04",
       "bytes": 47370,
       "received_on": "2026-10-23"
+    },
+    {
+      "id": "S13",
+      "original_filename": "Plano detalhado — especialistas 79544cfde9c5403babc8e5cc62fe12cd.md",
+      "path": "sources/originais/plano-especialistas.md",
+      "sha256": "b01ca92944b7e251d493060f8f091ecd32f445694efa07483d1fcd16fb496e6f",
+      "bytes": 69071,
+      "received_on": "2026-10-23"
     }
   ]
 }

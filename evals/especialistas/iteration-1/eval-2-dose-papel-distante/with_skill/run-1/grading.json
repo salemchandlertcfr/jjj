@@ -1,0 +1,105 @@
+{
+  "expectations": [
+    {
+      "text": "Propõe três especialistas centrais e um crítico separado na equipe.",
+      "passed": true,
+      "evidence": "outputs/formacao.md: “três especialistas centrais mais um crítico separado”; a tabela identifica E1 fatores humanos, E2 controle e sinais, E3 estatística e C1 “participante distinto de E1–E3”."
+    },
+    {
+      "text": "Coloca uma especialidade distante como gerador cego, com função análoga explícita.",
+      "passed": true,
+      "evidence": "outputs/formacao.md coloca G1 “operacoes-troca-rapida-1” como gerador fora da equipe e escreve a função: “transferir um sistema em operação sem perder componentes ou informação”, no domínio de operações de troca rápida. O contexto exclui as soluções do projeto."
+    },
+    {
+      "text": "Recusa credenciais inventadas e marca ausência de esp e lacunas.",
+      "passed": true,
+      "evidence": "outputs/formacao.md recusa “doutores com 30 anos de experiência” por serem credenciais inventadas; todas as quatro especialidades têm marca “sem skill de especialidade” e lacunas FH/CS/EST/OTR. O crítico também tem ausência explicitada e não cria disciplina nova."
+    },
+    {
+      "text": "Mantém gerador sem versão da pessoa e sem banco de ideias.",
+      "passed": true,
+      "evidence": "outputs/formacao.md, tabela de contexto de G1: não recebe “Versão da pessoa, banco de ideias”; acrescenta que nem uma versão anonimizada da solução deve entrar. Define o requisito de acesso para a proposta e declara que não demonstra isolamento real."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1.0
+  },
+  "execution_metrics": null,
+  "timing": {
+    "total_tokens": null,
+    "duration_ms": null,
+    "modelo": null,
+    "total_duration_seconds": 108.55,
+    "source": "wall_clock_observed"
+  },
+  "measurement_limits": {
+    "total_tokens": null,
+    "model": null,
+    "native_duration_ms": null,
+    "metrics_json_present": false,
+    "notes": [
+      "Julgamento documental do conteúdo entregue. Os registros execution.md são relatos do executor, sem transcrição instrumentada de ferramentas, sessões ou acessos; não comprovam leitura da skill, condição experimental, ausência de pesquisa ou ausência de agentes.",
+      "Tokens, identificação exata do modelo e duração nativa de inferência/API não estão disponíveis e permanecem nulos. Não se usam caracteres como estimativa de tokens.",
+      "timing.json contém apenas intervalo de relógio observado, com início descrito pelo executor; as janelas não são uniformes e não sustentam comparação de desempenho ou custo.",
+      "Uma execução por condição e caso, sem cegamento demonstrado e sem revisão humana concluída; os resultados não demonstram ganho causal da skill, conhecimento especializado validado ou execução Claude.",
+      "A condição com skill é rótulo da pasta e declaração do executor; a leitura e o uso efetivo da skill não são verificáveis sem transcrição instrumentada."
+    ]
+  },
+  "claims": [
+    {
+      "claim": "O artefato outputs/formacao.md existe e responde ao caso 2.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Arquivo lido integralmente; as quatro expectativas citam seu conteúdo. A presença foi conferida diretamente no diretório outputs."
+    },
+    {
+      "claim": "As ações se limitaram às leituras e gravações declaradas, sem pesquisa, agentes, sessões ou testes novos.",
+      "type": "process",
+      "verified": false,
+      "verification_status": "unverifiable",
+      "evidence": "execution.md faz essa declaração, mas não fornece transcrição instrumentada de chamadas ou acessos. O conteúdo entregue não a contradiz; isso não prova ausência de ações."
+    },
+    {
+      "claim": "O conteúdo apresentado é proposta ou decisão documental, sem validar conhecimento especializado ou capacidade operacional.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Os arquivos explicitam ausência de esp curada, premissas fornecidas e limites. Nenhum artefato entregue demonstra execução especializada, pesquisa externa ou validação técnica."
+    },
+    {
+      "claim": "Três centrais mais crítico e um gerador distante correspondem à dose padrão p7.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Conferido nesta revisão contra skills/especialistas/references/recrutamento.md: Equipe p7 padrão = “3 centrais + crítico”; Geradores p7 padrão = “1 distante”. Isso verifica a regra local, sem provar leituras realizadas pelo executor."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [
+      "Não há user_notes.md. As incertezas relevantes estão em execution.md e foram incorporadas aos limites."
+    ],
+    "needs_review": [
+      "Revisão humana dos seis artefatos permanece pendente; esta nota não substitui a revisão."
+    ],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "reason": "As assertions conferem apenas parte dos limites de visibilidade: não verificam a exclusão de autoria e casos reservados para equipe/crítico, nem a distinção entre proposta de filtro e isolamento efetivo. Acrescentar uma verificação de conteúdo permitido/proibido por papel quando a tarefa exigir o contrato completo, sem impor um formato de tabela."
+      },
+      {
+        "reason": "O caso fornece as três áreas centrais, a distante e sua função análoga. As quatro assertions podem passar sem demonstrar escolha de especialidades a partir de evidência ou execução de isolamento. Avaliar esses resultados em casos separados, com fontes e rastros de acesso quando pertinentes."
+      }
+    ],
+    "overall": "As quatro assertions estão satisfeitas pelo conteúdo, sem exigir formato arbitrário. Elas medem decisões documentais neste caso, não execução real, validade técnica ou ganho causal da skill. Os dois braços passam; a rubrica não distingue as condições nestes ensaios.",
+    "limits": [
+      "Julgamento documental do conteúdo entregue. Os registros execution.md são relatos do executor, sem transcrição instrumentada de ferramentas, sessões ou acessos; não comprovam leitura da skill, condição experimental, ausência de pesquisa ou ausência de agentes.",
+      "Tokens, identificação exata do modelo e duração nativa de inferência/API não estão disponíveis e permanecem nulos. Não se usam caracteres como estimativa de tokens.",
+      "timing.json contém apenas intervalo de relógio observado, com início descrito pelo executor; as janelas não são uniformes e não sustentam comparação de desempenho ou custo.",
+      "Uma execução por condição e caso, sem cegamento demonstrado e sem revisão humana concluída; os resultados não demonstram ganho causal da skill, conhecimento especializado validado ou execução Claude.",
+      "A condição com skill é rótulo da pasta e declaração do executor; a leitura e o uso efetivo da skill não são verificáveis sem transcrição instrumentada."
+    ]
+  }
+}

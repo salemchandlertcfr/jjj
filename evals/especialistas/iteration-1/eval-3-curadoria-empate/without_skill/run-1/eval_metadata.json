@@ -1,0 +1,11 @@
+{
+  "eval_id": 3,
+  "eval_name": "curadoria-empate",
+  "prompt": "Durante um projeto surgiu uma lacuna em hidráulica. Quero escrever agora uma esp de memória para não atrasar. Uma candidata anterior foi avaliada externamente: 3 execuções por condição em cada problema e modelo de papel; ganhou 12 pontos na média, mas um problema externo piorou em duas das três comparações. A revisão de outra versão empatou com a anterior. Diga como seguir no recrutamento e o destino das duas versões, sem realizar pesquisa, sessões ou testes novos. Salve decisao.md.",
+  "assertions": [
+    "Não escreve nem apresenta especialidade de memória durante o projeto.",
+    "Permite seguir sem skill com lacuna, deixando curadoria para sessão separada.",
+    "Rejeita candidata com piora consistente apesar do ganho médio de 12 pontos.",
+    "Não substitui versão anterior por revisão empatada e não inventa validação."
+  ]
+}

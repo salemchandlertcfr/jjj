@@ -1,0 +1,107 @@
+{
+  "expectations": [
+    {
+      "text": "Não escreve nem apresenta especialidade de memória durante o projeto.",
+      "passed": true,
+      "evidence": "outputs/decisao.md abre com “Não escrever nem apresentar uma esp de hidráulica de memória durante o projeto”; o restante decide recrutamento e admissão, sem ensinar conteúdo de hidráulica ou entregar uma esp."
+    },
+    {
+      "text": "Permite seguir sem skill com lacuna, deixando curadoria para sessão separada.",
+      "passed": true,
+      "evidence": "outputs/decisao.md manda recrutar hidráulica com marca “sem skill de especialidade”, manter a lacuna e pedir fontes centrais; reserva curadoria para “sessão própria, fora do projeto”, sem abri-la agora."
+    },
+    {
+      "text": "Rejeita candidata com piora consistente apesar do ganho médio de 12 pontos.",
+      "passed": true,
+      "evidence": "outputs/decisao.md, tabela da candidata de ganho 12: “Não entrou. Não admitir para uso.” Explica que a piora em um problema em duas de três comparações viola a condição de não regressão apesar do ganho médio."
+    },
+    {
+      "text": "Não substitui versão anterior por revisão empatada e não inventa validação.",
+      "passed": true,
+      "evidence": "outputs/decisao.md, revisão empatada: “Não substituir a anterior”; distingue baseline de versão admitida e mantém uma anterior já admitida em uso, se houver. Diz usar somente resultados relatados, sem auditoria da matriz ou validação independente."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1.0
+  },
+  "execution_metrics": null,
+  "timing": {
+    "total_tokens": null,
+    "duration_ms": null,
+    "modelo": null,
+    "total_duration_seconds": 58,
+    "source": "wall_clock_observed",
+    "started_at": "2026-10-23T23:31:27Z",
+    "ended_at": "2026-10-23T23:32:25Z"
+  },
+  "measurement_limits": {
+    "total_tokens": null,
+    "model": null,
+    "native_duration_ms": null,
+    "metrics_json_present": false,
+    "notes": [
+      "Julgamento documental do conteúdo entregue. Os registros execution.md são relatos do executor, sem transcrição instrumentada de ferramentas, sessões ou acessos; não comprovam leitura da skill, condição experimental, ausência de pesquisa ou ausência de agentes.",
+      "Tokens, identificação exata do modelo e duração nativa de inferência/API não estão disponíveis e permanecem nulos. Não se usam caracteres como estimativa de tokens.",
+      "timing.json contém apenas intervalo de relógio observado, com início descrito pelo executor; as janelas não são uniformes e não sustentam comparação de desempenho ou custo.",
+      "Uma execução por condição e caso, sem cegamento demonstrado e sem revisão humana concluída; os resultados não demonstram ganho causal da skill, conhecimento especializado validado ou execução Claude.",
+      "A condição com skill é rótulo da pasta e declaração do executor; a leitura e o uso efetivo da skill não são verificáveis sem transcrição instrumentada."
+    ]
+  },
+  "claims": [
+    {
+      "claim": "O artefato outputs/decisao.md existe e responde ao caso 3.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Arquivo lido integralmente; as quatro expectativas citam seu conteúdo. A presença foi conferida diretamente no diretório outputs."
+    },
+    {
+      "claim": "As ações se limitaram às leituras e gravações declaradas, sem pesquisa, agentes, sessões ou testes novos.",
+      "type": "process",
+      "verified": false,
+      "verification_status": "unverifiable",
+      "evidence": "execution.md faz essa declaração, mas não fornece transcrição instrumentada de chamadas ou acessos. O conteúdo entregue não a contradiz; isso não prova ausência de ações."
+    },
+    {
+      "claim": "O conteúdo apresentado é proposta ou decisão documental, sem validar conhecimento especializado ou capacidade operacional.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Os arquivos explicitam ausência de esp curada, premissas fornecidas e limites. Nenhum artefato entregue demonstra execução especializada, pesquisa externa ou validação técnica."
+    },
+    {
+      "claim": "Regressão em duas de três comparações impede admissão apesar do ganho médio, e empate não admite revisão.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Conferido nesta revisão contra skills/especialistas/references/testes-esp.md: exige ganho ≥10 pontos percentuais e nenhum problema pior em duas de três; “Empate não entra”. Os resultados externos são somente premissas do enunciado, sem matriz auditável."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [
+      "Não há user_notes.md. As incertezas relevantes estão em execution.md e foram incorporadas aos limites."
+    ],
+    "needs_review": [
+      "Revisão humana dos seis artefatos permanece pendente; esta nota não substitui a revisão."
+    ],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "reason": "O enunciado diz “revisão de outra versão”, mas não informa se a anterior dessa revisão já estava admitida. Separar explicitamente a candidata reprovada da versão já em uso; verificar que o empate mantém a anterior admitida em uso, sem promover uma candidata reprovada."
+      },
+      {
+        "reason": "Os números externos são premissas narradas, sem matriz de resultados. A conclusão pode ser avaliada condicionalmente, mas não comprova avaliação externa real, pareamento, revisão humana ou validade técnica. Para testar a aplicação da porta numérica, fornecer a matriz e verificar casos de ganho médio com regressão e empate."
+      }
+    ],
+    "overall": "As quatro assertions estão satisfeitas pelo conteúdo, sem exigir formato arbitrário. Elas medem decisões documentais neste caso, não execução real, validade técnica ou ganho causal da skill. Os dois braços passam; a rubrica não distingue as condições nestes ensaios.",
+    "limits": [
+      "Julgamento documental do conteúdo entregue. Os registros execution.md são relatos do executor, sem transcrição instrumentada de ferramentas, sessões ou acessos; não comprovam leitura da skill, condição experimental, ausência de pesquisa ou ausência de agentes.",
+      "Tokens, identificação exata do modelo e duração nativa de inferência/API não estão disponíveis e permanecem nulos. Não se usam caracteres como estimativa de tokens.",
+      "timing.json contém apenas intervalo de relógio observado, com início descrito pelo executor; as janelas não são uniformes e não sustentam comparação de desempenho ou custo.",
+      "Uma execução por condição e caso, sem cegamento demonstrado e sem revisão humana concluída; os resultados não demonstram ganho causal da skill, conhecimento especializado validado ou execução Claude.",
+      "A condição com skill é rótulo da pasta e declaração do executor; a leitura e o uso efetivo da skill não são verificáveis sem transcrição instrumentada."
+    ]
+  }
+}

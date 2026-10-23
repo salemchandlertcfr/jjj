@@ -32,3 +32,10 @@ Registro cronológico de ingestões e revisões relevantes. Acrescentar novas en
 - Criados protocolo universal, referências por tarefa, modelos JSON e três CLIs com primitivas compartilhadas para perguntas, respostas e Entendimento. Classificação semântica e persistência continuam com a condutora; pesquisa/leitor não foram simulados como integrações reais.
 - Acrescentados testes locais com extração do pacote e fluxo CLI; executados seis ensaios com/sem skill e avaliação separada. Resultados, rubrica, hashes e limites em [avaliação](../evals/grill-embasado/README.md). Revisão humana pendente.
 - Retificação do estado observado neste checkout: os comandos gerais não reproduzem os 143 passes históricos; faltam a pasta da condutora e módulos do conselho. O verificador acusa três links antigos, e a suíte geral tem sete erros anteriores. Essas falhas não foram corrigidas ou ocultadas pelo desenvolvimento do grill.
+
+## 2026-10-23 — Recrutamento e infraestrutura da biblioteca
+
+- Preservado S13 e registrado propósito antes do código. Criados pacote universal `especialistas`, seis CLIs, regras de papéis, schemas e modelos. Não foram geradas `esp-*` de produção.
+- Executados 33 testes locais, com 30 fichas plantadas e bibliotecas/executor dublês temporários. Fluxo CLI passou após extração fora do repositório. Evidência e limites em [implementação](implementacao-especialistas.md).
+- Rodados seis ensaios textuais, com/sem skill, avaliados por outra sessão: 12/12 nas duas condições, sem demonstração de ganho. Janelas de tempo não comparáveis foram preservadas sem média/delta; revisão humana pendente. Veja [avaliação](../evals/especialistas/README.md).
+- Mantidos os bloqueios de condutora/conselho ausentes; curadoria, pesquisa, isolamento, modelos e validação de plataformas continuam pendentes.

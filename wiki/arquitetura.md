@@ -1,6 +1,6 @@
 # Arquitetura das skills
 
-Estado: desenho do sistema; condutora e conselho têm alphas documentados, incompletos neste checkout. O [grill](implementacao-grill.md) tem protocolo e apoio local; outras 10 skills seguem planejadas. Revisão: 2026-10-23. Veja os escopos da [condutora](implementacao-condutora.md) e do [conselho](implementacao-conselho.md).
+Estado: desenho do sistema; condutora e conselho têm alphas documentados, incompletos neste checkout. [Grill](implementacao-grill.md) e [especialistas](implementacao-especialistas.md) têm protocolo e apoio local; outras 9 skills seguem planejadas. Revisão: 2026-10-23. Veja os escopos da [condutora](implementacao-condutora.md) e do [conselho](implementacao-conselho.md).
 
 A Etapa 1 é organizada como um sistema de skills que transforma uma ideia em um CIR aprovado. A condutora coordena a conversa e o estado; as skills de método definem o trabalho de cada tema; as genéricas pesquisam, perguntam, elaboram e julgam. A separação permite carregar apenas o contexto da tarefa atual e testar componentes isoladamente. O plano geral especifica esse desenho; ele não comprova que o sistema já esteja instalado ou executável. Fonte: [S02, §§1–2 e 14](../sources/originais/plano-geral-skills-cir.md).
 
@@ -56,6 +56,8 @@ No grill, quem pergunta é a própria condutora. O leitor recebe somente cartão
 ## Especialidades e execução
 
 Um especialista combina **papel, especialidade e equipamento**. A ótica define o que procurar; uma skill `esp-*` fornece métodos e conhecimento curado; ferramentas e modelo permitem executar a tarefa. A biblioteca deve crescer com fontes, procedência, revisão e comparação com/sem a especialidade. Sem uma `esp-*` disponível, o plano permite rodar com a lacuna explícita, sem inventar credenciais ou gerar a especialidade no momento. Fonte: [S02, §4](../sources/originais/plano-geral-skills-cir.md).
+
+[S13, §§5–9](../sources/originais/plano-especialistas.md) concretiza o recrutamento pelo problema antes do catálogo, uma distante por elaboração, crítico, fichas com visibilidade copiada do papel e blocos fixados no Git. O alpha local verifica esses contratos e a regra numérica de admissão; nenhuma especialidade de produção foi curada. A biblioteca e o banco fechado de testes são repositórios separados; só a condutora grava mapas/fichas no dossiê.
 
 O adaptador transporta briefs e resultados entre ambientes, registra modelo efetivo, situação, tempo e custo. O conteúdo do método permanece separado da forma de abrir sessões ou subagentes. O plano prioriza Notion; a integração real segue pendente. O conselho inclui transporte CLI local para a primeira rodada, sem sandbox de permissões. O usuário selecionou S11, que revisa S04: v1 Claude-first, com o mesmo juiz escolhido em sessões independentes e óticas distintas; diversidade de famílias fica para depois. Disponibilidade, isolamento e nomes atuais precisam ser verificados. Fontes: [S02, §§10 e 12](../sources/originais/plano-geral-skills-cir.md) e [S11, §§9–10 e 17](../sources/originais/plano-conselho-especialistas-revisado.md).
 

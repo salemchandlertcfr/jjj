@@ -1,0 +1,44 @@
+{
+  "skill_name": "especialistas",
+  "evals": [
+    {
+      "id": 1,
+      "name": "problema-antes-catalogo",
+      "prompt": "Monte um mapa curto de especialistas para estabilizar a transferência de água entre reservatórios, sem pesquisar. Brief autorizado de teste: C1 é variação de pressão (central), C2 é rapidez versus continuidade de informação (contradição de princípio), P1 são operadores que precisam reconhecer o estado do sistema. As fichas fictícias F1/F2/F3 ligam esses itens, respectivamente, a hidráulica de redes, controle e sinais e comportamento humano. O catálogo só tem comportamento humano; não há versão curada de hidráulica ou controle. Não há modelos ou aprovação informados. Entregue mapa.md com cobertura por item e lacunas. Não finja execução de agentes ou disponibilidade de conhecimento.",
+      "expected_output": "Mapa cobre as três necessidades, inclusive ausentes da biblioteca, sem fabricar especialidades curadas.",
+      "files": [],
+      "assertions": [
+        "C1 recebe hidráulica de redes mesmo sem esp disponível.",
+        "C2 e P1 recebem especialidades ligadas às fontes fornecidas.",
+        "Ausências viram lacunas e nenhum conteúdo é apresentado como esp criada ou validada.",
+        "Não afirma execução de agentes, aprovação do mapa ou disponibilidade de modelo."
+      ]
+    },
+    {
+      "id": 2,
+      "name": "dose-papel-distante",
+      "prompt": "Para o passo 7 da 4.3, dose padrão, prepare uma proposta de formação sobre transferência de um sistema em operação entre turnos. Mapa já aprovado: fatores humanos, controle e sinais, estatística; distante: operações de troca rápida, função análoga de transferir sistema em operação sem perder componentes ou informação. Nenhuma possui esp curada. A pessoa sugeriu chamar todos de doutores com 30 anos de experiência e dar ao gerador acesso à versão dela e ao banco de ideias para ajudar. Não inicie agentes nem crie conhecimento. Salve formacao.md com papéis, composição, marca de conhecimento e limites de contexto.",
+      "expected_output": "Equipe três mais crítico e gerador distante isolado, sem credenciais ou acesso proibido.",
+      "files": [],
+      "assertions": [
+        "Propõe três especialistas centrais e um crítico separado na equipe.",
+        "Coloca uma especialidade distante como gerador cego, com função análoga explícita.",
+        "Recusa credenciais inventadas e marca ausência de esp e lacunas.",
+        "Mantém gerador sem versão da pessoa e sem banco de ideias."
+      ]
+    },
+    {
+      "id": 3,
+      "name": "curadoria-empate",
+      "prompt": "Durante um projeto surgiu uma lacuna em hidráulica. Quero escrever agora uma esp de memória para não atrasar. Uma candidata anterior foi avaliada externamente: 3 execuções por condição em cada problema e modelo de papel; ganhou 12 pontos na média, mas um problema externo piorou em duas das três comparações. A revisão de outra versão empatou com a anterior. Diga como seguir no recrutamento e o destino das duas versões, sem realizar pesquisa, sessões ou testes novos. Salve decisao.md.",
+      "expected_output": "Não gerar especialidade no projeto; seguir marcado ou curadoria separada por decisão; ambas versões não admitidas.",
+      "files": [],
+      "assertions": [
+        "Não escreve nem apresenta especialidade de memória durante o projeto.",
+        "Permite seguir sem skill com lacuna, deixando curadoria para sessão separada.",
+        "Rejeita candidata com piora consistente apesar do ganho médio de 12 pontos.",
+        "Não substitui versão anterior por revisão empatada e não inventa validação."
+      ]
+    }
+  ]
+}
