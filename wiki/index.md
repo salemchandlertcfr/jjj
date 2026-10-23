@@ -1,6 +1,6 @@
 # Índice da wiki
 
-Síntese dos onze anexos recebidos e registro das implementações alpha, revisados em 23/10/2026. Os estados distinguem o desenho proposto do comportamento já verificado.
+Síntese dos doze anexos recebidos e registro das implementações alpha, revisados em 23/10/2026. Os estados distinguem o desenho proposto do comportamento já verificado.
 
 | Página | Quando consultar |
 | --- | --- |
@@ -8,6 +8,7 @@ Síntese dos onze anexos recebidos e registro das implementações alpha, revisa
 | [Avaliação da condutora](avaliacao-condutora.md) | Reproduzir testes locais e distinguir sua cobertura dos alvos ainda não avaliados. |
 | [Implementação do conselho](implementacao-conselho.md) | Preparar e consolidar julgamentos, integrar o pacote à condutora e consultar os limites do transporte. |
 | [Avaliação do conselho](avaliacao-conselho.md) | Consultar testes, comparação com e sem skill e revisão humana. |
+| [Implementação do grill](implementacao-grill.md) | Usar os modos de entrevista, os validadores locais e consultar testes e limites de integração. |
 | [Método IDEAL](metodo-ideal.md) | Entender propósito, fases, idealidade e fronteiras da Etapa 1. |
 | [Fluxo da Etapa 1](fluxo-etapa1.md) | Percorrer temas, ciclos, doses, travas e retornos. |
 | [Arquitetura](arquitetura.md) | Distribuir responsabilidades entre as 13 skills; duas têm implementação alpha. |

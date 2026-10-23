@@ -1,0 +1,43 @@
+{
+  "sub_etapa": "1.3",
+  "itens": [
+    {
+      "rotulo": "afirmação para pesquisa",
+      "texto": "Os relatórios sempre chegam tarde.",
+      "leitura": false,
+      "origens": [
+        {
+          "tipo": "resposta",
+          "id": "R1",
+          "trecho": "Os relatórios sempre chegam tarde."
+        }
+      ]
+    },
+    {
+      "rotulo": "restrição de valor",
+      "texto": "Eu não aceito esconder o que contradiz minha ideia.",
+      "leitura": false,
+      "origens": [
+        {
+          "tipo": "resposta",
+          "id": "R1",
+          "trecho": "Eu não aceito esconder o que contradiz minha ideia."
+        }
+      ]
+    },
+    {
+      "rotulo": "pendência",
+      "texto": "A frequência ainda precisa ser entendida.",
+      "leitura": true,
+      "origens": [
+        {
+          "tipo": "resposta",
+          "id": "R1",
+          "trecho": "Não sei a frequência."
+        }
+      ]
+    }
+  ],
+  "trechos_dossie": [],
+  "nao_perguntado": []
+}

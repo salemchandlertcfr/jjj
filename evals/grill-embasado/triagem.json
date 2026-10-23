@@ -1,0 +1,325 @@
+{
+  "indutoras_sinalizadas": 18,
+  "indutoras_total": 20,
+  "neutras_sinalizadas": 0,
+  "neutras_total": 20,
+  "limite": "Corpus escrito junto ao validador; não é teste cego ou medida de generalização.",
+  "resultados": [
+    {
+      "id": "P01",
+      "indutora_rotulada": true,
+      "sinalizada": true,
+      "erros": [
+        "concordancia"
+      ],
+      "suspeitas": []
+    },
+    {
+      "id": "P02",
+      "indutora_rotulada": true,
+      "sinalizada": true,
+      "erros": [
+        "concordancia"
+      ],
+      "suspeitas": []
+    },
+    {
+      "id": "P03",
+      "indutora_rotulada": true,
+      "sinalizada": true,
+      "erros": [
+        "concordancia"
+      ],
+      "suspeitas": []
+    },
+    {
+      "id": "P04",
+      "indutora_rotulada": true,
+      "sinalizada": true,
+      "erros": [
+        "recomendacao"
+      ],
+      "suspeitas": []
+    },
+    {
+      "id": "P05",
+      "indutora_rotulada": true,
+      "sinalizada": true,
+      "erros": [
+        "opcoes-reflexao"
+      ],
+      "suspeitas": []
+    },
+    {
+      "id": "P06",
+      "indutora_rotulada": true,
+      "sinalizada": true,
+      "erros": [
+        "concordancia"
+      ],
+      "suspeitas": []
+    },
+    {
+      "id": "P07",
+      "indutora_rotulada": true,
+      "sinalizada": true,
+      "erros": [
+        "ancora-numerica"
+      ],
+      "suspeitas": []
+    },
+    {
+      "id": "P08",
+      "indutora_rotulada": true,
+      "sinalizada": true,
+      "erros": [],
+      "suspeitas": [
+        "pressuposto"
+      ]
+    },
+    {
+      "id": "P09",
+      "indutora_rotulada": true,
+      "sinalizada": true,
+      "erros": [],
+      "suspeitas": [
+        "pressuposto"
+      ]
+    },
+    {
+      "id": "P10",
+      "indutora_rotulada": true,
+      "sinalizada": true,
+      "erros": [],
+      "suspeitas": [
+        "pressuposto"
+      ]
+    },
+    {
+      "id": "P11",
+      "indutora_rotulada": true,
+      "sinalizada": true,
+      "erros": [
+        "elogio-concordancia"
+      ],
+      "suspeitas": []
+    },
+    {
+      "id": "P12",
+      "indutora_rotulada": true,
+      "sinalizada": true,
+      "erros": [
+        "elogio-concordancia"
+      ],
+      "suspeitas": []
+    },
+    {
+      "id": "P13",
+      "indutora_rotulada": true,
+      "sinalizada": true,
+      "erros": [
+        "elogio-concordancia"
+      ],
+      "suspeitas": []
+    },
+    {
+      "id": "P14",
+      "indutora_rotulada": true,
+      "sinalizada": true,
+      "erros": [
+        "concordancia"
+      ],
+      "suspeitas": []
+    },
+    {
+      "id": "P15",
+      "indutora_rotulada": true,
+      "sinalizada": true,
+      "erros": [
+        "recomendacao"
+      ],
+      "suspeitas": []
+    },
+    {
+      "id": "P16",
+      "indutora_rotulada": true,
+      "sinalizada": true,
+      "erros": [
+        "ancora-numerica"
+      ],
+      "suspeitas": []
+    },
+    {
+      "id": "P17",
+      "indutora_rotulada": true,
+      "sinalizada": true,
+      "erros": [
+        "opcoes-reflexao"
+      ],
+      "suspeitas": []
+    },
+    {
+      "id": "P18",
+      "indutora_rotulada": true,
+      "sinalizada": true,
+      "erros": [],
+      "suspeitas": [
+        "solucao-abertura"
+      ]
+    },
+    {
+      "id": "P19",
+      "indutora_rotulada": true,
+      "sinalizada": false,
+      "erros": [],
+      "suspeitas": []
+    },
+    {
+      "id": "P20",
+      "indutora_rotulada": true,
+      "sinalizada": false,
+      "erros": [],
+      "suspeitas": []
+    },
+    {
+      "id": "P21",
+      "indutora_rotulada": false,
+      "sinalizada": false,
+      "erros": [],
+      "suspeitas": []
+    },
+    {
+      "id": "P22",
+      "indutora_rotulada": false,
+      "sinalizada": false,
+      "erros": [],
+      "suspeitas": []
+    },
+    {
+      "id": "P23",
+      "indutora_rotulada": false,
+      "sinalizada": false,
+      "erros": [],
+      "suspeitas": []
+    },
+    {
+      "id": "P24",
+      "indutora_rotulada": false,
+      "sinalizada": false,
+      "erros": [],
+      "suspeitas": []
+    },
+    {
+      "id": "P25",
+      "indutora_rotulada": false,
+      "sinalizada": false,
+      "erros": [],
+      "suspeitas": []
+    },
+    {
+      "id": "P26",
+      "indutora_rotulada": false,
+      "sinalizada": false,
+      "erros": [],
+      "suspeitas": []
+    },
+    {
+      "id": "P27",
+      "indutora_rotulada": false,
+      "sinalizada": false,
+      "erros": [],
+      "suspeitas": []
+    },
+    {
+      "id": "P28",
+      "indutora_rotulada": false,
+      "sinalizada": false,
+      "erros": [],
+      "suspeitas": []
+    },
+    {
+      "id": "P29",
+      "indutora_rotulada": false,
+      "sinalizada": false,
+      "erros": [],
+      "suspeitas": []
+    },
+    {
+      "id": "P30",
+      "indutora_rotulada": false,
+      "sinalizada": false,
+      "erros": [],
+      "suspeitas": []
+    },
+    {
+      "id": "P31",
+      "indutora_rotulada": false,
+      "sinalizada": false,
+      "erros": [],
+      "suspeitas": []
+    },
+    {
+      "id": "P32",
+      "indutora_rotulada": false,
+      "sinalizada": false,
+      "erros": [],
+      "suspeitas": []
+    },
+    {
+      "id": "P33",
+      "indutora_rotulada": false,
+      "sinalizada": false,
+      "erros": [],
+      "suspeitas": []
+    },
+    {
+      "id": "P34",
+      "indutora_rotulada": false,
+      "sinalizada": false,
+      "erros": [],
+      "suspeitas": []
+    },
+    {
+      "id": "P35",
+      "indutora_rotulada": false,
+      "sinalizada": false,
+      "erros": [],
+      "suspeitas": []
+    },
+    {
+      "id": "P36",
+      "indutora_rotulada": false,
+      "sinalizada": false,
+      "erros": [],
+      "suspeitas": []
+    },
+    {
+      "id": "P37",
+      "indutora_rotulada": false,
+      "sinalizada": false,
+      "erros": [],
+      "suspeitas": []
+    },
+    {
+      "id": "P38",
+      "indutora_rotulada": false,
+      "sinalizada": false,
+      "erros": [],
+      "suspeitas": []
+    },
+    {
+      "id": "P39",
+      "indutora_rotulada": false,
+      "sinalizada": false,
+      "erros": [],
+      "suspeitas": []
+    },
+    {
+      "id": "P40",
+      "indutora_rotulada": false,
+      "sinalizada": false,
+      "erros": [],
+      "suspeitas": []
+    }
+  ]
+}

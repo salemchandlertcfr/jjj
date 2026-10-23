@@ -1,6 +1,6 @@
 # Fontes e proveniência
 
-Onze arquivos fornecidos pelo usuário, recebidos em **22 e 23/10/2026**. Essas datas não estabelecem quando foram escritos. Os nomes foram simplificados para caminhos estáveis; os bytes foram preservados. O [manifesto](manifest.json) registra ID, nome recebido, caminho, tamanho e SHA-256.
+Doze arquivos distintos fornecidos pelo usuário, recebidos em **22 e 23/10/2026**. Essas datas não estabelecem quando foram escritos. Os nomes foram simplificados para caminhos estáveis; os bytes foram preservados. O [manifesto](manifest.json) registra ID, nome recebido, caminho, tamanho e SHA-256. O novo anexo `SKILL.md` repete S01 byte a byte; não recebeu outro ID.
 
 | ID | Arquivo preservado | Uso na síntese e estado |
 | --- | --- | --- |
@@ -15,10 +15,11 @@ Onze arquivos fornecidos pelo usuário, recebidos em **22 e 23/10/2026**. Essas 
 | S09 | [Concepção Ideal da Solução — IDEAL v2](originais/concepcao-ideal-solucao.md) | Definição, fundamentos, CIR, pronto, hipóteses e limites. Identifica-se como versão para revisão. |
 | S10 | [Plano detalhado — etapa-1-cir, condutora](originais/plano-etapa-1-cir-condutora.md) | Requisitos da primeira implementação: protocolo, dossiê, estados, briefs, registros, retomada e testes. Anexado após a documentação inicial. |
 | S11 | [Plano revisado — conselho-especialistas](originais/plano-conselho-especialistas-revisado.md) | Base ativa da implementação do conselho, explicitamente selecionada no pedido. Adota Claude primeiro, com sessões e óticas independentes, e resolve a divergência de famílias de S04. |
+| S12 | [Plano detalhado — grill-embasado](originais/plano-grill-embasado.md) | Selecionado pelo usuário para implementar perguntas embasadas, registro fiel, Entendimento e checagem. Integrações e metas conversacionais precisam de avaliação. |
 
 ## Como interpretar as fontes
 
-S02 e S08 orientam a síntese da arquitetura e do fluxo; S06/S09 explicam o método; S10 especifica a condutora. Para o conselho, S11 é a revisão fornecida e selecionada pelo usuário para desenvolvimento; S04 fica como histórico. S05 tem substituição explícita. Não há precedência universal entre os demais documentos: detalhamento ou posição na lista de anexos não resolvem conflitos. As [decisões](../wiki/decisoes.md) e [pendências](../wiki/pendencias.md) registram esse tratamento. Escopos entregues: [condutora](../wiki/implementacao-condutora.md) e [conselho](../wiki/implementacao-conselho.md).
+S02 e S08 orientam a síntese da arquitetura e do fluxo; S06/S09 explicam o método; S10 especifica a condutora. Para o conselho, S11 é a revisão fornecida e selecionada pelo usuário para desenvolvimento; S04 fica como histórico. S12 foi selecionado para o grill. S05 tem substituição explícita. Não há precedência universal entre os demais documentos: detalhamento ou posição na lista de anexos não resolvem conflitos. As [decisões](../wiki/decisoes.md) e [pendências](../wiki/pendencias.md) registram esse tratamento. Escopos: [condutora](../wiki/implementacao-condutora.md), [conselho](../wiki/implementacao-conselho.md) e [grill](../wiki/implementacao-grill.md).
 
 Links dos originais para páginas de Notion, outros planos ou estudos foram mantidos. O conteúdo de destinos não anexados não foi presumido como parte da análise. Alegações científicas e números citados nos planos não foram todos auditados externamente; a wiki evita promovê-los a resultados demonstrados deste projeto.
 

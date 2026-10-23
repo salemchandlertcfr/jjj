@@ -19,6 +19,8 @@ O plano atual prevê uma pasta `cir/<projeto>/`, versionada com Git. **A conduto
 
 Decisão: contexto, opções, escolha, evidência, dissenso, confiança e condição de reversão. Ficha de fonte: referência, link, trecho de apoio, o que demonstra, força da evidência, data e verificação realizada. Campo vazio não significa aprovação. Estrutura completa em [S02, §11](../sources/originais/plano-geral-skills-cir.md).
 
+O grill acrescenta perguntas, checagem e não perguntado em `grill/<sub-etapa>.md`, respostas literais em `grill/respostas.jsonl` e fatos sem autoria em `grill/conferir/<sub-etapa>.json`. Entendimento vai na saída da sub-etapa; paráfrases são leituras marcadas, e confirmação/leitura vinculam-se à versão atual. A condutora continua como única escritora. Contratos locais e limites em [implementação do grill](implementacao-grill.md); fonte: [S12, §§4, 8 e 11](../sources/originais/plano-grill-embasado.md).
+
 ## CIR: conteúdo em 17 seções
 
 O CIR consolida a referência conceitual. Cada seção precisa ter origem no dossiê e ser compatível com as decisões; pode referenciar evidências detalhadas. ([S09, §8](../sources/originais/concepcao-ideal-solucao.md); [S08, sub-etapa 6.1](../sources/originais/fluxograma-completo-ideal.md))

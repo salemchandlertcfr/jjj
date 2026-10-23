@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "sub_etapa": "1.3",
+  "modo": "abertura",
+  "dose": "padrao",
+  "objetivo": "entender o job",
+  "bases": [
+    {
+      "id": "C1",
+      "tipo": "cartao",
+      "origem": "cartão 1.3, grill quer entender",
+      "texto": "quem executa o job hoje, como e quando, e o que o torna difícil"
+    }
+  ],
+  "mapa": [
+    {
+      "id": "N1",
+      "classe": "fato pessoal",
+      "valor": "alto",
+      "estado": "pendente",
+      "impacto": "define o ponto de início do job",
+      "depende_de": []
+    }
+  ],
+  "perguntas": [
+    {
+      "id": "Q-1.3-01",
+      "no": "N1",
+      "texto": "Na última vez em que precisou desses dados para decidir, onde travou?",
+      "tipo": "evidencia",
+      "genero": "reflexao",
+      "base": [
+        "C1"
+      ],
+      "motivo": "define por onde o job começa",
+      "valor": "alto",
+      "estimativa": false
+    }
+  ]
+}

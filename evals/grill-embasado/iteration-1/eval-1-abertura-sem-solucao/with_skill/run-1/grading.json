@@ -1,0 +1,80 @@
+{
+  "expectations": [
+    {
+      "text": "A mensagem faz uma única pergunta de reflexão aberta, ancorada em episódio vivido.",
+      "passed": true,
+      "evidence": "mensagem.md pergunta apenas: “Como foi a última situação em que você precisou tirar conclusões dos dados para tomar uma decisão?” O pedido é aberto e focaliza um episódio vivido; a reprodução do cartão na linha Base não acrescenta uma pergunta à pessoa."
+    },
+    {
+      "text": "Não oferece solução, menu de alternativas ou resposta recomendada.",
+      "passed": true,
+      "evidence": "A pergunta pede o relato da “última situação”; a finalidade é “entender o job que acontece hoje e formular o que você precisa realizar”. Não há implementação, alternativas de solução ou resposta sugerida em mensagem.md."
+    },
+    {
+      "text": "Identifica a base no cartão e explica a decisão que a resposta muda.",
+      "passed": true,
+      "evidence": "A base cita “C1: quem executa o job hoje, como e quando, e o que o torna difícil; saída: job formulado sem escolher implementação”. O motivo conecta o episódio a “entender o job que acontece hoje e formular o que você precisa realizar”, que é a decisão de formulação autorizada."
+    },
+    {
+      "text": "Não inventa resposta, versão ou confirmação da pessoa.",
+      "passed": true,
+      "evidence": "A única fala atribuída à pessoa é a entrada literal “Quero tirar conclusões dos dados para decidir melhor. Ainda não escrevi minha versão.” A saída pede um episódio e não apresenta versão ou confirmação inventada."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1.0
+  },
+  "execution_metrics": null,
+  "timing": {
+    "total_tokens": null,
+    "duration_ms": null,
+    "total_duration_seconds": 110,
+    "source": "wall_clock_observed",
+    "modelo": null,
+    "started_at": "2026-10-23 23:01:24 UTC",
+    "ended_at": "2026-10-23 23:03:14 UTC"
+  },
+  "claims": [
+    {
+      "claim": "A mensagem parte da fala e do cartão autorizados, sem formular uma implementação.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "As linhas Base e Por que importa preservam C1/R1; a única pergunta solicita uma situação vivida."
+    },
+    {
+      "claim": "O validador aprovou a segunda tentativa e manteve a suspeita pergunta-dupla explicitamente justificada.",
+      "type": "process",
+      "verified": false,
+      "evidence": "execution.md relata “aprovada: true” e “suspeitas: [“pergunta-dupla”]”, mas não foram disponibilizados entrada, saída bruta ou log nativo dessa execução. A aprovação não foi usada para decidir as assertions."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [
+      "Ensaio textual limitado e guiado, uma execução por caso e condição. execution.md é um relato resumido; não há transcrição nativa completa de ferramentas nem métricas nativas de tokens, modelo ou duração. As fichas são entradas autorizadas, não fatos conferidos externamente pelo avaliador. Revisão humana no viewer permanece pendente."
+    ],
+    "needs_review": [
+      "Revisão humana no viewer gerado, ainda pendente."
+    ],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "A mensagem faz uma única pergunta de reflexão aberta, ancorada em episódio vivido.",
+        "reason": "Definir a unidade de pergunta por foco semântico. Uma frase com um único ponto de interrogação pode pedir várias respostas independentes; a contagem de pontuação não discrimina esse caso."
+      },
+      {
+        "reason": "O expected_output menciona tipo de pergunta, mas nenhuma assertion verifica a presença e adequação semântica do tipo. Se isso for requisito do caso, verificá-lo explicitamente sem dar crédito apenas a um rótulo."
+      }
+    ],
+    "overall": "As assertions cobrem abertura e ausência de solução. Convém operacionalizar pergunta única e alinhar o tipo exigido no expected_output com o que é efetivamente avaliado."
+  },
+  "grading_context": {
+    "method": "Leitura integral de execution.md e de todos os arquivos em outputs/; julgamento independente das assertions, com evidência textual.",
+    "metrics_note": "Sem metrics.json. timing foi copiado literalmente; total_duration_seconds é apenas parede observada. Tokens, modelo e duração nativa não foram inferidos nem estimados por caracteres.",
+    "limits": "Ensaio textual limitado e guiado, uma execução por caso e condição. execution.md é um relato resumido; não há transcrição nativa completa de ferramentas nem métricas nativas de tokens, modelo ou duração. As fichas são entradas autorizadas, não fatos conferidos externamente pelo avaliador. Revisão humana no viewer permanece pendente."
+  }
+}

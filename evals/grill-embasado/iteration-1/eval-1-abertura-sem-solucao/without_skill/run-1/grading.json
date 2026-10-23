@@ -1,0 +1,88 @@
+{
+  "expectations": [
+    {
+      "text": "A mensagem faz uma única pergunta de reflexão aberta, ancorada em episódio vivido.",
+      "passed": false,
+      "evidence": "Embora haja um só ponto de interrogação e um episódio comum, o pedido empilha “quem realizou a análise, como e em que momento ela aconteceu, e o que tornou difícil chegar a uma conclusão”. São várias demandas de resposta na mesma fala, não uma única pergunta aberta de reflexão. A ancoragem em “uma situação recente” está presente, mas a assertion é conjunta."
+    },
+    {
+      "text": "Não oferece solução, menu de alternativas ou resposta recomendada.",
+      "passed": true,
+      "evidence": "A mensagem pede um relato recente e seus aspectos; não sugere implementação, menu de soluções ou resposta recomendada. “Antes de formular o job” mantém a formulação pendente."
+    },
+    {
+      "text": "Identifica a base no cartão e explica a decisão que a resposta muda.",
+      "passed": false,
+      "evidence": "A fala atribui a base apenas à pessoa: “Você mencionou que quer ‘tirar conclusões dos dados para decidir melhor’”. “Para entender esse trabalho antes de formular o job” explica a finalidade, e as dimensões do cartão aparecem nas perguntas, mas não há identificação do cartão como base da condução. Repetir seus tópicos sem atribuir essa base não satisfaz integralmente a assertion."
+    },
+    {
+      "text": "Não inventa resposta, versão ou confirmação da pessoa.",
+      "passed": true,
+      "evidence": "A saída cita somente “tirar conclusões dos dados para decidir melhor”, que pertence à entrada, e solicita o episódio. Não inventa resposta, versão formulada ou confirmação da pessoa."
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 2,
+    "total": 4,
+    "pass_rate": 0.5
+  },
+  "execution_metrics": null,
+  "timing": {
+    "total_tokens": null,
+    "duration_ms": null,
+    "total_duration_seconds": 37,
+    "source": "wall_clock_observed",
+    "modelo": null
+  },
+  "claims": [
+    {
+      "claim": "A mensagem cobre quem, como, quando e dificuldades.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "mensagem.md pede literalmente “quem realizou a análise, como e em que momento ela aconteceu, e o que tornou difícil”. Essa cobertura não demonstra unicidade da pergunta."
+    },
+    {
+      "claim": "Não foi escolhida uma implementação.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "O texto contém apenas um pedido de relato, sem proposta de ferramenta ou solução."
+    },
+    {
+      "claim": "Não foram consultadas skills ou outros arquivos do projeto.",
+      "type": "process",
+      "verified": false,
+      "evidence": "execution.md declara essa ausência, mas é relato resumido e não oferece log nativo completo que permita verificar o isolamento da condição."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [
+      "Ensaio textual limitado e guiado, uma execução por caso e condição. execution.md é um relato resumido; não há transcrição nativa completa de ferramentas nem métricas nativas de tokens, modelo ou duração. As fichas são entradas autorizadas, não fatos conferidos externamente pelo avaliador. Revisão humana no viewer permanece pendente."
+    ],
+    "needs_review": [
+      "Revisão humana no viewer gerado, ainda pendente."
+    ],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "A mensagem faz uma única pergunta de reflexão aberta, ancorada em episódio vivido.",
+        "reason": "Explicitar que “uma única pergunta” é uma única demanda reflexiva, com exemplos de episódio único que ainda empilha quem/como/quando/dificuldade; a pontuação não resolve o julgamento."
+      },
+      {
+        "assertion": "Identifica a base no cartão e explica a decisão que a resposta muda.",
+        "reason": "Definir se identificar a base requer atribuir a condução ao cartão ou se basta retomar seus tópicos. Aqui há cobertura substantiva dos tópicos e finalidade explícita, porém não há identificação do cartão como fonte; essa ambiguidade afeta o resultado."
+      },
+      {
+        "reason": "O expected_output pede tipo, mas as assertions não verificam sua presença e adequação. A ausência de rótulo não foi usada para reprovar a pergunta."
+      }
+    ],
+    "overall": "Duas falhas: múltiplas demandas dentro da pergunta e ausência de identificação do cartão como base. A finalidade e a ancoragem no episódio estão presentes; os julgamentos não dependem de cabeçalhos ou de um único ponto de interrogação."
+  },
+  "grading_context": {
+    "method": "Leitura integral de execution.md e de todos os arquivos em outputs/; julgamento independente das assertions, com evidência textual.",
+    "metrics_note": "Sem metrics.json. timing foi copiado literalmente; total_duration_seconds é apenas parede observada. Tokens, modelo e duração nativa não foram inferidos nem estimados por caracteres.",
+    "limits": "Ensaio textual limitado e guiado, uma execução por caso e condição. execution.md é um relato resumido; não há transcrição nativa completa de ferramentas nem métricas nativas de tokens, modelo ou duração. As fichas são entradas autorizadas, não fatos conferidos externamente pelo avaliador. Revisão humana no viewer permanece pendente."
+  }
+}

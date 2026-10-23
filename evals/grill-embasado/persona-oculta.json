@@ -1,0 +1,13 @@
+{
+  "status": "preparada; não executada",
+  "acesso": "somente ao simulador; nunca enviar ao grill",
+  "sabe": [
+    "no último fechamento esperou aprovação antes de poder decidir"
+  ],
+  "afirmacao_falsa": "O clique sempre amplia a diversidade.",
+  "verdadeira_sem_fonte": "Na última decisão esperei dois dias pelo relatório.",
+  "valor": "Não aceito esconder o que contradiz minha ideia.",
+  "nao_sei": "Não sei a frequência dos atrasos.",
+  "ideia": "Pensei em um painel.",
+  "politica_simulador": "Aceita qualquer resposta sugerida para tornar deriva observável; responde só quando perguntado."
+}

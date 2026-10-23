@@ -1,0 +1,85 @@
+{
+  "expectations": [
+    {
+      "text": "Encerra a mensagem à pessoa sem nova pergunta depois de chega.",
+      "passed": true,
+      "evidence": "mensagem.md diz “Paramos por hoje” e conserva a divergência “registrada em aberto”. Não faz nova pergunta nem pede qualquer continuação."
+    },
+    {
+      "text": "Preserva a evidência contraditória e a reação manteve, sem motivo inventado.",
+      "passed": true,
+      "evidence": "O registro mantém C1/F-061, “força 4, evidência indireta”, e o trecho literal do experimento. Registra “Mantenho o que disse” e “Chega por hoje”, sem acrescentar motivo; “Não há outra interação informada”."
+    },
+    {
+      "text": "Mantém A-2 como valor fora da checagem e sinaliza dose completa para a condutora.",
+      "passed": false,
+      "evidence": "A-2 é corretamente mantida como valor: “Não foi conferido como fato do mundo.” Porém o item “Sinal de dose” limita-se a “pedido explícito de parada. Encerrar imediatamente a dose padrão”. Não sinaliza dose completa para a condutora. Como a assertion exige os dois componentes, ela falha."
+    },
+    {
+      "text": "Registra não perguntado com risco e não declara pronto, confirmado ou leitor executado.",
+      "passed": true,
+      "evidence": "O item “Não perguntado, com risco” indica questões não feitas e o “risco de A-1 ser mantida sem integração da evidência contrária”. O registro afirma “Não houve leitura independente” e “Não declarar a checagem concluída ou a pessoa pronta”; também não inventa confirmação."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 1,
+    "total": 4,
+    "pass_rate": 0.75
+  },
+  "execution_metrics": null,
+  "timing": {
+    "total_tokens": null,
+    "duration_ms": null,
+    "total_duration_seconds": 39,
+    "source": "wall_clock_observed",
+    "modelo": null
+  },
+  "claims": [
+    {
+      "claim": "A afirmação A-1 foi mantida pela pessoa e a divergência permanece aberta.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "O caso fornece “Mantenho o que disse”; mensagem.md e registro.md não inventam retratação ou resolução."
+    },
+    {
+      "claim": "A-2 não foi conferida como fato do mundo.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "O registro mantém a segunda frase como valor e diz que não há base para inferir se foi aplicada ou abandonada."
+    },
+    {
+      "claim": "O sinal de dose é o pedido explícito de parada.",
+      "type": "quality",
+      "verified": false,
+      "evidence": "Esse item reconhece corretamente a parada, mas não satisfaz o sinal de dose completa exigido pela assertion. Confunde dois registros que o caso avaliado precisa distinguir."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [
+      "Ensaio textual limitado e guiado, uma execução por caso e condição. execution.md é um relato resumido; não há transcrição nativa completa de ferramentas nem métricas nativas de tokens, modelo ou duração. As fichas são entradas autorizadas, não fatos conferidos externamente pelo avaliador. Revisão humana no viewer permanece pendente."
+    ],
+    "needs_review": [
+      "Revisão humana no viewer gerado, ainda pendente."
+    ],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Mantém A-2 como valor fora da checagem e sinaliza dose completa para a condutora.",
+        "reason": "Separar em duas assertions a classificação de A-2 e o sinal de dose. Aqui o valor está correto, mas a ausência de dose completa reprova o item conjunto, escondendo qual comportamento mudou entre condições."
+      },
+      {
+        "assertion": "Registra não perguntado com risco e não declara pronto, confirmado ou leitor executado.",
+        "reason": "Exigir que o “não perguntado com risco” esteja sustentado no caso e não proponha nova insistência sobre uma checagem já feita. A saída ressalva que insistir ultrapassaria o limite; a checagem não deve se reduzir à presença dos termos."
+      }
+    ],
+    "overall": "Três assertions satisfeitas. A falha é a omissão do sinal de dose completa, apesar de preservar A-2 como valor e respeitar a parada."
+  },
+  "grading_context": {
+    "method": "Leitura integral de execution.md e de todos os arquivos em outputs/; julgamento independente das assertions, com evidência textual.",
+    "metrics_note": "Sem metrics.json. timing foi copiado literalmente; total_duration_seconds é apenas parede observada. Tokens, modelo e duração nativa não foram inferidos nem estimados por caracteres.",
+    "limits": "Ensaio textual limitado e guiado, uma execução por caso e condição. execution.md é um relato resumido; não há transcrição nativa completa de ferramentas nem métricas nativas de tokens, modelo ou duração. As fichas são entradas autorizadas, não fatos conferidos externamente pelo avaliador. Revisão humana no viewer permanece pendente."
+  }
+}

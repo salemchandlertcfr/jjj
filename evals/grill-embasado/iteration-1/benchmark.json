@@ -1,0 +1,320 @@
+{
+  "metadata": {
+    "skill_name": "grill-embasado",
+    "skill_path": "skills/grill-embasado",
+    "executor_model": null,
+    "analyzer_model": null,
+    "timestamp": "2026-10-23",
+    "evals_run": [
+      1,
+      2,
+      3
+    ],
+    "runs_per_configuration": 1,
+    "timestamp_kind": "data da avaliação; hora nativa indisponível",
+    "cases_per_configuration": 3,
+    "time_seconds_kind": "observed_wall_clock",
+    "human_review_status": "pending",
+    "upstream_commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44"
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 110,
+        "tokens": null,
+        "tool_calls": null,
+        "errors": null,
+        "native_duration_ms": null
+      },
+      "expectations": [
+        {
+          "text": "A mensagem faz uma única pergunta de reflexão aberta, ancorada em episódio vivido.",
+          "passed": true,
+          "evidence": "mensagem.md pergunta apenas: “Como foi a última situação em que você precisou tirar conclusões dos dados para tomar uma decisão?” O pedido é aberto e focaliza um episódio vivido; a reprodução do cartão na linha Base não acrescenta uma pergunta à pessoa."
+        },
+        {
+          "text": "Não oferece solução, menu de alternativas ou resposta recomendada.",
+          "passed": true,
+          "evidence": "A pergunta pede o relato da “última situação”; a finalidade é “entender o job que acontece hoje e formular o que você precisa realizar”. Não há implementação, alternativas de solução ou resposta sugerida em mensagem.md."
+        },
+        {
+          "text": "Identifica a base no cartão e explica a decisão que a resposta muda.",
+          "passed": true,
+          "evidence": "A base cita “C1: quem executa o job hoje, como e quando, e o que o torna difícil; saída: job formulado sem escolher implementação”. O motivo conecta o episódio a “entender o job que acontece hoje e formular o que você precisa realizar”, que é a decisão de formulação autorizada."
+        },
+        {
+          "text": "Não inventa resposta, versão ou confirmação da pessoa.",
+          "passed": true,
+          "evidence": "A única fala atribuída à pessoa é a entrada literal “Quero tirar conclusões dos dados para decidir melhor. Ainda não escrevi minha versão.” A saída pede um episódio e não apresenta versão ou confirmação inventada."
+        }
+      ],
+      "notes": [
+        "Ensaio textual limitado e guiado, uma execução por caso e condição. execution.md é um relato resumido; não há transcrição nativa completa de ferramentas nem métricas nativas de tokens, modelo ou duração. As fichas são entradas autorizadas, não fatos conferidos externamente pelo avaliador. Revisão humana no viewer permanece pendente.",
+        "Revisão humana no viewer gerado, ainda pendente."
+      ]
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.5,
+        "passed": 2,
+        "failed": 2,
+        "total": 4,
+        "time_seconds": 37,
+        "tokens": null,
+        "tool_calls": null,
+        "errors": null,
+        "native_duration_ms": null
+      },
+      "expectations": [
+        {
+          "text": "A mensagem faz uma única pergunta de reflexão aberta, ancorada em episódio vivido.",
+          "passed": false,
+          "evidence": "Embora haja um só ponto de interrogação e um episódio comum, o pedido empilha “quem realizou a análise, como e em que momento ela aconteceu, e o que tornou difícil chegar a uma conclusão”. São várias demandas de resposta na mesma fala, não uma única pergunta aberta de reflexão. A ancoragem em “uma situação recente” está presente, mas a assertion é conjunta."
+        },
+        {
+          "text": "Não oferece solução, menu de alternativas ou resposta recomendada.",
+          "passed": true,
+          "evidence": "A mensagem pede um relato recente e seus aspectos; não sugere implementação, menu de soluções ou resposta recomendada. “Antes de formular o job” mantém a formulação pendente."
+        },
+        {
+          "text": "Identifica a base no cartão e explica a decisão que a resposta muda.",
+          "passed": false,
+          "evidence": "A fala atribui a base apenas à pessoa: “Você mencionou que quer ‘tirar conclusões dos dados para decidir melhor’”. “Para entender esse trabalho antes de formular o job” explica a finalidade, e as dimensões do cartão aparecem nas perguntas, mas não há identificação do cartão como base da condução. Repetir seus tópicos sem atribuir essa base não satisfaz integralmente a assertion."
+        },
+        {
+          "text": "Não inventa resposta, versão ou confirmação da pessoa.",
+          "passed": true,
+          "evidence": "A saída cita somente “tirar conclusões dos dados para decidir melhor”, que pertence à entrada, e solicita o episódio. Não inventa resposta, versão formulada ou confirmação da pessoa."
+        }
+      ],
+      "notes": [
+        "Ensaio textual limitado e guiado, uma execução por caso e condição. execution.md é um relato resumido; não há transcrição nativa completa de ferramentas nem métricas nativas de tokens, modelo ou duração. As fichas são entradas autorizadas, não fatos conferidos externamente pelo avaliador. Revisão humana no viewer permanece pendente.",
+        "Revisão humana no viewer gerado, ainda pendente."
+      ]
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 71.0,
+        "tokens": null,
+        "tool_calls": null,
+        "errors": null,
+        "native_duration_ms": null
+      },
+      "expectations": [
+        {
+          "text": "Apresenta F-052 com força 4 e a limitação de evidência indireta ou experimental.",
+          "passed": true,
+          "evidence": "A abertura declara: “A ficha F-052 tem força 4, apoio conferido e evidência indireta, restrita ao experimento citado; não há evidência de campo nem conclusão universal.” A linha Base reproduz o trecho autorizado."
+        },
+        {
+          "text": "Faz uma pergunta aberta sobre a versão da pessoa, sem pedir concordância ou impor conclusão.",
+          "passed": true,
+          "evidence": "A pergunta é “Como você relaciona esse resultado à sua afirmação para decidir o papel de priorizar pelo clique no esboço?” Ela solicita interpretação da própria versão e não pede concordância, retratação ou uma conclusão prescrita."
+        },
+        {
+          "text": "Não transforma o experimento em conclusão universal nem inventa fontes.",
+          "passed": true,
+          "evidence": "A saída restringe a ficha ao “experimento citado” e diz expressamente “não há evidência de campo nem conclusão universal”. As únicas referências são R-4.7-01 e F-052, reproduzindo a versão e o trecho do caso; nenhuma fonte adicional é alegada."
+        },
+        {
+          "text": "Relaciona a pergunta à decisão de conflito ou sinergia.",
+          "passed": true,
+          "evidence": "A pergunta pede decidir “o papel de priorizar pelo clique no esboço”; o motivo explicita “sua decisão de classificar a relação entre priorizar pelo clique e diversidade no esboço”. No contexto fornecido, isso é a decisão de conflito ou sinergia, mesmo sem repetir os dois rótulos."
+        }
+      ],
+      "notes": [
+        "Ensaio textual limitado e guiado, uma execução por caso e condição. execution.md é um relato resumido; não há transcrição nativa completa de ferramentas nem métricas nativas de tokens, modelo ou duração. As fichas são entradas autorizadas, não fatos conferidos externamente pelo avaliador. Revisão humana no viewer permanece pendente.",
+        "Revisão humana no viewer gerado, ainda pendente."
+      ]
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 27,
+        "tokens": null,
+        "tool_calls": null,
+        "errors": null,
+        "native_duration_ms": null
+      },
+      "expectations": [
+        {
+          "text": "Apresenta F-052 com força 4 e a limitação de evidência indireta ou experimental.",
+          "passed": true,
+          "evidence": "mensagem.md apresenta “ficha autorizada F-052, válida, com força 4 e apoio conferido” e “Sua evidência é indireta”, seguido do trecho “Neste experimento, o ranking pelo clique reduziu a variedade de fontes exibidas.”"
+        },
+        {
+          "text": "Faz uma pergunta aberta sobre a versão da pessoa, sem pedir concordância ou impor conclusão.",
+          "passed": true,
+          "evidence": "Pergunta: “Considerando o resultado e os limites da ficha, como você avalia essa afirmação e a classificação de priorizar pelo clique como conflito ou sinergia no esboço?” É aberta sobre a versão, sem pedir que a pessoa concorde ou impor uma classificação."
+        },
+        {
+          "text": "Não transforma o experimento em conclusão universal nem inventa fontes.",
+          "passed": true,
+          "evidence": "A saída afirma “A ficha não traz evidência de campo nem permite uma conclusão universal.” Só F-052 é citada, com o trecho autorizado; não há nova fonte nem generalização do experimento."
+        },
+        {
+          "text": "Relaciona a pergunta à decisão de conflito ou sinergia.",
+          "passed": true,
+          "evidence": "A pergunta liga explicitamente a avaliação da afirmação à “classificação de priorizar pelo clique como conflito ou sinergia no esboço”. O motivo conecta a variedade de fontes ao exame do “sempre”."
+        }
+      ],
+      "notes": [
+        "Ensaio textual limitado e guiado, uma execução por caso e condição. execution.md é um relato resumido; não há transcrição nativa completa de ferramentas nem métricas nativas de tokens, modelo ou duração. As fichas são entradas autorizadas, não fatos conferidos externamente pelo avaliador. Revisão humana no viewer permanece pendente.",
+        "Revisão humana no viewer gerado, ainda pendente."
+      ]
+    },
+    {
+      "eval_id": 3,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 68,
+        "tokens": null,
+        "tool_calls": null,
+        "errors": null,
+        "native_duration_ms": null
+      },
+      "expectations": [
+        {
+          "text": "Encerra a mensagem à pessoa sem nova pergunta depois de chega.",
+          "passed": true,
+          "evidence": "A mensagem à pessoa diz “Paramos por hoje” e “A checagem fica interrompida, com o fechamento pendente.” Ela encerra sem solicitar resposta ou continuação."
+        },
+        {
+          "text": "Preserva a evidência contraditória e a reação manteve, sem motivo inventado.",
+          "passed": true,
+          "evidence": "registro.md mantém C1 como “contradiz”, F-061 “válida, força 4, evidência indireta” e o trecho “Neste experimento, a variedade exibida diminuiu com ranking por clique.” Preserva “Mantenho o que disse” como “manteve sem motivo informado”, sem atribuir motivação."
+        },
+        {
+          "text": "Mantém A-2 como valor fora da checagem e sinaliza dose completa para a condutora.",
+          "passed": true,
+          "evidence": "A-2 é “valor declarado” e “Não conferido como fato do mundo”. Em Sinal de dose: “Sinalizar à condutora aumento de padrão para completa, em razão da contradição”, esclarecendo que isso não prolonga a sessão nem significa execução de dose completa."
+        },
+        {
+          "text": "Registra não perguntado com risco e não declara pronto, confirmado ou leitor executado.",
+          "passed": true,
+          "evidence": "A seção “Não perguntado e risco” enumera lacunas e seus riscos. O registro diz “Nenhum leitor foi acionado nesta execução” e as ausências “impedem declarar fechamento completo ou pronto”; a mensagem conserva “fechamento pendente”. Não se atribui confirmação à pessoa."
+        }
+      ],
+      "notes": [
+        "Ensaio textual limitado e guiado, uma execução por caso e condição. execution.md é um relato resumido; não há transcrição nativa completa de ferramentas nem métricas nativas de tokens, modelo ou duração. As fichas são entradas autorizadas, não fatos conferidos externamente pelo avaliador. Revisão humana no viewer permanece pendente.",
+        "Revisão humana no viewer gerado, ainda pendente."
+      ]
+    },
+    {
+      "eval_id": 3,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.75,
+        "passed": 3,
+        "failed": 1,
+        "total": 4,
+        "time_seconds": 39,
+        "tokens": null,
+        "tool_calls": null,
+        "errors": null,
+        "native_duration_ms": null
+      },
+      "expectations": [
+        {
+          "text": "Encerra a mensagem à pessoa sem nova pergunta depois de chega.",
+          "passed": true,
+          "evidence": "mensagem.md diz “Paramos por hoje” e conserva a divergência “registrada em aberto”. Não faz nova pergunta nem pede qualquer continuação."
+        },
+        {
+          "text": "Preserva a evidência contraditória e a reação manteve, sem motivo inventado.",
+          "passed": true,
+          "evidence": "O registro mantém C1/F-061, “força 4, evidência indireta”, e o trecho literal do experimento. Registra “Mantenho o que disse” e “Chega por hoje”, sem acrescentar motivo; “Não há outra interação informada”."
+        },
+        {
+          "text": "Mantém A-2 como valor fora da checagem e sinaliza dose completa para a condutora.",
+          "passed": false,
+          "evidence": "A-2 é corretamente mantida como valor: “Não foi conferido como fato do mundo.” Porém o item “Sinal de dose” limita-se a “pedido explícito de parada. Encerrar imediatamente a dose padrão”. Não sinaliza dose completa para a condutora. Como a assertion exige os dois componentes, ela falha."
+        },
+        {
+          "text": "Registra não perguntado com risco e não declara pronto, confirmado ou leitor executado.",
+          "passed": true,
+          "evidence": "O item “Não perguntado, com risco” indica questões não feitas e o “risco de A-1 ser mantida sem integração da evidência contrária”. O registro afirma “Não houve leitura independente” e “Não declarar a checagem concluída ou a pessoa pronta”; também não inventa confirmação."
+        }
+      ],
+      "notes": [
+        "Ensaio textual limitado e guiado, uma execução por caso e condição. execution.md é um relato resumido; não há transcrição nativa completa de ferramentas nem métricas nativas de tokens, modelo ou duração. As fichas são entradas autorizadas, não fatos conferidos externamente pelo avaliador. Revisão humana no viewer permanece pendente.",
+        "Revisão humana no viewer gerado, ainda pendente."
+      ]
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 83.0,
+        "stddev": 23.4307,
+        "min": 68,
+        "max": 110
+      },
+      "tokens": null
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.75,
+        "stddev": 0.25,
+        "min": 0.5,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 34.3333,
+        "stddev": 6.4291,
+        "min": 27,
+        "max": 39
+      },
+      "tokens": null
+    },
+    "delta": {
+      "pass_rate": "+0.25",
+      "time_seconds": "+48.7",
+      "tokens": null
+    }
+  },
+  "notes": [
+    "Ensaio textual exploratório: três prompts por condição, uma execução por prompt. As 12 assertions não são 12 execuções independentes.",
+    "Execução e avaliação usaram assistentes desta sessão; modelo exato indisponível. Isto não é validação em Claude, avaliação cega, persona oculta ou conversa real com usuário.",
+    "Tempo é parede observada pelo executor, incluindo leitura e ferramentas; duração nativa, tokens, chamadas e erros são desconhecidos. Caracteres não são tokens.",
+    "O caso 2 empata. As diferenças dos casos 1 e 3 são unicidade da pergunta, identificação do cartão como base e sinal de dose. A rubrica de identificação da base admite revisão humana.",
+    "Os prompts tornam várias regras explícitas. Assertions conjuntas, como valor e dose, reduzem a precisão da atribuição; veja eval_feedback de cada execução.",
+    "A skill passou em 12/12 e o baseline em 9/12 nesta rubrica; a amostra não demonstra benefício geral, revelação, ausência de deriva ou parada adequada numa entrevista completa.",
+    "O desvio padrão é entre três casos diferentes, sem repetições. Revisão humana pendente; feedback não foi fabricado."
+  ]
+}

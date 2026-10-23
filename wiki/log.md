@@ -25,3 +25,10 @@ Registro cronológico de ingestões e revisões relevantes. Acrescentar novas en
 - Confirmada a origem oficial de S01 e utilizados auxiliares fixados do `skill-creator` no workspace, sem vendorização. Avaliação comparativa limitada e testes locais documentados na [avaliação do conselho](avaliacao-conselho.md).
 - Wiki, inventário e fronteiras da condutora atualizados. Restam 11 skills planejadas; pesquisa, isolamento e integrações reais continuam sujeitos às [pendências](pendencias.md).
 - Verificação final: 143 testes aprovados (77 conselho, 66 existentes); documentação e integridade das 11 fontes conferidas. Os dois pacotes portáveis foram gerados; preparação do conselho executada após extração fora do repositório. Benchmark e viewer reproduzidos byte a byte. A revisão corrigiu URLs privadas iniciais, conteúdo invalidado republicado, fidelidade dos argumentos e distribuição das fichas na troca. Revisão humana dos seis ensaios permanece pendente.
+
+## 2026-10-23 — Primeiro alpha local do grill
+
+- Preservado S12 e registrado propósito antes da implementação. O anexo `SKILL.md` repetido é idêntico a S01; não foi duplicado no inventário.
+- Criados protocolo universal, referências por tarefa, modelos JSON e três CLIs com primitivas compartilhadas para perguntas, respostas e Entendimento. Classificação semântica e persistência continuam com a condutora; pesquisa/leitor não foram simulados como integrações reais.
+- Acrescentados testes locais com extração do pacote e fluxo CLI; executados seis ensaios com/sem skill e avaliação separada. Resultados, rubrica, hashes e limites em [avaliação](../evals/grill-embasado/README.md). Revisão humana pendente.
+- Retificação do estado observado neste checkout: os comandos gerais não reproduzem os 143 passes históricos; faltam a pasta da condutora e módulos do conselho. O verificador acusa três links antigos, e a suíte geral tem sete erros anteriores. Essas falhas não foram corrigidas ou ocultadas pelo desenvolvimento do grill.

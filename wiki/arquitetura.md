@@ -1,6 +1,6 @@
 # Arquitetura das skills
 
-Estado: desenho do sistema; condutora e conselho têm implementações alpha, as outras 11 skills seguem planejadas. Revisão: 2026-10-23. Veja os escopos da [condutora](implementacao-condutora.md) e do [conselho](implementacao-conselho.md).
+Estado: desenho do sistema; condutora e conselho têm alphas documentados, incompletos neste checkout. O [grill](implementacao-grill.md) tem protocolo e apoio local; outras 10 skills seguem planejadas. Revisão: 2026-10-23. Veja os escopos da [condutora](implementacao-condutora.md) e do [conselho](implementacao-conselho.md).
 
 A Etapa 1 é organizada como um sistema de skills que transforma uma ideia em um CIR aprovado. A condutora coordena a conversa e o estado; as skills de método definem o trabalho de cada tema; as genéricas pesquisam, perguntam, elaboram e julgam. A separação permite carregar apenas o contexto da tarefa atual e testar componentes isoladamente. O plano geral especifica esse desenho; ele não comprova que o sistema já esteja instalado ou executável. Fonte: [S02, §§1–2 e 14](../sources/originais/plano-geral-skills-cir.md).
 
@@ -50,6 +50,8 @@ As formações respondem a trabalhos diferentes:
 - **Conselho:** julga sozinho na primeira rodada. Recebe critérios prévios e hipóteses sem autoria; uma troca posterior depende de divergência relevante. A decisão final pertence ao usuário.
 
 A condutora não elabora nem julga a ideia. Só ela lê e grava o dossiê; os demais recebem briefs filtrados e devolvem resultados. O conselho alpha devolve um pacote externo para ela persistir. Isolamento exige verificação e auditoria, sobretudo quando agentes compartilham arquivos ou permissões. Fontes: [S02, §§2–3 e 9](../sources/originais/plano-geral-skills-cir.md), [S10, §§4 e 7](../sources/originais/plano-etapa-1-cir-condutora.md) e [S11, §4](../sources/originais/plano-conselho-especialistas-revisado.md).
+
+No grill, quem pergunta é a própria condutora. O leitor recebe somente cartão e Entendimento, e a pesquisa recebe afirmações factuais sem autoria. Os scripts locais são ferramentas da condutora: não autenticam papéis, abrem sessões ou restringem permissões. Fonte: [S12, §§4, 9 e 12](../sources/originais/plano-grill-embasado.md).
 
 ## Especialidades e execução
 

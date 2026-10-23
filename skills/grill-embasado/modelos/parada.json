@@ -1,0 +1,27 @@
+{
+  "dose": "padrao",
+  "motivo": "chega",
+  "mapa": [
+    {
+      "id": "N1",
+      "classe": "fato pessoal",
+      "valor": "alto",
+      "estado": "pendente",
+      "impacto": "define o ponto de início do job",
+      "depende_de": []
+    }
+  ],
+  "nao_perguntado": [
+    {
+      "id": "N1",
+      "texto": "episódio concreto",
+      "valor": "alto",
+      "risco": "formular o job por suposição",
+      "motivo": "usuário pediu parada"
+    }
+  ],
+  "entendimento_sha256": "SUBSTITUIR_PELO_HASH_REAL",
+  "sessao_condutora": "condutora-1",
+  "confirmacao": {},
+  "leitor": {}
+}

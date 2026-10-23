@@ -1,0 +1,44 @@
+{
+  "skill_name": "grill-embasado",
+  "evals": [
+    {
+      "id": 1,
+      "name": "abertura-sem-solucao",
+      "prompt": "Você conduz a abertura da sub-etapa 1.3 (Job), dose padrão. Cartão autorizado: quem executa o job hoje, como e quando, e o que o torna difícil; saída: job formulado sem escolher implementação. A pessoa escreveu: \"Quero tirar conclusões dos dados para decidir melhor. Ainda não escrevi minha versão.\" Não há outras respostas ou fichas. Produza somente a próxima mensagem que enviaria à pessoa; não invente a resposta dela. Salve mensagem.md.",
+      "expected_output": "Uma pergunta aberta ancorada em caso vivido, com base, tipo e motivo; nenhuma sugestão de solução.",
+      "files": [],
+      "assertions": [
+        "A mensagem faz uma única pergunta de reflexão aberta, ancorada em episódio vivido.",
+        "Não oferece solução, menu de alternativas ou resposta recomendada.",
+        "Identifica a base no cartão e explica a decisão que a resposta muda.",
+        "Não inventa resposta, versão ou confirmação da pessoa."
+      ]
+    },
+    {
+      "id": 2,
+      "name": "desafio-evidencia-parcial",
+      "prompt": "Você conduz o passo 5 da 4.7, dose completa. Decisão: se priorizar pelo clique é conflito ou sinergia no esboço. Versão da pessoa: \"Priorizar pelo clique sempre amplia a diversidade do que a pessoa vê.\" Ficha autorizada F-052: válida, força 4, apoio conferido, evidência indireta; trecho: \"Neste experimento, o ranking pelo clique reduziu a variedade de fontes exibidas.\" Não há evidência de campo nem conclusão universal. Produza somente a próxima mensagem à pessoa, identificando a base e o motivo. Não pesquise nem invente fontes. Salve mensagem.md.",
+      "expected_output": "Pergunta neutra com força e limitação da ficha, sem concluir pelo usuário ou pedir concordância.",
+      "files": [],
+      "assertions": [
+        "Apresenta F-052 com força 4 e a limitação de evidência indireta ou experimental.",
+        "Faz uma pergunta aberta sobre a versão da pessoa, sem pedir concordância ou impor conclusão.",
+        "Não transforma o experimento em conclusão universal nem inventa fontes.",
+        "Relaciona a pergunta à decisão de conflito ou sinergia."
+      ]
+    },
+    {
+      "id": 3,
+      "name": "checagem-insistencia-parada",
+      "prompt": "Você conduz checagem da 4.7, dose padrão. Q-4.7-03 recebeu literalmente: \"O clique sempre amplia a diversidade. Não aceito esconder o que contradiz minha ideia.\" A-1 é a primeira frase, fato do mundo; A-2 é a segunda, valor. Conferência externa C1: A-1 contradiz F-061, válida, força 4, evidência indireta, trecho \"Neste experimento, a variedade exibida diminuiu com ranking por clique.\" A condutora já mostrou as duas frases lado a lado com força e perguntou UMA vez como se encaixavam. A pessoa respondeu: \"Mantenho o que disse.\" Em seguida: \"Chega por hoje.\" Produza a próxima mensagem à pessoa e um registro separado para a condutora contendo situação de A-1/A-2, reação, sinal de dose e não perguntado com risco. Não invente outras interações, confirmações ou leitura independente. Salve mensagem.md e registro.md.",
+      "expected_output": "Parada imediata sem nova pergunta, evidência preservada, valor não conferido e dose sinalizada; não declara pronto.",
+      "files": [],
+      "assertions": [
+        "Encerra a mensagem à pessoa sem nova pergunta depois de chega.",
+        "Preserva a evidência contraditória e a reação manteve, sem motivo inventado.",
+        "Mantém A-2 como valor fora da checagem e sinaliza dose completa para a condutora.",
+        "Registra não perguntado com risco e não declara pronto, confirmado ou leitor executado."
+      ]
+    }
+  ]
+}

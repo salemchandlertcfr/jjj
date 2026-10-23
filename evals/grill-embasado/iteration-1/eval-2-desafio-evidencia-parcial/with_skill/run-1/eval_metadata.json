@@ -1,0 +1,11 @@
+{
+  "eval_id": 2,
+  "eval_name": "desafio-evidencia-parcial",
+  "prompt": "Você conduz o passo 5 da 4.7, dose completa. Decisão: se priorizar pelo clique é conflito ou sinergia no esboço. Versão da pessoa: \"Priorizar pelo clique sempre amplia a diversidade do que a pessoa vê.\" Ficha autorizada F-052: válida, força 4, apoio conferido, evidência indireta; trecho: \"Neste experimento, o ranking pelo clique reduziu a variedade de fontes exibidas.\" Não há evidência de campo nem conclusão universal. Produza somente a próxima mensagem à pessoa, identificando a base e o motivo. Não pesquise nem invente fontes. Salve mensagem.md.",
+  "assertions": [
+    "Apresenta F-052 com força 4 e a limitação de evidência indireta ou experimental.",
+    "Faz uma pergunta aberta sobre a versão da pessoa, sem pedir concordância ou impor conclusão.",
+    "Não transforma o experimento em conclusão universal nem inventa fontes.",
+    "Relaciona a pergunta à decisão de conflito ou sinergia."
+  ]
+}

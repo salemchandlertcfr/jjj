@@ -1,6 +1,6 @@
 # Pendências e próximos passos
 
-Estado: lacunas do sistema e próximos passos após os alphas de condutora e conselho. Revisão: 2026-10-23.
+Estado: lacunas do sistema e próximos passos após o apoio local do grill e os alphas documentados de condutora e conselho. Revisão: 2026-10-23.
 
 ## Decisões aplicadas e verificações pendentes
 
@@ -15,8 +15,9 @@ Estado: lacunas do sistema e próximos passos após os alphas de condutora e con
 
 ## Material e implementação ausentes
 
-- A [condutora alpha](implementacao-condutora.md) e o [conselho alpha](implementacao-conselho.md) foram criados a partir de S10/S11. As outras 11 skills continuam planejadas; integrações de plataforma e isolamento real precisam de validação. [S03](../sources/originais/simulacao_etapa1.py) permanece o experimento original, distinto do código dessas skills.
-- [S02, §15](../sources/originais/plano-geral-skills-cir.md) referencia planos detalhados de pesquisa, grill e especialistas ainda não fornecidos. O plano da condutora chegou como S10. Links de Notion nos originais não equivalem a conteúdo analisado.
+- A [condutora alpha](implementacao-condutora.md) e o [conselho alpha](implementacao-conselho.md) foram documentados a partir de S10/S11, mas este checkout não contém a pasta da condutora e contém só parte dos módulos do conselho. Isso impede a suíte geral e a integração com o novo [grill local](implementacao-grill.md). Outras 10 skills continuam planejadas. [S03](../sources/originais/simulacao_etapa1.py) permanece o experimento original.
+- [S02, §15](../sources/originais/plano-geral-skills-cir.md) referencia planos detalhados de pesquisa e especialistas ainda não fornecidos. Condutora chegou como S10 e grill como [S12](../sources/originais/plano-grill-embasado.md). O plano de pesquisa citado por S12 não veio neste pedido; não presumir seu schema ou sua implementação.
+- O grill tem verificações locais e ensaio textual limitado. Pesquisa real, leitor Claude, sigilo e isolamento, transcrição nativa, persona oculta, acionamento e revisão humana continuam pendentes; procedimento em [avaliação](../evals/grill-embasado/README.md).
 - A origem de [skill-creator, S01](../sources/originais/skill-creator.md) foi confirmada byte a byte com o arquivo oficial da Anthropic em revisão fixa, sob Apache-2.0. Seus auxiliares foram obtidos no workspace para avaliar o conselho, sem vendorização. Procedência no [inventário](../sources/README.md); isso não define a licença do projeto inteiro.
 - Há testes locais e avaliações limitadas da [condutora](avaliacao-condutora.md) e do [conselho](avaliacao-conselho.md). Estudo comparativo repetido, avaliação de plataformas e passagem independente para a Etapa 2 seguem pendentes.
 

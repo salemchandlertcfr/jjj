@@ -1,0 +1,82 @@
+[
+  {
+    "query": "Me grelha sobre esta ideia antes de eu escrever minha versão: quero decidir melhor usando meus dados.",
+    "should_trigger": true
+  },
+  {
+    "query": "Abre a 1.3 com o grill; precisamos entender quem faz o job hoje e onde trava.",
+    "should_trigger": true
+  },
+  {
+    "query": "Faz as perguntas do passo 5 da 2.2 a partir das fichas que acabaram de chegar.",
+    "should_trigger": true
+  },
+  {
+    "query": "Confere o que respondi contra as fontes e me mostra onde há contradição.",
+    "should_trigger": true
+  },
+  {
+    "query": "Me questiona até não sobrar dúvida importante sobre o propósito do projeto.",
+    "should_trigger": true
+  },
+  {
+    "query": "Quero pensar nos trade-offs antes de decidir; me pergunta sem recomendar nada.",
+    "should_trigger": true
+  },
+  {
+    "query": "Já tenho uma hipótese para o conselho, mas quero fixar o que a refutaria primeiro.",
+    "should_trigger": true
+  },
+  {
+    "query": "Não sei explicar o que considero insight; me ajude com perguntas sobre casos vividos.",
+    "should_trigger": true
+  },
+  {
+    "query": "Use grill-embasado na dose leve para entender meus limites antes do CIR.",
+    "should_trigger": true
+  },
+  {
+    "query": "A pesquisa trouxe um contraexemplo; me sabatine sobre o efeito disso na minha versão.",
+    "should_trigger": true
+  },
+  {
+    "query": "O que você acha da minha ideia de usar dados para decisões melhores?",
+    "should_trigger": false
+  },
+  {
+    "query": "Me dá dez ideias diferentes para esse job antes de eu escolher.",
+    "should_trigger": false
+  },
+  {
+    "query": "Qual destas hipóteses é a melhor? Quero uma avaliação do conselho.",
+    "should_trigger": false
+  },
+  {
+    "query": "Pesquisa o que se sabe sobre viés de confirmação e monte fichas verificadas.",
+    "should_trigger": false
+  },
+  {
+    "query": "Monta um questionário para eu mandar ao meu sócio que decide o orçamento.",
+    "should_trigger": false
+  },
+  {
+    "query": "Revisa o texto do CIR corrigindo clareza e gramática sem conversar comigo.",
+    "should_trigger": false
+  },
+  {
+    "query": "Gere alternativas de propósito para eu comparar amanhã.",
+    "should_trigger": false
+  },
+  {
+    "query": "Preciso de uma enquete para entrevistar clientes sobre preço e plano.",
+    "should_trigger": false
+  },
+  {
+    "query": "Julgue se esta hipótese resiste aos critérios e às fontes do dossiê.",
+    "should_trigger": false
+  },
+  {
+    "query": "Resuma as respostas existentes, sem novas perguntas ou checagem de fatos.",
+    "should_trigger": false
+  }
+]

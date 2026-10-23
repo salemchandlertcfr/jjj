@@ -1,0 +1,11 @@
+{
+  "eval_id": 1,
+  "eval_name": "abertura-sem-solucao",
+  "prompt": "Você conduz a abertura da sub-etapa 1.3 (Job), dose padrão. Cartão autorizado: quem executa o job hoje, como e quando, e o que o torna difícil; saída: job formulado sem escolher implementação. A pessoa escreveu: \"Quero tirar conclusões dos dados para decidir melhor. Ainda não escrevi minha versão.\" Não há outras respostas ou fichas. Produza somente a próxima mensagem que enviaria à pessoa; não invente a resposta dela. Salve mensagem.md.",
+  "assertions": [
+    "A mensagem faz uma única pergunta de reflexão aberta, ancorada em episódio vivido.",
+    "Não oferece solução, menu de alternativas ou resposta recomendada.",
+    "Identifica a base no cartão e explica a decisão que a resposta muda.",
+    "Não inventa resposta, versão ou confirmação da pessoa."
+  ]
+}

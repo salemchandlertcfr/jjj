@@ -1,0 +1,202 @@
+[
+  {
+    "id": "P01",
+    "texto": "Você não acha que priorizar pelo clique reforça o viés?",
+    "indutora": true
+  },
+  {
+    "id": "P02",
+    "texto": "Isso resolve o problema, certo?",
+    "indutora": true
+  },
+  {
+    "id": "P03",
+    "texto": "Você concorda que a solução deve ser automática?",
+    "indutora": true
+  },
+  {
+    "id": "P04",
+    "texto": "Recomendo esse caminho; aceita a recomendação?",
+    "indutora": true
+  },
+  {
+    "id": "P05",
+    "texto": "Prefere mostrar tudo ou só o relevante?",
+    "indutora": true
+  },
+  {
+    "id": "P06",
+    "texto": "Não seria melhor ignorar os casos raros?",
+    "indutora": true
+  },
+  {
+    "id": "P07",
+    "texto": "Uns 30% fazem isso; em que porcentagem ocorre no seu caso?",
+    "indutora": true
+  },
+  {
+    "id": "P08",
+    "texto": "Por que a versão atual falha?",
+    "indutora": true
+  },
+  {
+    "id": "P09",
+    "texto": "A fonte prova que o clique é melhor; o que muda?",
+    "indutora": true
+  },
+  {
+    "id": "P10",
+    "texto": "Obviamente precisamos filtrar; qual é o próximo passo?",
+    "indutora": true
+  },
+  {
+    "id": "P11",
+    "texto": "Excelente ideia! O que faria primeiro?",
+    "indutora": true
+  },
+  {
+    "id": "P12",
+    "texto": "Você tem razão. Qual é a prioridade?",
+    "indutora": true
+  },
+  {
+    "id": "P13",
+    "texto": "Concordo com você; o que vai mudar?",
+    "indutora": true
+  },
+  {
+    "id": "P14",
+    "texto": "Sua solução funciona, né?",
+    "indutora": true
+  },
+  {
+    "id": "P15",
+    "texto": "Minha recomendação é usar um painel; qual seria o primeiro indicador?",
+    "indutora": true
+  },
+  {
+    "id": "P16",
+    "texto": "Com que frequência você acha que isso ocorre, umas dez vezes?",
+    "indutora": true
+  },
+  {
+    "id": "P17",
+    "texto": "Você quer rapidez ou precisão?",
+    "indutora": true
+  },
+  {
+    "id": "P18",
+    "texto": "Como esse aplicativo resolveria o problema?",
+    "indutora": true
+  },
+  {
+    "id": "P19",
+    "texto": "Qual benefício você terá ao adotar isso?",
+    "indutora": true
+  },
+  {
+    "id": "P20",
+    "texto": "Por que você desperdiça tempo com o processo atual?",
+    "indutora": true
+  },
+  {
+    "id": "P21",
+    "texto": "Na última vez em que precisou decidir com esses dados, onde travou?",
+    "indutora": false
+  },
+  {
+    "id": "P22",
+    "texto": "Quando você diz insight, o que conta como um?",
+    "indutora": false
+  },
+  {
+    "id": "P23",
+    "texto": "O que precisa ser verdade para funcionar como descreve?",
+    "indutora": false
+  },
+  {
+    "id": "P24",
+    "texto": "Conte um caso em que isso aconteceu?",
+    "indutora": false
+  },
+  {
+    "id": "P25",
+    "texto": "Que outro caminho você já considerou?",
+    "indutora": false
+  },
+  {
+    "id": "P26",
+    "texto": "Se funcionar como descreve, o que muda para quem decide?",
+    "indutora": false
+  },
+  {
+    "id": "P27",
+    "texto": "Que condição faria você rever essa escolha?",
+    "indutora": false
+  },
+  {
+    "id": "P28",
+    "texto": "O que seria inaceitável mesmo que funcionasse?",
+    "indutora": false
+  },
+  {
+    "id": "P29",
+    "texto": "Qual decisão esta conversa deve ajudar a tomar?",
+    "indutora": false
+  },
+  {
+    "id": "P30",
+    "texto": "O que você notou primeiro naquele episódio?",
+    "indutora": false
+  },
+  {
+    "id": "P31",
+    "texto": "O que pesou mais na decisão daquele dia?",
+    "indutora": false
+  },
+  {
+    "id": "P32",
+    "texto": "Como reconhece que chegou ao resultado desejado?",
+    "indutora": false
+  },
+  {
+    "id": "P33",
+    "texto": "Qual foi a parte mais difícil daquela experiência?",
+    "indutora": false
+  },
+  {
+    "id": "P34",
+    "texto": "O que ficou sem saber naquele momento?",
+    "indutora": false
+  },
+  {
+    "id": "P35",
+    "texto": "Como a sua expectativa se comparou com o que aconteceu?",
+    "indutora": false
+  },
+  {
+    "id": "P36",
+    "texto": "Com que frequência isso acontece no seu trabalho?",
+    "indutora": false
+  },
+  {
+    "id": "P37",
+    "texto": "Que informação mudou sua decisão mais recente?",
+    "indutora": false
+  },
+  {
+    "id": "P38",
+    "texto": "O que ainda está errado no entendimento que devolvi?",
+    "indutora": false
+  },
+  {
+    "id": "P39",
+    "texto": "Qual limite você quer preservar?",
+    "indutora": false
+  },
+  {
+    "id": "P40",
+    "texto": "Como você distinguiria esse caso dos demais?",
+    "indutora": false
+  }
+]

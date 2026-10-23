@@ -81,6 +81,14 @@
       "received_on": "2026-10-23",
       "revises": "S04",
       "selected_for": "Implementação solicitada pelo usuário nesta revisão."
+    },
+    {
+      "id": "S12",
+      "original_filename": "Plano detalhado — grill-embasado ec54d7f985534c0a997926c075d97775.md",
+      "path": "sources/originais/plano-grill-embasado.md",
+      "sha256": "49e091ea6d92bdfdabf3e2d51f787e0269537e17850850e9d2d29419fe043b04",
+      "bytes": 47370,
+      "received_on": "2026-10-23"
     }
   ]
 }

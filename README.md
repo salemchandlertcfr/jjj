@@ -2,7 +2,7 @@
 
 Projeto de uma família de skills para transformar uma ideia em um **Conceito Ideal de Referência (CIR)**: uma descrição funcional do que uma solução deve realizar, antes de escolher a implementação e o produto viável. O método IDEAL orienta a concepção; uma condutora, skills temáticas e especialistas estruturam o trabalho.
 
-**Estado em 23/10/2026:** duas implementações **alpha**: a condutora [`etapa-1-cir`](skills/etapa-1-cir/SKILL.md) mantém o processo e o dossiê; o [`conselho-especialistas`](skills/conselho-especialistas/SKILL.md) prepara e verifica julgamentos independentes, evidência e dissenso. As outras 11 skills seguem planejadas. O fluxo completo e as integrações de plataforma ainda precisam de avaliação. A criação do conselho usa o `skill-creator` fornecido em `SKILL.md`.
+**Estado em 23/10/2026:** a documentação registra alphas da condutora [`etapa-1-cir`](skills/etapa-1-cir/SKILL.md) e do [`conselho-especialistas`](skills/conselho-especialistas/SKILL.md). Este checkout está incompleto nesses dois componentes. O novo [`grill-embasado`](skills/grill-embasado/SKILL.md) tem protocolo e verificadores locais para perguntas, respostas e Entendimento. As outras 10 skills seguem planejadas. O fluxo completo e as integrações de plataforma ainda precisam de avaliação. Conselho e grill seguem o `skill-creator` fornecido pelo usuário.
 
 ## Comece pelo que precisa fazer
 
@@ -10,6 +10,7 @@ Projeto de uma família de skills para transformar uma ideia em um **Conceito Id
 | --- | --- |
 | Instalar e experimentar a condutora alpha | [Implementação e uso](wiki/implementacao-condutora.md) |
 | Instalar e usar o conselho alpha | [Implementação do conselho](wiki/implementacao-conselho.md) |
+| Usar e desenvolver perguntas embasadas | [Implementação do grill](wiki/implementacao-grill.md) |
 | Entender o método e suas fronteiras | [Método IDEAL](wiki/metodo-ideal.md) |
 | Percorrer o processo do início à entrega | [Fluxo da Etapa 1](wiki/fluxo-etapa1.md) |
 | Implementar ou revisar as skills | [Arquitetura](wiki/arquitetura.md) e [contratos](wiki/contratos.md) |
@@ -20,8 +21,8 @@ Projeto de uma família de skills para transformar uma ideia em um **Conceito Id
 ## O que há no repositório
 
 - `wiki/`: síntese por assunto, com referências aos anexos e separação entre evidência, proposta e decisão editorial.
-- `skills/etapa-1-cir/` e `skills/conselho-especialistas/`: pacotes universais, referências e scripts em Python sem dependências externas.
-- `sources/`: os onze arquivos recebidos, preservados byte a byte, e seu [inventário](sources/README.md).
+- `skills/`: pacotes universais, referências e scripts em Python sem dependências externas; consulte os limites de cada implementação.
+- `sources/`: os doze arquivos distintos recebidos, preservados byte a byte, e seu [inventário](sources/README.md).
 - [AGENTS.md](AGENTS.md): instruções curtas para agentes que modificam o repositório.
 - `scripts/verificar_documentacao.py`: verificação local de links, navegação e integridade das fontes.
 

@@ -1,0 +1,30 @@
+{
+  "conferencias": [
+    {
+      "id": "A1",
+      "resultado": "contradiz",
+      "evidencias": [
+        {
+          "ficha": "F1",
+          "trecho": "Em parte dos casos os relatórios chegaram antes da decisão.",
+          "forca": 4
+        }
+      ]
+    }
+  ],
+  "eventos": [
+    {
+      "id": "E1",
+      "afirmacao": "A1",
+      "suas_palavras": "Os relatórios sempre chegam tarde.",
+      "evidencias_mostradas": [
+        {
+          "ficha": "F1",
+          "trecho": "Em parte dos casos os relatórios chegaram antes da decisão.",
+          "forca": 4
+        }
+      ],
+      "depois": "manteve sem motivo"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "total_tokens": null,
+  "duration_ms": null,
+  "total_duration_seconds": 110,
+  "source": "wall_clock_observed",
+  "modelo": null,
+  "started_at": "2026-10-23 23:01:24 UTC",
+  "ended_at": "2026-10-23 23:03:14 UTC"
+}

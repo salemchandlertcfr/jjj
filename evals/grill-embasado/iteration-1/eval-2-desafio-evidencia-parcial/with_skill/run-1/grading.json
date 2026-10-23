@@ -1,0 +1,74 @@
+{
+  "expectations": [
+    {
+      "text": "Apresenta F-052 com força 4 e a limitação de evidência indireta ou experimental.",
+      "passed": true,
+      "evidence": "A abertura declara: “A ficha F-052 tem força 4, apoio conferido e evidência indireta, restrita ao experimento citado; não há evidência de campo nem conclusão universal.” A linha Base reproduz o trecho autorizado."
+    },
+    {
+      "text": "Faz uma pergunta aberta sobre a versão da pessoa, sem pedir concordância ou impor conclusão.",
+      "passed": true,
+      "evidence": "A pergunta é “Como você relaciona esse resultado à sua afirmação para decidir o papel de priorizar pelo clique no esboço?” Ela solicita interpretação da própria versão e não pede concordância, retratação ou uma conclusão prescrita."
+    },
+    {
+      "text": "Não transforma o experimento em conclusão universal nem inventa fontes.",
+      "passed": true,
+      "evidence": "A saída restringe a ficha ao “experimento citado” e diz expressamente “não há evidência de campo nem conclusão universal”. As únicas referências são R-4.7-01 e F-052, reproduzindo a versão e o trecho do caso; nenhuma fonte adicional é alegada."
+    },
+    {
+      "text": "Relaciona a pergunta à decisão de conflito ou sinergia.",
+      "passed": true,
+      "evidence": "A pergunta pede decidir “o papel de priorizar pelo clique no esboço”; o motivo explicita “sua decisão de classificar a relação entre priorizar pelo clique e diversidade no esboço”. No contexto fornecido, isso é a decisão de conflito ou sinergia, mesmo sem repetir os dois rótulos."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1.0
+  },
+  "execution_metrics": null,
+  "timing": {
+    "total_tokens": null,
+    "duration_ms": null,
+    "total_duration_seconds": 71.0,
+    "source": "wall_clock_observed",
+    "modelo": null
+  },
+  "claims": [
+    {
+      "claim": "F-052 tem força 4, apoio conferido e evidência indireta restrita ao experimento.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Conferido contra o enunciado autorizado do caso 2. A verificação é de fidelidade ao caso, não de validade científica externa."
+    },
+    {
+      "claim": "A triagem do validador aprovou a pergunta sem erros, suspeitas ou pendências.",
+      "type": "process",
+      "verified": false,
+      "evidence": "execution.md relata aprovação, mas o log nativo e os JSON temporários não estão nos artefatos disponíveis. O resultado lexical não fundamenta os passes de conteúdo."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [
+      "Ensaio textual limitado e guiado, uma execução por caso e condição. execution.md é um relato resumido; não há transcrição nativa completa de ferramentas nem métricas nativas de tokens, modelo ou duração. As fichas são entradas autorizadas, não fatos conferidos externamente pelo avaliador. Revisão humana no viewer permanece pendente."
+    ],
+    "needs_review": [
+      "Revisão humana no viewer gerado, ainda pendente."
+    ],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "reason": "As assertions não verificam explicitamente a explicação do motivo exigida pelo prompt e pelo expected_output. Uma mensagem poderia cumprir as quatro apenas anexando a ficha e uma pergunta sobre classificação, sem explicar por que a resposta muda a decisão."
+      }
+    ],
+    "overall": "As quatro assertions são satisfeitas por conteúdo. A classificação é ligada semanticamente ao esboço e à diversidade, sem exigir menção literal aos rótulos conflito/sinergia."
+  },
+  "grading_context": {
+    "method": "Leitura integral de execution.md e de todos os arquivos em outputs/; julgamento independente das assertions, com evidência textual.",
+    "metrics_note": "Sem metrics.json. timing foi copiado literalmente; total_duration_seconds é apenas parede observada. Tokens, modelo e duração nativa não foram inferidos nem estimados por caracteres.",
+    "limits": "Ensaio textual limitado e guiado, uma execução por caso e condição. execution.md é um relato resumido; não há transcrição nativa completa de ferramentas nem métricas nativas de tokens, modelo ou duração. As fichas são entradas autorizadas, não fatos conferidos externamente pelo avaliador. Revisão humana no viewer permanece pendente."
+  }
+}

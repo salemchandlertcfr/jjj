@@ -1,0 +1,81 @@
+{
+  "expectations": [
+    {
+      "text": "Encerra a mensagem à pessoa sem nova pergunta depois de chega.",
+      "passed": true,
+      "evidence": "A mensagem à pessoa diz “Paramos por hoje” e “A checagem fica interrompida, com o fechamento pendente.” Ela encerra sem solicitar resposta ou continuação."
+    },
+    {
+      "text": "Preserva a evidência contraditória e a reação manteve, sem motivo inventado.",
+      "passed": true,
+      "evidence": "registro.md mantém C1 como “contradiz”, F-061 “válida, força 4, evidência indireta” e o trecho “Neste experimento, a variedade exibida diminuiu com ranking por clique.” Preserva “Mantenho o que disse” como “manteve sem motivo informado”, sem atribuir motivação."
+    },
+    {
+      "text": "Mantém A-2 como valor fora da checagem e sinaliza dose completa para a condutora.",
+      "passed": true,
+      "evidence": "A-2 é “valor declarado” e “Não conferido como fato do mundo”. Em Sinal de dose: “Sinalizar à condutora aumento de padrão para completa, em razão da contradição”, esclarecendo que isso não prolonga a sessão nem significa execução de dose completa."
+    },
+    {
+      "text": "Registra não perguntado com risco e não declara pronto, confirmado ou leitor executado.",
+      "passed": true,
+      "evidence": "A seção “Não perguntado e risco” enumera lacunas e seus riscos. O registro diz “Nenhum leitor foi acionado nesta execução” e as ausências “impedem declarar fechamento completo ou pronto”; a mensagem conserva “fechamento pendente”. Não se atribui confirmação à pessoa."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1.0
+  },
+  "execution_metrics": null,
+  "timing": {
+    "total_tokens": null,
+    "duration_ms": null,
+    "total_duration_seconds": 68,
+    "source": "wall_clock_observed",
+    "modelo": null
+  },
+  "claims": [
+    {
+      "claim": "A-1 contradiz F-061, segundo C1, sem que a insistência da pessoa altere esse registro.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Essa situação consta do enunciado; registro.md preserva a contradição e a natureza indireta da ficha, sem generalizar o experimento."
+    },
+    {
+      "claim": "A-2 não foi conferida como fato do mundo.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "A-2 é mantida como valor e excluída de resultado factual no registro."
+    },
+    {
+      "claim": "Não há confirmação, Entendimento atual completo ou leitura independente fornecidos.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "O caso só fornece as falas e C1. A saída não inventa tais eventos; deixa as ausências explícitas."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [
+      "Ensaio textual limitado e guiado, uma execução por caso e condição. execution.md é um relato resumido; não há transcrição nativa completa de ferramentas nem métricas nativas de tokens, modelo ou duração. As fichas são entradas autorizadas, não fatos conferidos externamente pelo avaliador. Revisão humana no viewer permanece pendente."
+    ],
+    "needs_review": [
+      "Revisão humana no viewer gerado, ainda pendente."
+    ],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Registra não perguntado com risco e não declara pronto, confirmado ou leitor executado.",
+        "reason": "A simples presença de “não perguntado” e “risco” poderia passar com lacunas inventadas ou com proposta de repetir a checagem já feita. Acrescentar que as lacunas sejam sustentadas pelo caso e não autorizem reabrir a pergunta após o “chega”. Aqui o registro faz essa ressalva."
+      }
+    ],
+    "overall": "As quatro assertions são satisfeitas. A parada, a evidência, o valor e o sinal de dose são tratados distintamente, sem inventar fechamento."
+  },
+  "grading_context": {
+    "method": "Leitura integral de execution.md e de todos os arquivos em outputs/; julgamento independente das assertions, com evidência textual.",
+    "metrics_note": "Sem metrics.json. timing foi copiado literalmente; total_duration_seconds é apenas parede observada. Tokens, modelo e duração nativa não foram inferidos nem estimados por caracteres.",
+    "limits": "Ensaio textual limitado e guiado, uma execução por caso e condição. execution.md é um relato resumido; não há transcrição nativa completa de ferramentas nem métricas nativas de tokens, modelo ou duração. As fichas são entradas autorizadas, não fatos conferidos externamente pelo avaliador. Revisão humana no viewer permanece pendente."
+  }
+}

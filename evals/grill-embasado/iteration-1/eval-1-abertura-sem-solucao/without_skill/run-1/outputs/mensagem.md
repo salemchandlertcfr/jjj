@@ -1,0 +1,1 @@
+Você mencionou que quer “tirar conclusões dos dados para decidir melhor”. Para entender esse trabalho antes de formular o job, conte uma situação recente em que precisou fazer isso: quem realizou a análise, como e em que momento ela aconteceu, e o que tornou difícil chegar a uma conclusão para decidir?

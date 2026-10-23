@@ -45,3 +45,11 @@ Estas decisões organizam o conhecimento recebido. Não aprovam regras de produt
 **Decisão:** partir da contribuição pretendida — refutação independente com evidência e dissenso, sem escolher pelo usuário — e derivar protocolo, interfaces e avaliação. Implementar apoio local, com o mesmo juiz escolhido em sessões separadas, mantendo pesquisa, crítica, relatoria e isolamento como capacidades a verificar. Aplicar S01 com auxiliares oficiais fixados e licença conferida, sem incorporá-los ao pacote. Conselho retorna artefatos externos; só a condutora os persiste.
 
 **Consequência:** o conflito antigo de famílias deixa de bloquear a v1 selecionada; a verificação operacional permanece necessária. JSONL por hipótese/critério e desfechos factuais explícitos concretizam o placar, sem confundir escolha de valor com fato. Avaliações locais sustentam afirmações limitadas ao que exercitaram. Veja [implementação](implementacao-conselho.md), [avaliação](avaliacao-conselho.md) e [pendências](pendencias.md).
+
+## D06 — Grill com protocolo universal e verificadores locais
+
+**Contexto:** o usuário selecionou S12 e S01 para começar a implementar o grill. Seu propósito foi registrado antes do código. O checkout está incompleto na condutora e no conselho; a pesquisa não está instalada.
+
+**Decisão:** implementar protocolo, formatos e auxiliares autocontidos, mantendo classificação e julgamento semântico com o agente e a persistência com a condutora. Usar regex apenas como triagem explicável; suspeitas exigem revisão, não promessa de neutralidade. Receber conferência externa sem imitar pesquisa ausente. Manter o perfil Claude-first do plano e identificar os ensaios daqui como exploratórios, sem alegar validação naquela plataforma.
+
+**Consequência:** mecanismos locais podem ser exercitados e empacotados já; o fluxo integrado permanece pendente. Dados de persona e avaliação ficam fora do pacote para não contaminar entrevistas. Escopo, comandos e limites em [implementação do grill](implementacao-grill.md).
