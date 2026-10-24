@@ -1,0 +1,104 @@
+{
+  "expectations": [
+    {
+      "text": "Não aceita de princípio sem lei, premissas e conta",
+      "passed": true,
+      "evidence": "resposta.md: 'pedir a lei ou teorema, as premissas escritas e a conta que relacionaria os parâmetros'; 'A ausência desses elementos impede preservar uma restrição de princípio'. O fracasso da equipe não é aceito como prova."
+    },
+    {
+      "text": "Diferencia limite atual e quebrável sem inventar classificação provada",
+      "passed": true,
+      "evidence": "resposta.md distingue 'limite de hoje relatado', limitado à experiência e sem generalização, de 'Se não houver sequer limite atual conhecido e documentado, a classificação a examinar é quebrável'. Mantém decisão final humana, necessidade de prova e investigação de contraexemplo."
+    },
+    {
+      "text": "Encaminha solução ao banco e mercado ao estacionamento",
+      "passed": true,
+      "evidence": "resposta.md: app deve ser guardado 'no banco de ideias/soluções [...] com origem tema 2'; 12% vai ao 'estacionamento da Etapa 3 como alegação de mercado sem fonte'. Nenhuma das propostas é incorporada como conclusão do mapa."
+    },
+    {
+      "text": "Projeção pede classe de referência, fontes e horizontes/faixas sem inventar 12%",
+      "passed": true,
+      "evidence": "resposta.md pede 'classe de referência e taxas-base com fontes', ajustes com motivo e magnitude e 'dois horizontes e faixas por parte central'; diz 'Não adotar esse número' e 'Sem fontes, os números ficam pendentes'."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "model": null,
+    "total_tokens": null,
+    "total_tool_calls": null,
+    "total_steps": null,
+    "errors_encountered": null,
+    "output_chars": 3583,
+    "transcript_chars": null,
+    "execution_record_chars": 1087,
+    "measurement_note": "output_chars e execution_record_chars são contagens locais dos arquivos UTF-8 (wc -m); não são tokens nem métricas nativas. Não há metrics.json nem transcrição instrumentada."
+  },
+  "timing": {
+    "total_tokens": null,
+    "duration_ms": null,
+    "executor_duration_seconds": null,
+    "grader_duration_seconds": null,
+    "total_duration_seconds": null,
+    "source": "timing.json declara tokens e duração indisponíveis; não estimados."
+  },
+  "claims": [
+    {
+      "claim": "A dificuldade da equipe não prova incompatibilidade de princípio.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "O prompt só relata que ninguém conseguiu ambas e afirma não haver teorema nem premissas; a resposta distingue observação local de impossibilidade geral."
+    },
+    {
+      "claim": "A taxa anual de 12% não é uma previsão sustentada pelos dados fornecidos.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "O prompt identifica expressamente o número como sem fonte; a resposta não inventa uma nem usa a taxa como conclusão."
+    },
+    {
+      "claim": "Nenhuma ferramenta externa, pesquisa, verificação ou conselho foi executado.",
+      "type": "process",
+      "verified": false,
+      "evidence": "A resposta e execution.md declaram a limitação, mas os artefatos não são transcrição de execução. Não há comprovação independente das chamadas ou de sua ausência."
+    },
+    {
+      "claim": "P-2.3-1, fronteiras, desafio 4.2 e conselho descritos obedecem às referências citadas.",
+      "type": "factual",
+      "verified": false,
+      "evidence": "Só há a alegação e os nomes das referências na resposta. Não foi autorizado consultar documentos do projeto para verificar esses detalhes."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [
+      "Não há user_notes.md. As ressalvas disponíveis estão em execution.md e na resposta."
+    ],
+    "needs_review": [
+      "Condição executada enquanto formatos.md estava sendo escrito; o registro relata ausência do arquivo. Não avalia interface CLI final."
+    ],
+    "workarounds": [
+      "Segundo execution.md, usou referências presentes sem preenchimento de formato canônico. Trata-se de relato não instrumentado."
+    ]
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Diferencia limite atual e quebrável sem inventar classificação provada",
+        "reason": "'Diferencia limite atual e quebrável' não fixa quando cada classificação é válida. Um futuro critério poderia exigir rótulo provisório, escopo da evidência e condição de revisão, reduzindo a chance de premiar classificação prematura apenas por mencionar as duas categorias."
+      },
+      {
+        "reason": "Este caso distingue fortemente adesão ao protocolo específico (lei/premissas/conta, banco/estacionamento e projeção por classe de referência). Incluir futuros prompts sem os termos do próprio protocolo ajudaria a testar transferência, pois um único caso não demonstra generalização."
+      }
+    ],
+    "overall": "4/4. A resposta satisfaz os encaminhamentos exigidos e conserva as lacunas factuais. Os resultados demonstram resposta textual coerente com estes critérios, sem demonstrar pesquisas externas, funcionamento de conselhos ou interface CLI."
+  },
+  "limitations": [
+    "Avaliação restrita aos prompts, expectativas, respostas, registros de execução, timing.json e grader.md; referências e implementação do projeto não foram consultadas.",
+    "execution.md é relato declarativo, não transcrição instrumentada. Afirmações de leituras, isolamento, ausência de pesquisa externa e ausência de ferramentas não podem ser confirmadas independentemente.",
+    "A condição com skill foi executada enquanto formatos.md ainda estava sendo escrito; execution.md relata que o arquivo estava ausente. Esta comparação textual não avalia a interface CLI final.",
+    "Uma execução textual por caso e condição não demonstra robustez estatística nem integração operacional. Métricas nativas indisponíveis permanecem null."
+  ]
+}

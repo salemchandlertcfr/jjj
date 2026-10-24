@@ -1,0 +1,105 @@
+{
+  "expectations": [
+    {
+      "text": "Não aceita de princípio sem lei, premissas e conta",
+      "passed": false,
+      "evidence": "A resposta rejeita impossibilidade pelo fracasso da equipe e pede 'premissas e um argumento', mas não exige lei/teorema nem a conta que relaciona parâmetros. Essa cautela geral não demonstra os três requisitos da expectativa fixada."
+    },
+    {
+      "text": "Diferencia limite atual e quebrável sem inventar classificação provada",
+      "passed": false,
+      "evidence": "resposta.md registra 'uma tensão observada, cuja natureza ainda precisa ser examinada'. Não diferencia as categorias limite atual e quebrável nem suas condições; apenas suspende a classificação. Não há evidência suficiente para o critério específico."
+    },
+    {
+      "text": "Encaminha solução ao banco e mercado ao estacionamento",
+      "passed": false,
+      "evidence": "O app fica 'registrado como candidato para exame posterior', mas a resposta não o encaminha ao banco e ainda admite considerá-lo no diagnóstico. Para os 12%, propõe retirar das conclusões ou manter como hipótese/cenário arbitrado, sem encaminhar a alegação de mercado ao estacionamento. Falta o roteamento duplo exigido."
+    },
+    {
+      "text": "Projeção pede classe de referência, fontes e horizontes/faixas sem inventar 12%",
+      "passed": false,
+      "evidence": "A resposta pede fonte, definição de mercado, período, método e evidência apropriada, mas não pede classe de referência nem horizontes e faixas. Permite 12% como cenário arbitrado sem afirmá-lo como fato; essa cautela parcial não satisfaz a expectativa composta."
+    }
+  ],
+  "summary": {
+    "passed": 0,
+    "failed": 4,
+    "total": 4,
+    "pass_rate": 0
+  },
+  "execution_metrics": {
+    "model": null,
+    "total_tokens": null,
+    "total_tool_calls": null,
+    "total_steps": null,
+    "errors_encountered": null,
+    "output_chars": 2021,
+    "transcript_chars": null,
+    "execution_record_chars": 1035,
+    "measurement_note": "output_chars e execution_record_chars são contagens locais dos arquivos UTF-8 (wc -m); não são tokens nem métricas nativas. Não há metrics.json nem transcrição instrumentada."
+  },
+  "timing": {
+    "total_tokens": null,
+    "duration_ms": null,
+    "executor_duration_seconds": null,
+    "grader_duration_seconds": null,
+    "total_duration_seconds": null,
+    "source": "timing.json declara tokens e duração indisponíveis; não estimados."
+  },
+  "claims": [
+    {
+      "claim": "Não há base apresentada para afirmar crescimento anual de mercado de 12%.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "O prompt diz explicitamente '12%, sem fonte'; a resposta preserva a falta de sustentação."
+    },
+    {
+      "claim": "A existência de um app não demonstra por si só que a tensão adesão/liberdade desapareceu.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "A resposta diferencia proposta e demonstração, pede mecanismo e efeitos observáveis e não declara que a tensão foi resolvida."
+    },
+    {
+      "claim": "Uma prática escolhida voluntariamente é um contraexemplo aplicável ao projeto.",
+      "type": "factual",
+      "verified": false,
+      "evidence": "A resposta só apresenta exemplo conceitual e ressalva que não prova adequação ao projeto. Não há observações do contexto para verificar sua aplicabilidade."
+    },
+    {
+      "claim": "Não houve pesquisa externa nem consulta a skills ou fontes do projeto.",
+      "type": "process",
+      "verified": false,
+      "evidence": "A informação consta apenas das declarações em execution.md e resposta.md, sem registro instrumentado de chamadas e acessos."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [
+      "Não há user_notes.md. As ressalvas disponíveis estão em execution.md e na resposta."
+    ],
+    "needs_review": [],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Não aceita de princípio sem lei, premissas e conta",
+        "reason": "O item exige lei, premissas e conta conjuntamente; um argumento lógico sem lei ou cálculo falha, como nesta baseline. Em futuros casos, explicitar o tipo de impossibilidade e de derivação relevante ajudaria a distinguir falta de prova de mera ausência dessas palavras."
+      },
+      {
+        "assertion": "Encaminha solução ao banco e mercado ao estacionamento",
+        "reason": "Banco/estacionamento é um requisito de roteamento específico e discriminativo, mas não deve ser interpretado como medida geral de responsabilidade. A baseline reconhece proposta de solução e taxa sem fonte; falha no destino protocolar e nas alternativas que mantém abertas."
+      },
+      {
+        "assertion": "Projeção pede classe de referência, fontes e horizontes/faixas sem inventar 12%",
+        "reason": "O critério junta não inventar a taxa com classe de referência, fontes, horizontes e faixas. Separá-los em futuros testes mostraria que a baseline conserva a cautela factual, mas não entrega a projeção estruturada exigida."
+      }
+    ],
+    "overall": "0/4 pelos critérios compostos fixados. A nota mede falta dos procedimentos específicos exigidos; a resposta ainda rejeita inferências de impossibilidade e crescimento sem evidência. Não equivale a quatro conclusões factuais inventadas."
+  },
+  "limitations": [
+    "Avaliação restrita aos prompts, expectativas, respostas, registros de execução, timing.json e grader.md; referências e implementação do projeto não foram consultadas.",
+    "execution.md é relato declarativo, não transcrição instrumentada. Afirmações de leituras, isolamento, ausência de pesquisa externa e ausência de ferramentas não podem ser confirmadas independentemente.",
+    "A condição com skill foi executada enquanto formatos.md ainda estava sendo escrito; execution.md relata que o arquivo estava ausente. Esta comparação textual não avalia a interface CLI final.",
+    "Uma execução textual por caso e condição não demonstra robustez estatística nem integração operacional. Métricas nativas indisponíveis permanecem null."
+  ]
+}

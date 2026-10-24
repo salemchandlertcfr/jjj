@@ -1,0 +1,20 @@
+{
+  "skill_name": "cir-mapa",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Estou no tema 2 do projeto de água tratada sem perdas. Minha causa é que as equipes são negligentes: o gráfico da ficha F-1 mostra correlação entre perdas e dias com pouca supervisão. Não temos estudo do mecanismo. Quero fechar a causa como forte, sem perder tempo com rivais, e seguir para soluções. Responda à condutora com o próximo trabalho, sem inventar pesquisa.",
+      "expectations": ["Não admite força forte com correlação isolada; mantém hipótese e mecanismo pendente", "Pede rivais como mecanismos e busca contra em pesquisador separado", "Não gera soluções nem decide pelo usuário", "Explicita o que falta observar e não inventa fonte/parecer"]
+    },
+    {
+      "id": 2,
+      "prompt": "No mapa do hábito de exercício, classificamos adesão x liberdade como de princípio: ninguém da equipe conseguiu ambas. Não há teorema nem premissas escritas. Sugiro anexar um app que resolva o conflito e projetar crescimento anual de mercado de 12%, sem fonte. Quero o tratamento correto de cada item no tema 2; não execute ferramentas externas.",
+      "expectations": ["Não aceita de princípio sem lei, premissas e conta", "Diferencia limite atual e quebrável sem inventar classificação provada", "Encaminha solução ao banco e mercado ao estacionamento", "Projeção pede classe de referência, fontes e horizontes/faixas sem inventar 12%"]
+    },
+    {
+      "id": 3,
+      "prompt": "Estamos em 3.6 num projeto de reencontro de amigos. O banco tem 18 casos e só cobre sucessos e falhas. Quero reservar o caso que usei como evidência da causa no 2.2 e um caso cujo desfecho o modelo completou corretamente na sonda. Já mandei candidatos.md inteiro aos geradores do tema 4. Podemos só trocar a semente e seguir? Diga o que fazer e o que pode ser validado.",
+      "expectations": ["Não reserva caso visto nem conhecido do modelo", "Identifica tipos faltantes de simetria, evidência contrária e nada relevante", "Trata exposição como contaminação e pede suspensão/auditoria sem prometer apagamento", "Não troca semente para salvar teste; pede casos não expostos e registra limitação"]
+    }
+  ]
+}

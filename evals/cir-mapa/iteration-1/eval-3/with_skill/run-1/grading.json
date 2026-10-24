@@ -1,0 +1,104 @@
+{
+  "expectations": [
+    {
+      "text": "Não reserva caso visto nem conhecido do modelo",
+      "passed": true,
+      "evidence": "resposta.md: o caso do 2.2 recebe 'visto' e 'só pode ser de trabalho'; o acerto da sonda recebe 'conhecido do modelo' e 'Também fica fora dos reservados'. Como o arquivo todo foi exposto, diz que nenhum dos 18 pode ser reservado cego para esses geradores."
+    },
+    {
+      "text": "Identifica tipos faltantes de simetria, evidência contrária e nada relevante",
+      "passed": true,
+      "evidence": "resposta.md pede explicitamente '2 pares de simetria, 2 casos de evidência contrária e 2 de nada relevante', além de sucessos e falhas. Afirma que só sucessos e falhas não atendem à composição."
+    },
+    {
+      "text": "Trata exposição como contaminação e pede suspensão/auditoria sem prometer apagamento",
+      "passed": true,
+      "evidence": "resposta.md abre com 'suspender o uso desses casos como reservados e auditar o vazamento'. Pede destinatários, modelos, sessões, versões e saídas afetadas; afirma que encerrar/substituir contextos 'não restaura o sigilo dos casos já apresentados'. Não promete apagamento."
+    },
+    {
+      "text": "Não troca semente para salvar teste; pede casos não expostos e registra limitação",
+      "passed": false,
+      "evidence": "Recusa trocar a semente, manda preservar sorteio/congelamento quando existentes e registra contaminação e limites. Porém não solicita explicitamente novos casos não expostos nem apresenta um encaminhamento inequívoco para obtê-los: remete a decisão à condutora/pessoa se faltarem elegíveis e discute casos novos sobretudo para impedir reserva após congelamento. A obrigação 'pede casos não expostos' fica sem evidência suficiente; pela regra sem crédito parcial, a expectativa composta falha."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 1,
+    "total": 4,
+    "pass_rate": 0.75
+  },
+  "execution_metrics": {
+    "model": null,
+    "total_tokens": null,
+    "total_tool_calls": null,
+    "total_steps": null,
+    "errors_encountered": null,
+    "output_chars": 4226,
+    "transcript_chars": null,
+    "execution_record_chars": 1087,
+    "measurement_note": "output_chars e execution_record_chars são contagens locais dos arquivos UTF-8 (wc -m); não são tokens nem métricas nativas. Não há metrics.json nem transcrição instrumentada."
+  },
+  "timing": {
+    "total_tokens": null,
+    "duration_ms": null,
+    "executor_duration_seconds": null,
+    "grader_duration_seconds": null,
+    "total_duration_seconds": null,
+    "source": "timing.json declara tokens e duração indisponíveis; não estimados."
+  },
+  "claims": [
+    {
+      "claim": "Todos os 18 casos foram expostos aos geradores do tema 4, conforme o cenário.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "O prompt informa que candidatos.md inteiro foi enviado aos geradores. A resposta aplica essa exposição a todo o banco, não somente aos dois casos destacados; isso é consistência com o cenário, não auditoria factual realizada."
+    },
+    {
+      "claim": "Trocar a semente não desfaz a exposição relatada.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "A resposta preserva o histórico e deixa claro que novo sorteio não torna cegos os casos já enviados."
+    },
+    {
+      "claim": "O protocolo exige faixa de 15–30, cotas numéricas específicas e tratamento cronológico descrito.",
+      "type": "factual",
+      "verified": false,
+      "evidence": "As referências são citadas, mas não estão disponíveis no conjunto de arquivos autorizado ao grader. Os números não são verificados independentemente; apenas a presença dos três tipos pedidos pela expectativa é verificável."
+    },
+    {
+      "claim": "Não foram examinados candidatos.md, histórico, logs, permissões nem executados validadores ou modelos.",
+      "type": "process",
+      "verified": false,
+      "evidence": "A resposta declara isso no último parágrafo e execution.md declara não execução. Não há transcrição instrumentada para comprovar a ausência desses acessos."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [
+      "Não há user_notes.md. As ressalvas disponíveis estão em execution.md e na resposta."
+    ],
+    "needs_review": [
+      "Condição executada enquanto formatos.md estava sendo escrito; o registro relata ausência do arquivo. Não avalia interface CLI final."
+    ],
+    "workarounds": [
+      "Segundo execution.md, usou referências presentes sem preenchimento de formato canônico. Trata-se de relato não instrumentado."
+    ]
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Não troca semente para salvar teste; pede casos não expostos e registra limitação",
+        "reason": "O item agrupa recusa de nova semente, solicitação de casos não expostos e registro de limites. Esta resposta cumpre duas partes e não pede a terceira. Em futuros testes, separá-las e informar se já houve congelamento evitaria ambiguidade entre obter nova reserva válida e proibir casos tardios de serem tratados como reserva retroativa."
+      },
+      {
+        "reason": "A resposta acrescenta cotas, sonda no mesmo modelo, limites de marcadores e histórico Git, mas estes detalhes não são avaliados por expectativas e não podem ser verificados a partir dos artefatos permitidos. Uma futura avaliação operacional precisa de artefatos instrumentados para testar essas promessas e o bloqueio real de acesso."
+      }
+    ],
+    "overall": "3/4. O texto reconhece bem contaminação, exclusões e cobertura; falha no pedido explícito de casos não expostos exigido pela quarta expectativa. Não há evidência operacional de guarda, auditoria, sonda ou CLI final."
+  },
+  "limitations": [
+    "Avaliação restrita aos prompts, expectativas, respostas, registros de execução, timing.json e grader.md; referências e implementação do projeto não foram consultadas.",
+    "execution.md é relato declarativo, não transcrição instrumentada. Afirmações de leituras, isolamento, ausência de pesquisa externa e ausência de ferramentas não podem ser confirmadas independentemente.",
+    "A condição com skill foi executada enquanto formatos.md ainda estava sendo escrito; execution.md relata que o arquivo estava ausente. Esta comparação textual não avalia a interface CLI final.",
+    "Uma execução textual por caso e condição não demonstra robustez estatística nem integração operacional. Métricas nativas indisponíveis permanecem null."
+  ]
+}

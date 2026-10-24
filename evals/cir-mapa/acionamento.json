@@ -1,0 +1,82 @@
+[
+  {
+    "query": "Abre o tema 2 do projeto da escola e prepara os cartões da 2.1 a 2.7.",
+    "should_trigger": true
+  },
+  {
+    "query": "Precisamos rever o job map 2.1 e as passagens de responsabilidade.",
+    "should_trigger": true
+  },
+  {
+    "query": "A causa tem estudo de mecanismo ou só correlação? Quero cartões rivais para o fenômeno.",
+    "should_trigger": true
+  },
+  {
+    "query": "No mapa quero explicar por que a água se perde, com causas alternativas.",
+    "should_trigger": true
+  },
+  {
+    "query": "Classifique este trade-off da 2.3 sem inventar uma impossibilidade.",
+    "should_trigger": true
+  },
+  {
+    "query": "Monte os briefs cegos da visão de fora para a projeção 2.4.",
+    "should_trigger": true
+  },
+  {
+    "query": "Separe o sabido, incerto e impossível de saber para o espaço K do tema 2.",
+    "should_trigger": true
+  },
+  {
+    "query": "Confira se o banco 2.6 tem os tipos difíceis e prepare a sonda.",
+    "should_trigger": true
+  },
+  {
+    "query": "Prepare a integração do mapa com diagnósticos de contraste.",
+    "should_trigger": true
+  },
+  {
+    "query": "Fora da Etapa 1, quero mapear por que falha o job de manter uma rotina de exercício.",
+    "should_trigger": true
+  },
+  {
+    "query": "Comece toda a Etapa 1 da minha ideia.",
+    "should_trigger": false
+  },
+  {
+    "query": "Qual mercado e concorrente têm a maior oportunidade de preço?",
+    "should_trigger": false
+  },
+  {
+    "query": "Depure o deploy que caiu ontem às 9h.",
+    "should_trigger": false
+  },
+  {
+    "query": "Faça uma revisão de literatura avulsa sobre exercício e saúde.",
+    "should_trigger": false
+  },
+  {
+    "query": "Gere soluções e tecnologias para quebrar as contradições do mapa.",
+    "should_trigger": false
+  },
+  {
+    "query": "Crie métricas de idealidade e aprove o RFI do tema 3.",
+    "should_trigger": false
+  },
+  {
+    "query": "Conduza um pré-mortem completo da arquitetura escolhida.",
+    "should_trigger": false
+  },
+  {
+    "query": "Crie uma esp de análise causal para a biblioteca.",
+    "should_trigger": false
+  },
+  {
+    "query": "Faça a síntese final do CIR e do pacote técnico.",
+    "should_trigger": false
+  },
+  {
+    "query": "Quero um roteiro de entrevista para saber quanto clientes pagariam pela ideia.",
+    "should_trigger": false
+  }
+]

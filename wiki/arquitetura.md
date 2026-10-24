@@ -1,6 +1,6 @@
 # Arquitetura das skills
 
-Estado: desenho do sistema; condutora e conselho têm alphas documentados, incompletos neste checkout. [Grill](implementacao-grill.md), [especialistas](implementacao-especialistas.md) e [equipe](implementacao-equipe.md) têm protocolo e apoio local; outras 8 skills seguem planejadas. Revisão: 2026-10-23. Veja os escopos da [condutora](implementacao-condutora.md) e do [conselho](implementacao-conselho.md).
+Estado: desenho do sistema; condutora e conselho têm alphas documentados, incompletos neste checkout. [Grill](implementacao-grill.md), [especialistas](implementacao-especialistas.md) e [equipe](implementacao-equipe.md) têm protocolo e apoio local; [Mapa](implementacao-mapa.md) tem cartões e seis CLIs locais; outras 7 skills seguem planejadas. Revisão: 2026-10-23. Veja os escopos da [condutora](implementacao-condutora.md) e do [conselho](implementacao-conselho.md).
 
 A Etapa 1 é organizada como um sistema de skills que transforma uma ideia em um CIR aprovado. A condutora coordena a conversa e o estado; as skills de método definem o trabalho de cada tema; as genéricas pesquisam, perguntam, elaboram e julgam. A separação permite carregar apenas o contexto da tarefa atual e testar componentes isoladamente. O plano geral especifica esse desenho; ele não comprova que o sistema já esteja instalado ou executável. Fonte: [S02, §§1–2 e 14](../sources/originais/plano-geral-skills-cir.md).
 
@@ -54,6 +54,8 @@ A condutora não elabora nem julga a ideia. Só ela lê e grava o dossiê; os de
 No grill, quem pergunta é a própria condutora. O leitor recebe somente cartão e Entendimento, e a pesquisa recebe afirmações factuais sem autoria. Os scripts locais são ferramentas da condutora: não autenticam papéis, abrem sessões ou restringem permissões. Fonte: [S12, §§4, 9 e 12](../sources/originais/plano-grill-embasado.md).
 
 [S14, §§5–7](../sources/originais/plano-equipe-especialistas.md) concretiza a equipe: preparação individual compartilhada por inteiro antes das falas, ordem sorteada, crítico por último, posições finais independentes e destino de cada contribuição. O alpha local ordena eventos e filtra tarefas, sem abrir sessões Claude ou provar isolamento. Elaboração completa central prevê duas/três paralelas; a fusão recebe apenas sínteses A/B/C, com líder novo e proveniência. Sem evidência discriminante, incompatíveis continuam como opções/dissenso.
+
+O [mapa](implementacao-mapa.md), conforme [S15 §§4–7](../sources/originais/plano-cir-mapa.md), entrega método e cartões; não abre agentes. Rivais, visão de fora e contrastes recebem projeções distintas. Banco privado só aparece por contagens; marcadores são sinais para auditoria, não controle de acesso. O índice/brief.py real da condutora está ausente: não há integração de bloqueio instalada.
 
 ## Especialidades e execução
 

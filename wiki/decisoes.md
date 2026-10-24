@@ -69,3 +69,11 @@ Estas decisões organizam o conhecimento recebido. Não aprovam regras de produt
 **Decisão:** implementar protocolo universal, sete CLIs e estado explícito, preservando texto original, fases, códigos, checagens e respostas à crítica. A mesa projeta tarefas por papel; não fabrica falas ou execuções Claude. Contas usam interpretação restrita de Python matemático em processo separado. Pesquisa requer adaptador real; métricas ausentes ficam desconhecidas. Só a condutora persiste os arquivos devolvidos.
 
 **Consequência:** testes demonstram mecanismos locais e portabilidade. Evidência de ganho da equipe, verificação científica, modelos e isolamento depende de execuções reais e comparação adequada. Fusão conserva incompatíveis como opções, sem média arbitrária; a equipe não julga hipóteses. Escopo, comandos e limites em [implementação da equipe](implementacao-equipe.md).
+
+## D09 — Mapa com diagnóstico rastreável e banco separado
+
+**Contexto:** o usuário selecionou [S15](../sources/originais/plano-cir-mapa.md), pediu implementar a skill e enviá-la ao repositório. O resumo anexado estava desatualizado sobre maturidade e pressupunha ZIP do projeto; o checkout Git existente foi usado. Condutora e parte do conselho seguem ausentes.
+
+**Decisão:** registrar primeiro o propósito de explicar o fenômeno, e implementar cartões, método e auxiliares portáteis. S15 detalha/alterou explicitamente árvores, rivais, validação da 2.3, projeção, casos e contraste de S08/S02. O validador recebe JSON ou bloco canônico no Markdown; não simula compreensão semântica. Cronologia usa snapshots Git, sem afirmar desconhecimento anterior do autor. Banco e semente ficam privados; pares de simetria permanecem juntos.
+
+**Consequência:** mecanismos podem ser testados agora, sem recriar dependências ou prometer integração. O contrato de especialistas não admite tipo lacuna K: inventário a preserva separada para ligação revisada, com a limitação explícita. Só a condutora persiste/fecha o tema. Escopo e avaliação em [implementação](implementacao-mapa.md).

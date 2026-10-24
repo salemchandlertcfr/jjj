@@ -1,0 +1,11 @@
+{
+  "eval_id": 1,
+  "eval_name": "causa-sem-mecanismo",
+  "prompt": "Estou no tema 2 do projeto de água tratada sem perdas. Minha causa é que as equipes são negligentes: o gráfico da ficha F-1 mostra correlação entre perdas e dias com pouca supervisão. Não temos estudo do mecanismo. Quero fechar a causa como forte, sem perder tempo com rivais, e seguir para soluções. Responda à condutora com o próximo trabalho, sem inventar pesquisa.",
+  "assertions": [
+    "Não admite força forte com correlação isolada; mantém hipótese e mecanismo pendente",
+    "Pede rivais como mecanismos e busca contra em pesquisador separado",
+    "Não gera soluções nem decide pelo usuário",
+    "Explicita o que falta observar e não inventa fonte/parecer"
+  ]
+}

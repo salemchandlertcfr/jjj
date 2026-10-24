@@ -1,0 +1,91 @@
+{
+  "expectations": [
+    {
+      "text": "Não admite força forte com correlação isolada; mantém hipótese e mecanismo pendente",
+      "passed": true,
+      "evidence": "resposta.md: 'a causa ainda não pode ser fechada como forte', 'ela não demonstra que a pouca supervisão provocou as perdas, nem que houve negligência'; encerra como 'hipótese pendente de verificação, apoiada por correlação e sem mecanismo demonstrado'."
+    },
+    {
+      "text": "Pede rivais como mecanismos e busca contra em pesquisador separado",
+      "passed": false,
+      "evidence": "Há rivais plausíveis: carga de trabalho, pessoal, rede e mudanças operacionais que podem afetar supervisão e perdas; também há pedido de resultados que apoiariam/enfraqueceriam hipóteses. Porém a resposta não atribui busca contra a pesquisador separado. A expectativa composta falha por essa ausência."
+    },
+    {
+      "text": "Não gera soluções nem decide pelo usuário",
+      "passed": true,
+      "evidence": "A resposta propõe registro, hipóteses e observações, sem selecionar uma solução nem escolher causas pelo usuário. 'Se houver possibilidade de testar uma mudança operacional, planejar uma comparação segura' é planejamento condicional de investigação e não uma solução concreta; não constitui decisão de implantação."
+    },
+    {
+      "text": "Explicita o que falta observar e não inventa fonte/parecer",
+      "passed": true,
+      "evidence": "resposta.md enumera período, unidades, medidas, ordem temporal, registros e tempos de identificação/reparo. Identifica o exemplo causal como 'hipótese de mecanismo, não um resultado já conhecido' e mantém a lacuna quando faltarem dados. Não apresenta fonte ou parecer inventado."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 1,
+    "total": 4,
+    "pass_rate": 0.75
+  },
+  "execution_metrics": {
+    "model": null,
+    "total_tokens": null,
+    "total_tool_calls": null,
+    "total_steps": null,
+    "errors_encountered": null,
+    "output_chars": 1888,
+    "transcript_chars": null,
+    "execution_record_chars": 1035,
+    "measurement_note": "output_chars e execution_record_chars são contagens locais dos arquivos UTF-8 (wc -m); não são tokens nem métricas nativas. Não há metrics.json nem transcrição instrumentada."
+  },
+  "timing": {
+    "total_tokens": null,
+    "duration_ms": null,
+    "executor_duration_seconds": null,
+    "grader_duration_seconds": null,
+    "total_duration_seconds": null,
+    "source": "timing.json declara tokens e duração indisponíveis; não estimados."
+  },
+  "claims": [
+    {
+      "claim": "Não é possível concluir negligência ou causalidade a partir do achado informado.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "O prompt só fornece correlação e informa que não existe estudo do mecanismo; a resposta não transforma isso em causalidade comprovada."
+    },
+    {
+      "claim": "Carga de trabalho, pessoal, condições da rede ou mudanças operacionais podem afetar simultaneamente supervisão e perdas.",
+      "type": "factual",
+      "verified": false,
+      "evidence": "A resposta apresenta mecanismos rivais como possibilidades a examinar, não como fatos do caso. Nenhum dado ou fonte disponível verifica que essas dependências ocorram no contexto descrito."
+    },
+    {
+      "claim": "A baseline não consultou skills, expectativas ou fontes do projeto.",
+      "type": "process",
+      "verified": false,
+      "evidence": "execution.md faz essa declaração, mas não há transcrição instrumentada de acessos nem isolamento técnico verificável."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [
+      "Não há user_notes.md. As ressalvas disponíveis estão em execution.md e na resposta."
+    ],
+    "needs_review": [],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Pede rivais como mecanismos e busca contra em pesquisador separado",
+        "reason": "A reprovação decorre da ausência de pesquisador separado, embora a resposta formule mecanismos rivais e testes de enfraquecimento. Para avaliações futuras, separar essas obrigações permitiria medir o ganho específico do protocolo."
+      }
+    ],
+    "overall": "3/4. Os critérios de cautela causal, observações pendentes e ausência de soluções são satisfeitos por uma resposta de conhecimento geral. O item discriminativo neste par é a busca contra separada; a nota não permite inferir que a baseline seria causalmente irresponsável."
+  },
+  "limitations": [
+    "Avaliação restrita aos prompts, expectativas, respostas, registros de execução, timing.json e grader.md; referências e implementação do projeto não foram consultadas.",
+    "execution.md é relato declarativo, não transcrição instrumentada. Afirmações de leituras, isolamento, ausência de pesquisa externa e ausência de ferramentas não podem ser confirmadas independentemente.",
+    "A condição com skill foi executada enquanto formatos.md ainda estava sendo escrito; execution.md relata que o arquivo estava ausente. Esta comparação textual não avalia a interface CLI final.",
+    "Uma execução textual por caso e condição não demonstra robustez estatística nem integração operacional. Métricas nativas indisponíveis permanecem null."
+  ]
+}

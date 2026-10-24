@@ -25,6 +25,8 @@ Especialistas devolve `especialistas.md` e fichas por formação/rodada para `fi
 
 Equipe devolve `equipe/<reuniao>/` com pauta, preparações, ata literal, posições finais, síntese/parecer/integração, checagem, custos e placar contribuição→especialidade→destino. Estado privado contém sessões, modelos, auditoria e quarentena; não distribuir o pacote inteiro aos membros ou ao conselho. A síntese destina cada código e conserva o melhor argumento do dissenso. Parecer cobre afirmações prévias sem veredito; integração relata conflitos sem decidir. Fusão preserva origem A/B/C, exclusões e incompatíveis como opções ou contraprova. Só a condutora persiste; protocolo concluído não implica aprovação humana. Veja [implementação e formatos](implementacao-equipe.md); fonte: [S14, §§4 e 6–10](../sources/originais/plano-equipe-especialistas.md).
 
+O mapa do tema 2 devolve `02-mapa.md` e banco privado separado `casos/candidatos.md`, além do inventário para especialistas. O mapa público contém só contagens; previsões de causas usam referências a commits anteriores à busca. A projeção JSON dentro do Markdown é contrato local dos verificadores, sem substituir exame da prosa ou inventar a transação da condutora ausente. Pacote e contrastes têm sete linhas, até 600 palavras, sem autoria. Ver [formatos do mapa](../skills/cir-mapa/references/formatos.md); fonte: [S15 §§4, 8 e 10](../sources/originais/plano-cir-mapa.md).
+
 ## CIR: conteúdo em 17 seções
 
 O CIR consolida a referência conceitual. Cada seção precisa ter origem no dossiê e ser compatível com as decisões; pode referenciar evidências detalhadas. ([S09, §8](../sources/originais/concepcao-ideal-solucao.md); [S08, sub-etapa 6.1](../sources/originais/fluxograma-completo-ideal.md))

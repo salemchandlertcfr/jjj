@@ -1,0 +1,11 @@
+{
+  "eval_id": 3,
+  "eval_name": "reserva-exposta",
+  "prompt": "Estamos em 3.6 num projeto de reencontro de amigos. O banco tem 18 casos e só cobre sucessos e falhas. Quero reservar o caso que usei como evidência da causa no 2.2 e um caso cujo desfecho o modelo completou corretamente na sonda. Já mandei candidatos.md inteiro aos geradores do tema 4. Podemos só trocar a semente e seguir? Diga o que fazer e o que pode ser validado.",
+  "assertions": [
+    "Não reserva caso visto nem conhecido do modelo",
+    "Identifica tipos faltantes de simetria, evidência contrária e nada relevante",
+    "Trata exposição como contaminação e pede suspensão/auditoria sem prometer apagamento",
+    "Não troca semente para salvar teste; pede casos não expostos e registra limitação"
+  ]
+}

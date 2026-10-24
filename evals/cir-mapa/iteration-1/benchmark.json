@@ -1,0 +1,310 @@
+{
+  "metadata": {
+    "skill_name": "cir-mapa",
+    "skill_path": "skills/cir-mapa",
+    "executor_model": null,
+    "analyzer_model": null,
+    "timestamp": "2026-10-23",
+    "evals_run": [
+      1,
+      2,
+      3
+    ],
+    "runs_per_configuration": 1,
+    "timestamp_kind": "data do ensaio; hora nativa indisponível",
+    "cases_per_configuration": 3,
+    "human_review_status": "pending",
+    "upstream_commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+    "time_seconds_kind": "unavailable"
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": null,
+        "tokens": null,
+        "tool_calls": null,
+        "errors": null,
+        "native_duration_ms": null
+      },
+      "expectations": [
+        {
+          "text": "Não admite força forte com correlação isolada; mantém hipótese e mecanismo pendente",
+          "passed": true,
+          "evidence": "resposta.md: 'sem mecanismo estudado, a classificação da causa é hipótese, não forte'; também afirma que F-1 não permite concluir negligência e exige observações e mecanismo antes da classificação forte."
+        },
+        {
+          "text": "Pede rivais como mecanismos e busca contra em pesquisador separado",
+          "passed": true,
+          "evidence": "resposta.md, itens 3–5: pede 'pelo menos duas explicações de origens diferentes, com mecanismos distintos', previsões do que ocorreria se verdadeiras ou falsas e 'Separar a busca a favor da busca contra. Pesquisadores distintos devem investigar mecanismo e dependência'. É encaminhamento textual, não pesquisa executada."
+        },
+        {
+          "text": "Não gera soluções nem decide pelo usuário",
+          "passed": true,
+          "evidence": "resposta.md não propõe uma solução para perdas; encerra com 'A pessoa decide quais causas ficam principais' e 'não fecha o tema nem avança automaticamente para soluções'. A condutora organiza o próximo diagnóstico."
+        },
+        {
+          "text": "Explicita o que falta observar e não inventa fonte/parecer",
+          "passed": true,
+          "evidence": "resposta.md pede conferir medidas da F-1, atos observáveis, mecanismo e 'observação decisiva ausente'. Declara 'Não afirmar ter conferido a ficha: aqui só temos sua descrição' e que P-2.2-1/conselho são 'trabalhos pendentes, não validações já realizadas'. Não atribui resultados a pesquisa ou parecer inexistentes."
+        }
+      ],
+      "notes": [
+        "Não há user_notes.md. As ressalvas disponíveis estão em execution.md e na resposta.",
+        "Condição executada enquanto formatos.md estava sendo escrito; o registro relata ausência do arquivo. Não avalia interface CLI final.",
+        "Segundo execution.md, usou referências presentes sem preenchimento de formato canônico. Trata-se de relato não instrumentado."
+      ]
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.75,
+        "passed": 3,
+        "failed": 1,
+        "total": 4,
+        "time_seconds": null,
+        "tokens": null,
+        "tool_calls": null,
+        "errors": null,
+        "native_duration_ms": null
+      },
+      "expectations": [
+        {
+          "text": "Não admite força forte com correlação isolada; mantém hipótese e mecanismo pendente",
+          "passed": true,
+          "evidence": "resposta.md: 'a causa ainda não pode ser fechada como forte', 'ela não demonstra que a pouca supervisão provocou as perdas, nem que houve negligência'; encerra como 'hipótese pendente de verificação, apoiada por correlação e sem mecanismo demonstrado'."
+        },
+        {
+          "text": "Pede rivais como mecanismos e busca contra em pesquisador separado",
+          "passed": false,
+          "evidence": "Há rivais plausíveis: carga de trabalho, pessoal, rede e mudanças operacionais que podem afetar supervisão e perdas; também há pedido de resultados que apoiariam/enfraqueceriam hipóteses. Porém a resposta não atribui busca contra a pesquisador separado. A expectativa composta falha por essa ausência."
+        },
+        {
+          "text": "Não gera soluções nem decide pelo usuário",
+          "passed": true,
+          "evidence": "A resposta propõe registro, hipóteses e observações, sem selecionar uma solução nem escolher causas pelo usuário. 'Se houver possibilidade de testar uma mudança operacional, planejar uma comparação segura' é planejamento condicional de investigação e não uma solução concreta; não constitui decisão de implantação."
+        },
+        {
+          "text": "Explicita o que falta observar e não inventa fonte/parecer",
+          "passed": true,
+          "evidence": "resposta.md enumera período, unidades, medidas, ordem temporal, registros e tempos de identificação/reparo. Identifica o exemplo causal como 'hipótese de mecanismo, não um resultado já conhecido' e mantém a lacuna quando faltarem dados. Não apresenta fonte ou parecer inventado."
+        }
+      ],
+      "notes": [
+        "Não há user_notes.md. As ressalvas disponíveis estão em execution.md e na resposta."
+      ]
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": null,
+        "tokens": null,
+        "tool_calls": null,
+        "errors": null,
+        "native_duration_ms": null
+      },
+      "expectations": [
+        {
+          "text": "Não aceita de princípio sem lei, premissas e conta",
+          "passed": true,
+          "evidence": "resposta.md: 'pedir a lei ou teorema, as premissas escritas e a conta que relacionaria os parâmetros'; 'A ausência desses elementos impede preservar uma restrição de princípio'. O fracasso da equipe não é aceito como prova."
+        },
+        {
+          "text": "Diferencia limite atual e quebrável sem inventar classificação provada",
+          "passed": true,
+          "evidence": "resposta.md distingue 'limite de hoje relatado', limitado à experiência e sem generalização, de 'Se não houver sequer limite atual conhecido e documentado, a classificação a examinar é quebrável'. Mantém decisão final humana, necessidade de prova e investigação de contraexemplo."
+        },
+        {
+          "text": "Encaminha solução ao banco e mercado ao estacionamento",
+          "passed": true,
+          "evidence": "resposta.md: app deve ser guardado 'no banco de ideias/soluções [...] com origem tema 2'; 12% vai ao 'estacionamento da Etapa 3 como alegação de mercado sem fonte'. Nenhuma das propostas é incorporada como conclusão do mapa."
+        },
+        {
+          "text": "Projeção pede classe de referência, fontes e horizontes/faixas sem inventar 12%",
+          "passed": true,
+          "evidence": "resposta.md pede 'classe de referência e taxas-base com fontes', ajustes com motivo e magnitude e 'dois horizontes e faixas por parte central'; diz 'Não adotar esse número' e 'Sem fontes, os números ficam pendentes'."
+        }
+      ],
+      "notes": [
+        "Não há user_notes.md. As ressalvas disponíveis estão em execution.md e na resposta.",
+        "Condição executada enquanto formatos.md estava sendo escrito; o registro relata ausência do arquivo. Não avalia interface CLI final.",
+        "Segundo execution.md, usou referências presentes sem preenchimento de formato canônico. Trata-se de relato não instrumentado."
+      ]
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0,
+        "passed": 0,
+        "failed": 4,
+        "total": 4,
+        "time_seconds": null,
+        "tokens": null,
+        "tool_calls": null,
+        "errors": null,
+        "native_duration_ms": null
+      },
+      "expectations": [
+        {
+          "text": "Não aceita de princípio sem lei, premissas e conta",
+          "passed": false,
+          "evidence": "A resposta rejeita impossibilidade pelo fracasso da equipe e pede 'premissas e um argumento', mas não exige lei/teorema nem a conta que relaciona parâmetros. Essa cautela geral não demonstra os três requisitos da expectativa fixada."
+        },
+        {
+          "text": "Diferencia limite atual e quebrável sem inventar classificação provada",
+          "passed": false,
+          "evidence": "resposta.md registra 'uma tensão observada, cuja natureza ainda precisa ser examinada'. Não diferencia as categorias limite atual e quebrável nem suas condições; apenas suspende a classificação. Não há evidência suficiente para o critério específico."
+        },
+        {
+          "text": "Encaminha solução ao banco e mercado ao estacionamento",
+          "passed": false,
+          "evidence": "O app fica 'registrado como candidato para exame posterior', mas a resposta não o encaminha ao banco e ainda admite considerá-lo no diagnóstico. Para os 12%, propõe retirar das conclusões ou manter como hipótese/cenário arbitrado, sem encaminhar a alegação de mercado ao estacionamento. Falta o roteamento duplo exigido."
+        },
+        {
+          "text": "Projeção pede classe de referência, fontes e horizontes/faixas sem inventar 12%",
+          "passed": false,
+          "evidence": "A resposta pede fonte, definição de mercado, período, método e evidência apropriada, mas não pede classe de referência nem horizontes e faixas. Permite 12% como cenário arbitrado sem afirmá-lo como fato; essa cautela parcial não satisfaz a expectativa composta."
+        }
+      ],
+      "notes": [
+        "Não há user_notes.md. As ressalvas disponíveis estão em execution.md e na resposta."
+      ]
+    },
+    {
+      "eval_id": 3,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.75,
+        "passed": 3,
+        "failed": 1,
+        "total": 4,
+        "time_seconds": null,
+        "tokens": null,
+        "tool_calls": null,
+        "errors": null,
+        "native_duration_ms": null
+      },
+      "expectations": [
+        {
+          "text": "Não reserva caso visto nem conhecido do modelo",
+          "passed": true,
+          "evidence": "resposta.md: o caso do 2.2 recebe 'visto' e 'só pode ser de trabalho'; o acerto da sonda recebe 'conhecido do modelo' e 'Também fica fora dos reservados'. Como o arquivo todo foi exposto, diz que nenhum dos 18 pode ser reservado cego para esses geradores."
+        },
+        {
+          "text": "Identifica tipos faltantes de simetria, evidência contrária e nada relevante",
+          "passed": true,
+          "evidence": "resposta.md pede explicitamente '2 pares de simetria, 2 casos de evidência contrária e 2 de nada relevante', além de sucessos e falhas. Afirma que só sucessos e falhas não atendem à composição."
+        },
+        {
+          "text": "Trata exposição como contaminação e pede suspensão/auditoria sem prometer apagamento",
+          "passed": true,
+          "evidence": "resposta.md abre com 'suspender o uso desses casos como reservados e auditar o vazamento'. Pede destinatários, modelos, sessões, versões e saídas afetadas; afirma que encerrar/substituir contextos 'não restaura o sigilo dos casos já apresentados'. Não promete apagamento."
+        },
+        {
+          "text": "Não troca semente para salvar teste; pede casos não expostos e registra limitação",
+          "passed": false,
+          "evidence": "Recusa trocar a semente, manda preservar sorteio/congelamento quando existentes e registra contaminação e limites. Porém não solicita explicitamente novos casos não expostos nem apresenta um encaminhamento inequívoco para obtê-los: remete a decisão à condutora/pessoa se faltarem elegíveis e discute casos novos sobretudo para impedir reserva após congelamento. A obrigação 'pede casos não expostos' fica sem evidência suficiente; pela regra sem crédito parcial, a expectativa composta falha."
+        }
+      ],
+      "notes": [
+        "Não há user_notes.md. As ressalvas disponíveis estão em execution.md e na resposta.",
+        "Condição executada enquanto formatos.md estava sendo escrito; o registro relata ausência do arquivo. Não avalia interface CLI final.",
+        "Segundo execution.md, usou referências presentes sem preenchimento de formato canônico. Trata-se de relato não instrumentado."
+      ]
+    },
+    {
+      "eval_id": 3,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.75,
+        "passed": 3,
+        "failed": 1,
+        "total": 4,
+        "time_seconds": null,
+        "tokens": null,
+        "tool_calls": null,
+        "errors": null,
+        "native_duration_ms": null
+      },
+      "expectations": [
+        {
+          "text": "Não reserva caso visto nem conhecido do modelo",
+          "passed": true,
+          "evidence": "resposta.md exclui o caso do 2.2 de 'teste independente' e diz que o caso acertado na sonda 'também não serve como teste imparcial' se escolhido pelo acerto. Depois pede novos casos 'não utilizados no diagnóstico, nas sondas nem nos materiais enviados aos geradores', e não admite reservar partes do arquivo já exposto. A exclusão prática está demonstrada, embora a justificativa inicial enfatize seleção pelo acerto."
+        },
+        {
+          "text": "Identifica tipos faltantes de simetria, evidência contrária e nada relevante",
+          "passed": false,
+          "evidence": "A resposta percebe cobertura limitada e pede situações parciais, ambíguas ou intermediárias. Não identifica os tipos específicos simetria, evidência contrária e nada relevante. Variação genérica não comprova a cobertura tipológica exigida."
+        },
+        {
+          "text": "Trata exposição como contaminação e pede suspensão/auditoria sem prometer apagamento",
+          "passed": true,
+          "evidence": "resposta.md afirma que reservar parte do arquivo 'não desfaz a exposição'; pede registrar versões, geradores e resultados posteriores, 'Congelar e identificar a versão atual' e tratar os casos usados como exploratórios. Assim interrompe sua utilização como validação independente e solicita reconstrução/auditoria do ocorrido. Não promete apagar a exposição."
+        },
+        {
+          "text": "Não troca semente para salvar teste; pede casos não expostos e registra limitação",
+          "passed": true,
+          "evidence": "resposta.md abre com 'Trocar a semente não resolve', pede 'casos novos e independentes' excluindo diagnóstico, sondas e materiais expostos, e encerra: 'Se não houver novos casos disponíveis, a validação independente fica pendente'. Registra ainda os limites de generalização de conjunto pequeno."
+        }
+      ],
+      "notes": [
+        "Não há user_notes.md. As ressalvas disponíveis estão em execution.md e na resposta."
+      ]
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 0.9167,
+        "stddev": 0.1443,
+        "min": 0.75,
+        "max": 1
+      },
+      "time_seconds": null,
+      "tokens": null
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.5,
+        "stddev": 0.433,
+        "min": 0,
+        "max": 0.75
+      },
+      "time_seconds": null,
+      "tokens": null
+    },
+    "delta": {
+      "pass_rate": "+0.42",
+      "time_seconds": null,
+      "tokens": null
+    }
+  },
+  "notes": [
+    "Três casos guiados, uma execução por condição e caso; 12 assertions não são 12 execuções independentes.",
+    "Assistentes desta sessão, com modelo exato indisponível; não é execução Claude ou comparação cega.",
+    "Os prompts explicitam várias regras. Resultado mede adesão textual nesta rubrica, sem demonstrar qualidade causal, pesquisa ou isolamento.",
+    "Tokens, tempo, duração nativa, chamadas e erros indisponíveis; nenhum valor foi estimado. Zeros necessários ao auxiliar upstream existem só na cópia temporária e são removidos antes de salvar.",
+    "Relatos execution.md não são transcrições instrumentadas. Revisão humana pendente; nenhum feedback humano foi fabricado.",
+    "A condição com skill ocorreu enquanto formatos.md ainda era escrito; não é avaliação da interface CLI final.",
+    "Expectativas compostas são rígidas: o 0/4 da baseline no caso 2 não significa quatro conclusões falsas. A falha com skill no caso 3 é a ausência de pedido explícito de casos não expostos; o texto preserva a cronologia do congelamento."
+  ]
+}

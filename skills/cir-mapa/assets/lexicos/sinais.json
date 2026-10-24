@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "regras": [
+    {
+      "id": "mercado",
+      "padrao": "\\b(preço|preco|price|pricing|mercado|market|concorrente|competitor|disposição a pagar|willingness to pay|MVP)\\b",
+      "pecas": [
+        "job",
+        "falha",
+        "causa",
+        "contradicao",
+        "projecao",
+        "k",
+        "caso"
+      ],
+      "excecoes": [],
+      "motivo": "Encaminhar negócio ao estacionamento; conferir contexto."
+    },
+    {
+      "id": "solucao",
+      "padrao": "\\b(dá para|da para|basta|we (?:can|should)|just use|implementar|deploy|use an app)\\b",
+      "pecas": [
+        "job",
+        "falha",
+        "causa",
+        "contradicao",
+        "projecao",
+        "k",
+        "caso"
+      ],
+      "excecoes": [],
+      "motivo": "Solução incidental vai ao banco; não ao diagnóstico."
+    },
+    {
+      "id": "meio",
+      "padrao": "\\b(app|aplicativo|software|API|blockchain|GPS|dashboard|interface)\\b",
+      "pecas": [
+        "job",
+        "falha",
+        "causa",
+        "contradicao",
+        "projecao",
+        "k",
+        "caso"
+      ],
+      "excecoes": [
+        "como (?:é feita )?hoje\\s*:",
+        "current (?:practice|method)\\s*:"
+      ],
+      "motivo": "Meio fora do modo atual pode ancorar a solução."
+    },
+    {
+      "id": "premissas",
+      "padrao": "\\b(de princípio|de principio|in principle)\\b",
+      "pecas": [
+        "contradicao"
+      ],
+      "excecoes": [
+        "premissas?\\s*:",
+        "assumptions?\\s*:"
+      ],
+      "motivo": "Procurar lei, premissas e conta; presença de termo não é prova."
+    },
+    {
+      "id": "impossivel",
+      "padrao": "\\b(impossível|impossivel|impossible)\\b",
+      "pecas": [
+        "contradicao",
+        "k"
+      ],
+      "excecoes": [
+        "(?:lei|teorema|theorem|law)\\s*:"
+      ],
+      "motivo": "Distinguir limite técnico de impossibilidade."
+    },
+    {
+      "id": "erro_humano",
+      "padrao": "(erro humano|human error|força de vontade|willpower)\\s*[.!]?$",
+      "pecas": [
+        "causa"
+      ],
+      "excecoes": [],
+      "motivo": "Não encerrar cadeia em comportamento sem mecanismo."
+    },
+    {
+      "id": "correlacao",
+      "padrao": "(correla[cç][aã]o|correlation|associado a|associated with|quanto mais.+mais)",
+      "pecas": [
+        "causa"
+      ],
+      "excecoes": [
+        "(?:mecanismo|mechanism)\\s*:"
+      ],
+      "motivo": "Correlação sem mecanismo é hipótese."
+    },
+    {
+      "id": "fonte",
+      "padrao": "^(?:causa|cause)\\s*:",
+      "pecas": [
+        "causa"
+      ],
+      "excecoes": [
+        "\\b(?:F-[\\w-]+|hipótese|hipotese|hypothesis)\\b"
+      ],
+      "motivo": "Causa precisa de ficha ou marca hipótese."
+    }
+  ]
+}

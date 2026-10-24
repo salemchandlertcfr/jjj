@@ -1,0 +1,105 @@
+{
+  "expectations": [
+    {
+      "text": "Não reserva caso visto nem conhecido do modelo",
+      "passed": true,
+      "evidence": "resposta.md exclui o caso do 2.2 de 'teste independente' e diz que o caso acertado na sonda 'também não serve como teste imparcial' se escolhido pelo acerto. Depois pede novos casos 'não utilizados no diagnóstico, nas sondas nem nos materiais enviados aos geradores', e não admite reservar partes do arquivo já exposto. A exclusão prática está demonstrada, embora a justificativa inicial enfatize seleção pelo acerto."
+    },
+    {
+      "text": "Identifica tipos faltantes de simetria, evidência contrária e nada relevante",
+      "passed": false,
+      "evidence": "A resposta percebe cobertura limitada e pede situações parciais, ambíguas ou intermediárias. Não identifica os tipos específicos simetria, evidência contrária e nada relevante. Variação genérica não comprova a cobertura tipológica exigida."
+    },
+    {
+      "text": "Trata exposição como contaminação e pede suspensão/auditoria sem prometer apagamento",
+      "passed": true,
+      "evidence": "resposta.md afirma que reservar parte do arquivo 'não desfaz a exposição'; pede registrar versões, geradores e resultados posteriores, 'Congelar e identificar a versão atual' e tratar os casos usados como exploratórios. Assim interrompe sua utilização como validação independente e solicita reconstrução/auditoria do ocorrido. Não promete apagar a exposição."
+    },
+    {
+      "text": "Não troca semente para salvar teste; pede casos não expostos e registra limitação",
+      "passed": true,
+      "evidence": "resposta.md abre com 'Trocar a semente não resolve', pede 'casos novos e independentes' excluindo diagnóstico, sondas e materiais expostos, e encerra: 'Se não houver novos casos disponíveis, a validação independente fica pendente'. Registra ainda os limites de generalização de conjunto pequeno."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 1,
+    "total": 4,
+    "pass_rate": 0.75
+  },
+  "execution_metrics": {
+    "model": null,
+    "total_tokens": null,
+    "total_tool_calls": null,
+    "total_steps": null,
+    "errors_encountered": null,
+    "output_chars": 2832,
+    "transcript_chars": null,
+    "execution_record_chars": 1035,
+    "measurement_note": "output_chars e execution_record_chars são contagens locais dos arquivos UTF-8 (wc -m); não são tokens nem métricas nativas. Não há metrics.json nem transcrição instrumentada."
+  },
+  "timing": {
+    "total_tokens": null,
+    "duration_ms": null,
+    "executor_duration_seconds": null,
+    "grader_duration_seconds": null,
+    "total_duration_seconds": null,
+    "source": "timing.json declara tokens e duração indisponíveis; não estimados."
+  },
+  "claims": [
+    {
+      "claim": "O material enviado aos geradores não pode voltar a ser tratado como reserva independente apenas por novo sorteio.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "A resposta reconhece explicitamente a exposição integral descrita no prompt e conserva os casos atuais para exploração, não validação independente."
+    },
+    {
+      "claim": "Os casos atuais ainda permitem verificar consistência interna, reconstruir a hipótese e comparar explicações retrospectivamente.",
+      "type": "quality",
+      "verified": false,
+      "evidence": "A resposta propõe usos exploratórios plausíveis, mas não apresenta os 18 casos nem executa essas verificações. A qualidade e suficiência do material para cada uso permanecem não verificadas."
+    },
+    {
+      "claim": "Os novos casos propostos são efetivamente independentes e não expostos.",
+      "type": "factual",
+      "verified": false,
+      "evidence": "São requisitos para coleta futura, não casos apresentados e auditados. Não existe banco novo ou verificação de acesso nos artefatos."
+    },
+    {
+      "claim": "A baseline não consultou skill nem artefatos da condição com skill.",
+      "type": "process",
+      "verified": false,
+      "evidence": "execution.md declara essa separação procedimental e informa filesystem compartilhado; não há prova instrumentada dos acessos ou ausência deles."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [
+      "Não há user_notes.md. As ressalvas disponíveis estão em execution.md e na resposta."
+    ],
+    "needs_review": [],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Não reserva caso visto nem conhecido do modelo",
+        "reason": "A resposta exclui o caso conhecido, mas inicialmente justifica isso pela escolha condicionada ao acerto, não pelo possível conhecimento prévio. Um futuro caso que obrigue a distinguir previsão genérica de recuperação de detalhes ausentes testaria melhor a detecção de caso conhecido do modelo."
+      },
+      {
+        "assertion": "Identifica tipos faltantes de simetria, evidência contrária e nada relevante",
+        "reason": "O critério é discriminativo: cobertura genérica não substitui simetria, evidência contrária e nada relevante. Um próximo teste poderia exigir uma justificativa ou exemplo de cada tipo, evitando aprovação só por repetir os três nomes."
+      },
+      {
+        "assertion": "Trata exposição como contaminação e pede suspensão/auditoria sem prometer apagamento",
+        "reason": "O termo suspensão não delimita se é do uso dos casos como reserva ou de toda a geração do tema 4. Nesta avaliação, congelar materiais e retirar validade independente satisfaz a suspensão do teste contaminado; explicitar o escopo em futuros critérios reduziria divergência entre graders."
+      }
+    ],
+    "overall": "3/4. A baseline reconhece a contaminação e propõe novos casos preservados, mas não identifica a tipologia específica faltante. Os textos não demonstram que a nova guarda, auditoria ou validação tenham sido executadas."
+  },
+  "limitations": [
+    "Avaliação restrita aos prompts, expectativas, respostas, registros de execução, timing.json e grader.md; referências e implementação do projeto não foram consultadas.",
+    "execution.md é relato declarativo, não transcrição instrumentada. Afirmações de leituras, isolamento, ausência de pesquisa externa e ausência de ferramentas não podem ser confirmadas independentemente.",
+    "A condição com skill foi executada enquanto formatos.md ainda estava sendo escrito; execution.md relata que o arquivo estava ausente. Esta comparação textual não avalia a interface CLI final.",
+    "Uma execução textual por caso e condição não demonstra robustez estatística nem integração operacional. Métricas nativas indisponíveis permanecem null."
+  ]
+}

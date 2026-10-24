@@ -1,0 +1,104 @@
+{
+  "expectations": [
+    {
+      "text": "Não admite força forte com correlação isolada; mantém hipótese e mecanismo pendente",
+      "passed": true,
+      "evidence": "resposta.md: 'sem mecanismo estudado, a classificação da causa é hipótese, não forte'; também afirma que F-1 não permite concluir negligência e exige observações e mecanismo antes da classificação forte."
+    },
+    {
+      "text": "Pede rivais como mecanismos e busca contra em pesquisador separado",
+      "passed": true,
+      "evidence": "resposta.md, itens 3–5: pede 'pelo menos duas explicações de origens diferentes, com mecanismos distintos', previsões do que ocorreria se verdadeiras ou falsas e 'Separar a busca a favor da busca contra. Pesquisadores distintos devem investigar mecanismo e dependência'. É encaminhamento textual, não pesquisa executada."
+    },
+    {
+      "text": "Não gera soluções nem decide pelo usuário",
+      "passed": true,
+      "evidence": "resposta.md não propõe uma solução para perdas; encerra com 'A pessoa decide quais causas ficam principais' e 'não fecha o tema nem avança automaticamente para soluções'. A condutora organiza o próximo diagnóstico."
+    },
+    {
+      "text": "Explicita o que falta observar e não inventa fonte/parecer",
+      "passed": true,
+      "evidence": "resposta.md pede conferir medidas da F-1, atos observáveis, mecanismo e 'observação decisiva ausente'. Declara 'Não afirmar ter conferido a ficha: aqui só temos sua descrição' e que P-2.2-1/conselho são 'trabalhos pendentes, não validações já realizadas'. Não atribui resultados a pesquisa ou parecer inexistentes."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "model": null,
+    "total_tokens": null,
+    "total_tool_calls": null,
+    "total_steps": null,
+    "errors_encountered": null,
+    "output_chars": 3655,
+    "transcript_chars": null,
+    "execution_record_chars": 1087,
+    "measurement_note": "output_chars e execution_record_chars são contagens locais dos arquivos UTF-8 (wc -m); não são tokens nem métricas nativas. Não há metrics.json nem transcrição instrumentada."
+  },
+  "timing": {
+    "total_tokens": null,
+    "duration_ms": null,
+    "executor_duration_seconds": null,
+    "grader_duration_seconds": null,
+    "total_duration_seconds": null,
+    "source": "timing.json declara tokens e duração indisponíveis; não estimados."
+  },
+  "claims": [
+    {
+      "claim": "O gráfico descrito só sustenta associação e não demonstra mecanismo nem negligência.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "O próprio prompt informa correlação e 'Não temos estudo do mecanismo'; a resposta conserva essa limitação, sem acrescentar dado factual sobre a rede."
+    },
+    {
+      "claim": "A pessoa conserva a escolha final das causas e rivais.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "resposta.md: 'A pessoa decide quais causas ficam principais, quais rivais permanecem vivas e quais perguntas ficam abertas'; nenhum resultado de escolha é imposto."
+    },
+    {
+      "claim": "Foram lidos SKILL.md e referências necessárias, sem consultar expectativas ou baseline.",
+      "type": "process",
+      "verified": false,
+      "evidence": "Somente execution.md declara essas leituras e exclusões. Não há transcrição de ferramentas nem isolamento instrumentado para verificá-las; falso significa não verificado, não prova de falsidade."
+    },
+    {
+      "claim": "P-2.2-1, conselho e critérios detalhados de evidência forte correspondem às referências citadas.",
+      "type": "factual",
+      "verified": false,
+      "evidence": "A resposta cita referências do projeto, mas seu conteúdo não está nos artefatos autorizados à avaliação. A correspondência normativa não pode ser confirmada sem lê-las."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [
+      "Não há user_notes.md. As ressalvas disponíveis estão em execution.md e na resposta."
+    ],
+    "needs_review": [
+      "Condição executada enquanto formatos.md estava sendo escrito; o registro relata ausência do arquivo. Não avalia interface CLI final."
+    ],
+    "workarounds": [
+      "Segundo execution.md, usou referências presentes sem preenchimento de formato canônico. Trata-se de relato não instrumentado."
+    ]
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Pede rivais como mecanismos e busca contra em pesquisador separado",
+        "reason": "A expectativa junta mecanismos rivais e pesquisador separado. A baseline fornece rivais e observações discriminantes, mas falha pela separação de pesquisadores. Subasserções futuras tornariam a origem da diferença visível sem confundir rigor causal geral com um procedimento específico."
+      },
+      {
+        "reason": "O prompt já explicita correlação isolada e mecanismo ausente. Acrescentar futuros casos de quase acerto (por exemplo, rival nomeada sem mecanismo ou busca contra feita pelo mesmo pesquisador) testaria se o procedimento é mantido sob menor ajuda do enunciado."
+      }
+    ],
+    "overall": "4/4 nesta resposta textual. Há evidência explícita para os quatro critérios; isso não comprova execução dos pesquisadores, conselhos ou verificadores nem a correção de todos os detalhes normativos adicionais. Aplicam-se as limitações registradas."
+  },
+  "limitations": [
+    "Avaliação restrita aos prompts, expectativas, respostas, registros de execução, timing.json e grader.md; referências e implementação do projeto não foram consultadas.",
+    "execution.md é relato declarativo, não transcrição instrumentada. Afirmações de leituras, isolamento, ausência de pesquisa externa e ausência de ferramentas não podem ser confirmadas independentemente.",
+    "A condição com skill foi executada enquanto formatos.md ainda estava sendo escrito; execution.md relata que o arquivo estava ausente. Esta comparação textual não avalia a interface CLI final.",
+    "Uma execução textual por caso e condição não demonstra robustez estatística nem integração operacional. Métricas nativas indisponíveis permanecem null."
+  ]
+}

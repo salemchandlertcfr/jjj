@@ -2,7 +2,7 @@
 
 Projeto de uma família de skills para transformar uma ideia em um **Conceito Ideal de Referência (CIR)**: uma descrição funcional do que uma solução deve realizar, antes de escolher a implementação e o produto viável. O método IDEAL orienta a concepção; uma condutora, skills temáticas e especialistas estruturam o trabalho.
 
-**Estado em 23/10/2026:** a documentação registra alphas da condutora [`etapa-1-cir`](skills/etapa-1-cir/SKILL.md) e do [`conselho-especialistas`](skills/conselho-especialistas/SKILL.md). Este checkout está incompleto nesses dois componentes. [`grill-embasado`](skills/grill-embasado/SKILL.md) tem protocolo e verificadores de entrevista; [`especialistas`](skills/especialistas/SKILL.md), recrutamento e infraestrutura de biblioteca; [`equipe-especialistas`](skills/equipe-especialistas/SKILL.md), reuniões e validação local de atas e saídas. As outras 8 skills seguem planejadas. O fluxo completo, as especialidades curadas e as integrações de plataforma precisam de avaliação. O desenvolvimento segue o `skill-creator` fornecido pelo usuário.
+**Estado em 23/10/2026:** a documentação registra alphas da condutora [`etapa-1-cir`](skills/etapa-1-cir/SKILL.md) e do [`conselho-especialistas`](skills/conselho-especialistas/SKILL.md). Este checkout está incompleto nesses dois componentes. [`grill-embasado`](skills/grill-embasado/SKILL.md) tem protocolo e verificadores de entrevista; [`especialistas`](skills/especialistas/SKILL.md), recrutamento e infraestrutura de biblioteca; [`equipe-especialistas`](skills/equipe-especialistas/SKILL.md), reuniões e validação local de atas e saídas. [`cir-mapa`](skills/cir-mapa/SKILL.md) tem cartões e validadores locais para o tema 2. As outras 7 skills seguem planejadas. O fluxo completo, as especialidades curadas e as integrações de plataforma precisam de avaliação. O desenvolvimento segue o `skill-creator` fornecido pelo usuário.
 
 ## Comece pelo que precisa fazer
 
@@ -13,6 +13,7 @@ Projeto de uma família de skills para transformar uma ideia em um **Conceito Id
 | Usar e desenvolver perguntas embasadas | [Implementação do grill](wiki/implementacao-grill.md) |
 | Recrutar especialistas e preparar a biblioteca | [Implementação de especialistas](wiki/implementacao-especialistas.md) |
 | Conduzir reuniões e preservar contribuições e dissenso | [Implementação da equipe](wiki/implementacao-equipe.md) |
+| Desenvolver o mapa do fenômeno, causas e casos | [Implementação do mapa](wiki/implementacao-mapa.md) |
 | Entender o método e suas fronteiras | [Método IDEAL](wiki/metodo-ideal.md) |
 | Percorrer o processo do início à entrega | [Fluxo da Etapa 1](wiki/fluxo-etapa1.md) |
 | Implementar ou revisar as skills | [Arquitetura](wiki/arquitetura.md) e [contratos](wiki/contratos.md) |
@@ -24,7 +25,7 @@ Projeto de uma família de skills para transformar uma ideia em um **Conceito Id
 
 - `wiki/`: síntese por assunto, com referências aos anexos e separação entre evidência, proposta e decisão editorial.
 - `skills/`: pacotes universais, referências e scripts em Python sem dependências externas; consulte os limites de cada implementação.
-- `sources/`: os catorze arquivos distintos recebidos, preservados byte a byte, e seu [inventário](sources/README.md).
+- `sources/`: os quinze arquivos distintos recebidos, preservados byte a byte, e seu [inventário](sources/README.md).
 - [AGENTS.md](AGENTS.md): instruções curtas para agentes que modificam o repositório.
 - `scripts/verificar_documentacao.py`: verificação local de links, navegação e integridade das fontes.
 

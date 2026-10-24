@@ -1,0 +1,11 @@
+{
+  "eval_id": 2,
+  "eval_name": "falsa-impossibilidade",
+  "prompt": "No mapa do hábito de exercício, classificamos adesão x liberdade como de princípio: ninguém da equipe conseguiu ambas. Não há teorema nem premissas escritas. Sugiro anexar um app que resolva o conflito e projetar crescimento anual de mercado de 12%, sem fonte. Quero o tratamento correto de cada item no tema 2; não execute ferramentas externas.",
+  "assertions": [
+    "Não aceita de princípio sem lei, premissas e conta",
+    "Diferencia limite atual e quebrável sem inventar classificação provada",
+    "Encaminha solução ao banco e mercado ao estacionamento",
+    "Projeção pede classe de referência, fontes e horizontes/faixas sem inventar 12%"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "fontes": [
+    {
+      "id": "F-A",
+      "referencia": "Documento sintético de teste, não fonte real",
+      "trecho": "A medição sintética foi registrada no ponto de entrega.",
+      "afirmacao": "Descrição fornecida no exercício",
+      "data": "2020-01-01",
+      "conferida": true
+    }
+  ],
+  "modelo_sonda": "modelo-sintetico",
+  "modelo_geradores": "modelo-sintetico",
+  "casos": [
+    {
+      "id": "A0",
+      "tipo": "falha",
+      "marcador": "⟦teste-0000⟧",
+      "origem": "Exercício sintético",
+      "dificuldade": "Informação incompleta no ponto de entrega",
+      "data_corte": "2020-01-01",
+      "antes": [
+        {
+          "texto": "Um restaurante registrou consumo variável antes do preparo do fim de semana.",
+          "disponivel_em": "2019-12-30",
+          "fontes": [
+            "F-A"
+          ]
+        }
+      ],
+      "desfecho": {
+        "texto": "No cenário didático, o ingrediente acabou antes de concluir o preparo.",
+        "data": "2020-01-02",
+        "fontes": [
+          "F-A"
+        ]
+      },
+      "lado": "ruim",
+      "construido": false,
+      "visto": false,
+      "depois_solucao": false,
+      "conhecido_modelo": null,
+      "sonda": null
+    }
+  ],
+  "exemplo_ficticio": true
+}

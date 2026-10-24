@@ -1,0 +1,316 @@
+{
+  "schema_version": 1,
+  "job": "Repor ingredientes antes que faltem no preparo",
+  "fontes": [
+    {
+      "id": "F-A",
+      "referencia": "Documento sintético de teste, não fonte real",
+      "trecho": "A medição sintética foi registrada no ponto de entrega.",
+      "afirmacao": "Descrição fornecida no exercício",
+      "data": "2020-01-01",
+      "conferida": true
+    },
+    {
+      "id": "F-E",
+      "referencia": "Documento sintético de teste, não fonte real",
+      "trecho": "A medição sintética foi registrada no ponto de entrega.",
+      "afirmacao": "Descrição fornecida no exercício",
+      "data": "2020-01-01",
+      "conferida": true
+    }
+  ],
+  "etapas": [
+    {
+      "id": "J0",
+      "categoria": "concluir",
+      "texto": "Verificar condição 0",
+      "aplica": true,
+      "executor": "Operador",
+      "hoje": "Prática descrita no exercício",
+      "fontes": [
+        "F-A"
+      ]
+    },
+    {
+      "id": "J1",
+      "categoria": "confirmar",
+      "texto": "Verificar condição 1",
+      "aplica": true,
+      "executor": "Operador",
+      "hoje": "Prática descrita no exercício",
+      "fontes": [
+        "F-A"
+      ]
+    },
+    {
+      "id": "J2",
+      "categoria": "definir",
+      "texto": "Verificar condição 2",
+      "aplica": true,
+      "executor": "Operador",
+      "hoje": "Prática descrita no exercício",
+      "fontes": [
+        "F-A"
+      ]
+    },
+    {
+      "id": "J3",
+      "categoria": "executar",
+      "texto": "Verificar condição 3",
+      "aplica": true,
+      "executor": "Operador",
+      "hoje": "Prática descrita no exercício",
+      "fontes": [
+        "F-A"
+      ]
+    },
+    {
+      "id": "J4",
+      "categoria": "localizar",
+      "texto": "Verificar condição 4",
+      "aplica": true,
+      "executor": "Operador",
+      "hoje": "Prática descrita no exercício",
+      "fontes": [
+        "F-A"
+      ]
+    },
+    {
+      "id": "J5",
+      "categoria": "modificar",
+      "texto": "Verificar condição 5",
+      "aplica": true,
+      "executor": "Operador",
+      "hoje": "Prática descrita no exercício",
+      "fontes": [
+        "F-A"
+      ]
+    },
+    {
+      "id": "J6",
+      "categoria": "monitorar",
+      "texto": "Verificar condição 6",
+      "aplica": true,
+      "executor": "Operador",
+      "hoje": "Prática descrita no exercício",
+      "fontes": [
+        "F-A"
+      ]
+    },
+    {
+      "id": "J7",
+      "categoria": "preparar",
+      "texto": "Verificar condição 7",
+      "aplica": true,
+      "executor": "Operador",
+      "hoje": "Prática descrita no exercício",
+      "fontes": [
+        "F-A"
+      ]
+    }
+  ],
+  "passagens": [
+    {
+      "de": "J0",
+      "para": "J1",
+      "o_que_passa": "Informação",
+      "o_que_se_perde": "Horário"
+    }
+  ],
+  "variacoes": [
+    "Pico de demanda"
+  ],
+  "gambiarras": [
+    "Conferência adicional"
+  ],
+  "falhas": [
+    {
+      "id": "F1",
+      "texto": "Ingrediente acaba durante o preparo",
+      "central": true,
+      "etapas": [
+        "J0"
+      ],
+      "partes": [
+        "P1"
+      ],
+      "frequencia": "A medir com registros diários",
+      "gravidade": "Interrompe o uso",
+      "arvore": {
+        "outras_causas": "Peso desconhecido",
+        "ramos": [
+          {
+            "causa": "C1",
+            "tipo": "ramo"
+          },
+          {
+            "causa": "C2",
+            "tipo": "ramo"
+          }
+        ]
+      }
+    }
+  ],
+  "causas": [
+    {
+      "id": "C1",
+      "texto": "O pedido não acompanha a variação de consumo",
+      "origem": "sua",
+      "falha": "F1",
+      "cadeia": [
+        "Pedido considera média do mês",
+        "Consumo de pico excede o disponível"
+      ],
+      "previsoes": {
+        "se_verdadeira": "O padrão aparece nos registros do exercício",
+        "se_falsa": "O padrão não muda no contraste"
+      },
+      "pergunta_contra": "Onde o mecanismo está presente sem a falha?",
+      "observacao_faltante": "Comparação com controle do mecanismo proposto",
+      "mudaria_se": "O mecanismo não alterar a falta de ingrediente",
+      "busca": {
+        "favor": "P1",
+        "contra": "P2"
+      },
+      "evidencias": [
+        {
+          "texto": "Mudança observada no cenário sintético",
+          "teste": "aro",
+          "lado": "favor",
+          "resultado": "passou",
+          "fontes": [
+            "F-E"
+          ]
+        }
+      ],
+      "forca": "media",
+      "motivo_forca": "Comparação sem controle",
+      "fontes_mecanismo": [
+        "F-A"
+      ],
+      "fontes_dependencia": [
+        "F-E"
+      ],
+      "tipo_dependencia": "sem_controle",
+      "falha_igual_sem_causa": false,
+      "situacao": "principal"
+    },
+    {
+      "id": "C2",
+      "texto": "O armazenamento reduz a quantidade disponível",
+      "origem": "gerador-independente",
+      "falha": "F1",
+      "cadeia": [
+        "Condição de conservação varia",
+        "Parte dos ingredientes se perde antes do preparo"
+      ],
+      "previsoes": {
+        "se_verdadeira": "O padrão aparece nos registros do exercício",
+        "se_falsa": "O padrão não muda no contraste"
+      },
+      "pergunta_contra": "Onde o mecanismo está presente sem a falha?",
+      "observacao_faltante": "Comparação com controle do mecanismo proposto",
+      "mudaria_se": "O mecanismo não alterar a falta de ingrediente",
+      "busca": {
+        "favor": "P1",
+        "contra": "P2"
+      },
+      "evidencias": [
+        {
+          "texto": "Mudança observada no cenário sintético",
+          "teste": "aro",
+          "lado": "favor",
+          "resultado": "passou",
+          "fontes": [
+            "F-E"
+          ]
+        }
+      ],
+      "forca": "media",
+      "motivo_forca": "Comparação sem controle",
+      "fontes_mecanismo": [
+        "F-A"
+      ],
+      "fontes_dependencia": [
+        "F-E"
+      ],
+      "tipo_dependencia": "sem_controle",
+      "falha_igual_sem_causa": false,
+      "situacao": "rival_viva"
+    }
+  ],
+  "lacos": [],
+  "contradicoes": [
+    {
+      "id": "T1",
+      "parametros": [
+        "quantidade disponível",
+        "tempo de armazenamento"
+      ],
+      "forma_fisica": "Mesmos ingredientes guardados por mais tempo",
+      "classe": "limite_hoje",
+      "data": "2020-01-01",
+      "fontes": [
+        "F-A"
+      ],
+      "busca_prova": "P3",
+      "busca_contraexemplo": "P4"
+    }
+  ],
+  "projecao": {
+    "classe_referencia": "Redes do exercício",
+    "sua_versao": "Estabilidade",
+    "fontes": [
+      "F-A"
+    ],
+    "taxas_base": "Faixa fornecida no cenário sintético",
+    "horizontes": [
+      {
+        "prazo": "5 anos",
+        "faixa": "Condição estável a instável",
+        "partes": "Quem prepara o alimento",
+        "ajuste_motivo": "Sem ajuste"
+      },
+      {
+        "prazo": "20 anos",
+        "faixa": "Condição estável a instável",
+        "partes": "Quem prepara o alimento",
+        "ajuste_motivo": "Sem ajuste"
+      }
+    ]
+  },
+  "conhecimento": [
+    {
+      "id": "K1",
+      "texto": "Consumo pode variar entre dias",
+      "classe": "incerto",
+      "se_falsa": "Rever causa",
+      "resolveria": "Medir em ponto fixo",
+      "custo_investigar": "A estimar por plano de medição"
+    },
+    {
+      "id": "K2",
+      "texto": "Dia de uma interrupção futura do fornecimento",
+      "classe": "impossivel_saber",
+      "se_falsa": "Rever antecipação",
+      "por_que": "Evento aleatório",
+      "natureza": "aleatorio"
+    }
+  ],
+  "analogias": [],
+  "partes": [
+    {
+      "id": "P1",
+      "texto": "Quem prepara o alimento"
+    }
+  ],
+  "contagem_casos": {
+    "comum": 1,
+    "falha": 3,
+    "sucesso": 3,
+    "simetria": 4,
+    "evidencia_contraria": 2,
+    "nada_relevante": 2
+  },
+  "exemplo_ficticio": true
+}

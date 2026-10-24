@@ -64,6 +64,8 @@ A prova começa antes da geração: o tema 2 reúne 15–30 casos candidatos; o 
 
 O conselho compara conceitos com a melhor abordagem atual, critério a critério, usando `+`, `0`, `−` e `?`, sem somar. Elaboração, verificação e julgamento exigem contextos separados; retirar autoria exige também controlar acesso ao contexto. A especificação ainda não entrega esse mecanismo. Consulte [conselho-especialistas](conselho-especialistas.md).
 
+O detalhamento selecionado [S15 §§5–6](../sources/originais/plano-cir-mapa.md) acrescenta ao tema 2: árvores com outras causas e rivais em linhas, previsões anteriores à busca, verificação mais conselho completo em 2.3, visão de fora cega, cotas/sonda e contraste integrado. A sequência/doses de 2.1–2.7 permanece. O [alpha do mapa](implementacao-mapa.md) verifica apoio local, sem executar o ciclo completo ou atualizar silenciosamente S08.
+
 ## Retornos, encerramento e retomada
 
 Comparação inconclusiva pede mais casos e ataques antes de gerar novamente. Conceitos todos dominados ou refutados devolvem suas falhas à divergência. Falha numa validação integrada reabre as sub-etapas afetadas. Mudança do propósito exige decisão explícita e revisão dos derivados.

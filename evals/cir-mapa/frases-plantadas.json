@@ -1,0 +1,246 @@
+{
+  "contaminadas": [
+    {
+      "peca": "job",
+      "texto": "O preço define as etapas."
+    },
+    {
+      "peca": "job",
+      "texto": "A etapa mede market share."
+    },
+    {
+      "peca": "job",
+      "texto": "Selecionar o concorrente."
+    },
+    {
+      "peca": "job",
+      "texto": "Definir willingness to pay."
+    },
+    {
+      "peca": "job",
+      "texto": "Criar um app."
+    },
+    {
+      "peca": "job",
+      "texto": "Use an API to finish."
+    },
+    {
+      "peca": "falha",
+      "texto": "Falta um aplicativo."
+    },
+    {
+      "peca": "falha",
+      "texto": "We should deploy a dashboard."
+    },
+    {
+      "peca": "falha",
+      "texto": "O MVP ainda não existe."
+    },
+    {
+      "peca": "falha",
+      "texto": "Competitor pricing is the issue."
+    },
+    {
+      "peca": "causa",
+      "texto": "A causa é erro humano."
+    },
+    {
+      "peca": "causa",
+      "texto": "The final cause is human error."
+    },
+    {
+      "peca": "causa",
+      "texto": "Tudo termina em falta de força de vontade."
+    },
+    {
+      "peca": "causa",
+      "texto": "It comes down to willpower."
+    },
+    {
+      "peca": "causa",
+      "texto": "A e B têm correlação."
+    },
+    {
+      "peca": "causa",
+      "texto": "A is associated with B."
+    },
+    {
+      "peca": "causa",
+      "texto": "O dano está associado a X."
+    },
+    {
+      "peca": "causa",
+      "texto": "Quanto mais A, mais B."
+    },
+    {
+      "peca": "causa",
+      "texto": "Causa: descuido."
+    },
+    {
+      "peca": "causa",
+      "texto": "Cause: a mistake."
+    },
+    {
+      "peca": "contradicao",
+      "texto": "Este conflito é de princípio."
+    },
+    {
+      "peca": "contradicao",
+      "texto": "This is impossible."
+    },
+    {
+      "peca": "contradicao",
+      "texto": "The trade-off holds in principle."
+    },
+    {
+      "peca": "contradicao",
+      "texto": "Basta trocar o app."
+    },
+    {
+      "peca": "contradicao",
+      "texto": "É impossível diminuir ambos."
+    },
+    {
+      "peca": "contradicao",
+      "texto": "Dá para automatizar."
+    },
+    {
+      "peca": "projecao",
+      "texto": "O mercado vai crescer."
+    },
+    {
+      "peca": "projecao",
+      "texto": "Preço cairá em dois anos."
+    },
+    {
+      "peca": "projecao",
+      "texto": "Adotar um software resolverá."
+    },
+    {
+      "peca": "projecao",
+      "texto": "We can deploy the solution."
+    },
+    {
+      "peca": "projecao",
+      "texto": "Competitor adoption is growing."
+    },
+    {
+      "peca": "projecao",
+      "texto": "Pricing is the projected outcome."
+    },
+    {
+      "peca": "k",
+      "texto": "É impossível medir hoje."
+    },
+    {
+      "peca": "k",
+      "texto": "It is impossible to measure."
+    },
+    {
+      "peca": "k",
+      "texto": "Usaremos blockchain."
+    },
+    {
+      "peca": "k",
+      "texto": "Basta automatizar a tarefa."
+    },
+    {
+      "peca": "caso",
+      "texto": "O caso mostra a disposição a pagar."
+    },
+    {
+      "peca": "caso",
+      "texto": "The case proves market opportunity."
+    },
+    {
+      "peca": "caso",
+      "texto": "Dá para criar um aplicativo."
+    },
+    {
+      "peca": "caso",
+      "texto": "We should just use a new product."
+    }
+  ],
+  "limpas": [
+    {
+      "peca": "job",
+      "texto": "Confirmar a condição do material."
+    },
+    {
+      "peca": "job",
+      "texto": "Como é feita hoje: consulta no app, com ficha."
+    },
+    {
+      "peca": "job",
+      "texto": "Current method: software, documented in the source."
+    },
+    {
+      "peca": "job",
+      "texto": "Localizar os insumos necessários."
+    },
+    {
+      "peca": "falha",
+      "texto": "O insumo acaba antes da conclusão."
+    },
+    {
+      "peca": "falha",
+      "texto": "A entrega chega depois do horário esperado."
+    },
+    {
+      "peca": "causa",
+      "texto": "Causa: hipótese; falta estudo."
+    },
+    {
+      "peca": "causa",
+      "texto": "Cause: hypothesis, not yet tested."
+    },
+    {
+      "peca": "causa",
+      "texto": "A pressão varia durante o percurso, F-031."
+    },
+    {
+      "peca": "causa",
+      "texto": "A discussão sobre erro humano continua com a carga de trabalho."
+    },
+    {
+      "peca": "contradicao",
+      "texto": "De princípio; premissas: as condições do teorema."
+    },
+    {
+      "peca": "contradicao",
+      "texto": "In principle; assumptions: conditions from the theorem."
+    },
+    {
+      "peca": "contradicao",
+      "texto": "Impossível no caso; teorema: demonstração a conferir."
+    },
+    {
+      "peca": "contradicao",
+      "texto": "A melhora acompanha a redução de B."
+    },
+    {
+      "peca": "projecao",
+      "texto": "A classe de referência fornece a faixa por horizonte."
+    },
+    {
+      "peca": "projecao",
+      "texto": "A fonte descreve redução populacional."
+    },
+    {
+      "peca": "k",
+      "texto": "A incerteza requer uma nova observação."
+    },
+    {
+      "peca": "k",
+      "texto": "O estudo resolveria a pergunta em aberto."
+    },
+    {
+      "peca": "caso",
+      "texto": "O desfecho foi documentado após o corte."
+    },
+    {
+      "peca": "caso",
+      "texto": "The observed result contradicted the initial account."
+    }
+  ]
+}
