@@ -1,0 +1,15 @@
+{
+  "destinos": [],
+  "dissenso": [],
+  "afirmacoes": [
+    {
+      "id": "A1",
+      "conclusao": "indeterminado",
+      "justificativa": "não há conferência suficiente",
+      "lastro": [],
+      "incerteza": "condições de medição ausentes",
+      "especialidade": "controle e sinais",
+      "mudaria_se": "houver dados do processo"
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "reuniao",
+    "chamadas_registradas",
+    "sessoes_declaradas",
+    "tokens",
+    "segundos",
+    "creditos",
+    "contexto_mesa_tokens"
+  ],
+  "properties": {
+    "tokens": {
+      "type": "object",
+      "required": [
+        "total",
+        "conhecido",
+        "eventos_sem_dado"
+      ],
+      "properties": {
+        "total": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "conhecido": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "eventos_sem_dado": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "segundos": {
+      "type": "object",
+      "required": [
+        "total",
+        "conhecido",
+        "eventos_sem_dado"
+      ],
+      "properties": {
+        "total": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "conhecido": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "eventos_sem_dado": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "creditos": {
+      "type": "object",
+      "required": [
+        "total",
+        "conhecido",
+        "eventos_sem_dado"
+      ],
+      "properties": {
+        "total": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "conhecido": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "eventos_sem_dado": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "contexto_mesa_tokens": {
+      "type": "object",
+      "required": [
+        "total",
+        "conhecido",
+        "eventos_sem_dado"
+      ],
+      "properties": {
+        "total": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "conhecido": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "eventos_sem_dado": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    }
+  }
+}

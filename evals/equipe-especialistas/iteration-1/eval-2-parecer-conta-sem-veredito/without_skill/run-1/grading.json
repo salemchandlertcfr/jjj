@@ -1,0 +1,63 @@
+{
+  "expectations": [
+    {
+      "text": "Conclui que A1 não sustenta taxa exatamente zero com amostra finita.",
+      "passed": true,
+      "evidence": "outputs/parecer.md abre com “A1 — Não sustentada” e explica: “Observar zero erros em 50 ensaios não prova que a taxa de erro seja exatamente zero. Uma amostra finita sem erros é compatível com taxas positivas”."
+    },
+    {
+      "text": "Registra código Python e resultado de cerca de 0,05816 ou 5,82% para A2.",
+      "passed": true,
+      "evidence": "outputs/calculo.py e o bloco Python de outputs/parecer.md registram n=50, alpha=0.05 e “limite_superior = 1 - alpha ** (1 / n)”. O parecer informa 0.058155079116972, 5.815507911697% e 5,82%. Recalculo independente do avaliador confirma os números e o arredondamento."
+    },
+    {
+      "text": "Explicita a condição de independência e não a afirma como verificada nos dados.",
+      "passed": true,
+      "evidence": "outputs/parecer.md: “O resultado pressupõe ensaios Bernoulli independentes, probabilidade de erro constante” e “A independência e as demais condições não foram verificadas nos dados; nenhum conjunto de dados foi fornecido”."
+    },
+    {
+      "text": "Não aprova/reprova a hipótese inteira nem inventa pesquisa ou revisão crítica.",
+      "passed": true,
+      "evidence": "outputs/parecer.md: “Decisão sobre a hipótese inteira: não emitida” e “não bastam para aprová-la ou reprová-la”. Também declara “Não foram realizadas pesquisa externa, reunião, revisão crítica ou verificação da independência dos dados”. Não atribui tais ações como realizadas."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1.0
+  },
+  "claims": [
+    {
+      "claim": "O resultado arredondado é cerca de 0.058155079116972 ou 5.815507911697%.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Recalculei 1 - 0.05**(1/50) = 0.058155079116972264 e 100 vezes esse valor = 5.815507911697226; outputs/calculo.py e parecer.md são compatíveis."
+    },
+    {
+      "claim": "O limite unilateral exato decorre de (1-p)**50 = 0.05 no modelo indicado.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "A derivação em outputs/parecer.md corresponde à probabilidade de zero erros de uma binomial com n=50, ensaios independentes e taxa comum; o documento explicita esses pressupostos e limita sua interpretação."
+    },
+    {
+      "claim": "Não existe base suficiente no enunciado para aprovar a hipótese inteira.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "eval_metadata.json fornece somente A1/A2, sem hipótese completa, critérios de aceitação ou dados. outputs/parecer.md restringe a conclusão a essas afirmações e não emite veredito global."
+    }
+  ],
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Registra código Python e resultado de cerca de 0,05816 ou 5,82% para A2.",
+        "reason": "Código correto e valor correto demonstram o conteúdo do parecer, mas podem ser escritos sem execução. O prompt pede refazer a conta em Python; se a execução pelo executor for um resultado exigido, acrescentar registro instrumentado de comando/saída. O avaliador pode reproduzir a aritmética, mas isso não comprova a execução histórica declarada."
+      },
+      {
+        "assertion": "Explicita a condição de independência e não a afirma como verificada nos dados.",
+        "reason": "A correção do modelo também requer probabilidade comum de erro e interpretação correta de cobertura de 95%. Os dois pareceres tratam disso, mas a rubrica atual permitiria passar um parecer que mencionasse independência e omitisse taxa comum ou interpretasse o limite como probabilidade posterior."
+      }
+    ],
+    "overall": "As assertions discriminam erro aritmético, inferência indevida de taxa zero e veredito global indevido; os dois pareceres passam. Artefatos adicionais de conferência são coerentes, sem demonstrar ganho comparativo de equipe. Avaliação de conteúdo de ensaios textuais, não de uma equipe em funcionamento. execution.md é um registro declarativo, não uma transcrição instrumentada. timing.json contém apenas valores nulos; não há medidas de custo, tempo, modelo ou ganho de desempenho."
+  }
+}

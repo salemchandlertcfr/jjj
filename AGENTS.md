@@ -1,6 +1,6 @@
 # Orientação para agentes
 
-Este repositório desenvolve skills para a Etapa 1/CIR. A documentação registra alphas da condutora e do conselho, incompletos neste checkout. Grill e especialistas têm protocolo e apoio local; outras 9 skills estão planejadas. A biblioteca de especialidades curadas ainda não foi criada. O código originalmente recebido é uma simulação de brinquedo. Não descreva planos, métricas propostas ou integrações não testadas como implementadas.
+Este repositório desenvolve skills para a Etapa 1/CIR. A documentação registra alphas da condutora e do conselho, incompletos neste checkout. Grill, especialistas e equipe têm protocolo e apoio local; outras 8 skills estão planejadas. A biblioteca de especialidades curadas ainda não foi criada. O código originalmente recebido é uma simulação de brinquedo. Não descreva planos, métricas propostas ou integrações não testadas como implementadas.
 
 ## Carregue contexto por tarefa
 
@@ -12,6 +12,7 @@ Comece por [README.md](README.md) e [wiki/index.md](wiki/index.md). Leia apenas 
 - Antes de programar uma skill, registre seu propósito geral, como ela contribui para o método e o que seus resultados precisam demonstrar. Procedimentos e scripts devem servir a esse propósito.
 - S12 é o plano selecionado para o grill; consulte [implementação e limites](wiki/implementacao-grill.md). O anexo repetido `SKILL.md` é idêntico a S01.
 - S13 orienta [especialistas](wiki/implementacao-especialistas.md). Curadoria de `esp-*` acontece fora do projeto; nunca converter dublês de infraestrutura em conhecimento admitido na biblioteca.
+- S14 orienta [equipe](wiki/implementacao-equipe.md). Preserve preparações, contribuições e dissenso; verificações locais não demonstram ganho de uma reunião real.
 - Não altere os bytes das fontes recebidas. Acrescente novas fontes e entradas em `sources/manifest.json`; preserve IDs e hashes existentes.
 - Cite fonte e seção para regras e afirmações do projeto. Diferencie planejado, simulado, implementado, decisão editorial e a confirmar.
 - Não resolva conflitos por suposição de recência. Consulte [wiki/pendencias.md](wiki/pendencias.md); uma decisão de produto nova precisa de evidência ou de uma instrução do responsável.

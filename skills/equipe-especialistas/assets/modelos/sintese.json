@@ -1,0 +1,21 @@
+{
+  "versao": "Transferência com informação rastreável e confirmação explícita.",
+  "por_que": [],
+  "mudancas": [],
+  "destinos": [
+    {
+      "id": "M1-1",
+      "destino": "entrou",
+      "motivo": "preserva o conteúdo transferido",
+      "lastro": [
+        "F1"
+      ]
+    }
+  ],
+  "divergencias": [],
+  "dissenso": [],
+  "lacunas": [],
+  "perguntas_usuario": [],
+  "do_lider": [],
+  "numeros": []
+}

@@ -1,0 +1,27 @@
+{
+  "id": "PREP-M1",
+  "tipo": "preparacao",
+  "ator": "M1",
+  "rodada": null,
+  "texto": "sem skill · LAC-1\nManter a informação rastreável.\nConferir a informação antes de transferir.",
+  "leitura": "a transferência preserva uma cadeia de informação",
+  "posicao_inicial": "Manter a informação rastreável.",
+  "critica_base": "o critério de término ainda precisa ficar explícito",
+  "contribuicoes": [
+    {
+      "id": "M1-1",
+      "texto": "Conferir a informação antes de transferir.",
+      "por_que": "evita transferir responsabilidade sem conteúdo",
+      "muda": "o encerramento tem conferência",
+      "evidencias": [
+        {
+          "tipo": "fonte",
+          "id": "F1"
+        }
+      ]
+    }
+  ],
+  "fontes_novas": [],
+  "perguntas": [],
+  "nao_sei": []
+}

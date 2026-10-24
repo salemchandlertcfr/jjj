@@ -1,0 +1,9 @@
+{
+  "n": 50,
+  "alpha": 0.05,
+  "limite_direto": 0.058155079116972264,
+  "limite_refeito": 0.058155079116972264,
+  "limite_percentual": 5.815507911697226,
+  "prob_zero_no_limite": 0.05000000000000002,
+  "prob_zero_com_taxa_1_porcento": 0.6050060671375364
+}

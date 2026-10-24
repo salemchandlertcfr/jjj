@@ -61,3 +61,11 @@ Estas decisões organizam o conhecimento recebido. Não aprovam regras de produt
 **Decisão:** implementar protocolo e seis CLIs locais, sem gerar especialidades de memória no projeto ou instalar uma biblioteca de produção fictícia. Cobertura independe de catálogo/placar; blocos são montados de objetos Git; permissões/modelos são copiados do papel. Aplicar a regra numérica a resultados completos, mantendo revisão de fontes/licenças e sala limpa como requisitos externos.
 
 **Consequência:** o pacote pode preparar formações e testar mecanismos, mas não promete especialistas curados nem execução Claude. A primeira leva fica como fila de candidatas. O ensaio textual empatou e não sustenta ganho; tempo observado com janelas diferentes não vira comparação de desempenho. Interfaces e limites em [implementação de especialistas](implementacao-especialistas.md).
+
+## D08 — Equipe com rastreabilidade antes de acordo
+
+**Contexto:** o usuário selecionou [S14](../sources/originais/plano-equipe-especialistas.md), recebido em ZIP, para a próxima skill. O propósito foi registrado antes do código: combinar especialidades sem perder informação única ou apagar o dissenso.
+
+**Decisão:** implementar protocolo universal, sete CLIs e estado explícito, preservando texto original, fases, códigos, checagens e respostas à crítica. A mesa projeta tarefas por papel; não fabrica falas ou execuções Claude. Contas usam interpretação restrita de Python matemático em processo separado. Pesquisa requer adaptador real; métricas ausentes ficam desconhecidas. Só a condutora persiste os arquivos devolvidos.
+
+**Consequência:** testes demonstram mecanismos locais e portabilidade. Evidência de ganho da equipe, verificação científica, modelos e isolamento depende de execuções reais e comparação adequada. Fusão conserva incompatíveis como opções, sem média arbitrária; a equipe não julga hipóteses. Escopo, comandos e limites em [implementação da equipe](implementacao-equipe.md).

@@ -1,0 +1,62 @@
+{
+  "expectations": [
+    {
+      "text": "Toda parte incorporada tem origem A/p1, A/p2, B/p1 ou B/p2 identificada.",
+      "passed": true,
+      "evidence": "outputs/fusao.md, “Parte comum incorporada”: “Manter uma lista rastreável” está atribuído a A/p2 e “Distribuir a lista entre quem transmite e quem recebe” a B/p2, ambos com trechos literais. As opções de encerramento têm origem explícita A/p1 e B/p1. Não há outra parte operacional incorporada sem origem."
+    },
+    {
+      "text": "Não inventa média ou prazo intermediário para resolver a incompatibilidade.",
+      "passed": true,
+      "evidence": "outputs/fusao.md mantém quatro minutos apenas como prazo original de B/p1 e declara: “Não se escolhe uma opção nem se inventa prazo intermediário, média ou combinação que encerre silenciosamente antes da confirmação”. A leitura completa não encontra prazo novo."
+    },
+    {
+      "text": "Preserva os dois argumentos D1 e explicita o que decidiria entre as opções.",
+      "passed": true,
+      "evidence": "outputs/fusao.md preserva literalmente A/D1 — “um prazo fixo pode encerrar antes da confirmação” — e B/D1 — “esperar indefinidamente pode impedir a transferência” — como argumentos e objeções recíprocas. “O que decidiria” especifica evidência sobre chegada/reconhecimento da confirmação, recebimento antes dos quatro minutos e riscos aceitáveis, sem apresentá-la como obtida."
+    },
+    {
+      "text": "Registra exclusões/pendências e mantém revisão crítica como pendente.",
+      "passed": true,
+      "evidence": "outputs/fusao.md, tabela de destinos: A/p1 e B/p1 ficam “fora da regra comum” por incompatibilidade e falta de evidência; registra que nenhuma contribuição foi descartada. A seção “Pendências” inclui decisão de encerramento, definição da confirmação e “Revisão crítica pendente: não há parecer de crítico, pontos revisados, respostas ou aprovação”."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1.0
+  },
+  "claims": [
+    {
+      "claim": "A parte comum provém apenas de A/p2 e B/p2.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Conferência da tabela de incorporação de outputs/fusao.md contra o prompt: os dois trechos são recebidos literalmente e seus códigos estão corretos."
+    },
+    {
+      "claim": "Os dois argumentos D1 e a incompatibilidade dos encerramentos permanecem rastreáveis.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "A/D1 e B/D1 aparecem literalmente nas opções e na tabela de destinos. A/p1 fica condicionado à confirmação; B/p1 mantém os quatro minutos recebidos; não se atribui uma resolução inexistente."
+    },
+    {
+      "claim": "Não há atas ou revisão crítica fornecidas.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "O prompt informa “só sínteses anônimas A e B, sem atas” e manda marcar revisão pendente. outputs/fusao.md respeita esse limite, sem inventar identidades, atas ou aprovação."
+    }
+  ],
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Preserva os dois argumentos D1 e explicita o que decidiria entre as opções.",
+        "reason": "Convém exigir critérios discriminantes específicos para cada alternativa e separar critérios propostos de evidência já obtida. Apenas repetir os argumentos e dizer “é preciso mais evidência” poderia satisfazer uma leitura fraca da assertion. Aqui ambas as saídas fornecem condições concretas."
+      },
+      {
+        "reason": "A proveniência literal é bem verificável neste caso pequeno e integralmente fornecido. Para testar fusão sob risco real de omissão, incluir contribuições redundantes e não compatíveis adicionais, exigindo contabilização de cada código e motivo de exclusão; não inferir funcionamento de reuniões a partir deste ensaio sem atas."
+      }
+    ],
+    "overall": "A rubrica cobre origem, conflito, prazo e estado da revisão; as duas saídas atendem a esses requisitos sem atribuir resolução fictícia. Os nomes A/B representam apenas sínteses fornecidas. Avaliação de conteúdo de ensaios textuais, não de uma equipe em funcionamento. execution.md é um registro declarativo, não uma transcrição instrumentada. timing.json contém apenas valores nulos; não há medidas de custo, tempo, modelo ou ganho de desempenho."
+  }
+}

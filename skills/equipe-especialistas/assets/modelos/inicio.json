@@ -1,0 +1,130 @@
+{
+  "pauta": {
+    "schema_version": 1,
+    "id": "4.3-r1",
+    "subetapa": "4.3",
+    "modo": "elaboracao",
+    "dose": "padrao",
+    "pergunta": "Como transferir o sistema em operação sem perder informação?",
+    "decidir": [
+      "critério de encerramento da transferência"
+    ],
+    "formato_entrega": "família funcional com alternativas e restrições",
+    "validacao_depois": "conselho de triagem",
+    "refuta_se": "a informação central não chega ao destino",
+    "restricoes": [
+      "não escolher produto ou tecnologia"
+    ],
+    "versao_base": "conferir a informação antes de transferir a responsabilidade",
+    "rodadas": 2,
+    "central": false
+  },
+  "membros": [
+    {
+      "id": "M1",
+      "sigla": "M1",
+      "nome": "especialista-1",
+      "ficha": "E-1",
+      "papel": "especialista",
+      "sessao": "sessao-1",
+      "modelo": {
+        "id": "modelo-a-configurar",
+        "familia": "anthropic",
+        "nivel": 1,
+        "verificado": false
+      },
+      "especialidade": "controle e sinais",
+      "esp": null,
+      "selo": "sem skill · LAC-1",
+      "bloco": "<especialidade nome=\"nenhuma\"><instrucao>Sem conhecimento curado. Comece a entrega pela linha: sem skill · LAC-1</instrucao></especialidade>\n",
+      "hash_transporte": "78751c2f2bf8be00e996749a6a37f6e41218a02cad7ad719bccb39b8c0624e5d",
+      "fontes": [
+        "F1"
+      ],
+      "distante": false
+    },
+    {
+      "id": "M2",
+      "sigla": "M2",
+      "nome": "especialista-2",
+      "ficha": "E-2",
+      "papel": "especialista",
+      "sessao": "sessao-2",
+      "modelo": {
+        "id": "modelo-a-configurar",
+        "familia": "anthropic",
+        "nivel": 1,
+        "verificado": false
+      },
+      "especialidade": "fatores humanos",
+      "esp": null,
+      "selo": "sem skill · LAC-2",
+      "bloco": "<especialidade nome=\"nenhuma\"><instrucao>Sem conhecimento curado. Comece a entrega pela linha: sem skill · LAC-2</instrucao></especialidade>\n",
+      "hash_transporte": "4085bbc18d8fd0ea825b14a0d2f4cc25d8c8d260fb78932442f293d019f5f9f6",
+      "fontes": [
+        "F1"
+      ],
+      "distante": false
+    },
+    {
+      "id": "M3",
+      "sigla": "M3",
+      "nome": "especialista-3",
+      "ficha": "E-3",
+      "papel": "especialista",
+      "sessao": "sessao-3",
+      "modelo": {
+        "id": "modelo-a-configurar",
+        "familia": "anthropic",
+        "nivel": 1,
+        "verificado": false
+      },
+      "especialidade": "operacoes",
+      "esp": null,
+      "selo": "sem skill · LAC-3",
+      "bloco": "<especialidade nome=\"nenhuma\"><instrucao>Sem conhecimento curado. Comece a entrega pela linha: sem skill · LAC-3</instrucao></especialidade>\n",
+      "hash_transporte": "3a1fb07d279489b61d97c007d5aa3ba39f411f6f4d981d5afcba1ddafba3910b",
+      "fontes": [
+        "F1"
+      ],
+      "distante": false
+    },
+    {
+      "id": "LD",
+      "sigla": "LD",
+      "nome": "lider-1",
+      "ficha": "E-LD",
+      "papel": "lider",
+      "sessao": "sessao-LD",
+      "modelo": {
+        "id": "modelo-a-configurar",
+        "familia": "anthropic",
+        "nivel": 1,
+        "verificado": false
+      }
+    },
+    {
+      "id": "CR",
+      "sigla": "CR",
+      "nome": "critico-1",
+      "ficha": "E-CR",
+      "papel": "critico",
+      "sessao": "sessao-CR",
+      "modelo": {
+        "id": "modelo-a-configurar",
+        "familia": "anthropic",
+        "nivel": 1,
+        "verificado": false
+      }
+    }
+  ],
+  "semente": 48213,
+  "fontes": [
+    {
+      "id": "F1",
+      "texto": "Evidência fictícia de infraestrutura: informação precisa permanecer rastreável.",
+      "valida": true,
+      "apoio_conferido": true
+    }
+  ]
+}

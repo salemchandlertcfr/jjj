@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "pauta",
+    "membros",
+    "semente",
+    "ordens",
+    "eventos",
+    "quarentena",
+    "revisao",
+    "hash_estado"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "membros": {
+      "type": "array",
+      "minItems": 2
+    },
+    "eventos": {
+      "type": "array"
+    },
+    "revisao": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "hash_estado": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}

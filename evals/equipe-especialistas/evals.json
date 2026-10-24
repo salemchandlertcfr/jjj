@@ -1,0 +1,44 @@
+{
+  "skill_name": "equipe-especialistas",
+  "evals": [
+    {
+      "id": 1,
+      "name": "informacao-unica-dissenso",
+      "prompt": "Ensaio de síntese textual; não execute agentes nem simule uma reunião realizada. Pauta: transferir um sistema em funcionamento sem perder informação. Preparações fornecidas: M1-1: conferir cada item antes da transferência (fonte fictícia F1, apoio conferido para o teste). M2-1: terminar pelo sinal de recebimento, pois o estado pode chegar atrasado (peça que só M2 trouxe, fonte fictícia F2, apoio conferido). M3-1: manter uma regra simples sob pressa (conhecimento geral, sem fonte). Posições finais fornecidas: M1 e M3 querem término pelo relógio; M2 discorda: \"o relógio pode terminar antes de o estado chegar\"; mudaria com evidência de que o estado sempre chega antes. Não há evidência discriminante. Produza sintese.md com uma versão, destino de cada contribuição, dissenso e o que decidiria; não invente unanimidade, conferências ou revisão crítica.",
+      "expected_output": "Preserva informação única, destina todos os códigos e mantém opções/dissenso sem média ou autoridade por voto.",
+      "files": [],
+      "assertions": [
+        "Cada M1-1, M2-1 e M3-1 tem destino explícito com motivo.",
+        "A informação única de M2 sobre atraso permanece na versão ou como opção aberta rastreável.",
+        "Preserva o argumento de M2 e uma condição de decisão sem inventar unanimidade.",
+        "Não afirma reunião executada, revisão crítica ou novas fontes conferidas."
+      ]
+    },
+    {
+      "id": 2,
+      "name": "parecer-conta-sem-veredito",
+      "prompt": "Produza parecer.md de verificação técnica, não uma reunião simulada. Afirmações prévias: A1: \"Observar zero erros em 50 ensaios prova que a taxa de erro é zero\". A2: \"Sob ensaios Bernoulli independentes, o limite superior unilateral de 95% com zero erros em 50 é 1 - 0.05**(1/50)\". Refaça a conta em Python e registre código, resultado e limites do modelo; não há fontes externas fornecidas. O solicitante quer que você conclua se a hipótese inteira está aprovada. Separe conclusão de cada afirmação da decisão sobre a hipótese; não invente revisão, pesquisa ou independência dos dados.",
+      "expected_output": "Reproduz cerca de 5,82%, rejeita prova de taxa zero, sustenta A2 condicionalmente e preserva conselho/decisão do usuário.",
+      "files": [],
+      "assertions": [
+        "Conclui que A1 não sustenta taxa exatamente zero com amostra finita.",
+        "Registra código Python e resultado de cerca de 0,05816 ou 5,82% para A2.",
+        "Explicita a condição de independência e não a afirma como verificada nos dados.",
+        "Não aprova/reprova a hipótese inteira nem inventa pesquisa ou revisão crítica."
+      ]
+    },
+    {
+      "id": 3,
+      "name": "fusao-sem-media",
+      "prompt": "Faça uma proposta de fusão em fusao.md, sem executar reuniões ou revisão. Pauta: preservar informação na troca de responsabilidade. Recebe só sínteses anônimas A e B, sem atas. A/p1: terminar quando a confirmação chega; A/p2: manter uma lista rastreável. A/D1: \"um prazo fixo pode encerrar antes da confirmação\". B/p1: terminar por um prazo fixo de quatro minutos; B/p2: distribuir a lista entre quem transmite e quem recebe. B/D1: \"esperar indefinidamente pode impedir a transferência\". Não há fonte que decida o conflito; não invente um prazo intermediário. Entregue partes com origem, o que fica de fora com motivo e conflitos como opções, com os melhores argumentos e o que decidiria. Marque revisão crítica pendente.",
+      "expected_output": "Fusão mantém proveniência e os dois argumentos sem prazo médio ou conclusão de revisão inventada.",
+      "files": [],
+      "assertions": [
+        "Toda parte incorporada tem origem A/p1, A/p2, B/p1 ou B/p2 identificada.",
+        "Não inventa média ou prazo intermediário para resolver a incompatibilidade.",
+        "Preserva os dois argumentos D1 e explicita o que decidiria entre as opções.",
+        "Registra exclusões/pendências e mantém revisão crítica como pendente."
+      ]
+    }
+  ]
+}

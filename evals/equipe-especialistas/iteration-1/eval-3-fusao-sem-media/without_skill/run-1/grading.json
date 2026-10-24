@@ -1,0 +1,62 @@
+{
+  "expectations": [
+    {
+      "text": "Toda parte incorporada tem origem A/p1, A/p2, B/p1 ou B/p2 identificada.",
+      "passed": true,
+      "evidence": "outputs/fusao.md, tabela “Partes incorporadas”: lista rastreável → A/p2; distribuição entre transmissão e recepção → B/p2; confirmação → A/p1, mantida como opção; quatro minutos → B/p1, mantida como opção. Todas as partes operacionais propostas têm código de origem correto, conferido contra eval_metadata.json."
+    },
+    {
+      "text": "Não inventa média ou prazo intermediário para resolver a incompatibilidade.",
+      "passed": true,
+      "evidence": "outputs/fusao.md: “Não se propõe média, prazo intermediário nem combinação que faça desaparecer essa incompatibilidade”. O único prazo numérico adotado como opção é o de quatro minutos fornecido em B/p1; não há prazo novo no texto."
+    },
+    {
+      "text": "Preserva os dois argumentos D1 e explicita o que decidiria entre as opções.",
+      "passed": true,
+      "evidence": "outputs/fusao.md reproduz A/D1 — “um prazo fixo pode encerrar antes da confirmação” — e B/D1 — “esperar indefinidamente pode impedir a transferência”. Em “O que decidiria”, condiciona A à necessidade da confirmação e viabilidade da espera; B exige justificativa do limite e evidência de preservação mesmo sem confirmação. Afirma que são condições, não fatos verificados."
+    },
+    {
+      "text": "Registra exclusões/pendências e mantém revisão crítica como pendente.",
+      "passed": true,
+      "evidence": "outputs/fusao.md, “Exclusões e pendências”: “Fica de fora uma regra única de encerramento, pois adotá-la agora esconderia um conflito sem evidência que o resolva”; mapeia todas as contribuições e registra condições sem verificação. Conclui “Revisão crítica: pendente”."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1.0
+  },
+  "claims": [
+    {
+      "claim": "Nenhuma contribuição recebida foi descartada.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "As quatro propostas do prompt estão na tabela com seus códigos; A/D1 e B/D1 são citados literalmente nas opções e retomados nas exclusões. A regra única não foi criada."
+    },
+    {
+      "claim": "A proposta mantém duas opções sem uma regra definitiva.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "outputs/fusao.md chama A/p1 e B/p1 de opções “sem adoção definitiva” e afirma não haver fundamento para escolher definitivamente; não há média ou prazo intermediário."
+    },
+    {
+      "claim": "As origens são as sínteses A e B, não atas nem fontes externas.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "A abertura de outputs/fusao.md restringe o conteúdo às sínteses anônimas sem atas; as atribuições correspondem aos trechos de eval_metadata.json e não introduzem outra fonte."
+    }
+  ],
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Preserva os dois argumentos D1 e explicita o que decidiria entre as opções.",
+        "reason": "Convém exigir critérios discriminantes específicos para cada alternativa e separar critérios propostos de evidência já obtida. Apenas repetir os argumentos e dizer “é preciso mais evidência” poderia satisfazer uma leitura fraca da assertion. Aqui ambas as saídas fornecem condições concretas."
+      },
+      {
+        "reason": "A proveniência literal é bem verificável neste caso pequeno e integralmente fornecido. Para testar fusão sob risco real de omissão, incluir contribuições redundantes e não compatíveis adicionais, exigindo contabilização de cada código e motivo de exclusão; não inferir funcionamento de reuniões a partir deste ensaio sem atas."
+      }
+    ],
+    "overall": "A rubrica cobre origem, conflito, prazo e estado da revisão; as duas saídas atendem a esses requisitos sem atribuir resolução fictícia. Os nomes A/B representam apenas sínteses fornecidas. Avaliação de conteúdo de ensaios textuais, não de uma equipe em funcionamento. execution.md é um registro declarativo, não uma transcrição instrumentada. timing.json contém apenas valores nulos; não há medidas de custo, tempo, modelo ou ganho de desempenho."
+  }
+}

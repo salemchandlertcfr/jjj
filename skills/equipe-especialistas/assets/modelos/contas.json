@@ -1,0 +1,7 @@
+[
+  {
+    "id": "C1",
+    "codigo": "from math import ceil, log\nprint(ceil(log(0.05) / log(0.99)))",
+    "resultado": 299
+  }
+]

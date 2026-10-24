@@ -1,0 +1,22 @@
+[
+  {"query":"Conduza a reunião da equipe da 4.3 com esses membros já recrutados.","should_trigger":true},
+  {"query":"Quero que os especialistas discutam juntos e elaborem uma versão rastreável.","should_trigger":true},
+  {"query":"Abra a preparação individual e a pauta do passo 7 sem autoria.","should_trigger":true},
+  {"query":"Verifique tecnicamente estas afirmações com uma equipe que não elaborou a versão.","should_trigger":true},
+  {"query":"Integre as saídas aprovadas do tema e relate conflitos sem decidir por mim.","should_trigger":true},
+  {"query":"Faça a fusão das sínteses paralelas A, B e C, preservando origens e dissenso.","should_trigger":true},
+  {"query":"Preciso de uma reunião individual: um especialista e um crítico, duas revisões no máximo.","should_trigger":true},
+  {"query":"Organize uma reunião avulsa de especialistas sobre essa proposta.","should_trigger":true},
+  {"query":"Retome esta mesa na segunda rodada e recolha as posições finais sem elas se verem.","should_trigger":true},
+  {"query":"Confira a síntese da equipe: alguma contribuição ou argumento minoritário desapareceu?","should_trigger":true},
+  {"query":"Recrute especialistas para os passos 3, 7 e 8 a partir deste cartão.","should_trigger":false},
+  {"query":"Julgue qual das três hipóteses é melhor pelos critérios prévios.","should_trigger":false},
+  {"query":"Gere dez alternativas cegas, sem mostrar uma às outras.","should_trigger":false},
+  {"query":"Pesquise estudos sobre transferência de responsabilidade.","should_trigger":false},
+  {"query":"Pergunte sobre meu propósito sem sugerir respostas.","should_trigger":false},
+  {"query":"Como calculo o limite superior da taxa de erros? Responda diretamente.","should_trigger":false},
+  {"query":"Crie uma esp de estatística para a biblioteca, com curadoria.","should_trigger":false},
+  {"query":"Consolide os vereditos independentes do conselho.","should_trigger":false},
+  {"query":"Aprove a hipótese e registre minha decisão no dossiê.","should_trigger":false},
+  {"query":"Preciso de dicas pessoais para minha equipe trabalhar melhor.","should_trigger":false}
+]

@@ -97,6 +97,17 @@
       "sha256": "b01ca92944b7e251d493060f8f091ecd32f445694efa07483d1fcd16fb496e6f",
       "bytes": 69071,
       "received_on": "2026-10-23"
+    },
+    {
+      "id": "S14",
+      "original_filename": "Plano detalhado — equipe-especialistas 184104fa869f40b6a3589890879df668.md",
+      "path": "sources/originais/plano-equipe-especialistas.md",
+      "sha256": "a80c551568b8bbc1f7ee5fcc40cb272e66b1ffa3c681a55ecbdd531e3a8f8d3b",
+      "bytes": 68715,
+      "received_on": "2026-10-23",
+      "container_filename": "003b4629-b7fb-4812-8172-02ef65849361_ExportBlock-2b613fae-ac24-4f2b-840d-1b541ca0e6f4.zip",
+      "container_sha256": "4c757df232430fe0e7d6d59ce61c1b6bec105eb6e589f99cc11049fd2ec3efb1",
+      "archive_member": "Private & Shared/Plano detalhado — equipe-especialistas 184104fa869f40b6a3589890879df668.md"
     }
   ]
 }

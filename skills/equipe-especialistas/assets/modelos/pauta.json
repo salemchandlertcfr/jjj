@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "id": "4.3-r1",
+  "subetapa": "4.3",
+  "modo": "elaboracao",
+  "dose": "padrao",
+  "pergunta": "Como transferir o sistema em operação sem perder informação?",
+  "decidir": [
+    "critério de encerramento da transferência"
+  ],
+  "formato_entrega": "família funcional com alternativas e restrições",
+  "validacao_depois": "conselho de triagem",
+  "refuta_se": "a informação central não chega ao destino",
+  "restricoes": [
+    "não escolher produto ou tecnologia"
+  ],
+  "versao_base": "conferir a informação antes de transferir a responsabilidade",
+  "rodadas": 2,
+  "central": false
+}

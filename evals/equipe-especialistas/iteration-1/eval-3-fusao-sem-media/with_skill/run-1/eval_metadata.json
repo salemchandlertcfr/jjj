@@ -1,0 +1,11 @@
+{
+  "eval_id": 3,
+  "eval_name": "fusao-sem-media",
+  "prompt": "Faça uma proposta de fusão em fusao.md, sem executar reuniões ou revisão. Pauta: preservar informação na troca de responsabilidade. Recebe só sínteses anônimas A e B, sem atas. A/p1: terminar quando a confirmação chega; A/p2: manter uma lista rastreável. A/D1: \"um prazo fixo pode encerrar antes da confirmação\". B/p1: terminar por um prazo fixo de quatro minutos; B/p2: distribuir a lista entre quem transmite e quem recebe. B/D1: \"esperar indefinidamente pode impedir a transferência\". Não há fonte que decida o conflito; não invente um prazo intermediário. Entregue partes com origem, o que fica de fora com motivo e conflitos como opções, com os melhores argumentos e o que decidiria. Marque revisão crítica pendente.",
+  "assertions": [
+    "Toda parte incorporada tem origem A/p1, A/p2, B/p1 ou B/p2 identificada.",
+    "Não inventa média ou prazo intermediário para resolver a incompatibilidade.",
+    "Preserva os dois argumentos D1 e explicita o que decidiria entre as opções.",
+    "Registra exclusões/pendências e mantém revisão crítica como pendente."
+  ]
+}

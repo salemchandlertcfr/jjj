@@ -1,0 +1,63 @@
+{
+  "expectations": [
+    {
+      "text": "Cada M1-1, M2-1 e M3-1 tem destino explícito com motivo.",
+      "passed": true,
+      "evidence": "outputs/sintese.md, tabela “Destino das contribuições”: M1-1 — “Incorporado: conferir cada item antes da transferência” para integridade; M2-1 — “Incorporado: terminar pelo sinal de recebimento e preservar expressamente a possibilidade de atraso do estado”, impedindo tratar o relógio como garantia; M3-1 — “Incorporado: usar uma regra simples sob pressa”, com a regra explicitada. Os três destinos têm motivo."
+    },
+    {
+      "text": "A informação única de M2 sobre atraso permanece na versão ou como opção aberta rastreável.",
+      "passed": true,
+      "evidence": "outputs/sintese.md: “terminar pelo sinal de recebimento” e “o estado pode chegar atrasado”; a tabela M2-1 atribui a informação “somente por M2”. A contribuição está incorporada à versão proposta."
+    },
+    {
+      "text": "Preserva o argumento de M2 e uma condição de decisão sem inventar unanimidade.",
+      "passed": true,
+      "evidence": "outputs/sintese.md registra M1/M3 pelo relógio, mantém literalmente o argumento de M2 “o relógio pode terminar antes de o estado chegar” e diz que a proposta “não representa acordo entre os participantes”. A decisão provisória seria reaberta com “evidência de que o estado sempre chega antes do encerramento pelo relógio”."
+    },
+    {
+      "text": "Não afirma reunião executada, revisão crítica ou novas fontes conferidas.",
+      "passed": true,
+      "evidence": "outputs/sintese.md trata F1 e F2 como apoio “informado como conferido no enunciado” e repete “não houve nova conferência”. Não afirma reunião ou revisão realizada. execution.md declara “Não realizei reunião, execução do Claude, conferência adicional de fontes ou revisão crítica”; esse registro é declarativo, não prova instrumentada de execução."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1.0
+  },
+  "claims": [
+    {
+      "claim": "A escolha por recebimento é provisória e não representa acordo.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "outputs/sintese.md chama a entrega de proposta, explicita que M1/M3 defendem outra posição e diz “adotaria provisoriamente o término pelo sinal de recebimento”. A conclusão não apaga o dissenso fornecido."
+    },
+    {
+      "claim": "A informação única de atraso permanece ligada a M2-1.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "A tabela M2-1 identifica a informação como trazida somente por M2 e a incorpora; isso coincide com o prompt em eval_metadata.json."
+    },
+    {
+      "claim": "O lastro F1/F2 é apenas o fornecido pelo enunciado.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "As duas linhas de fonte em outputs/sintese.md afirmam apoio informado no enunciado e ausência de nova conferência; o prompt caracteriza ambas como fictícias."
+    }
+  ],
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Cada M1-1, M2-1 e M3-1 tem destino explícito com motivo.",
+        "reason": "O caso já fornece todos os conteúdos e identificadores. Para testar perda de informação de modo mais discriminante, adicionar contribuições compatíveis e incompatíveis menos óbvias, exigindo que o motivo do destino seja coerente com o objetivo e com a informação única; presença de linhas e códigos, isoladamente, seria insuficiente."
+      },
+      {
+        "assertion": "Não afirma reunião executada, revisão crítica ou novas fontes conferidas.",
+        "reason": "Esta assertion verifica corretamente alegações no texto, mas não demonstra quais ações ocorreram. Para avaliar execução de protocolo seria necessária outra avaliação com rastros instrumentados; execution.md é apenas declaração e não pode sustentar alegação de desempenho de equipe."
+      }
+    ],
+    "overall": "As assertions cobrem destino, informação única e dissenso deste ensaio. Todas passam em ambas as condições, sem evidência de vantagem da skill neste caso. Avaliação de conteúdo de ensaios textuais, não de uma equipe em funcionamento. execution.md é um registro declarativo, não uma transcrição instrumentada. timing.json contém apenas valores nulos; não há medidas de custo, tempo, modelo ou ganho de desempenho."
+  }
+}

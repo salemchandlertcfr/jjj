@@ -39,3 +39,11 @@ Registro cronológico de ingestões e revisões relevantes. Acrescentar novas en
 - Executados 33 testes locais, com 30 fichas plantadas e bibliotecas/executor dublês temporários. Fluxo CLI passou após extração fora do repositório. Evidência e limites em [implementação](implementacao-especialistas.md).
 - Rodados seis ensaios textuais, com/sem skill, avaliados por outra sessão: 12/12 nas duas condições, sem demonstração de ganho. Janelas de tempo não comparáveis foram preservadas sem média/delta; revisão humana pendente. Veja [avaliação](../evals/especialistas/README.md).
 - Mantidos os bloqueios de condutora/conselho ausentes; curadoria, pesquisa, isolamento, modelos e validação de plataformas continuam pendentes.
+
+## 2026-10-23 — Reuniões da equipe com rastreabilidade
+
+- Preservado S14 a partir do ZIP, com bytes/hash do Markdown e proveniência do contêiner no manifesto. Registrado propósito antes do código: combinar especialidades sem perder informação única, fazer média arbitrária ou apagar dissenso.
+- Criados pacote universal `equipe-especialistas`, sete CLIs, referências por papel/ambiente, schemas e modelos fictícios. Mesa ordena eventos e projeta tarefas; só a condutora persiste. Não foram abertas sessões Claude ou simulada pesquisa instalada.
+- Executados 40 testes locais, incluindo reunião inteira pela CLI após extração fora do repositório. A revisão bloqueou campos privados em partes/dissenso da fusão, redefinição de contribuições fora da preparação e fala posterior sem novidade declarada. Estado não aceita métricas inválidas.
+- Seis ensaios textuais com/sem skill, revisados separadamente: 12/12 assertions nas duas condições, sem demonstração de ganho de equipe. Preservados 44 artefatos com hashes; benchmark e viewer oficiais reproduzidos byte a byte. Tokens/tempo/modelo indisponíveis ficam nulos, sem estimativa. Revisão humana pendente; método em [avaliação](../evals/equipe-especialistas/README.md).
+- A suíte geral também exercitou os 75 testes existentes de grill/especialistas sem regressões. Permanecem sete erros anteriores de imports/setup na condutora/conselho ausentes e três links antigos da condutora no verificador. As 14 fontes mantêm hashes íntegros. Pesquisa, isolamento, transporte Claude/Notion e comparações reais previstas no plano permanecem em [pendências](pendencias.md).

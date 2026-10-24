@@ -1,0 +1,17 @@
+{
+  "id": "FALA-M1-1",
+  "tipo": "fala",
+  "ator": "M1",
+  "rodada": 1,
+  "texto": "sem skill · LAC-1\nA informação precisa chegar inteira.\nManter conferência explícita.",
+  "passo": false,
+  "motivo": "A informação precisa chegar inteira.",
+  "posicao": "Manter conferência explícita.",
+  "referencias": [
+    "M1-1"
+  ],
+  "fatos_novos": [
+    "o estado de recebimento pode ficar pendente"
+  ],
+  "contra_proposta": "transferir sem confirmação pode ocultar a falta"
+}

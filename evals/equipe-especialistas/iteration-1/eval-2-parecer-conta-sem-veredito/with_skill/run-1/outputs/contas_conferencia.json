@@ -1,0 +1,29 @@
+{
+  "resultados": [
+    {
+      "id": "C1",
+      "confere": true,
+      "resultado": 0.058155079116972264,
+      "hash_codigo": "d383745c1fe30fd9e8c265fb53f5df8210a45cd29818d67ff2786f18d71243b6"
+    },
+    {
+      "id": "C2",
+      "confere": true,
+      "resultado": 0.058155079116972264,
+      "hash_codigo": "5ecbccee0adf8fea2d0296a871cfa25d2f56c07049b5f69a46134ecb72a137ee"
+    },
+    {
+      "id": "C3",
+      "confere": true,
+      "resultado": 0.6050060671375364,
+      "hash_codigo": "9922b56966ce2b4bd347db32a3acb6ff1075c56d07e27cdc8aba81269244fb4d"
+    },
+    {
+      "id": "C4",
+      "confere": true,
+      "resultado": 0.05000000000000002,
+      "hash_codigo": "17b4b112b2f8040d76fe073a96f6453c1dc52cb2759ac1dda7b32bb8b48840d2"
+    }
+  ],
+  "limite": "Reprodução aritmética não valida o modelo científico."
+}

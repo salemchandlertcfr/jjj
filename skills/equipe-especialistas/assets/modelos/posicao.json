@@ -1,0 +1,12 @@
+{
+  "id": "POS-M1",
+  "tipo": "posicao",
+  "ator": "M1",
+  "rodada": null,
+  "texto": "sem skill · LAC-1\nManter a informação rastreável.",
+  "apoio": "Manter a informação rastreável.",
+  "evidencia_mais_forte": "F1",
+  "incerteza": "qual critério de recebimento a pessoa aceita",
+  "mudaria_se": "o critério exigir nova informação",
+  "dissenso": []
+}

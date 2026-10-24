@@ -1,0 +1,22 @@
+[
+  {
+    "id": "C1",
+    "codigo": "n = 50\nalpha = 0.05\nprint(1 - alpha ** (1 / n))",
+    "resultado": 0.058155079116972264
+  },
+  {
+    "id": "C2",
+    "codigo": "from math import exp, log\nn = 50\nalpha = 0.05\nprint(1 - exp(log(alpha) / n))",
+    "resultado": 0.058155079116972264
+  },
+  {
+    "id": "C3",
+    "codigo": "print((1 - 0.01) ** 50)",
+    "resultado": 0.6050060671375364
+  },
+  {
+    "id": "C4",
+    "codigo": "u = 1 - 0.05 ** (1 / 50)\nprint((1 - u) ** 50)",
+    "resultado": 0.05000000000000002
+  }
+]

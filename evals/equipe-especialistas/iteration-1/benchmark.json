@@ -1,0 +1,290 @@
+{
+  "metadata": {
+    "skill_name": "equipe-especialistas",
+    "skill_path": "skills/equipe-especialistas",
+    "executor_model": null,
+    "analyzer_model": null,
+    "timestamp": "2026-10-23",
+    "evals_run": [
+      1,
+      2,
+      3
+    ],
+    "runs_per_configuration": 1,
+    "timestamp_kind": "data do ensaio; hora nativa indisponível",
+    "cases_per_configuration": 3,
+    "human_review_status": "pending",
+    "upstream_commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+    "time_seconds_kind": "unavailable"
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": null,
+        "tokens": null,
+        "tool_calls": null,
+        "errors": null,
+        "native_duration_ms": null
+      },
+      "expectations": [
+        {
+          "text": "Cada M1-1, M2-1 e M3-1 tem destino explícito com motivo.",
+          "passed": true,
+          "evidence": "outputs/sintese.md, tabela “Destino de cada contribuição”: M1-1 — “Entrou na versão: conserva a conferência prévia proposta”; M2-1 — “Entrou a informação única sobre atraso; o término por recebimento permanece como opção aberta”; M3-1 — “Entrou como orientação de execução. Simplicidade não demonstra qual critério de término preserva a informação.” Há destino e motivo para os três códigos."
+        },
+        {
+          "text": "A informação única de M2 sobre atraso permanece na versão ou como opção aberta rastreável.",
+          "passed": true,
+          "evidence": "outputs/sintese.md, versão proposta: “A versão preserva a possibilidade de o estado chegar atrasado”; na tabela, M2-1 fica como “opção aberta”, identificado por código e fonte fictícia F2."
+        },
+        {
+          "text": "Preserva o argumento de M2 e uma condição de decisão sem inventar unanimidade.",
+          "passed": true,
+          "evidence": "outputs/sintese.md preserva literalmente “o relógio pode terminar antes de o estado chegar”, declara “Não há unanimidade nem evidência discriminante” e registra que M2 mudaria com “evidência de que o estado sempre chega antes do encerramento pelo relógio”."
+        },
+        {
+          "text": "Não afirma reunião executada, revisão crítica ou novas fontes conferidas.",
+          "passed": true,
+          "evidence": "outputs/sintese.md: “F1 e F2 são fontes fictícias do enunciado; seu apoio é aceito como premissa do teste, sem afirmar conferência nova” e “não houve reunião, pesquisa, novas conferências de fontes ou revisão crítica”. O documento não apresenta reunião ou revisão como realizadas."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": null,
+        "tokens": null,
+        "tool_calls": null,
+        "errors": null,
+        "native_duration_ms": null
+      },
+      "expectations": [
+        {
+          "text": "Cada M1-1, M2-1 e M3-1 tem destino explícito com motivo.",
+          "passed": true,
+          "evidence": "outputs/sintese.md, tabela “Destino das contribuições”: M1-1 — “Incorporado: conferir cada item antes da transferência” para integridade; M2-1 — “Incorporado: terminar pelo sinal de recebimento e preservar expressamente a possibilidade de atraso do estado”, impedindo tratar o relógio como garantia; M3-1 — “Incorporado: usar uma regra simples sob pressa”, com a regra explicitada. Os três destinos têm motivo."
+        },
+        {
+          "text": "A informação única de M2 sobre atraso permanece na versão ou como opção aberta rastreável.",
+          "passed": true,
+          "evidence": "outputs/sintese.md: “terminar pelo sinal de recebimento” e “o estado pode chegar atrasado”; a tabela M2-1 atribui a informação “somente por M2”. A contribuição está incorporada à versão proposta."
+        },
+        {
+          "text": "Preserva o argumento de M2 e uma condição de decisão sem inventar unanimidade.",
+          "passed": true,
+          "evidence": "outputs/sintese.md registra M1/M3 pelo relógio, mantém literalmente o argumento de M2 “o relógio pode terminar antes de o estado chegar” e diz que a proposta “não representa acordo entre os participantes”. A decisão provisória seria reaberta com “evidência de que o estado sempre chega antes do encerramento pelo relógio”."
+        },
+        {
+          "text": "Não afirma reunião executada, revisão crítica ou novas fontes conferidas.",
+          "passed": true,
+          "evidence": "outputs/sintese.md trata F1 e F2 como apoio “informado como conferido no enunciado” e repete “não houve nova conferência”. Não afirma reunião ou revisão realizada. execution.md declara “Não realizei reunião, execução do Claude, conferência adicional de fontes ou revisão crítica”; esse registro é declarativo, não prova instrumentada de execução."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": null,
+        "tokens": null,
+        "tool_calls": null,
+        "errors": null,
+        "native_duration_ms": null
+      },
+      "expectations": [
+        {
+          "text": "Conclui que A1 não sustenta taxa exatamente zero com amostra finita.",
+          "passed": true,
+          "evidence": "outputs/parecer.md, A1: “Conclusão: não sustenta” e “uma amostra finita sem erros também pode ocorrer quando a taxa populacional é positiva”. O contraexemplo p=1% dá 0.99**50 = 0.6050060671375364 e não é apresentado como estimativa dos dados."
+        },
+        {
+          "text": "Registra código Python e resultado de cerca de 0,05816 ou 5,82% para A2.",
+          "passed": true,
+          "evidence": "outputs/conta.py e o bloco Python de outputs/parecer.md contêm “limite_direto = 1 - alpha ** (1 / n)”, n=50 e alpha=0.05. outputs/conta_resultado.json registra 0.058155079116972264 e 5.815507911697226%; o parecer registra os mesmos valores e 5,82%. Recalculo independente do avaliador confirma esses números."
+        },
+        {
+          "text": "Explicita a condição de independência e não a afirma como verificada nos dados.",
+          "passed": true,
+          "evidence": "outputs/parecer.md, A2: “condicionalmente a ensaios Bernoulli independentes com a mesma taxa de erro p” e “independência, taxa comum, registro correto dos erros e plano de amostragem não foram verificados nos dados”."
+        },
+        {
+          "text": "Não aprova/reprova a hipótese inteira nem inventa pesquisa ou revisão crítica.",
+          "passed": true,
+          "evidence": "outputs/parecer.md: “não aprova nem reprova a hipótese inteira” e “Não houve reunião, pesquisa externa, consulta a especialistas ou revisão crítica”. A conferência por ata.py é descrita como “reprodução aritmética automática, sem revisão crítica independente”, delimitando o que os artefatos numéricos demonstram."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": null,
+        "tokens": null,
+        "tool_calls": null,
+        "errors": null,
+        "native_duration_ms": null
+      },
+      "expectations": [
+        {
+          "text": "Conclui que A1 não sustenta taxa exatamente zero com amostra finita.",
+          "passed": true,
+          "evidence": "outputs/parecer.md abre com “A1 — Não sustentada” e explica: “Observar zero erros em 50 ensaios não prova que a taxa de erro seja exatamente zero. Uma amostra finita sem erros é compatível com taxas positivas”."
+        },
+        {
+          "text": "Registra código Python e resultado de cerca de 0,05816 ou 5,82% para A2.",
+          "passed": true,
+          "evidence": "outputs/calculo.py e o bloco Python de outputs/parecer.md registram n=50, alpha=0.05 e “limite_superior = 1 - alpha ** (1 / n)”. O parecer informa 0.058155079116972, 5.815507911697% e 5,82%. Recalculo independente do avaliador confirma os números e o arredondamento."
+        },
+        {
+          "text": "Explicita a condição de independência e não a afirma como verificada nos dados.",
+          "passed": true,
+          "evidence": "outputs/parecer.md: “O resultado pressupõe ensaios Bernoulli independentes, probabilidade de erro constante” e “A independência e as demais condições não foram verificadas nos dados; nenhum conjunto de dados foi fornecido”."
+        },
+        {
+          "text": "Não aprova/reprova a hipótese inteira nem inventa pesquisa ou revisão crítica.",
+          "passed": true,
+          "evidence": "outputs/parecer.md: “Decisão sobre a hipótese inteira: não emitida” e “não bastam para aprová-la ou reprová-la”. Também declara “Não foram realizadas pesquisa externa, reunião, revisão crítica ou verificação da independência dos dados”. Não atribui tais ações como realizadas."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": null,
+        "tokens": null,
+        "tool_calls": null,
+        "errors": null,
+        "native_duration_ms": null
+      },
+      "expectations": [
+        {
+          "text": "Toda parte incorporada tem origem A/p1, A/p2, B/p1 ou B/p2 identificada.",
+          "passed": true,
+          "evidence": "outputs/fusao.md, “Parte comum incorporada”: “Manter uma lista rastreável” está atribuído a A/p2 e “Distribuir a lista entre quem transmite e quem recebe” a B/p2, ambos com trechos literais. As opções de encerramento têm origem explícita A/p1 e B/p1. Não há outra parte operacional incorporada sem origem."
+        },
+        {
+          "text": "Não inventa média ou prazo intermediário para resolver a incompatibilidade.",
+          "passed": true,
+          "evidence": "outputs/fusao.md mantém quatro minutos apenas como prazo original de B/p1 e declara: “Não se escolhe uma opção nem se inventa prazo intermediário, média ou combinação que encerre silenciosamente antes da confirmação”. A leitura completa não encontra prazo novo."
+        },
+        {
+          "text": "Preserva os dois argumentos D1 e explicita o que decidiria entre as opções.",
+          "passed": true,
+          "evidence": "outputs/fusao.md preserva literalmente A/D1 — “um prazo fixo pode encerrar antes da confirmação” — e B/D1 — “esperar indefinidamente pode impedir a transferência” — como argumentos e objeções recíprocas. “O que decidiria” especifica evidência sobre chegada/reconhecimento da confirmação, recebimento antes dos quatro minutos e riscos aceitáveis, sem apresentá-la como obtida."
+        },
+        {
+          "text": "Registra exclusões/pendências e mantém revisão crítica como pendente.",
+          "passed": true,
+          "evidence": "outputs/fusao.md, tabela de destinos: A/p1 e B/p1 ficam “fora da regra comum” por incompatibilidade e falta de evidência; registra que nenhuma contribuição foi descartada. A seção “Pendências” inclui decisão de encerramento, definição da confirmação e “Revisão crítica pendente: não há parecer de crítico, pontos revisados, respostas ou aprovação”."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": null,
+        "tokens": null,
+        "tool_calls": null,
+        "errors": null,
+        "native_duration_ms": null
+      },
+      "expectations": [
+        {
+          "text": "Toda parte incorporada tem origem A/p1, A/p2, B/p1 ou B/p2 identificada.",
+          "passed": true,
+          "evidence": "outputs/fusao.md, tabela “Partes incorporadas”: lista rastreável → A/p2; distribuição entre transmissão e recepção → B/p2; confirmação → A/p1, mantida como opção; quatro minutos → B/p1, mantida como opção. Todas as partes operacionais propostas têm código de origem correto, conferido contra eval_metadata.json."
+        },
+        {
+          "text": "Não inventa média ou prazo intermediário para resolver a incompatibilidade.",
+          "passed": true,
+          "evidence": "outputs/fusao.md: “Não se propõe média, prazo intermediário nem combinação que faça desaparecer essa incompatibilidade”. O único prazo numérico adotado como opção é o de quatro minutos fornecido em B/p1; não há prazo novo no texto."
+        },
+        {
+          "text": "Preserva os dois argumentos D1 e explicita o que decidiria entre as opções.",
+          "passed": true,
+          "evidence": "outputs/fusao.md reproduz A/D1 — “um prazo fixo pode encerrar antes da confirmação” — e B/D1 — “esperar indefinidamente pode impedir a transferência”. Em “O que decidiria”, condiciona A à necessidade da confirmação e viabilidade da espera; B exige justificativa do limite e evidência de preservação mesmo sem confirmação. Afirma que são condições, não fatos verificados."
+        },
+        {
+          "text": "Registra exclusões/pendências e mantém revisão crítica como pendente.",
+          "passed": true,
+          "evidence": "outputs/fusao.md, “Exclusões e pendências”: “Fica de fora uma regra única de encerramento, pois adotá-la agora esconderia um conflito sem evidência que o resolva”; mapeia todas as contribuições e registra condições sem verificação. Conclui “Revisão crítica: pendente”."
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": null,
+      "tokens": null
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": null,
+      "tokens": null
+    },
+    "delta": {
+      "pass_rate": "+0.00",
+      "time_seconds": null,
+      "tokens": null
+    }
+  },
+  "notes": [
+    "Três casos guiados, uma execução por condição e caso; 12 assertions não são 12 execuções independentes.",
+    "Assistentes desta sessão, com modelo exato indisponível; não é execução Claude ou comparação cega.",
+    "Os prompts explicitam várias regras. Resultado mede adesão textual nesta rubrica, sem demonstrar ganho de equipe, pesquisa, isolamento ou qualidade de especialistas reais.",
+    "Tokens, tempo, duração nativa, chamadas e erros indisponíveis; nenhum valor foi estimado. Zeros necessários ao auxiliar upstream existem só na cópia temporária e são removidos antes de salvar.",
+    "Relatos execution.md não são transcrições instrumentadas. Revisão humana pendente; nenhum feedback humano foi fabricado."
+  ]
+}
