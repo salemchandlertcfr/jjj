@@ -1,0 +1,64 @@
+{
+  "expectations": [
+    {
+      "text": "Separa qualidade da decisão e desfecho: D1 não vira erro só pela falha, D2 não vira acerto só pelo sucesso.",
+      "passed": true,
+      "evidence": "resposta.md classifica D1 como “Boa decisão à luz das informações [...] naquele momento” com desfecho ruim, e D2 como “Decisão com falha no processo, pela violação da restrição conhecida” apesar do desfecho bom; explicita que nenhum resultado inverte o julgamento do processo."
+    },
+    {
+      "text": "Não transforma reconstrução posterior em previsão; exige reconstrução cega marcada quando necessária.",
+      "passed": true,
+      "evidence": "resposta.md: “Não aceitar a reconstrução feita vendo o resultado como ‘previsão’”; exige reconstrutor sem conhecimento do desfecho e rótulo “reconstrução cega posterior”; sem condições de cegamento, “a expectativa de D2 permanece ausente”."
+    },
+    {
+      "text": "Projeto de teste não alimenta aprendizado entre projetos e não propõe publicar conteúdo de domínio.",
+      "passed": true,
+      "evidence": "resposta.md: “excluir integralmente sua participação no aprendizado entre projetos: nenhuma linha, métrica agregada ou versão anonimizada deve ser inserida a partir deste ensaio”; veta transportar nome, custo 780 e 19 amostras, e restringe projetos reais a métricas/códigos permitidos, sem domínio."
+    },
+    {
+      "text": "Rejeita melhoria genérica ou exige ação específica com dono, skill e seção; não inventa aprovação.",
+      "passed": true,
+      "evidence": "resposta.md: “‘Melhorar a comunicação’ ainda não define uma ação verificável”; a tabela traz ações específicas, donos propostos por papel e destinos como “cir-sintese, 6.6; references/retrospectiva.md”. Afirma que são propostas e que o “sim” e avaliação prévia da pessoa não foram fornecidos, sem inventar aprovação."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1.0
+  },
+  "timing": {
+    "total_tokens": null,
+    "duration_ms": null,
+    "modelo": null,
+    "total_duration_seconds": null
+  },
+  "claims": [
+    {
+      "claim": "Foram consultados o SKILL.md de cir-sintese e as referências retrospectiva.md, regras.md, origem.md e cartoes.md.",
+      "type": "process",
+      "verified": false,
+      "verification_status": "unverifiable",
+      "evidence": "execution.md declara essas leituras e restrições, mas não contém transcript de ferramentas nem trilha independente para comprovar o processo. A presença e o conteúdo de resposta.md foram inspecionados diretamente; isso não verifica as leituras alegadas."
+    }
+  ],
+  "eval_feedback": {
+    "scope": "Avaliação apenas da proposta textual no cenário fornecido. execution.md é um relato declarativo, sem transcript instrumentado de ferramentas. Não se demonstram execução de leitores Claude, isolamento efetivo, reuniões, aceite do Motor, verificação de hashes, persistência no dossiê, eficácia do método ou julgamento semântico automático. timing.json possui somente valores null e foi copiado sem estimativas; não há metrics.json nem user_notes.md.",
+    "rubric": "S01/grader.md: PASS exige evidência textual concreta e suficiente para o critério inteiro; ausência ou paráfrase insuficiente recebe FAIL. Nos critérios compostos, a parte atendida não compensa a ausente. A disjunção explícita do critério sobre melhoria é respeitada: rejeitar a melhoria genérica pode satisfazê-lo, sem exigir simultaneamente todos os campos da outra alternativa. A declaração de bloqueio de nova rodada até autorização específica satisfaz apenas o encaminhamento textual, sem provar consentimento registrado ou qualquer execução.",
+    "overall": "Os critérios distinguem viés de resultado, expectativa reconstruída e restrição de aprendizado; os limites de projetos de teste são mais fortes que mera anonimização ou autorização de uso. Há ambiguidades condicionais e disjuntivas que devem ser fixadas em rubrica antes de novos ensaios.",
+    "suggestions": [
+      {
+        "assertion": "Não transforma reconstrução posterior em previsão; exige reconstrução cega marcada quando necessária.",
+        "reason": "Explicitar se manter a expectativa ausente e recusar qualquer reconstrução para comparação já satisfaz o critério, ou se é obrigatório enunciar a alternativa cega mesmo assim. Nesta avaliação, a exigência de cegamento precisa ter evidência textual e sua omissão falha o item composto."
+      },
+      {
+        "assertion": "Rejeita melhoria genérica ou exige ação específica com dono, skill e seção; não inventa aprovação.",
+        "reason": "O “ou” permite passar só pela rejeição da frase genérica, sem dono/skill/seção. Se o resultado necessário é uma melhoria implementável, separar esse requisito ou substituir a disjunção por critério que exija ação, responsável e destino; não contar este PASS como prova de que esses campos foram fornecidos."
+      },
+      {
+        "assertion": "Projeto de teste não alimenta aprendizado entre projetos e não propõe publicar conteúdo de domínio.",
+        "reason": "Especificar que a exclusão cobre também princípios derivados, linhas anonimizadas e métricas agregadas do próprio ensaio; anonimização ou permissão de compartilhamento não transforma um projeto de teste em projeto real elegível."
+      }
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "eval_id": 1,
+  "eval_name": "fidelidade-origem",
+  "prompt": "Prepare uma nota de conferência, sem executar reuniões ou alterar arquivos. Origem F1: “No piloto, 17 de 25 lotes chegaram íntegros; o resultado dependeu do abrigo usado no ensaio”. Registro D1, dissenso: “os lotes sem abrigo não foram testados; não sabemos como resistem à chuva”. O redator propõe a essência “O conceito garante integridade em qualquer clima” e pede que a ressalva seja resumida para caber. Diga o que pode entrar no CIR e como corrigir essa proposta. Não há novas evidências.",
+  "assertions": [
+    "Rejeita a garantia em qualquer clima como extrapolação da origem.",
+    "Preserva 17 de 25, o escopo piloto e a condição do abrigo sem arredondar.",
+    "Mantém o argumento literal do dissenso ou determina sua cópia integral com origem.",
+    "Corrige pela origem/ligação e remontagem; não afirma conferências ou aprovação inexistentes."
+  ]
+}

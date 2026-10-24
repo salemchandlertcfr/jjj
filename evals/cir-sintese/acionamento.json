@@ -1,0 +1,82 @@
+[
+  {
+    "query": "Fecha o CIR com o que já decidimos nos temas e mostre a origem de cada frase.",
+    "should_trigger": true
+  },
+  {
+    "query": "De onde veio esta frase de 06-cir.md? Preciso conferir se o número mudou.",
+    "should_trigger": true
+  },
+  {
+    "query": "Monte o pacote para a Etapa 2 sem escolher tecnologia e sem perder as killer conditions.",
+    "should_trigger": true
+  },
+  {
+    "query": "Consolide o estacionamento da Etapa 3 com todos os motivos e origens.",
+    "should_trigger": true
+  },
+  {
+    "query": "Alguém de fora entenderia este CIR? Quero um teste de passagem sem contexto.",
+    "should_trigger": true
+  },
+  {
+    "query": "Audite este documento de conceito contra os 14 itens de pronto, sem reescrevê-lo.",
+    "should_trigger": true
+  },
+  {
+    "query": "O leitor pediu uma definição no núcleo. É esclarecimento ou precisamos voltar à prova?",
+    "should_trigger": true
+  },
+  {
+    "query": "Já está pronto para minha aprovação? Mostre as evidências e as ressalvas do tema 6.",
+    "should_trigger": true
+  },
+  {
+    "query": "Faça a retrospectiva do projeto aprovado comparando previsões com os resultados.",
+    "should_trigger": true
+  },
+  {
+    "query": "Remonte o CIR após a correção registrada da métrica; não edite a saída por cima.",
+    "should_trigger": true
+  },
+  {
+    "query": "Escolha entre os dois conceitos que sobraram na prova do tema 5.",
+    "should_trigger": false
+  },
+  {
+    "query": "Mude o propósito congelado para abranger também o mercado vizinho.",
+    "should_trigger": false
+  },
+  {
+    "query": "Reformule a métrica M1 e refaça o teste do impossível no tema 3.",
+    "should_trigger": false
+  },
+  {
+    "query": "Que tecnologia devemos usar para implementar este conceito?",
+    "should_trigger": false
+  },
+  {
+    "query": "Quanto a prefeitura pagaria pelo produto e que canal de vendas usamos?",
+    "should_trigger": false
+  },
+  {
+    "query": "Escreva um pitch de uma página para os investidores, sem a trilha do dossiê.",
+    "should_trigger": false
+  },
+  {
+    "query": "Acrescente uma capacidade nova ao conceito e redesenhe seu núcleo.",
+    "should_trigger": false
+  },
+  {
+    "query": "Pesquise estudos novos para sustentar a taxa de dano do projeto.",
+    "should_trigger": false
+  },
+  {
+    "query": "Recrute especialistas em engenharia de sistemas e escrita técnica.",
+    "should_trigger": false
+  },
+  {
+    "query": "Conduza a reunião de elaboração de alternativas da equipe na 4.3.",
+    "should_trigger": false
+  }
+]

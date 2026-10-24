@@ -1,0 +1,56 @@
+{
+  "expectations": [
+    {
+      "text": "Rejeita a garantia em qualquer clima como extrapolação da origem.",
+      "passed": true,
+      "evidence": "resposta.md: “Ela transforma um resultado parcial e condicionado em garantia universal [...] Não pode entrar como conclusão respaldada pelas evidências disponíveis”."
+    },
+    {
+      "text": "Preserva 17 de 25, o escopo piloto e a condição do abrigo sem arredondar.",
+      "passed": true,
+      "evidence": "resposta.md: “no piloto, 17 de 25 lotes chegaram íntegros, e o resultado dependeu do abrigo usado no ensaio”. Preserva todos os delimitadores exigidos, sem arredondar."
+    },
+    {
+      "text": "Mantém o argumento literal do dissenso ou determina sua cópia integral com origem.",
+      "passed": false,
+      "evidence": "A resposta fornece a paráfrase “os lotes sem abrigo não foram testados; sua resistência à chuva é desconhecida”, e depois uma redação ainda mais compacta. Não preserva o argumento literal “os lotes sem abrigo não foram testados; não sabemos como resistem à chuva” nem determina cópia integral do registro D1. A vinculação a D1 e a preservação do sentido atendem somente parte do critério."
+    },
+    {
+      "text": "Corrige pela origem/ligação e remontagem; não afirma conferências ou aprovação inexistentes.",
+      "passed": false,
+      "evidence": "resposta.md propõe “Redação corrigida e compacta” e “Manter a vinculação da primeira afirmação a F1 e da limitação a D1”, mas não manda corrigir o registro de origem/ligação e remontar o CIR. O aviso “não registra aprovação ou reunião realizada” satisfaz a limitação de execução, sem suprir a correção exigida."
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 2,
+    "total": 4,
+    "pass_rate": 0.5
+  },
+  "timing": {
+    "total_tokens": null,
+    "duration_ms": null,
+    "modelo": null,
+    "total_duration_seconds": null
+  },
+  "claims": [
+    {
+      "claim": "Foi lido somente o prompt deste run, sem consulta a skills, rubricas ou outros runs.",
+      "type": "process",
+      "verified": false,
+      "verification_status": "unverifiable",
+      "evidence": "execution.md declara essas leituras e restrições, mas não contém transcript de ferramentas nem trilha independente para comprovar o processo. A presença e o conteúdo de resposta.md foram inspecionados diretamente; isso não verifica as leituras alegadas."
+    }
+  ],
+  "eval_feedback": {
+    "scope": "Avaliação apenas da proposta textual no cenário fornecido. execution.md é um relato declarativo, sem transcript instrumentado de ferramentas. Não se demonstram execução de leitores Claude, isolamento efetivo, reuniões, aceite do Motor, verificação de hashes, persistência no dossiê, eficácia do método ou julgamento semântico automático. timing.json possui somente valores null e foi copiado sem estimativas; não há metrics.json nem user_notes.md.",
+    "rubric": "S01/grader.md: PASS exige evidência textual concreta e suficiente para o critério inteiro; ausência ou paráfrase insuficiente recebe FAIL. Nos critérios compostos, a parte atendida não compensa a ausente. A disjunção explícita do critério sobre melhoria é respeitada: rejeitar a melhoria genérica pode satisfazê-lo, sem exigir simultaneamente todos os campos da outra alternativa. A declaração de bloqueio de nova rodada até autorização específica satisfaz apenas o encaminhamento textual, sem provar consentimento registrado ou qualquer execução.",
+    "overall": "Os critérios distinguem extrapolação, delimitação e integridade literal; a cópia de F1/D1 e o encaminhamento de correção são verificáveis na proposta. Eles não demonstram preservação de hashes ou remontagem executada.",
+    "suggestions": [
+      {
+        "assertion": "Corrige pela origem/ligação e remontagem; não afirma conferências ou aprovação inexistentes.",
+        "reason": "O prompt pede uma nota de conferência; explicitar na rubrica que conferência textual dos excertos fornecidos é permitida e que a proibição cobre conferências/reuniões/aprovações não realizadas. Separar o encaminhamento de correção da ausência de execução fictícia facilitaria identificar qual parte falhou."
+      }
+    ]
+  }
+}

@@ -15,7 +15,7 @@ Estado: lacunas do sistema após o apoio local de grill, especialistas e equipe,
 
 ## Material e implementação ausentes
 
-- A [condutora alpha](implementacao-condutora.md) e o [conselho alpha](implementacao-conselho.md) foram documentados a partir de S10/S11, mas este checkout não contém a pasta da condutora e contém só parte dos módulos do conselho. Isso impede a suíte geral e a integração com [grill](implementacao-grill.md), [especialistas](implementacao-especialistas.md) e [equipe](implementacao-equipe.md). O [mapa](implementacao-mapa.md) tem apoio local; outras 7 skills continuam planejadas. [S03](../sources/originais/simulacao_etapa1.py) permanece o experimento original.
+- A [condutora alpha](implementacao-condutora.md) e o [conselho alpha](implementacao-conselho.md) foram documentados a partir de S10/S11, mas este checkout não contém a pasta da condutora e contém só parte dos módulos do conselho. Isso impede a suíte geral e a integração com [grill](implementacao-grill.md), [especialistas](implementacao-especialistas.md) e [equipe](implementacao-equipe.md). O [mapa](implementacao-mapa.md) tem apoio local; outras 6 skills continuam planejadas. [S03](../sources/originais/simulacao_etapa1.py) permanece o experimento original.
 - O plano de especialistas chegou como [S13](../sources/originais/plano-especialistas.md). O plano detalhado de pesquisa citado nos anexos não veio; não presumir seu schema ou implementação.
 - Especialistas tem recrutamento, fichas/blocos, fila e regra numérica de admissão locais. As seis `esp-*` da primeira leva não foram curadas. Restam pesquisa, sala limpa real, licenças e revisão, executores Claude, isolamento, identificabilidade e ganho em especialidades reais; o ensaio textual não resolve essas pendências.
 - O grill tem verificações locais e ensaio textual limitado. Pesquisa real, leitor Claude, sigilo e isolamento, transcrição nativa, persona oculta, acionamento e revisão humana continuam pendentes; procedimento em [avaliação](../evals/grill-embasado/README.md).
@@ -34,3 +34,7 @@ Estado: lacunas do sistema após o apoio local de grill, especialistas e equipe,
 5. Repetir avaliações comparativas e revisar interfaces e documentação a partir de falhas observadas.
 
 Essa sequência é uma proposta desta análise, não uma substituição silenciosa do roadmap de [S02, §14](../sources/originais/plano-geral-skills-cir.md). Os critérios do método continuam em [contratos](contratos.md); o escopo das verificações já realizadas está em [simulação](simulacao.md) e no [log](log.md).
+
+## Síntese e aceite do tema 6
+
+[S16](../sources/originais/plano-cir-sintese.md) define espelho só de real aprovado e aprendizado somente de método. O alpha tem montagem, tarefas, passagem declarativa, pronto e retrospectiva locais; não executa leitores/verificadores Claude, pesquisa C-6.5, vigia/pendencias reais ou Notion. Faltam integração da condutora, cartões no índice real, curadoria, comparação das 40 ligações/omissões sutis e lacunas de leitura, testes A/B/C repetidos e o aceite do Motor com gabarito prévio da pessoa. Semântica de evidência, consentimento e isolamento não são provados por JSON/hash. Ver [avaliação](../evals/cir-sintese/README.md).

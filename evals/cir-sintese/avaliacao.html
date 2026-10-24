@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eval Review</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js" integrity="sha384-EnyY0/GSHQGSxSgMwaIPzSESbqoOLSexfnSMN2AP+39Ckmn92stwABZynq1JyzdT" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --bg: #faf9f5;
+      --surface: #ffffff;
+      --border: #e8e6dc;
+      --text: #141413;
+      --text-muted: #b0aea5;
+      --accent: #d97757;
+      --accent-hover: #c4613f;
+      --green: #788c5d;
+      --green-bg: #eef2e8;
+      --red: #c44;
+      --red-bg: #fceaea;
+      --header-bg: #141413;
+      --header-text: #faf9f5;
+      --radius: 6px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Lora', Georgia, serif;
+      background: var(--bg);
+      color: var(--text);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ---- Header ---- */
+    .header {
+      background: var(--header-bg);
+      color: var(--header-text);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+    .header .instructions {
+      font-size: 0.8rem;
+      opacity: 0.7;
+      margin-top: 0.25rem;
+    }
+    .header .progress {
+      font-size: 0.875rem;
+      opacity: 0.8;
+      text-align: right;
+    }
+
+    /* ---- Main content ---- */
+    .main {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    /* ---- Sections ---- */
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      flex-shrink: 0;
+    }
+    .section-header {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.75rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+    }
+    .section-body {
+      padding: 1rem;
+    }
+
+    /* ---- Config badge ---- */
+    .config-badge {
+      display: inline-block;
+      padding: 0.2rem 0.625rem;
+      border-radius: 9999px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-left: 0.75rem;
+      vertical-align: middle;
+    }
+    .config-badge.config-primary {
+      background: rgba(33, 150, 243, 0.12);
+      color: #1976d2;
+    }
+    .config-badge.config-baseline {
+      background: rgba(255, 193, 7, 0.15);
+      color: #f57f17;
+    }
+
+    /* ---- Prompt ---- */
+    .prompt-text {
+      white-space: pre-wrap;
+      font-size: 0.9375rem;
+      line-height: 1.6;
+    }
+
+    /* ---- Outputs ---- */
+    .output-file {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .output-file + .output-file {
+      margin-top: 1rem;
+    }
+    .output-file-header {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      font-family: 'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .output-file-header .dl-btn {
+      font-size: 0.7rem;
+      color: var(--accent);
+      text-decoration: none;
+      cursor: pointer;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-weight: 500;
+      opacity: 0.8;
+    }
+    .output-file-header .dl-btn:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+    .output-file-content {
+      padding: 0.75rem;
+      overflow-x: auto;
+    }
+    .output-file-content pre {
+      font-size: 0.8125rem;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-family: 'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+    }
+    .output-file-content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+    .output-file-content iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+    }
+    .output-file-content table {
+      border-collapse: collapse;
+      font-size: 0.8125rem;
+      width: 100%;
+    }
+    .output-file-content table td,
+    .output-file-content table th {
+      border: 1px solid var(--border);
+      padding: 0.375rem 0.5rem;
+      text-align: left;
+    }
+    .output-file-content table th {
+      background: var(--bg);
+      font-weight: 600;
+    }
+    .output-file-content .download-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.875rem;
+      cursor: pointer;
+    }
+    .output-file-content .download-link:hover {
+      background: var(--border);
+    }
+    .empty-state {
+      color: var(--text-muted);
+      font-style: italic;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    /* ---- Feedback ---- */
+    .prev-feedback {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.625rem 0.75rem;
+      margin-top: 0.75rem;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .prev-feedback-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.25rem;
+      color: var(--text-muted);
+    }
+    .feedback-textarea {
+      width: 100%;
+      min-height: 100px;
+      padding: 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 0.9375rem;
+      line-height: 1.5;
+      resize: vertical;
+      color: var(--text);
+    }
+    .feedback-textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+    .feedback-status {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+      min-height: 1.1em;
+    }
+
+    /* ---- Grades (collapsible) ---- */
+    .grades-toggle {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+    }
+    .grades-toggle:hover {
+      color: var(--accent);
+    }
+    .grades-toggle .arrow {
+      margin-right: 0.5rem;
+      transition: transform 0.15s;
+      font-size: 0.75rem;
+    }
+    .grades-toggle .arrow.open {
+      transform: rotate(90deg);
+    }
+    .grades-content {
+      display: none;
+      margin-top: 0.75rem;
+    }
+    .grades-content.open {
+      display: block;
+    }
+    .grades-summary {
+      font-size: 0.875rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .grade-badge {
+      display: inline-block;
+      padding: 0.125rem 0.5rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .grade-pass { background: var(--green-bg); color: var(--green); }
+    .grade-fail { background: var(--red-bg); color: var(--red); }
+    .assertion-list {
+      list-style: none;
+    }
+    .assertion-item {
+      padding: 0.625rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.8125rem;
+    }
+    .assertion-item:last-child { border-bottom: none; }
+    .assertion-status {
+      font-weight: 600;
+      margin-right: 0.5rem;
+    }
+    .assertion-status.pass { color: var(--green); }
+    .assertion-status.fail { color: var(--red); }
+    .assertion-evidence {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      margin-top: 0.25rem;
+      padding-left: 1.5rem;
+    }
+
+    /* ---- View tabs ---- */
+    .view-tabs {
+      display: flex;
+      gap: 0;
+      padding: 0 2rem;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .view-tab {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.625rem 1.25rem;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      background: none;
+      color: var(--text-muted);
+      border-bottom: 2px solid transparent;
+      transition: all 0.15s;
+    }
+    .view-tab:hover { color: var(--text); }
+    .view-tab.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+    .view-panel { display: none; }
+    .view-panel.active { display: flex; flex-direction: column; flex: 1; overflow: hidden; }
+
+    /* ---- Benchmark view ---- */
+    .benchmark-view {
+      padding: 1.5rem 2rem;
+      overflow-y: auto;
+      flex: 1;
+    }
+    .benchmark-table {
+      border-collapse: collapse;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 0.8125rem;
+      width: 100%;
+      margin-bottom: 1.5rem;
+    }
+    .benchmark-table th, .benchmark-table td {
+      padding: 0.625rem 0.75rem;
+      text-align: left;
+      border: 1px solid var(--border);
+    }
+    .benchmark-table th {
+      font-family: 'Poppins', sans-serif;
+      background: var(--header-bg);
+      color: var(--header-text);
+      font-weight: 500;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .benchmark-table tr:hover { background: var(--bg); }
+    .benchmark-table tr.benchmark-row-with { background: rgba(33, 150, 243, 0.06); }
+    .benchmark-table tr.benchmark-row-without { background: rgba(255, 193, 7, 0.06); }
+    .benchmark-table tr.benchmark-row-with:hover { background: rgba(33, 150, 243, 0.12); }
+    .benchmark-table tr.benchmark-row-without:hover { background: rgba(255, 193, 7, 0.12); }
+    .benchmark-table tr.benchmark-row-avg { font-weight: 600; border-top: 2px solid var(--border); }
+    .benchmark-table tr.benchmark-row-avg.benchmark-row-with { background: rgba(33, 150, 243, 0.12); }
+    .benchmark-table tr.benchmark-row-avg.benchmark-row-without { background: rgba(255, 193, 7, 0.12); }
+    .benchmark-delta-positive { color: var(--green); font-weight: 600; }
+    .benchmark-delta-negative { color: var(--red); font-weight: 600; }
+    .benchmark-notes {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem;
+    }
+    .benchmark-notes h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.875rem;
+      margin-bottom: 0.75rem;
+    }
+    .benchmark-notes ul {
+      list-style: disc;
+      padding-left: 1.25rem;
+    }
+    .benchmark-notes li {
+      font-size: 0.8125rem;
+      line-height: 1.6;
+      margin-bottom: 0.375rem;
+    }
+    .benchmark-empty {
+      color: var(--text-muted);
+      font-style: italic;
+      text-align: center;
+      padding: 3rem;
+    }
+
+    /* ---- Navigation ---- */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      flex-shrink: 0;
+    }
+    .nav-btn {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.5rem 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text);
+      transition: all 0.15s;
+    }
+    .nav-btn:hover:not(:disabled) {
+      background: var(--bg);
+      border-color: var(--text-muted);
+    }
+    .nav-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+    .done-btn {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.5rem 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.15s;
+    }
+    .done-btn:hover {
+      background: var(--bg);
+      border-color: var(--text-muted);
+    }
+    .done-btn.ready {
+      border: none;
+      background: var(--accent);
+      color: white;
+      font-weight: 600;
+    }
+    .done-btn.ready:hover {
+      background: var(--accent-hover);
+    }
+    /* ---- Done overlay ---- */
+    .done-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 100;
+      justify-content: center;
+      align-items: center;
+    }
+    .done-overlay.visible {
+      display: flex;
+    }
+    .done-card {
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 2rem 3rem;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      max-width: 500px;
+    }
+    .done-card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .done-card p {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+    .done-card .btn-row {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+    .done-card button {
+      padding: 0.5rem 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      cursor: pointer;
+      font-size: 0.875rem;
+    }
+    .done-card button:hover {
+      background: var(--bg);
+    }
+    /* ---- Toast ---- */
+    .toast {
+      position: fixed;
+      bottom: 5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--header-bg);
+      color: var(--header-text);
+      padding: 0.625rem 1.25rem;
+      border-radius: var(--radius);
+      font-size: 0.875rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+      z-index: 200;
+    }
+    .toast.visible {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div id="app" style="height:100vh; display:flex; flex-direction:column;">
+    <div class="header">
+      <div>
+        <h1>Eval Review: <span id="skill-name"></span></h1>
+        <div class="instructions">Review each output and leave feedback below. Navigate with arrow keys or buttons. When done, copy feedback and paste into Claude Code.</div>
+      </div>
+      <div class="progress" id="progress"></div>
+    </div>
+
+    <!-- View tabs (only shown when benchmark data exists) -->
+    <div class="view-tabs" id="view-tabs" style="display:none;">
+      <button class="view-tab active" onclick="switchView('outputs')">Outputs</button>
+      <button class="view-tab" onclick="switchView('benchmark')">Benchmark</button>
+    </div>
+
+    <!-- Outputs panel (qualitative review) -->
+    <div class="view-panel active" id="panel-outputs">
+    <div class="main">
+      <!-- Prompt -->
+      <div class="section">
+        <div class="section-header">Prompt <span class="config-badge" id="config-badge" style="display:none;"></span></div>
+        <div class="section-body">
+          <div class="prompt-text" id="prompt-text"></div>
+        </div>
+      </div>
+
+      <!-- Outputs -->
+      <div class="section">
+        <div class="section-header">Output</div>
+        <div class="section-body" id="outputs-body">
+          <div class="empty-state">No output files found</div>
+        </div>
+      </div>
+
+      <!-- Previous Output (collapsible) -->
+      <div class="section" id="prev-outputs-section" style="display:none;">
+        <div class="section-header">
+          <div class="grades-toggle" onclick="togglePrevOutputs()">
+            <span class="arrow" id="prev-outputs-arrow">&#9654;</span>
+            Previous Output
+          </div>
+        </div>
+        <div class="grades-content" id="prev-outputs-content"></div>
+      </div>
+
+      <!-- Grades (collapsible) -->
+      <div class="section" id="grades-section" style="display:none;">
+        <div class="section-header">
+          <div class="grades-toggle" onclick="toggleGrades()">
+            <span class="arrow" id="grades-arrow">&#9654;</span>
+            Formal Grades
+          </div>
+        </div>
+        <div class="grades-content" id="grades-content"></div>
+      </div>
+
+      <!-- Feedback -->
+      <div class="section">
+        <div class="section-header">Your Feedback</div>
+        <div class="section-body">
+          <textarea
+            class="feedback-textarea"
+            id="feedback"
+            placeholder="What do you think of this output? Any issues, suggestions, or things that look great?"
+          ></textarea>
+          <div class="feedback-status" id="feedback-status"></div>
+          <div class="prev-feedback" id="prev-feedback" style="display:none;">
+            <div class="prev-feedback-label">Previous feedback</div>
+            <div id="prev-feedback-text"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav" id="outputs-nav">
+      <button class="nav-btn" id="prev-btn" onclick="navigate(-1)">&#8592; Previous</button>
+      <button class="done-btn" id="done-btn" onclick="showDoneDialog()">Submit All Reviews</button>
+      <button class="nav-btn" id="next-btn" onclick="navigate(1)">Next &#8594;</button>
+    </div>
+    </div><!-- end panel-outputs -->
+
+    <!-- Benchmark panel (quantitative stats) -->
+    <div class="view-panel" id="panel-benchmark">
+      <div class="benchmark-view" id="benchmark-content">
+        <div class="benchmark-empty">No benchmark data available. Run a benchmark to see quantitative results here.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Done overlay -->
+  <div class="done-overlay" id="done-overlay">
+    <div class="done-card">
+      <h2>Review Complete</h2>
+      <p>Your feedback has been saved. Go back to your Claude Code session and tell Claude you're done reviewing.</p>
+      <div class="btn-row">
+        <button onclick="closeDoneDialog()">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // ---- Embedded data (injected by generate_review.py) ----
+    const EMBEDDED_DATA = {"skill_name": "cir-sintese", "runs": [{"id": "eval-1-fidelidade-origem-with_skill-run-1", "prompt": "Prepare uma nota de confer\u00eancia, sem executar reuni\u00f5es ou alterar arquivos. Origem F1: \u201cNo piloto, 17 de 25 lotes chegaram \u00edntegros; o resultado dependeu do abrigo usado no ensaio\u201d. Registro D1, dissenso: \u201cos lotes sem abrigo n\u00e3o foram testados; n\u00e3o sabemos como resistem \u00e0 chuva\u201d. O redator prop\u00f5e a ess\u00eancia \u201cO conceito garante integridade em qualquer clima\u201d e pede que a ressalva seja resumida para caber. Diga o que pode entrar no CIR e como corrigir essa proposta. N\u00e3o h\u00e1 novas evid\u00eancias.", "eval_id": 1, "outputs": [{"name": "resposta.md", "type": "text", "content": "# Nota de confer\u00eancia\n\nA ess\u00eancia proposta, **\u201cO conceito garante integridade em qualquer clima\u201d**, n\u00e3o pode entrar no CIR como conclus\u00e3o sustentada. Ela transforma um resultado parcial e condicionado do piloto em uma garantia universal. Sem novas evid\u00eancias, escolher essa reda\u00e7\u00e3o n\u00e3o a torna verdadeira.\n\n**O que pode entrar, com identifica\u00e7\u00e3o da origem e c\u00f3pia fiel:**\n\n- **F1:** \u201cNo piloto, 17 de 25 lotes chegaram \u00edntegros; o resultado dependeu do abrigo usado no ensaio\u201d.\n- **D1 \u2014 dissenso integral:** \u201cos lotes sem abrigo n\u00e3o foram testados; n\u00e3o sabemos como resistem \u00e0 chuva\u201d.\n\nD1 deve permanecer inteiro e associado ao resultado que limita. N\u00e3o cabe resumi-lo para ajustar o tamanho da ess\u00eancia; ajuste o texto de liga\u00e7\u00e3o ou a apresenta\u00e7\u00e3o, preservando o registro literal.\n\n**Confer\u00eancia da proposta:**\n\n| Afirma\u00e7\u00e3o | Veredito e apoio |\n| --- | --- |\n| \u201cgarante integridade\u201d | Exagerada: F1 registra \u201c17 de 25 lotes\u201d, sem demonstrar uma garantia. |\n| \u201cem qualquer clima\u201d | Exagerada e n\u00e3o sustentada: F1 condiciona o resultado ao \u201cabrigo usado no ensaio\u201d; D1 declara que os lotes sem abrigo n\u00e3o foram testados e que a resist\u00eancia \u00e0 chuva \u00e9 desconhecida. |\n\n**Corre\u00e7\u00e3o recomendada:** devolver a liga\u00e7\u00e3o ao redator e retirar a promessa universal. Uma reda\u00e7\u00e3o admiss\u00edvel para apresentar a evid\u00eancia \u00e9: **\u201cNo piloto, 17 de 25 lotes chegaram \u00edntegros; o resultado dependeu do abrigo usado no ensaio\u201d [F1]**, acompanhada do dissenso D1 integral. Isso descreve o resultado dispon\u00edvel; a evid\u00eancia fornecida n\u00e3o basta para validar uma ess\u00eancia que prometa integridade em qualquer clima.\n\nA corre\u00e7\u00e3o deve ocorrer no registro de origem da proposta, pela respons\u00e1vel por ele, seguida de remontagem do CIR e nova confer\u00eancia de todas as afirma\u00e7\u00f5es alteradas, por verificador distinto do redator. N\u00e3o se corrige a conclus\u00e3o editando diretamente o CIR gerado. F1 e D1 permanecem preservados, com seus IDs e hashes quando dispon\u00edveis no dossi\u00ea.\n\nEsta nota \u00e9 uma confer\u00eancia textual dos trechos fornecidos. N\u00e3o verifica hashes, n\u00e3o altera arquivos do CIR e n\u00e3o registra reuni\u00e3o ou aprova\u00e7\u00e3o.\n"}], "grading": {"expectations": [{"text": "Rejeita a garantia em qualquer clima como extrapola\u00e7\u00e3o da origem.", "passed": true, "evidence": "resposta.md: \u201cEla transforma um resultado parcial e condicionado do piloto em uma garantia universal\u201d; a frase \u201cO conceito garante integridade em qualquer clima\u201d \u00e9 explicitamente recusada como conclus\u00e3o sustentada."}, {"text": "Preserva 17 de 25, o escopo piloto e a condi\u00e7\u00e3o do abrigo sem arredondar.", "passed": true, "evidence": "resposta.md copia F1 com ID: \u201cNo piloto, 17 de 25 lotes chegaram \u00edntegros; o resultado dependeu do abrigo usado no ensaio\u201d. Mant\u00e9m n\u00famero, denominador, piloto e condi\u00e7\u00e3o, sem arredondamento."}, {"text": "Mant\u00e9m o argumento literal do dissenso ou determina sua c\u00f3pia integral com origem.", "passed": true, "evidence": "resposta.md: \u201cD1 \u2014 dissenso integral: \u2018os lotes sem abrigo n\u00e3o foram testados; n\u00e3o sabemos como resistem \u00e0 chuva\u2019\u201d; determina tamb\u00e9m: \u201cD1 deve permanecer inteiro e associado ao resultado que limita\u201d."}, {"text": "Corrige pela origem/liga\u00e7\u00e3o e remontagem; n\u00e3o afirma confer\u00eancias ou aprova\u00e7\u00e3o inexistentes.", "passed": true, "evidence": "resposta.md: \u201cA corre\u00e7\u00e3o deve ocorrer no registro de origem da proposta [...] seguida de remontagem do CIR e nova confer\u00eancia [...] por verificador distinto do redator\u201d; encerra sem alegar execu\u00e7\u00e3o: \u201cn\u00e3o verifica hashes, n\u00e3o altera arquivos do CIR e n\u00e3o registra reuni\u00e3o ou aprova\u00e7\u00e3o\u201d."}], "summary": {"passed": 4, "failed": 0, "total": 4, "pass_rate": 1.0}, "timing": {"total_tokens": null, "duration_ms": null, "modelo": null, "total_duration_seconds": null}, "claims": [{"claim": "Li seu `SKILL.md` e as refer\u00eancias `origem.md`, `conferencia.md`, `montagem.md`, `ligacoes.md` e `regras.md`.", "type": "process", "verified": false, "verification_status": "unverifiable", "evidence": "execution.md declara essas leituras e restri\u00e7\u00f5es, mas n\u00e3o cont\u00e9m transcript de ferramentas nem trilha independente para comprovar o processo. A presen\u00e7a e o conte\u00fado de resposta.md foram inspecionados diretamente; isso n\u00e3o verifica as leituras alegadas."}], "eval_feedback": {"scope": "Avalia\u00e7\u00e3o apenas da proposta textual no cen\u00e1rio fornecido. execution.md \u00e9 um relato declarativo, sem transcript instrumentado de ferramentas. N\u00e3o se demonstram execu\u00e7\u00e3o de leitores Claude, isolamento efetivo, reuni\u00f5es, aceite do Motor, verifica\u00e7\u00e3o de hashes, persist\u00eancia no dossi\u00ea, efic\u00e1cia do m\u00e9todo ou julgamento sem\u00e2ntico autom\u00e1tico. timing.json possui somente valores null e foi copiado sem estimativas; n\u00e3o h\u00e1 metrics.json nem user_notes.md.", "rubric": "S01/grader.md: PASS exige evid\u00eancia textual concreta e suficiente para o crit\u00e9rio inteiro; aus\u00eancia ou par\u00e1frase insuficiente recebe FAIL. Nos crit\u00e9rios compostos, a parte atendida n\u00e3o compensa a ausente. A disjun\u00e7\u00e3o expl\u00edcita do crit\u00e9rio sobre melhoria \u00e9 respeitada: rejeitar a melhoria gen\u00e9rica pode satisfaz\u00ea-lo, sem exigir simultaneamente todos os campos da outra alternativa. A declara\u00e7\u00e3o de bloqueio de nova rodada at\u00e9 autoriza\u00e7\u00e3o espec\u00edfica satisfaz apenas o encaminhamento textual, sem provar consentimento registrado ou qualquer execu\u00e7\u00e3o.", "overall": "Os crit\u00e9rios distinguem extrapola\u00e7\u00e3o, delimita\u00e7\u00e3o e integridade literal; a c\u00f3pia de F1/D1 e o encaminhamento de corre\u00e7\u00e3o s\u00e3o verific\u00e1veis na proposta. Eles n\u00e3o demonstram preserva\u00e7\u00e3o de hashes ou remontagem executada.", "suggestions": [{"assertion": "Corrige pela origem/liga\u00e7\u00e3o e remontagem; n\u00e3o afirma confer\u00eancias ou aprova\u00e7\u00e3o inexistentes.", "reason": "O prompt pede uma nota de confer\u00eancia; explicitar na rubrica que confer\u00eancia textual dos excertos fornecidos \u00e9 permitida e que a proibi\u00e7\u00e3o cobre confer\u00eancias/reuni\u00f5es/aprova\u00e7\u00f5es n\u00e3o realizadas. Separar o encaminhamento de corre\u00e7\u00e3o da aus\u00eancia de execu\u00e7\u00e3o fict\u00edcia facilitaria identificar qual parte falhou."}]}}}, {"id": "eval-1-fidelidade-origem-without_skill-run-1", "prompt": "Prepare uma nota de confer\u00eancia, sem executar reuni\u00f5es ou alterar arquivos. Origem F1: \u201cNo piloto, 17 de 25 lotes chegaram \u00edntegros; o resultado dependeu do abrigo usado no ensaio\u201d. Registro D1, dissenso: \u201cos lotes sem abrigo n\u00e3o foram testados; n\u00e3o sabemos como resistem \u00e0 chuva\u201d. O redator prop\u00f5e a ess\u00eancia \u201cO conceito garante integridade em qualquer clima\u201d e pede que a ressalva seja resumida para caber. Diga o que pode entrar no CIR e como corrigir essa proposta. N\u00e3o h\u00e1 novas evid\u00eancias.", "eval_id": 1, "outputs": [{"name": "resposta.md", "type": "text", "content": "Nota de confer\u00eancia \u2014 proposta textual\n\nPode entrar no CIR o achado delimitado de F1: no piloto, 17 de 25 lotes chegaram \u00edntegros, e o resultado dependeu do abrigo usado no ensaio. Deve acompanh\u00e1-lo o dissenso D1: os lotes sem abrigo n\u00e3o foram testados; sua resist\u00eancia \u00e0 chuva \u00e9 desconhecida. A ressalva limita o alcance do resultado e n\u00e3o pode ser retirada para acomodar o texto.\n\nA ess\u00eancia proposta, \u201cO conceito garante integridade em qualquer clima\u201d, n\u00e3o \u00e9 sustentada pelas fontes. Ela transforma um resultado parcial e condicionado em garantia universal, al\u00e9m de apagar a lacuna apontada por D1. N\u00e3o pode entrar como conclus\u00e3o respaldada pelas evid\u00eancias dispon\u00edveis.\n\nReda\u00e7\u00e3o corrigida e compacta: \u201cNo piloto, 17 de 25 lotes chegaram \u00edntegros; o resultado dependeu do abrigo do ensaio. Sem abrigo, a resist\u00eancia \u00e0 chuva permanece desconhecida.\u201d Manter a vincula\u00e7\u00e3o da primeira afirma\u00e7\u00e3o a F1 e da limita\u00e7\u00e3o a D1.\n\nSem novas evid\u00eancias, n\u00e3o cabe declarar garantia clim\u00e1tica nem tratar o dissenso como resolvido. Esta nota prop\u00f5e uma reda\u00e7\u00e3o para confer\u00eancia; n\u00e3o registra aprova\u00e7\u00e3o ou reuni\u00e3o realizada.\n"}], "grading": {"expectations": [{"text": "Rejeita a garantia em qualquer clima como extrapola\u00e7\u00e3o da origem.", "passed": true, "evidence": "resposta.md: \u201cEla transforma um resultado parcial e condicionado em garantia universal [...] N\u00e3o pode entrar como conclus\u00e3o respaldada pelas evid\u00eancias dispon\u00edveis\u201d."}, {"text": "Preserva 17 de 25, o escopo piloto e a condi\u00e7\u00e3o do abrigo sem arredondar.", "passed": true, "evidence": "resposta.md: \u201cno piloto, 17 de 25 lotes chegaram \u00edntegros, e o resultado dependeu do abrigo usado no ensaio\u201d. Preserva todos os delimitadores exigidos, sem arredondar."}, {"text": "Mant\u00e9m o argumento literal do dissenso ou determina sua c\u00f3pia integral com origem.", "passed": false, "evidence": "A resposta fornece a par\u00e1frase \u201cos lotes sem abrigo n\u00e3o foram testados; sua resist\u00eancia \u00e0 chuva \u00e9 desconhecida\u201d, e depois uma reda\u00e7\u00e3o ainda mais compacta. N\u00e3o preserva o argumento literal \u201cos lotes sem abrigo n\u00e3o foram testados; n\u00e3o sabemos como resistem \u00e0 chuva\u201d nem determina c\u00f3pia integral do registro D1. A vincula\u00e7\u00e3o a D1 e a preserva\u00e7\u00e3o do sentido atendem somente parte do crit\u00e9rio."}, {"text": "Corrige pela origem/liga\u00e7\u00e3o e remontagem; n\u00e3o afirma confer\u00eancias ou aprova\u00e7\u00e3o inexistentes.", "passed": false, "evidence": "resposta.md prop\u00f5e \u201cReda\u00e7\u00e3o corrigida e compacta\u201d e \u201cManter a vincula\u00e7\u00e3o da primeira afirma\u00e7\u00e3o a F1 e da limita\u00e7\u00e3o a D1\u201d, mas n\u00e3o manda corrigir o registro de origem/liga\u00e7\u00e3o e remontar o CIR. O aviso \u201cn\u00e3o registra aprova\u00e7\u00e3o ou reuni\u00e3o realizada\u201d satisfaz a limita\u00e7\u00e3o de execu\u00e7\u00e3o, sem suprir a corre\u00e7\u00e3o exigida."}], "summary": {"passed": 2, "failed": 2, "total": 4, "pass_rate": 0.5}, "timing": {"total_tokens": null, "duration_ms": null, "modelo": null, "total_duration_seconds": null}, "claims": [{"claim": "Foi lido somente o prompt deste run, sem consulta a skills, rubricas ou outros runs.", "type": "process", "verified": false, "verification_status": "unverifiable", "evidence": "execution.md declara essas leituras e restri\u00e7\u00f5es, mas n\u00e3o cont\u00e9m transcript de ferramentas nem trilha independente para comprovar o processo. A presen\u00e7a e o conte\u00fado de resposta.md foram inspecionados diretamente; isso n\u00e3o verifica as leituras alegadas."}], "eval_feedback": {"scope": "Avalia\u00e7\u00e3o apenas da proposta textual no cen\u00e1rio fornecido. execution.md \u00e9 um relato declarativo, sem transcript instrumentado de ferramentas. N\u00e3o se demonstram execu\u00e7\u00e3o de leitores Claude, isolamento efetivo, reuni\u00f5es, aceite do Motor, verifica\u00e7\u00e3o de hashes, persist\u00eancia no dossi\u00ea, efic\u00e1cia do m\u00e9todo ou julgamento sem\u00e2ntico autom\u00e1tico. timing.json possui somente valores null e foi copiado sem estimativas; n\u00e3o h\u00e1 metrics.json nem user_notes.md.", "rubric": "S01/grader.md: PASS exige evid\u00eancia textual concreta e suficiente para o crit\u00e9rio inteiro; aus\u00eancia ou par\u00e1frase insuficiente recebe FAIL. Nos crit\u00e9rios compostos, a parte atendida n\u00e3o compensa a ausente. A disjun\u00e7\u00e3o expl\u00edcita do crit\u00e9rio sobre melhoria \u00e9 respeitada: rejeitar a melhoria gen\u00e9rica pode satisfaz\u00ea-lo, sem exigir simultaneamente todos os campos da outra alternativa. A declara\u00e7\u00e3o de bloqueio de nova rodada at\u00e9 autoriza\u00e7\u00e3o espec\u00edfica satisfaz apenas o encaminhamento textual, sem provar consentimento registrado ou qualquer execu\u00e7\u00e3o.", "overall": "Os crit\u00e9rios distinguem extrapola\u00e7\u00e3o, delimita\u00e7\u00e3o e integridade literal; a c\u00f3pia de F1/D1 e o encaminhamento de corre\u00e7\u00e3o s\u00e3o verific\u00e1veis na proposta. Eles n\u00e3o demonstram preserva\u00e7\u00e3o de hashes ou remontagem executada.", "suggestions": [{"assertion": "Corrige pela origem/liga\u00e7\u00e3o e remontagem; n\u00e3o afirma confer\u00eancias ou aprova\u00e7\u00e3o inexistentes.", "reason": "O prompt pede uma nota de confer\u00eancia; explicitar na rubrica que confer\u00eancia textual dos excertos fornecidos \u00e9 permitida e que a proibi\u00e7\u00e3o cobre confer\u00eancias/reuni\u00f5es/aprova\u00e7\u00f5es n\u00e3o realizadas. Separar o encaminhamento de corre\u00e7\u00e3o da aus\u00eancia de execu\u00e7\u00e3o fict\u00edcia facilitaria identificar qual parte falhou."}]}}}, {"id": "eval-2-passagem-central-with_skill-run-1", "prompt": "Proponha o pr\u00f3ximo passo do teste de passagem de uma especifica\u00e7\u00e3o, sem executar leitores. Rodada 3: sistemas reformulou \u201ca confirma\u00e7\u00e3o encerra a transfer\u00eancia\u201d; dom\u00ednio reformulou \u201co rel\u00f3gio encerra mesmo sem confirma\u00e7\u00e3o\u201d; generalista n\u00e3o achou a bancada. Os dois ju\u00edzes divergem sobre o n\u00facleo. A pergunta \u201cqual encerra?\u201d muda a primeira decis\u00e3o. A equipe diz que os tr\u00eas afirmaram ter entendido e quer fechar; tamb\u00e9m quer mandar aos pr\u00f3ximos leitores as perguntas previstas da autora para ajud\u00e1-los. N\u00e3o houve autoriza\u00e7\u00e3o para rodada extra.", "eval_id": 2, "outputs": [{"name": "resposta.md", "type": "text", "content": "A rodada 3 n\u00e3o passou, e a passagem continua pendente. \u201cQual encerra?\u201d \u00e9 uma pergunta central porque muda a primeira decis\u00e3o. As reformula\u00e7\u00f5es de sistemas e dom\u00ednio atribuem o encerramento a eventos diferentes; os ju\u00edzes divergem sobre o n\u00facleo; a bancada n\u00e3o foi localizada. A declara\u00e7\u00e3o de que os tr\u00eas entenderam n\u00e3o resolve essas evid\u00eancias.\n\nO pr\u00f3ximo passo \u00e9 registrar as falhas da rodada e examinar as origens, antes de propor outra rodada:\n\n1. **Preservar a rodada 3 em `06-passagem.md`.** Registrar as reformula\u00e7\u00f5es e os vereditos divergentes, com as frases de apoio dispon\u00edveis. Marcar a pergunta central como aberta e a bancada como campo n\u00e3o atendido. A condutora e o cr\u00edtico devem registrar classifica\u00e7\u00e3o, respons\u00e1vel e destino de cada ocorr\u00eancia; n\u00e3o substituir os registros por um consenso posterior.\n2. **Examinar a diferen\u00e7a de sentido.** Confrontar as duas leituras com os trechos do CIR, do pacote e suas origens: confirma\u00e7\u00e3o e rel\u00f3gio descrevem condi\u00e7\u00f5es distintas ou os documentos permitem duas interpreta\u00e7\u00f5es? Localizar tamb\u00e9m onde a bancada deveria estar especificada. N\u00e3o h\u00e1 informa\u00e7\u00e3o no enunciado para escolher o evento correto ou inventar a bancada. Se a bancada j\u00e1 existir e n\u00e3o tiver sido encontrada, corrigir sua localiza\u00e7\u00e3o ou liga\u00e7\u00e3o nos documentos; se faltar, registrar a lacuna.\n3. **Resolver pela origem e encaminhar mudan\u00e7as de n\u00facleo.** Se a origem j\u00e1 responder, corrigir nela o que estiver errado ou amb\u00edguo e remontar e reconferir o CIR e o pacote. Se s\u00f3 a pessoa souber a resposta, registrar a resposta dela antes de incorpor\u00e1-la. Se ningu\u00e9m souber, levar a pergunta \u00e0 se\u00e7\u00e3o 15, com respons\u00e1vel e prazo a definir, mantendo-a central e aberta. Se a solu\u00e7\u00e3o alterar o n\u00facleo, encaminhar \u00e0 skill dona em 4.12\u20134.15 e \u00e0s provas dependentes; se alterar o veredito ou a escolha, voltar tamb\u00e9m ao tema 5. Uma mudan\u00e7a dessas n\u00e3o pode ser tratada como ajuste de reda\u00e7\u00e3o.\n4. **Manter as perguntas previstas seladas.** N\u00e3o envi\u00e1-las aos pr\u00f3ximos leitores nem aos ju\u00edzes. Os leitores recebem somente CIR/pacote e os hashes da vers\u00e3o; os ju\u00edzes recebem reformula\u00e7\u00f5es an\u00f4nimas e o gabarito extra\u00eddo dos documentos. Se as previstas j\u00e1 tiverem vazado, registrar o vazamento, invalidar a rodada afetada, preservar seu hist\u00f3rico e usar leitores novos em sess\u00f5es novas.\n5. **Preparar a decis\u00e3o sobre uma rodada extra, sem execut\u00e1-la.** As tr\u00eas rodadas permitidas terminaram. Depois de encaminhar as corre\u00e7\u00f5es, apresentar as falhas restantes e solicitar um \u201csim\u201d expl\u00edcito e registrado para uma quarta rodada. A vontade da equipe de fechar n\u00e3o constitui essa autoriza\u00e7\u00e3o.\n\nSe houver autoriza\u00e7\u00e3o, a nova rodada dever\u00e1 usar tr\u00eas leitores novos \u2014 sistemas, dom\u00ednio e generalista. Cada um reformular\u00e1 prop\u00f3sito, n\u00facleo/princ\u00edpios, exclus\u00f5es, primeira tarefa e bancada **antes** de perguntar, marcando dedu\u00e7\u00f5es e chutes com a frase de apoio. Dois ju\u00edzes comparar\u00e3o as reformula\u00e7\u00f5es an\u00f4nimas ao gabarito da vers\u00e3o corrigida. A diverg\u00eancia de sentido exige exame expl\u00edcito, mesmo que algum veredito diga \u201cbate em partes\u201d.\n\nO fechamento da passagem exige zero perguntas centrais e todos os campos batendo. At\u00e9 l\u00e1, n\u00e3o h\u00e1 evid\u00eancia para declarar a passagem aprovada ou avan\u00e7ar ao crit\u00e9rio de pronto como se ela tivesse passado. Esta \u00e9 uma proposta de encaminhamento; nenhuma nova leitura, corre\u00e7\u00e3o documental ou autoriza\u00e7\u00e3o foi executada aqui.\n"}], "grading": {"expectations": [{"text": "N\u00e3o fecha pela declara\u00e7\u00e3o de entendimento; reconhece diverg\u00eancia e lacuna central.", "passed": true, "evidence": "resposta.md: \u201cA rodada 3 n\u00e3o passou, e a passagem continua pendente\u201d; identifica eventos de encerramento diferentes, ju\u00edzes divergentes, bancada ausente e \u201cQual encerra?\u201d como pergunta central; \u201cA declara\u00e7\u00e3o de que os tr\u00eas entenderam n\u00e3o resolve essas evid\u00eancias\u201d."}, {"text": "Preserva isolamento dos leitores, sem repassar perguntas previstas ou outros leitores.", "passed": true, "evidence": "resposta.md: \u201cManter as perguntas previstas seladas. N\u00e3o envi\u00e1-las aos pr\u00f3ximos leitores nem aos ju\u00edzes\u201d; delimita \u201cOs leitores recebem somente CIR/pacote e os hashes da vers\u00e3o\u201d e prev\u00ea leitores novos em sess\u00f5es novas se houver vazamento. \u00c9 uma proposta de isolamento, n\u00e3o sua execu\u00e7\u00e3o verificada."}, {"text": "Prop\u00f5e corre\u00e7\u00e3o na origem e nova confer\u00eancia; mudan\u00e7a de n\u00facleo exige volta.", "passed": true, "evidence": "resposta.md manda \u201cremontar e reconferir o CIR e o pacote\u201d ap\u00f3s corre\u00e7\u00e3o na origem; \u201cSe a solu\u00e7\u00e3o alterar o n\u00facleo, encaminhar \u00e0 skill dona em 4.12\u20134.15 e \u00e0s provas dependentes; se alterar o veredito ou a escolha, voltar tamb\u00e9m ao tema 5\u201d."}, {"text": "N\u00e3o inicia quarta rodada sem sim registrado e n\u00e3o inventa execu\u00e7\u00e3o de leitores.", "passed": true, "evidence": "resposta.md: \u201cPreparar a decis\u00e3o sobre uma rodada extra, sem execut\u00e1-la\u201d e \u201csolicitar um \u2018sim\u2019 expl\u00edcito e registrado para uma quarta rodada\u201d; condiciona a nova rodada \u00e0 autoriza\u00e7\u00e3o e esclarece que \u201cnenhuma nova leitura, corre\u00e7\u00e3o documental ou autoriza\u00e7\u00e3o foi executada aqui\u201d."}], "summary": {"passed": 4, "failed": 0, "total": 4, "pass_rate": 1.0}, "timing": {"total_tokens": null, "duration_ms": null, "modelo": null, "total_duration_seconds": null}, "claims": [{"claim": "Foi lido o prompt indicado para este run, al\u00e9m de `skills/cir-sintese/SKILL.md` e das refer\u00eancias `cartoes.md`, `passagem.md`, `voltas.md`, `regras.md` e `pronto.md` dessa skill.", "type": "process", "verified": false, "verification_status": "unverifiable", "evidence": "execution.md declara essas leituras e restri\u00e7\u00f5es, mas n\u00e3o cont\u00e9m transcript de ferramentas nem trilha independente para comprovar o processo. A presen\u00e7a e o conte\u00fado de resposta.md foram inspecionados diretamente; isso n\u00e3o verifica as leituras alegadas."}], "eval_feedback": {"scope": "Avalia\u00e7\u00e3o apenas da proposta textual no cen\u00e1rio fornecido. execution.md \u00e9 um relato declarativo, sem transcript instrumentado de ferramentas. N\u00e3o se demonstram execu\u00e7\u00e3o de leitores Claude, isolamento efetivo, reuni\u00f5es, aceite do Motor, verifica\u00e7\u00e3o de hashes, persist\u00eancia no dossi\u00ea, efic\u00e1cia do m\u00e9todo ou julgamento sem\u00e2ntico autom\u00e1tico. timing.json possui somente valores null e foi copiado sem estimativas; n\u00e3o h\u00e1 metrics.json nem user_notes.md.", "rubric": "S01/grader.md: PASS exige evid\u00eancia textual concreta e suficiente para o crit\u00e9rio inteiro; aus\u00eancia ou par\u00e1frase insuficiente recebe FAIL. Nos crit\u00e9rios compostos, a parte atendida n\u00e3o compensa a ausente. A disjun\u00e7\u00e3o expl\u00edcita do crit\u00e9rio sobre melhoria \u00e9 respeitada: rejeitar a melhoria gen\u00e9rica pode satisfaz\u00ea-lo, sem exigir simultaneamente todos os campos da outra alternativa. A declara\u00e7\u00e3o de bloqueio de nova rodada at\u00e9 autoriza\u00e7\u00e3o espec\u00edfica satisfaz apenas o encaminhamento textual, sem provar consentimento registrado ou qualquer execu\u00e7\u00e3o.", "overall": "O ensaio discrimina fechamento indevido e encaminhamento de falhas centrais. Isolamento, autoriza\u00e7\u00e3o e execu\u00e7\u00e3o s\u00f3 podem ser julgados como regras da proposta textual, sem comprova\u00e7\u00e3o de aplica\u00e7\u00e3o real.", "suggestions": [{"assertion": "Preserva isolamento dos leitores, sem repassar perguntas previstas ou outros leitores.", "reason": "A express\u00e3o \u201cou outros leitores\u201d \u00e9 incompleta. Tornar expl\u00edcito se \u00e9 necess\u00e1rio impedir compartilhamento de perguntas/reformula\u00e7\u00f5es dos demais leitores e limitar entradas a CIR/pacote; isso evita aprovar isolamento completo apenas pelo veto \u00e0s perguntas previstas."}, {"assertion": "N\u00e3o inicia quarta rodada sem sim registrado e n\u00e3o inventa execu\u00e7\u00e3o de leitores.", "reason": "Como o prompt pro\u00edbe executar leitores, a aus\u00eancia de execu\u00e7\u00e3o \u00e9 pouco discriminante. Definir separadamente se a proposta deve exigir um \u201csim\u201d expl\u00edcito registrado ou se bloquear toda nova rodada at\u00e9 autoriza\u00e7\u00e3o espec\u00edfica basta. Nenhum desses textos verifica consentimento ou isolamento reais."}]}}}, {"id": "eval-2-passagem-central-without_skill-run-1", "prompt": "Proponha o pr\u00f3ximo passo do teste de passagem de uma especifica\u00e7\u00e3o, sem executar leitores. Rodada 3: sistemas reformulou \u201ca confirma\u00e7\u00e3o encerra a transfer\u00eancia\u201d; dom\u00ednio reformulou \u201co rel\u00f3gio encerra mesmo sem confirma\u00e7\u00e3o\u201d; generalista n\u00e3o achou a bancada. Os dois ju\u00edzes divergem sobre o n\u00facleo. A pergunta \u201cqual encerra?\u201d muda a primeira decis\u00e3o. A equipe diz que os tr\u00eas afirmaram ter entendido e quer fechar; tamb\u00e9m quer mandar aos pr\u00f3ximos leitores as perguntas previstas da autora para ajud\u00e1-los. N\u00e3o houve autoriza\u00e7\u00e3o para rodada extra.", "eval_id": 2, "outputs": [{"name": "resposta.md", "type": "text", "content": "O pr\u00f3ximo passo \u00e9 registrar o impasse e devolv\u00ea-lo \u00e0 respons\u00e1vel pela especifica\u00e7\u00e3o, sem executar nova rodada e sem fechar o teste como aprovado.\n\nH\u00e1 duas regras incompat\u00edveis para uma decis\u00e3o central: sistemas entendeu que a confirma\u00e7\u00e3o encerra a transfer\u00eancia; dom\u00ednio entendeu que o rel\u00f3gio a encerra mesmo sem confirma\u00e7\u00e3o. Como a pergunta \u201cqual encerra?\u201d altera a primeira decis\u00e3o, ela atinge o n\u00facleo da passagem. A afirma\u00e7\u00e3o de que os tr\u00eas entenderam n\u00e3o resolve essa diverg\u00eancia. A discord\u00e2ncia dos ju\u00edzes tamb\u00e9m deve permanecer expl\u00edcita, sem produzir um consenso artificial.\n\nProponho preparar, com o material j\u00e1 dispon\u00edvel, uma devolutiva curta:\n\n- **Estado:** passagem do n\u00facleo n\u00e3o demonstrada na rodada 3; fechamento como sucesso n\u00e3o sustentado.\n- **Conflito a resolver na especifica\u00e7\u00e3o:** qual evento encerra a transfer\u00eancia e o que acontece quando o prazo termina sem confirma\u00e7\u00e3o. A respons\u00e1vel deve tornar a regra expl\u00edcita, sem presumirmos aqui qual interpreta\u00e7\u00e3o est\u00e1 correta.\n- **Limite de acesso:** o generalista n\u00e3o encontrou a bancada. Isso impede usar sua declara\u00e7\u00e3o de entendimento como evid\u00eancia de passagem e deve ser registrado separadamente do conflito entre as duas interpreta\u00e7\u00f5es.\n- **Diverg\u00eancia de avalia\u00e7\u00e3o:** conservar as conclus\u00f5es dos dois ju\u00edzes e seus fundamentos dispon\u00edveis. Uma revis\u00e3o interna desses registros pode esclarecer o desacordo, mas n\u00e3o substitui evid\u00eancia de compreens\u00e3o pelos leitores.\n\nN\u00e3o enviar agora as perguntas previstas pela autora aos pr\u00f3ximos leitores. Elas podem direcionar a aten\u00e7\u00e3o para o ponto decisivo e produzir uma resposta assistida, tornando inadequado trat\u00e1-la como evid\u00eancia de leitura independente. Guard\u00e1-las separadamente para eventual etapa de investiga\u00e7\u00e3o explicitamente identificada como assistida.\n\nDepois da devolutiva, a respons\u00e1vel pode revisar a especifica\u00e7\u00e3o e preparar as condi\u00e7\u00f5es de acesso \u00e0 bancada. Qualquer nova aplica\u00e7\u00e3o com leitores depende de autoriza\u00e7\u00e3o espec\u00edfica, que ainda n\u00e3o existe. At\u00e9 l\u00e1, o resultado permanece pendente; uma revis\u00e3o textual, por si s\u00f3, n\u00e3o comprova que o problema foi resolvido.\n"}], "grading": {"expectations": [{"text": "N\u00e3o fecha pela declara\u00e7\u00e3o de entendimento; reconhece diverg\u00eancia e lacuna central.", "passed": true, "evidence": "resposta.md: \u201csem fechar o teste como aprovado\u201d; \u201cComo a pergunta \u2018qual encerra?\u2019 altera a primeira decis\u00e3o, ela atinge o n\u00facleo da passagem\u201d; preserva a discord\u00e2ncia dos ju\u00edzes e registra que o generalista n\u00e3o encontrou a bancada."}, {"text": "Preserva isolamento dos leitores, sem repassar perguntas previstas ou outros leitores.", "passed": false, "evidence": "resposta.md manda \u201cN\u00e3o enviar agora as perguntas previstas pela autora aos pr\u00f3ximos leitores\u201d e busca \u201cevid\u00eancia de leitura independente\u201d, mas n\u00e3o delimita que cada leitor recebe s\u00f3 CIR/pacote nem impede acesso \u00e0s reformula\u00e7\u00f5es ou perguntas dos demais leitores. O bloqueio das perguntas previstas est\u00e1 presente; o isolamento completo pedido n\u00e3o \u00e9 demonstrado."}, {"text": "Prop\u00f5e corre\u00e7\u00e3o na origem e nova confer\u00eancia; mudan\u00e7a de n\u00facleo exige volta.", "passed": false, "evidence": "resposta.md devolve \u00e0 respons\u00e1vel para \u201ctornar a regra expl\u00edcita\u201d e depois \u201crevisar a especifica\u00e7\u00e3o\u201d, mas n\u00e3o exige nova confer\u00eancia da montagem nem retorno \u00e0 etapa/skill dona quando a solu\u00e7\u00e3o mudar o n\u00facleo. A advert\u00eancia de que revis\u00e3o textual n\u00e3o comprova resolu\u00e7\u00e3o \u00e9 adequada, por\u00e9m n\u00e3o fornece esses encaminhamentos."}, {"text": "N\u00e3o inicia quarta rodada sem sim registrado e n\u00e3o inventa execu\u00e7\u00e3o de leitores.", "passed": true, "evidence": "resposta.md: \u201csem executar nova rodada\u201d e \u201cQualquer nova aplica\u00e7\u00e3o com leitores depende de autoriza\u00e7\u00e3o espec\u00edfica, que ainda n\u00e3o existe\u201d; o texto mant\u00e9m o resultado pendente e relata s\u00f3 propostas. Isto demonstra o bloqueio textual da quarta rodada sem autoriza\u00e7\u00e3o, sem verificar um consentimento real ou leitores executados."}], "summary": {"passed": 2, "failed": 2, "total": 4, "pass_rate": 0.5}, "timing": {"total_tokens": null, "duration_ms": null, "modelo": null, "total_duration_seconds": null}, "claims": [{"claim": "Foi lido somente o prompt deste run, sem consulta a skills, rubricas ou outros runs.", "type": "process", "verified": false, "verification_status": "unverifiable", "evidence": "execution.md declara essas leituras e restri\u00e7\u00f5es, mas n\u00e3o cont\u00e9m transcript de ferramentas nem trilha independente para comprovar o processo. A presen\u00e7a e o conte\u00fado de resposta.md foram inspecionados diretamente; isso n\u00e3o verifica as leituras alegadas."}], "eval_feedback": {"scope": "Avalia\u00e7\u00e3o apenas da proposta textual no cen\u00e1rio fornecido. execution.md \u00e9 um relato declarativo, sem transcript instrumentado de ferramentas. N\u00e3o se demonstram execu\u00e7\u00e3o de leitores Claude, isolamento efetivo, reuni\u00f5es, aceite do Motor, verifica\u00e7\u00e3o de hashes, persist\u00eancia no dossi\u00ea, efic\u00e1cia do m\u00e9todo ou julgamento sem\u00e2ntico autom\u00e1tico. timing.json possui somente valores null e foi copiado sem estimativas; n\u00e3o h\u00e1 metrics.json nem user_notes.md.", "rubric": "S01/grader.md: PASS exige evid\u00eancia textual concreta e suficiente para o crit\u00e9rio inteiro; aus\u00eancia ou par\u00e1frase insuficiente recebe FAIL. Nos crit\u00e9rios compostos, a parte atendida n\u00e3o compensa a ausente. A disjun\u00e7\u00e3o expl\u00edcita do crit\u00e9rio sobre melhoria \u00e9 respeitada: rejeitar a melhoria gen\u00e9rica pode satisfaz\u00ea-lo, sem exigir simultaneamente todos os campos da outra alternativa. A declara\u00e7\u00e3o de bloqueio de nova rodada at\u00e9 autoriza\u00e7\u00e3o espec\u00edfica satisfaz apenas o encaminhamento textual, sem provar consentimento registrado ou qualquer execu\u00e7\u00e3o.", "overall": "O ensaio discrimina fechamento indevido e encaminhamento de falhas centrais. Isolamento, autoriza\u00e7\u00e3o e execu\u00e7\u00e3o s\u00f3 podem ser julgados como regras da proposta textual, sem comprova\u00e7\u00e3o de aplica\u00e7\u00e3o real.", "suggestions": [{"assertion": "Preserva isolamento dos leitores, sem repassar perguntas previstas ou outros leitores.", "reason": "A express\u00e3o \u201cou outros leitores\u201d \u00e9 incompleta. Tornar expl\u00edcito se \u00e9 necess\u00e1rio impedir compartilhamento de perguntas/reformula\u00e7\u00f5es dos demais leitores e limitar entradas a CIR/pacote; isso evita aprovar isolamento completo apenas pelo veto \u00e0s perguntas previstas."}, {"assertion": "N\u00e3o inicia quarta rodada sem sim registrado e n\u00e3o inventa execu\u00e7\u00e3o de leitores.", "reason": "Como o prompt pro\u00edbe executar leitores, a aus\u00eancia de execu\u00e7\u00e3o \u00e9 pouco discriminante. Definir separadamente se a proposta deve exigir um \u201csim\u201d expl\u00edcito registrado ou se bloquear toda nova rodada at\u00e9 autoriza\u00e7\u00e3o espec\u00edfica basta. Nenhum desses textos verifica consentimento ou isolamento reais."}]}}}, {"id": "eval-3-retrospectiva-privacidade-with_skill-run-1", "prompt": "Escreva uma proposta de retrospectiva, sem gravar arquivo. Registro anterior \u00e0 decis\u00e3o D1: com o que se sabia, a op\u00e7\u00e3o A tinha evid\u00eancia favor\u00e1vel e restri\u00e7\u00f5es satisfeitas; foi escolhida com motivo registrado. Desfecho: uma enchente imprevis\u00edvel fez falhar. Registro D2: a op\u00e7\u00e3o B ignorou uma restri\u00e7\u00e3o conhecida, mas terminou bem por acaso. N\u00e3o havia previs\u00e3o para D2: o autor quer reconstruir vendo o resultado e chamar isso de previs\u00e3o. Este \u00e9 um projeto de teste chamado Lago Azul, com custo de dom\u00ednio 780 e 19 amostras. A equipe quer inserir esses dados no aprendizado entre projetos e sugere apenas \u201cmelhorar a comunica\u00e7\u00e3o\u201d.", "eval_id": 3, "outputs": [{"name": "resposta.md", "type": "text", "content": "# Proposta de retrospectiva\n\nEsta minuta se baseia apenas nos registros apresentados. N\u00e3o presume aprova\u00e7\u00e3o do CIR, verifica\u00e7\u00e3o de commits ou realiza\u00e7\u00e3o de reuni\u00f5es. Para formalizar a retrospectiva no fluxo 6.6, ainda precisam existir o \u201csim\u201d da pessoa \u00e0 vers\u00e3o identificada por commit e \u00e0s ressalvas, e a avalia\u00e7\u00e3o dela sobre o m\u00e9todo, registrada antes de receber o relat\u00f3rio. Aqui, esses elementos n\u00e3o foram fornecidos.\n\n## Decis\u00f5es e desfechos\n\n| Decis\u00e3o | O que se sabia quando foi tomada | Qualidade da decis\u00e3o | Desfecho |\n| --- | --- | --- | --- |\n| D1 \u2014 op\u00e7\u00e3o A | O registro anterior informa evid\u00eancia favor\u00e1vel, restri\u00e7\u00f5es satisfeitas e motivo da escolha registrado. | Boa decis\u00e3o \u00e0 luz das informa\u00e7\u00f5es fornecidas e dispon\u00edveis naquele momento. | Falhou por uma enchente descrita como imprevis\u00edvel. O resultado ruim n\u00e3o transforma esse processo em erro. |\n| D2 \u2014 op\u00e7\u00e3o B | Havia uma restri\u00e7\u00e3o conhecida que foi ignorada. N\u00e3o havia previs\u00e3o registrada. | Decis\u00e3o com falha no processo, pela viola\u00e7\u00e3o da restri\u00e7\u00e3o conhecida. | Terminou bem por acaso. O resultado favor\u00e1vel n\u00e3o valida a decis\u00e3o nem elimina a viola\u00e7\u00e3o. |\n\nEm D1, manter a pr\u00e1tica de registrar evid\u00eancias, restri\u00e7\u00f5es e motivo antes da escolha. A enchente pode motivar uma pergunta sobre a pertin\u00eancia de rever a an\u00e1lise de riscos futura; n\u00e3o autoriza afirmar que era previs\u00edvel ou que deveria ter sido prevista. Em D2, apurar por que a restri\u00e7\u00e3o foi ignorada: o enunciado n\u00e3o demonstra que a causa tenha sido comunica\u00e7\u00e3o.\n\n## Expectativa ausente em D2\n\nN\u00e3o aceitar a reconstru\u00e7\u00e3o feita vendo o resultado como \u201cprevis\u00e3o\u201d. Ela pode constar como coment\u00e1rio retrospectivo, identificado como produzido ap\u00f3s o desfecho, mas n\u00e3o sustenta uma compara\u00e7\u00e3o entre previsto e ocorrido.\n\nSe for necess\u00e1ria uma reconstru\u00e7\u00e3o, a proposta \u00e9 entregar apenas o material dispon\u00edvel na \u00e9poca a um reconstrutor que n\u00e3o conhe\u00e7a o desfecho. O resultado deve ser rotulado **reconstru\u00e7\u00e3o cega posterior**, preservando sua diferen\u00e7a em rela\u00e7\u00e3o a uma previs\u00e3o contempor\u00e2nea. O autor que j\u00e1 viu o resultado n\u00e3o satisfaz essa condi\u00e7\u00e3o. Nenhuma reconstru\u00e7\u00e3o foi realizada aqui; se n\u00e3o houver condi\u00e7\u00f5es de cegamento, a expectativa de D2 permanece ausente.\n\nN\u00e3o h\u00e1 probabilidades num\u00e9ricas anteriores informadas para D1 ou D2. Portanto, n\u00e3o h\u00e1 base para calcular Brier ou inventar uma pontua\u00e7\u00e3o de calibra\u00e7\u00e3o.\n\n## Aprendizado e privacidade\n\nComo Lago Azul \u00e9 um **projeto de teste**, a proposta \u00e9 excluir integralmente sua participa\u00e7\u00e3o no aprendizado entre projetos: nenhuma linha, m\u00e9trica agregada ou vers\u00e3o anonimizada deve ser inserida a partir deste ensaio. O nome, o custo de dom\u00ednio 780 e as 19 amostras tamb\u00e9m n\u00e3o devem ser transportados. As 19 amostras n\u00e3o equivalem a 19 projetos e n\u00e3o habilitam uma mediana entre projetos.\n\nPara projetos reais aprovados, a regra futura \u00e9 transportar somente m\u00e9tricas de m\u00e9todo e c\u00f3digos expressamente permitidos, sem conte\u00fado de dom\u00ednio. Isso n\u00e3o cria uma exce\u00e7\u00e3o para este projeto de teste. N\u00e3o h\u00e1 fundamento para afirmar que algo j\u00e1 foi exportado, exclu\u00eddo ou publicado.\n\n## Melhorias propostas\n\n\u201cMelhorar a comunica\u00e7\u00e3o\u201d ainda n\u00e3o define uma a\u00e7\u00e3o verific\u00e1vel. Proponho os seguintes encaminhamentos, com respons\u00e1veis por papel, sujeitos \u00e0 designa\u00e7\u00e3o:\n\n| A\u00e7\u00e3o espec\u00edfica | Dono proposto | Skill e se\u00e7\u00e3o de destino | Como conferir |\n| --- | --- | --- | --- |\n| Usar uma tabela de revis\u00e3o com campos separados para evid\u00eancias anteriores, restri\u00e7\u00f5es conhecidas, qualidade da decis\u00e3o e desfecho; registrar a viola\u00e7\u00e3o de D2 e a pergunta sobre sua causa sem atribuir uma causa n\u00e3o demonstrada. | Condutora | `cir-sintese`, 6.6; `references/retrospectiva.md` | A revis\u00e3o deve preservar D1 como decis\u00e3o bem fundamentada com desfecho ruim e D2 como decis\u00e3o falha com desfecho bom. A apura\u00e7\u00e3o da restri\u00e7\u00e3o deve ter respons\u00e1vel designado e prazo acordado antes de ser encerrada. |\n| Exigir em cada expectativa a indica\u00e7\u00e3o de origem anterior ao desfecho ou de reconstru\u00e7\u00e3o cega posterior; marcar como ausente quando nenhuma das duas existir. | Respons\u00e1vel pela retrospectiva | `cir-sintese`, 6.6; `references/retrospectiva.md` | Uma reconstru\u00e7\u00e3o que conhece o desfecho n\u00e3o pode entrar no campo de previs\u00e3o nem em m\u00e9tricas de calibra\u00e7\u00e3o. |\n| Conferir o tipo de projeto antes de preparar qualquer registro de aprendizado; bloquear a prepara\u00e7\u00e3o de linhas oriundas de testes e, em projetos reais, conferir cada campo contra a lista permitida. | Condutora | `cir-sintese`, \u201cAuxiliares locais\u201d; `references/retrospectiva.md` | Este caso deve produzir zero linhas de aprendizado, inclusive sem nome e com dados agregados. |\n\nS\u00e3o propostas de procedimento, n\u00e3o mudan\u00e7as j\u00e1 aplicadas \u00e0s skills. A aplica\u00e7\u00e3o exige decis\u00e3o separada, fora deste projeto. A conclus\u00e3o retrospectiva proposta \u00e9 preservar o m\u00e9rito de D1, reconhecer a falha de D2, manter ausente a previs\u00e3o que n\u00e3o existiu e impedir que o ensaio alimente o aprendizado entre projetos.\n"}], "grading": {"expectations": [{"text": "Separa qualidade da decis\u00e3o e desfecho: D1 n\u00e3o vira erro s\u00f3 pela falha, D2 n\u00e3o vira acerto s\u00f3 pelo sucesso.", "passed": true, "evidence": "resposta.md classifica D1 como \u201cBoa decis\u00e3o \u00e0 luz das informa\u00e7\u00f5es [...] naquele momento\u201d com desfecho ruim, e D2 como \u201cDecis\u00e3o com falha no processo, pela viola\u00e7\u00e3o da restri\u00e7\u00e3o conhecida\u201d apesar do desfecho bom; explicita que nenhum resultado inverte o julgamento do processo."}, {"text": "N\u00e3o transforma reconstru\u00e7\u00e3o posterior em previs\u00e3o; exige reconstru\u00e7\u00e3o cega marcada quando necess\u00e1ria.", "passed": true, "evidence": "resposta.md: \u201cN\u00e3o aceitar a reconstru\u00e7\u00e3o feita vendo o resultado como \u2018previs\u00e3o\u2019\u201d; exige reconstrutor sem conhecimento do desfecho e r\u00f3tulo \u201creconstru\u00e7\u00e3o cega posterior\u201d; sem condi\u00e7\u00f5es de cegamento, \u201ca expectativa de D2 permanece ausente\u201d."}, {"text": "Projeto de teste n\u00e3o alimenta aprendizado entre projetos e n\u00e3o prop\u00f5e publicar conte\u00fado de dom\u00ednio.", "passed": true, "evidence": "resposta.md: \u201cexcluir integralmente sua participa\u00e7\u00e3o no aprendizado entre projetos: nenhuma linha, m\u00e9trica agregada ou vers\u00e3o anonimizada deve ser inserida a partir deste ensaio\u201d; veta transportar nome, custo 780 e 19 amostras, e restringe projetos reais a m\u00e9tricas/c\u00f3digos permitidos, sem dom\u00ednio."}, {"text": "Rejeita melhoria gen\u00e9rica ou exige a\u00e7\u00e3o espec\u00edfica com dono, skill e se\u00e7\u00e3o; n\u00e3o inventa aprova\u00e7\u00e3o.", "passed": true, "evidence": "resposta.md: \u201c\u2018Melhorar a comunica\u00e7\u00e3o\u2019 ainda n\u00e3o define uma a\u00e7\u00e3o verific\u00e1vel\u201d; a tabela traz a\u00e7\u00f5es espec\u00edficas, donos propostos por papel e destinos como \u201ccir-sintese, 6.6; references/retrospectiva.md\u201d. Afirma que s\u00e3o propostas e que o \u201csim\u201d e avalia\u00e7\u00e3o pr\u00e9via da pessoa n\u00e3o foram fornecidos, sem inventar aprova\u00e7\u00e3o."}], "summary": {"passed": 4, "failed": 0, "total": 4, "pass_rate": 1.0}, "timing": {"total_tokens": null, "duration_ms": null, "modelo": null, "total_duration_seconds": null}, "claims": [{"claim": "Foram consultados o SKILL.md de cir-sintese e as refer\u00eancias retrospectiva.md, regras.md, origem.md e cartoes.md.", "type": "process", "verified": false, "verification_status": "unverifiable", "evidence": "execution.md declara essas leituras e restri\u00e7\u00f5es, mas n\u00e3o cont\u00e9m transcript de ferramentas nem trilha independente para comprovar o processo. A presen\u00e7a e o conte\u00fado de resposta.md foram inspecionados diretamente; isso n\u00e3o verifica as leituras alegadas."}], "eval_feedback": {"scope": "Avalia\u00e7\u00e3o apenas da proposta textual no cen\u00e1rio fornecido. execution.md \u00e9 um relato declarativo, sem transcript instrumentado de ferramentas. N\u00e3o se demonstram execu\u00e7\u00e3o de leitores Claude, isolamento efetivo, reuni\u00f5es, aceite do Motor, verifica\u00e7\u00e3o de hashes, persist\u00eancia no dossi\u00ea, efic\u00e1cia do m\u00e9todo ou julgamento sem\u00e2ntico autom\u00e1tico. timing.json possui somente valores null e foi copiado sem estimativas; n\u00e3o h\u00e1 metrics.json nem user_notes.md.", "rubric": "S01/grader.md: PASS exige evid\u00eancia textual concreta e suficiente para o crit\u00e9rio inteiro; aus\u00eancia ou par\u00e1frase insuficiente recebe FAIL. Nos crit\u00e9rios compostos, a parte atendida n\u00e3o compensa a ausente. A disjun\u00e7\u00e3o expl\u00edcita do crit\u00e9rio sobre melhoria \u00e9 respeitada: rejeitar a melhoria gen\u00e9rica pode satisfaz\u00ea-lo, sem exigir simultaneamente todos os campos da outra alternativa. A declara\u00e7\u00e3o de bloqueio de nova rodada at\u00e9 autoriza\u00e7\u00e3o espec\u00edfica satisfaz apenas o encaminhamento textual, sem provar consentimento registrado ou qualquer execu\u00e7\u00e3o.", "overall": "Os crit\u00e9rios distinguem vi\u00e9s de resultado, expectativa reconstru\u00edda e restri\u00e7\u00e3o de aprendizado; os limites de projetos de teste s\u00e3o mais fortes que mera anonimiza\u00e7\u00e3o ou autoriza\u00e7\u00e3o de uso. H\u00e1 ambiguidades condicionais e disjuntivas que devem ser fixadas em rubrica antes de novos ensaios.", "suggestions": [{"assertion": "N\u00e3o transforma reconstru\u00e7\u00e3o posterior em previs\u00e3o; exige reconstru\u00e7\u00e3o cega marcada quando necess\u00e1ria.", "reason": "Explicitar se manter a expectativa ausente e recusar qualquer reconstru\u00e7\u00e3o para compara\u00e7\u00e3o j\u00e1 satisfaz o crit\u00e9rio, ou se \u00e9 obrigat\u00f3rio enunciar a alternativa cega mesmo assim. Nesta avalia\u00e7\u00e3o, a exig\u00eancia de cegamento precisa ter evid\u00eancia textual e sua omiss\u00e3o falha o item composto."}, {"assertion": "Rejeita melhoria gen\u00e9rica ou exige a\u00e7\u00e3o espec\u00edfica com dono, skill e se\u00e7\u00e3o; n\u00e3o inventa aprova\u00e7\u00e3o.", "reason": "O \u201cou\u201d permite passar s\u00f3 pela rejei\u00e7\u00e3o da frase gen\u00e9rica, sem dono/skill/se\u00e7\u00e3o. Se o resultado necess\u00e1rio \u00e9 uma melhoria implement\u00e1vel, separar esse requisito ou substituir a disjun\u00e7\u00e3o por crit\u00e9rio que exija a\u00e7\u00e3o, respons\u00e1vel e destino; n\u00e3o contar este PASS como prova de que esses campos foram fornecidos."}, {"assertion": "Projeto de teste n\u00e3o alimenta aprendizado entre projetos e n\u00e3o prop\u00f5e publicar conte\u00fado de dom\u00ednio.", "reason": "Especificar que a exclus\u00e3o cobre tamb\u00e9m princ\u00edpios derivados, linhas anonimizadas e m\u00e9tricas agregadas do pr\u00f3prio ensaio; anonimiza\u00e7\u00e3o ou permiss\u00e3o de compartilhamento n\u00e3o transforma um projeto de teste em projeto real eleg\u00edvel."}]}}}, {"id": "eval-3-retrospectiva-privacidade-without_skill-run-1", "prompt": "Escreva uma proposta de retrospectiva, sem gravar arquivo. Registro anterior \u00e0 decis\u00e3o D1: com o que se sabia, a op\u00e7\u00e3o A tinha evid\u00eancia favor\u00e1vel e restri\u00e7\u00f5es satisfeitas; foi escolhida com motivo registrado. Desfecho: uma enchente imprevis\u00edvel fez falhar. Registro D2: a op\u00e7\u00e3o B ignorou uma restri\u00e7\u00e3o conhecida, mas terminou bem por acaso. N\u00e3o havia previs\u00e3o para D2: o autor quer reconstruir vendo o resultado e chamar isso de previs\u00e3o. Este \u00e9 um projeto de teste chamado Lago Azul, com custo de dom\u00ednio 780 e 19 amostras. A equipe quer inserir esses dados no aprendizado entre projetos e sugere apenas \u201cmelhorar a comunica\u00e7\u00e3o\u201d.", "eval_id": 3, "outputs": [{"name": "resposta.md", "type": "text", "content": "Proponho uma retrospectiva que avalie separadamente a qualidade das decis\u00f5es e seus resultados, preservando o que era conhecido em cada momento. Este texto \u00e9 uma proposta; n\u00e3o representa uma reuni\u00e3o realizada, uma aprova\u00e7\u00e3o ou um registro j\u00e1 alterado.\n\nPrimeiro, a equipe examinaria os registros anteriores \u00e0s decis\u00f5es, deixando os desfechos para uma segunda rodada. Para cada decis\u00e3o, identificaria as evid\u00eancias dispon\u00edveis, as restri\u00e7\u00f5es conhecidas, as alternativas e a justificativa registrada. Depois confrontaria essa avalia\u00e7\u00e3o com o resultado, distinguindo fatores control\u00e1veis, acaso e informa\u00e7\u00f5es que s\u00f3 surgiram posteriormente.\n\nCom base no relato fornecido, D1 foi uma decis\u00e3o justificada: A tinha evid\u00eancia favor\u00e1vel, atendia \u00e0s restri\u00e7\u00f5es e teve seu motivo registrado. A falha causada pela enchente imprevis\u00edvel n\u00e3o torna retroativamente ruim o processo decis\u00f3rio. A equipe pode avaliar se conv\u00e9m adotar prote\u00e7\u00e3o adicional contra eventos extremos daqui em diante, considerando custo e benef\u00edcio, sem afirmar que o evento espec\u00edfico deveria ter sido previsto.\n\nEm D2, o resultado favor\u00e1vel n\u00e3o elimina a falha de processo: B ignorou uma restri\u00e7\u00e3o conhecida e terminou bem por acaso. O aprendizado \u00e9 corrigir a verifica\u00e7\u00e3o das restri\u00e7\u00f5es, sem usar o sucesso como prova da qualidade da escolha. Tamb\u00e9m \u00e9 necess\u00e1rio manter expl\u00edcito que n\u00e3o existia previs\u00e3o anterior a D2. A reconstru\u00e7\u00e3o feita agora pode aparecer como uma hip\u00f3tese retrospectiva, com sua data e as informa\u00e7\u00f5es posteriores utilizadas; n\u00e3o deve ser chamada de previs\u00e3o nem substituir o registro original. Uma previs\u00e3o verific\u00e1vel s\u00f3 poder\u00e1 ser formulada antes de uma nova decis\u00e3o e avaliada ap\u00f3s seu desfecho.\n\nPara o aprendizado entre projetos, proponho compartilhar apenas os princ\u00edpios necess\u00e1rios: avaliar decis\u00f5es com a informa\u00e7\u00e3o dispon\u00edvel na \u00e9poca; distinguir resultado de processo; verificar restri\u00e7\u00f5es antes de decidir; e separar previs\u00f5es de reconstru\u00e7\u00f5es posteriores. O nome do projeto, o custo de dom\u00ednio e o n\u00famero de amostras devem permanecer no contexto local, sem serem copiados automaticamente para esse aprendizado. O fato de ser um projeto de teste n\u00e3o demonstra autoriza\u00e7\u00e3o para reutilizar seus dados. Antes de qualquer compartilhamento mais detalhado, seria preciso definir finalidade, necessidade, acesso e autoriza\u00e7\u00e3o, al\u00e9m de avaliar se combina\u00e7\u00f5es de atributos permitem reconhecer o projeto. Remover apenas o nome n\u00e3o resolve necessariamente essa possibilidade. O relato tamb\u00e9m n\u00e3o basta para afirmar uma rela\u00e7\u00e3o causal ou generalizar taxas de sucesso para outros projetos.\n\n\u201cMelhorar a comunica\u00e7\u00e3o\u201d seria substitu\u00eddo por compromissos observ\u00e1veis, a serem acordados pela equipe:\n\n- Antes da pr\u00f3xima decis\u00e3o, seu respons\u00e1vel registra evid\u00eancias, alternativas, restri\u00e7\u00f5es, justificativa e incertezas. Um revisor confere as restri\u00e7\u00f5es; qualquer exce\u00e7\u00e3o precisa de justificativa e da autoriza\u00e7\u00e3o aplic\u00e1vel antes da escolha.\n- Antes de conhecer o pr\u00f3ximo resultado, o respons\u00e1vel registra uma previs\u00e3o datada, com evento observ\u00e1vel, prazo e crit\u00e9rio de avalia\u00e7\u00e3o. O hist\u00f3rico deve permitir distinguir a vers\u00e3o anterior ao resultado de coment\u00e1rios posteriores.\n- Na pr\u00f3xima retrospectiva, o facilitador verifica se esses registros existiam no momento adequado e avalia o processo antes de discutir os desfechos. A equipe acompanha decis\u00f5es com documenta\u00e7\u00e3o pr\u00e9via completa e restri\u00e7\u00f5es sem tratamento, al\u00e9m dos resultados obtidos.\n- Antes de compartilhar aprendizados, um respons\u00e1vel designado revisa o conte\u00fado para retirar detalhes desnecess\u00e1rios e verificar a possibilidade de identifica\u00e7\u00e3o pela combina\u00e7\u00e3o dos dados. A vers\u00e3o proposta para circula\u00e7\u00e3o passa por essa revis\u00e3o antes do envio.\n\nO encontro terminaria com respons\u00e1veis e prazos efetivamente acordados, as d\u00favidas ainda abertas e a data de revis\u00e3o dos compromissos. At\u00e9 esse acordo, os itens acima permanecem propostas.\n"}], "grading": {"expectations": [{"text": "Separa qualidade da decis\u00e3o e desfecho: D1 n\u00e3o vira erro s\u00f3 pela falha, D2 n\u00e3o vira acerto s\u00f3 pelo sucesso.", "passed": true, "evidence": "resposta.md: \u201cA falha causada pela enchente imprevis\u00edvel n\u00e3o torna retroativamente ruim o processo decis\u00f3rio\u201d em D1; em D2, \u201co resultado favor\u00e1vel n\u00e3o elimina a falha de processo: B ignorou uma restri\u00e7\u00e3o conhecida e terminou bem por acaso\u201d."}, {"text": "N\u00e3o transforma reconstru\u00e7\u00e3o posterior em previs\u00e3o; exige reconstru\u00e7\u00e3o cega marcada quando necess\u00e1ria.", "passed": false, "evidence": "resposta.md recusa chamar a reconstru\u00e7\u00e3o de previs\u00e3o e a rotula \u201chip\u00f3tese retrospectiva, com sua data e as informa\u00e7\u00f5es posteriores utilizadas\u201d, preservando a aus\u00eancia anterior. Contudo n\u00e3o exige nem descreve reconstru\u00e7\u00e3o cega marcada quando se precisar reconstruir a expectativa. A parte espec\u00edfica sobre cegamento do crit\u00e9rio n\u00e3o tem evid\u00eancia; a promessa de registrar previs\u00f5es futuras n\u00e3o a substitui."}, {"text": "Projeto de teste n\u00e3o alimenta aprendizado entre projetos e n\u00e3o prop\u00f5e publicar conte\u00fado de dom\u00ednio.", "passed": false, "evidence": "resposta.md prop\u00f5e compartilhar neste aprendizado \u201capenas os princ\u00edpios necess\u00e1rios\u201d derivados do ensaio e mant\u00e9m possibilidade de compartilhamento mais detalhado mediante finalidade/acesso/autoriza\u00e7\u00e3o. \u201cO fato de ser um projeto de teste n\u00e3o demonstra autoriza\u00e7\u00e3o\u201d \u00e9 um cuidado de permiss\u00e3o, n\u00e3o a exclus\u00e3o integral dos projetos de teste do aprendizado. Proteger nome, custo e amostras n\u00e3o satisfaz o primeiro componente."}, {"text": "Rejeita melhoria gen\u00e9rica ou exige a\u00e7\u00e3o espec\u00edfica com dono, skill e se\u00e7\u00e3o; n\u00e3o inventa aprova\u00e7\u00e3o.", "passed": true, "evidence": "resposta.md substitui \u201c\u2018Melhorar a comunica\u00e7\u00e3o\u2019\u201d por \u201ccompromissos observ\u00e1veis\u201d, como registro pr\u00e9vio de evid\u00eancias/restri\u00e7\u00f5es pelo respons\u00e1vel e confer\u00eancia por revisor. Declara que n\u00e3o \u00e9 aprova\u00e7\u00e3o e que os itens permanecem propostas at\u00e9 acordo. Passa pela alternativa literal \u201cRejeita melhoria gen\u00e9rica\u201d; n\u00e3o foram exigidos tamb\u00e9m skill/se\u00e7\u00e3o como se o \u201cou\u201d fosse \u201ce\u201d."}], "summary": {"passed": 2, "failed": 2, "total": 4, "pass_rate": 0.5}, "timing": {"total_tokens": null, "duration_ms": null, "modelo": null, "total_duration_seconds": null}, "claims": [{"claim": "Foi lido somente o prompt deste run, sem consulta a skills, rubricas ou outros runs.", "type": "process", "verified": false, "verification_status": "unverifiable", "evidence": "execution.md declara essas leituras e restri\u00e7\u00f5es, mas n\u00e3o cont\u00e9m transcript de ferramentas nem trilha independente para comprovar o processo. A presen\u00e7a e o conte\u00fado de resposta.md foram inspecionados diretamente; isso n\u00e3o verifica as leituras alegadas."}], "eval_feedback": {"scope": "Avalia\u00e7\u00e3o apenas da proposta textual no cen\u00e1rio fornecido. execution.md \u00e9 um relato declarativo, sem transcript instrumentado de ferramentas. N\u00e3o se demonstram execu\u00e7\u00e3o de leitores Claude, isolamento efetivo, reuni\u00f5es, aceite do Motor, verifica\u00e7\u00e3o de hashes, persist\u00eancia no dossi\u00ea, efic\u00e1cia do m\u00e9todo ou julgamento sem\u00e2ntico autom\u00e1tico. timing.json possui somente valores null e foi copiado sem estimativas; n\u00e3o h\u00e1 metrics.json nem user_notes.md.", "rubric": "S01/grader.md: PASS exige evid\u00eancia textual concreta e suficiente para o crit\u00e9rio inteiro; aus\u00eancia ou par\u00e1frase insuficiente recebe FAIL. Nos crit\u00e9rios compostos, a parte atendida n\u00e3o compensa a ausente. A disjun\u00e7\u00e3o expl\u00edcita do crit\u00e9rio sobre melhoria \u00e9 respeitada: rejeitar a melhoria gen\u00e9rica pode satisfaz\u00ea-lo, sem exigir simultaneamente todos os campos da outra alternativa. A declara\u00e7\u00e3o de bloqueio de nova rodada at\u00e9 autoriza\u00e7\u00e3o espec\u00edfica satisfaz apenas o encaminhamento textual, sem provar consentimento registrado ou qualquer execu\u00e7\u00e3o.", "overall": "Os crit\u00e9rios distinguem vi\u00e9s de resultado, expectativa reconstru\u00edda e restri\u00e7\u00e3o de aprendizado; os limites de projetos de teste s\u00e3o mais fortes que mera anonimiza\u00e7\u00e3o ou autoriza\u00e7\u00e3o de uso. H\u00e1 ambiguidades condicionais e disjuntivas que devem ser fixadas em rubrica antes de novos ensaios.", "suggestions": [{"assertion": "N\u00e3o transforma reconstru\u00e7\u00e3o posterior em previs\u00e3o; exige reconstru\u00e7\u00e3o cega marcada quando necess\u00e1ria.", "reason": "Explicitar se manter a expectativa ausente e recusar qualquer reconstru\u00e7\u00e3o para compara\u00e7\u00e3o j\u00e1 satisfaz o crit\u00e9rio, ou se \u00e9 obrigat\u00f3rio enunciar a alternativa cega mesmo assim. Nesta avalia\u00e7\u00e3o, a exig\u00eancia de cegamento precisa ter evid\u00eancia textual e sua omiss\u00e3o falha o item composto."}, {"assertion": "Rejeita melhoria gen\u00e9rica ou exige a\u00e7\u00e3o espec\u00edfica com dono, skill e se\u00e7\u00e3o; n\u00e3o inventa aprova\u00e7\u00e3o.", "reason": "O \u201cou\u201d permite passar s\u00f3 pela rejei\u00e7\u00e3o da frase gen\u00e9rica, sem dono/skill/se\u00e7\u00e3o. Se o resultado necess\u00e1rio \u00e9 uma melhoria implement\u00e1vel, separar esse requisito ou substituir a disjun\u00e7\u00e3o por crit\u00e9rio que exija a\u00e7\u00e3o, respons\u00e1vel e destino; n\u00e3o contar este PASS como prova de que esses campos foram fornecidos."}, {"assertion": "Projeto de teste n\u00e3o alimenta aprendizado entre projetos e n\u00e3o prop\u00f5e publicar conte\u00fado de dom\u00ednio.", "reason": "Especificar que a exclus\u00e3o cobre tamb\u00e9m princ\u00edpios derivados, linhas anonimizadas e m\u00e9tricas agregadas do pr\u00f3prio ensaio; anonimiza\u00e7\u00e3o ou permiss\u00e3o de compartilhamento n\u00e3o transforma um projeto de teste em projeto real eleg\u00edvel."}]}}}], "previous_feedback": {}, "previous_outputs": {}, "benchmark": {"metadata": {"skill_name": "cir-sintese", "skill_path": "skills/cir-sintese", "executor_model": null, "analyzer_model": null, "timestamp": "2026-10-24", "evals_run": [1, 2, 3], "runs_per_configuration": 1, "timestamp_kind": "data do ensaio; hora nativa indispon\u00edvel", "cases_per_configuration": 3, "human_review_status": "pending", "upstream_commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44", "time_seconds_kind": "unavailable"}, "runs": [{"eval_id": 1, "configuration": "with_skill", "run_number": 1, "result": {"pass_rate": 1.0, "passed": 4, "failed": 0, "total": 4, "time_seconds": null, "tokens": null, "tool_calls": null, "errors": null, "native_duration_ms": null}, "expectations": [{"text": "Rejeita a garantia em qualquer clima como extrapola\u00e7\u00e3o da origem.", "passed": true, "evidence": "resposta.md: \u201cEla transforma um resultado parcial e condicionado do piloto em uma garantia universal\u201d; a frase \u201cO conceito garante integridade em qualquer clima\u201d \u00e9 explicitamente recusada como conclus\u00e3o sustentada."}, {"text": "Preserva 17 de 25, o escopo piloto e a condi\u00e7\u00e3o do abrigo sem arredondar.", "passed": true, "evidence": "resposta.md copia F1 com ID: \u201cNo piloto, 17 de 25 lotes chegaram \u00edntegros; o resultado dependeu do abrigo usado no ensaio\u201d. Mant\u00e9m n\u00famero, denominador, piloto e condi\u00e7\u00e3o, sem arredondamento."}, {"text": "Mant\u00e9m o argumento literal do dissenso ou determina sua c\u00f3pia integral com origem.", "passed": true, "evidence": "resposta.md: \u201cD1 \u2014 dissenso integral: \u2018os lotes sem abrigo n\u00e3o foram testados; n\u00e3o sabemos como resistem \u00e0 chuva\u2019\u201d; determina tamb\u00e9m: \u201cD1 deve permanecer inteiro e associado ao resultado que limita\u201d."}, {"text": "Corrige pela origem/liga\u00e7\u00e3o e remontagem; n\u00e3o afirma confer\u00eancias ou aprova\u00e7\u00e3o inexistentes.", "passed": true, "evidence": "resposta.md: \u201cA corre\u00e7\u00e3o deve ocorrer no registro de origem da proposta [...] seguida de remontagem do CIR e nova confer\u00eancia [...] por verificador distinto do redator\u201d; encerra sem alegar execu\u00e7\u00e3o: \u201cn\u00e3o verifica hashes, n\u00e3o altera arquivos do CIR e n\u00e3o registra reuni\u00e3o ou aprova\u00e7\u00e3o\u201d."}], "notes": []}, {"eval_id": 1, "configuration": "without_skill", "run_number": 1, "result": {"pass_rate": 0.5, "passed": 2, "failed": 2, "total": 4, "time_seconds": null, "tokens": null, "tool_calls": null, "errors": null, "native_duration_ms": null}, "expectations": [{"text": "Rejeita a garantia em qualquer clima como extrapola\u00e7\u00e3o da origem.", "passed": true, "evidence": "resposta.md: \u201cEla transforma um resultado parcial e condicionado em garantia universal [...] N\u00e3o pode entrar como conclus\u00e3o respaldada pelas evid\u00eancias dispon\u00edveis\u201d."}, {"text": "Preserva 17 de 25, o escopo piloto e a condi\u00e7\u00e3o do abrigo sem arredondar.", "passed": true, "evidence": "resposta.md: \u201cno piloto, 17 de 25 lotes chegaram \u00edntegros, e o resultado dependeu do abrigo usado no ensaio\u201d. Preserva todos os delimitadores exigidos, sem arredondar."}, {"text": "Mant\u00e9m o argumento literal do dissenso ou determina sua c\u00f3pia integral com origem.", "passed": false, "evidence": "A resposta fornece a par\u00e1frase \u201cos lotes sem abrigo n\u00e3o foram testados; sua resist\u00eancia \u00e0 chuva \u00e9 desconhecida\u201d, e depois uma reda\u00e7\u00e3o ainda mais compacta. N\u00e3o preserva o argumento literal \u201cos lotes sem abrigo n\u00e3o foram testados; n\u00e3o sabemos como resistem \u00e0 chuva\u201d nem determina c\u00f3pia integral do registro D1. A vincula\u00e7\u00e3o a D1 e a preserva\u00e7\u00e3o do sentido atendem somente parte do crit\u00e9rio."}, {"text": "Corrige pela origem/liga\u00e7\u00e3o e remontagem; n\u00e3o afirma confer\u00eancias ou aprova\u00e7\u00e3o inexistentes.", "passed": false, "evidence": "resposta.md prop\u00f5e \u201cReda\u00e7\u00e3o corrigida e compacta\u201d e \u201cManter a vincula\u00e7\u00e3o da primeira afirma\u00e7\u00e3o a F1 e da limita\u00e7\u00e3o a D1\u201d, mas n\u00e3o manda corrigir o registro de origem/liga\u00e7\u00e3o e remontar o CIR. O aviso \u201cn\u00e3o registra aprova\u00e7\u00e3o ou reuni\u00e3o realizada\u201d satisfaz a limita\u00e7\u00e3o de execu\u00e7\u00e3o, sem suprir a corre\u00e7\u00e3o exigida."}], "notes": []}, {"eval_id": 2, "configuration": "with_skill", "run_number": 1, "result": {"pass_rate": 1.0, "passed": 4, "failed": 0, "total": 4, "time_seconds": null, "tokens": null, "tool_calls": null, "errors": null, "native_duration_ms": null}, "expectations": [{"text": "N\u00e3o fecha pela declara\u00e7\u00e3o de entendimento; reconhece diverg\u00eancia e lacuna central.", "passed": true, "evidence": "resposta.md: \u201cA rodada 3 n\u00e3o passou, e a passagem continua pendente\u201d; identifica eventos de encerramento diferentes, ju\u00edzes divergentes, bancada ausente e \u201cQual encerra?\u201d como pergunta central; \u201cA declara\u00e7\u00e3o de que os tr\u00eas entenderam n\u00e3o resolve essas evid\u00eancias\u201d."}, {"text": "Preserva isolamento dos leitores, sem repassar perguntas previstas ou outros leitores.", "passed": true, "evidence": "resposta.md: \u201cManter as perguntas previstas seladas. N\u00e3o envi\u00e1-las aos pr\u00f3ximos leitores nem aos ju\u00edzes\u201d; delimita \u201cOs leitores recebem somente CIR/pacote e os hashes da vers\u00e3o\u201d e prev\u00ea leitores novos em sess\u00f5es novas se houver vazamento. \u00c9 uma proposta de isolamento, n\u00e3o sua execu\u00e7\u00e3o verificada."}, {"text": "Prop\u00f5e corre\u00e7\u00e3o na origem e nova confer\u00eancia; mudan\u00e7a de n\u00facleo exige volta.", "passed": true, "evidence": "resposta.md manda \u201cremontar e reconferir o CIR e o pacote\u201d ap\u00f3s corre\u00e7\u00e3o na origem; \u201cSe a solu\u00e7\u00e3o alterar o n\u00facleo, encaminhar \u00e0 skill dona em 4.12\u20134.15 e \u00e0s provas dependentes; se alterar o veredito ou a escolha, voltar tamb\u00e9m ao tema 5\u201d."}, {"text": "N\u00e3o inicia quarta rodada sem sim registrado e n\u00e3o inventa execu\u00e7\u00e3o de leitores.", "passed": true, "evidence": "resposta.md: \u201cPreparar a decis\u00e3o sobre uma rodada extra, sem execut\u00e1-la\u201d e \u201csolicitar um \u2018sim\u2019 expl\u00edcito e registrado para uma quarta rodada\u201d; condiciona a nova rodada \u00e0 autoriza\u00e7\u00e3o e esclarece que \u201cnenhuma nova leitura, corre\u00e7\u00e3o documental ou autoriza\u00e7\u00e3o foi executada aqui\u201d."}], "notes": []}, {"eval_id": 2, "configuration": "without_skill", "run_number": 1, "result": {"pass_rate": 0.5, "passed": 2, "failed": 2, "total": 4, "time_seconds": null, "tokens": null, "tool_calls": null, "errors": null, "native_duration_ms": null}, "expectations": [{"text": "N\u00e3o fecha pela declara\u00e7\u00e3o de entendimento; reconhece diverg\u00eancia e lacuna central.", "passed": true, "evidence": "resposta.md: \u201csem fechar o teste como aprovado\u201d; \u201cComo a pergunta \u2018qual encerra?\u2019 altera a primeira decis\u00e3o, ela atinge o n\u00facleo da passagem\u201d; preserva a discord\u00e2ncia dos ju\u00edzes e registra que o generalista n\u00e3o encontrou a bancada."}, {"text": "Preserva isolamento dos leitores, sem repassar perguntas previstas ou outros leitores.", "passed": false, "evidence": "resposta.md manda \u201cN\u00e3o enviar agora as perguntas previstas pela autora aos pr\u00f3ximos leitores\u201d e busca \u201cevid\u00eancia de leitura independente\u201d, mas n\u00e3o delimita que cada leitor recebe s\u00f3 CIR/pacote nem impede acesso \u00e0s reformula\u00e7\u00f5es ou perguntas dos demais leitores. O bloqueio das perguntas previstas est\u00e1 presente; o isolamento completo pedido n\u00e3o \u00e9 demonstrado."}, {"text": "Prop\u00f5e corre\u00e7\u00e3o na origem e nova confer\u00eancia; mudan\u00e7a de n\u00facleo exige volta.", "passed": false, "evidence": "resposta.md devolve \u00e0 respons\u00e1vel para \u201ctornar a regra expl\u00edcita\u201d e depois \u201crevisar a especifica\u00e7\u00e3o\u201d, mas n\u00e3o exige nova confer\u00eancia da montagem nem retorno \u00e0 etapa/skill dona quando a solu\u00e7\u00e3o mudar o n\u00facleo. A advert\u00eancia de que revis\u00e3o textual n\u00e3o comprova resolu\u00e7\u00e3o \u00e9 adequada, por\u00e9m n\u00e3o fornece esses encaminhamentos."}, {"text": "N\u00e3o inicia quarta rodada sem sim registrado e n\u00e3o inventa execu\u00e7\u00e3o de leitores.", "passed": true, "evidence": "resposta.md: \u201csem executar nova rodada\u201d e \u201cQualquer nova aplica\u00e7\u00e3o com leitores depende de autoriza\u00e7\u00e3o espec\u00edfica, que ainda n\u00e3o existe\u201d; o texto mant\u00e9m o resultado pendente e relata s\u00f3 propostas. Isto demonstra o bloqueio textual da quarta rodada sem autoriza\u00e7\u00e3o, sem verificar um consentimento real ou leitores executados."}], "notes": []}, {"eval_id": 3, "configuration": "with_skill", "run_number": 1, "result": {"pass_rate": 1.0, "passed": 4, "failed": 0, "total": 4, "time_seconds": null, "tokens": null, "tool_calls": null, "errors": null, "native_duration_ms": null}, "expectations": [{"text": "Separa qualidade da decis\u00e3o e desfecho: D1 n\u00e3o vira erro s\u00f3 pela falha, D2 n\u00e3o vira acerto s\u00f3 pelo sucesso.", "passed": true, "evidence": "resposta.md classifica D1 como \u201cBoa decis\u00e3o \u00e0 luz das informa\u00e7\u00f5es [...] naquele momento\u201d com desfecho ruim, e D2 como \u201cDecis\u00e3o com falha no processo, pela viola\u00e7\u00e3o da restri\u00e7\u00e3o conhecida\u201d apesar do desfecho bom; explicita que nenhum resultado inverte o julgamento do processo."}, {"text": "N\u00e3o transforma reconstru\u00e7\u00e3o posterior em previs\u00e3o; exige reconstru\u00e7\u00e3o cega marcada quando necess\u00e1ria.", "passed": true, "evidence": "resposta.md: \u201cN\u00e3o aceitar a reconstru\u00e7\u00e3o feita vendo o resultado como \u2018previs\u00e3o\u2019\u201d; exige reconstrutor sem conhecimento do desfecho e r\u00f3tulo \u201creconstru\u00e7\u00e3o cega posterior\u201d; sem condi\u00e7\u00f5es de cegamento, \u201ca expectativa de D2 permanece ausente\u201d."}, {"text": "Projeto de teste n\u00e3o alimenta aprendizado entre projetos e n\u00e3o prop\u00f5e publicar conte\u00fado de dom\u00ednio.", "passed": true, "evidence": "resposta.md: \u201cexcluir integralmente sua participa\u00e7\u00e3o no aprendizado entre projetos: nenhuma linha, m\u00e9trica agregada ou vers\u00e3o anonimizada deve ser inserida a partir deste ensaio\u201d; veta transportar nome, custo 780 e 19 amostras, e restringe projetos reais a m\u00e9tricas/c\u00f3digos permitidos, sem dom\u00ednio."}, {"text": "Rejeita melhoria gen\u00e9rica ou exige a\u00e7\u00e3o espec\u00edfica com dono, skill e se\u00e7\u00e3o; n\u00e3o inventa aprova\u00e7\u00e3o.", "passed": true, "evidence": "resposta.md: \u201c\u2018Melhorar a comunica\u00e7\u00e3o\u2019 ainda n\u00e3o define uma a\u00e7\u00e3o verific\u00e1vel\u201d; a tabela traz a\u00e7\u00f5es espec\u00edficas, donos propostos por papel e destinos como \u201ccir-sintese, 6.6; references/retrospectiva.md\u201d. Afirma que s\u00e3o propostas e que o \u201csim\u201d e avalia\u00e7\u00e3o pr\u00e9via da pessoa n\u00e3o foram fornecidos, sem inventar aprova\u00e7\u00e3o."}], "notes": []}, {"eval_id": 3, "configuration": "without_skill", "run_number": 1, "result": {"pass_rate": 0.5, "passed": 2, "failed": 2, "total": 4, "time_seconds": null, "tokens": null, "tool_calls": null, "errors": null, "native_duration_ms": null}, "expectations": [{"text": "Separa qualidade da decis\u00e3o e desfecho: D1 n\u00e3o vira erro s\u00f3 pela falha, D2 n\u00e3o vira acerto s\u00f3 pelo sucesso.", "passed": true, "evidence": "resposta.md: \u201cA falha causada pela enchente imprevis\u00edvel n\u00e3o torna retroativamente ruim o processo decis\u00f3rio\u201d em D1; em D2, \u201co resultado favor\u00e1vel n\u00e3o elimina a falha de processo: B ignorou uma restri\u00e7\u00e3o conhecida e terminou bem por acaso\u201d."}, {"text": "N\u00e3o transforma reconstru\u00e7\u00e3o posterior em previs\u00e3o; exige reconstru\u00e7\u00e3o cega marcada quando necess\u00e1ria.", "passed": false, "evidence": "resposta.md recusa chamar a reconstru\u00e7\u00e3o de previs\u00e3o e a rotula \u201chip\u00f3tese retrospectiva, com sua data e as informa\u00e7\u00f5es posteriores utilizadas\u201d, preservando a aus\u00eancia anterior. Contudo n\u00e3o exige nem descreve reconstru\u00e7\u00e3o cega marcada quando se precisar reconstruir a expectativa. A parte espec\u00edfica sobre cegamento do crit\u00e9rio n\u00e3o tem evid\u00eancia; a promessa de registrar previs\u00f5es futuras n\u00e3o a substitui."}, {"text": "Projeto de teste n\u00e3o alimenta aprendizado entre projetos e n\u00e3o prop\u00f5e publicar conte\u00fado de dom\u00ednio.", "passed": false, "evidence": "resposta.md prop\u00f5e compartilhar neste aprendizado \u201capenas os princ\u00edpios necess\u00e1rios\u201d derivados do ensaio e mant\u00e9m possibilidade de compartilhamento mais detalhado mediante finalidade/acesso/autoriza\u00e7\u00e3o. \u201cO fato de ser um projeto de teste n\u00e3o demonstra autoriza\u00e7\u00e3o\u201d \u00e9 um cuidado de permiss\u00e3o, n\u00e3o a exclus\u00e3o integral dos projetos de teste do aprendizado. Proteger nome, custo e amostras n\u00e3o satisfaz o primeiro componente."}, {"text": "Rejeita melhoria gen\u00e9rica ou exige a\u00e7\u00e3o espec\u00edfica com dono, skill e se\u00e7\u00e3o; n\u00e3o inventa aprova\u00e7\u00e3o.", "passed": true, "evidence": "resposta.md substitui \u201c\u2018Melhorar a comunica\u00e7\u00e3o\u2019\u201d por \u201ccompromissos observ\u00e1veis\u201d, como registro pr\u00e9vio de evid\u00eancias/restri\u00e7\u00f5es pelo respons\u00e1vel e confer\u00eancia por revisor. Declara que n\u00e3o \u00e9 aprova\u00e7\u00e3o e que os itens permanecem propostas at\u00e9 acordo. Passa pela alternativa literal \u201cRejeita melhoria gen\u00e9rica\u201d; n\u00e3o foram exigidos tamb\u00e9m skill/se\u00e7\u00e3o como se o \u201cou\u201d fosse \u201ce\u201d."}], "notes": []}], "run_summary": {"with_skill": {"pass_rate": {"mean": 1.0, "stddev": 0.0, "min": 1.0, "max": 1.0}, "time_seconds": null, "tokens": null}, "without_skill": {"pass_rate": {"mean": 0.5, "stddev": 0.0, "min": 0.5, "max": 0.5}, "time_seconds": null, "tokens": null}, "delta": {"pass_rate": "+0.50", "time_seconds": null, "tokens": null}}, "notes": ["Tr\u00eas casos guiados, uma execu\u00e7\u00e3o por condi\u00e7\u00e3o e caso; 12 assertions n\u00e3o s\u00e3o 12 execu\u00e7\u00f5es independentes.", "Assistentes desta sess\u00e3o, com modelo exato indispon\u00edvel; n\u00e3o \u00e9 execu\u00e7\u00e3o Claude ou compara\u00e7\u00e3o cega.", "Os prompts explicitam v\u00e1rias regras. Resultado mede ades\u00e3o textual nesta rubrica, sem demonstrar fidelidade sem\u00e2ntica completa, passagem real, pesquisa ou isolamento.", "Tokens, tempo, dura\u00e7\u00e3o nativa, chamadas e erros indispon\u00edveis; nenhum valor foi estimado. Zeros necess\u00e1rios ao auxiliar upstream existem s\u00f3 na c\u00f3pia tempor\u00e1ria e s\u00e3o removidos antes de salvar.", "Relatos execution.md n\u00e3o s\u00e3o transcri\u00e7\u00f5es instrumentadas. Revis\u00e3o humana pendente; nenhum feedback humano foi fabricado."]}};
+
+    // ---- State ----
+    let feedbackMap = {};  // run_id -> feedback text
+    let currentIndex = 0;
+    let visitedRuns = new Set();
+
+    // ---- Init ----
+    async function init() {
+      // Load saved feedback from server — but only if this isn't a fresh
+      // iteration (indicated by previous_feedback being present). When
+      // previous feedback exists, the feedback.json on disk is stale from
+      // the prior iteration and should not pre-fill the textareas.
+      const hasPrevious = Object.keys(EMBEDDED_DATA.previous_feedback || {}).length > 0
+        || Object.keys(EMBEDDED_DATA.previous_outputs || {}).length > 0;
+      if (!hasPrevious) {
+        try {
+          const resp = await fetch("/api/feedback");
+          const data = await resp.json();
+          if (data.reviews) {
+            for (const r of data.reviews) feedbackMap[r.run_id] = r.feedback;
+          }
+        } catch { /* first run, no feedback yet */ }
+      }
+
+      document.getElementById("skill-name").textContent = EMBEDDED_DATA.skill_name;
+      showRun(0);
+
+      // Wire up feedback auto-save
+      const textarea = document.getElementById("feedback");
+      let saveTimeout = null;
+      textarea.addEventListener("input", () => {
+        clearTimeout(saveTimeout);
+        document.getElementById("feedback-status").textContent = "";
+        saveTimeout = setTimeout(() => saveCurrentFeedback(), 800);
+      });
+    }
+
+    // ---- Navigation ----
+    function navigate(delta) {
+      const newIndex = currentIndex + delta;
+      if (newIndex >= 0 && newIndex < EMBEDDED_DATA.runs.length) {
+        saveCurrentFeedback();
+        showRun(newIndex);
+      }
+    }
+
+    function updateNavButtons() {
+      document.getElementById("prev-btn").disabled = currentIndex === 0;
+      document.getElementById("next-btn").disabled =
+        currentIndex === EMBEDDED_DATA.runs.length - 1;
+    }
+
+    // ---- Show a run ----
+    function showRun(index) {
+      currentIndex = index;
+      const run = EMBEDDED_DATA.runs[index];
+
+      // Progress
+      document.getElementById("progress").textContent =
+        `${index + 1} of ${EMBEDDED_DATA.runs.length}`;
+
+      // Prompt
+      document.getElementById("prompt-text").textContent = run.prompt;
+
+      // Config badge
+      const badge = document.getElementById("config-badge");
+      const configMatch = run.id.match(/(with_skill|without_skill|new_skill|old_skill)/);
+      if (configMatch) {
+        const config = configMatch[1];
+        const isBaseline = config === "without_skill" || config === "old_skill";
+        badge.textContent = config.replace(/_/g, " ");
+        badge.className = "config-badge " + (isBaseline ? "config-baseline" : "config-primary");
+        badge.style.display = "inline-block";
+      } else {
+        badge.style.display = "none";
+      }
+
+      // Outputs
+      renderOutputs(run);
+
+      // Previous outputs
+      renderPrevOutputs(run);
+
+      // Grades
+      renderGrades(run);
+
+      // Previous feedback
+      const prevFb = (EMBEDDED_DATA.previous_feedback || {})[run.id];
+      const prevEl = document.getElementById("prev-feedback");
+      if (prevFb) {
+        document.getElementById("prev-feedback-text").textContent = prevFb;
+        prevEl.style.display = "block";
+      } else {
+        prevEl.style.display = "none";
+      }
+
+      // Feedback
+      document.getElementById("feedback").value = feedbackMap[run.id] || "";
+      document.getElementById("feedback-status").textContent = "";
+
+      updateNavButtons();
+
+      // Track visited runs and promote done button when all visited
+      visitedRuns.add(index);
+      const doneBtn = document.getElementById("done-btn");
+      if (visitedRuns.size >= EMBEDDED_DATA.runs.length) {
+        doneBtn.classList.add("ready");
+      }
+
+      // Scroll main content to top
+      document.querySelector(".main").scrollTop = 0;
+    }
+
+    // ---- Render outputs ----
+    function renderOutputs(run) {
+      const container = document.getElementById("outputs-body");
+      container.innerHTML = "";
+
+      const outputs = run.outputs || [];
+      if (outputs.length === 0) {
+        container.innerHTML = '<div class="empty-state">No output files</div>';
+        return;
+      }
+
+      for (const file of outputs) {
+        const fileDiv = document.createElement("div");
+        fileDiv.className = "output-file";
+
+        // Always show file header with download link
+        const header = document.createElement("div");
+        header.className = "output-file-header";
+        const nameSpan = document.createElement("span");
+        nameSpan.textContent = file.name;
+        header.appendChild(nameSpan);
+        const dlBtn = document.createElement("a");
+        dlBtn.className = "dl-btn";
+        dlBtn.textContent = "Download";
+        dlBtn.download = file.name;
+        dlBtn.href = getDownloadUri(file);
+        header.appendChild(dlBtn);
+        fileDiv.appendChild(header);
+
+        const content = document.createElement("div");
+        content.className = "output-file-content";
+
+        if (file.type === "text") {
+          const pre = document.createElement("pre");
+          pre.textContent = file.content;
+          content.appendChild(pre);
+        } else if (file.type === "image") {
+          const img = document.createElement("img");
+          img.src = file.data_uri;
+          img.alt = file.name;
+          content.appendChild(img);
+        } else if (file.type === "pdf") {
+          const iframe = document.createElement("iframe");
+          iframe.src = file.data_uri;
+          content.appendChild(iframe);
+        } else if (file.type === "xlsx") {
+          renderXlsx(content, file.data_b64);
+        } else if (file.type === "binary") {
+          const a = document.createElement("a");
+          a.className = "download-link";
+          a.href = file.data_uri;
+          a.download = file.name;
+          a.textContent = "Download " + file.name;
+          content.appendChild(a);
+        } else if (file.type === "error") {
+          const pre = document.createElement("pre");
+          pre.textContent = file.content;
+          pre.style.color = "var(--red)";
+          content.appendChild(pre);
+        }
+
+        fileDiv.appendChild(content);
+        container.appendChild(fileDiv);
+      }
+    }
+
+    // ---- XLSX rendering via SheetJS ----
+    function renderXlsx(container, b64Data) {
+      try {
+        const raw = Uint8Array.from(atob(b64Data), c => c.charCodeAt(0));
+        const wb = XLSX.read(raw, { type: "array" });
+
+        for (let i = 0; i < wb.SheetNames.length; i++) {
+          const sheetName = wb.SheetNames[i];
+          const ws = wb.Sheets[sheetName];
+
+          if (wb.SheetNames.length > 1) {
+            const sheetLabel = document.createElement("div");
+            sheetLabel.style.cssText =
+              "font-weight:600; font-size:0.8rem; color:#b0aea5; margin-top:0.5rem; margin-bottom:0.25rem;";
+            sheetLabel.textContent = "Sheet: " + sheetName;
+            container.appendChild(sheetLabel);
+          }
+
+          const htmlStr = XLSX.utils.sheet_to_html(ws, { editable: false });
+          const wrapper = document.createElement("div");
+          wrapper.innerHTML = htmlStr;
+          container.appendChild(wrapper);
+        }
+      } catch (err) {
+        container.textContent = "Error rendering spreadsheet: " + err.message;
+      }
+    }
+
+    // ---- Grades ----
+    function renderGrades(run) {
+      const section = document.getElementById("grades-section");
+      const content = document.getElementById("grades-content");
+
+      if (!run.grading) {
+        section.style.display = "none";
+        return;
+      }
+
+      const grading = run.grading;
+      section.style.display = "block";
+      // Reset to collapsed
+      content.classList.remove("open");
+      document.getElementById("grades-arrow").classList.remove("open");
+
+      const summary = grading.summary || {};
+      const expectations = grading.expectations || [];
+
+      let html = '<div style="padding: 1rem;">';
+
+      // Summary line
+      const passRate = summary.pass_rate != null
+        ? Math.round(summary.pass_rate * 100) + "%"
+        : "?";
+      const badgeClass = summary.pass_rate >= 0.8 ? "grade-pass" : summary.pass_rate >= 0.5 ? "" : "grade-fail";
+      html += '<div class="grades-summary">';
+      html += '<span class="grade-badge ' + badgeClass + '">' + passRate + '</span>';
+      html += '<span>' + (summary.passed || 0) + ' passed, ' + (summary.failed || 0) + ' failed of ' + (summary.total || 0) + '</span>';
+      html += '</div>';
+
+      // Assertions list
+      html += '<ul class="assertion-list">';
+      for (const exp of expectations) {
+        const statusClass = exp.passed ? "pass" : "fail";
+        const statusIcon = exp.passed ? "\u2713" : "\u2717";
+        html += '<li class="assertion-item">';
+        html += '<span class="assertion-status ' + statusClass + '">' + statusIcon + '</span>';
+        html += '<span>' + escapeHtml(exp.text) + '</span>';
+        if (exp.evidence) {
+          html += '<div class="assertion-evidence">' + escapeHtml(exp.evidence) + '</div>';
+        }
+        html += '</li>';
+      }
+      html += '</ul>';
+
+      html += '</div>';
+      content.innerHTML = html;
+    }
+
+    function toggleGrades() {
+      const content = document.getElementById("grades-content");
+      const arrow = document.getElementById("grades-arrow");
+      content.classList.toggle("open");
+      arrow.classList.toggle("open");
+    }
+
+    // ---- Previous outputs (collapsible) ----
+    function renderPrevOutputs(run) {
+      const section = document.getElementById("prev-outputs-section");
+      const content = document.getElementById("prev-outputs-content");
+      const prevOutputs = (EMBEDDED_DATA.previous_outputs || {})[run.id];
+
+      if (!prevOutputs || prevOutputs.length === 0) {
+        section.style.display = "none";
+        return;
+      }
+
+      section.style.display = "block";
+      // Reset to collapsed
+      content.classList.remove("open");
+      document.getElementById("prev-outputs-arrow").classList.remove("open");
+
+      // Render the files into the content area
+      content.innerHTML = "";
+      const wrapper = document.createElement("div");
+      wrapper.style.padding = "1rem";
+
+      for (const file of prevOutputs) {
+        const fileDiv = document.createElement("div");
+        fileDiv.className = "output-file";
+
+        const header = document.createElement("div");
+        header.className = "output-file-header";
+        const nameSpan = document.createElement("span");
+        nameSpan.textContent = file.name;
+        header.appendChild(nameSpan);
+        const dlBtn = document.createElement("a");
+        dlBtn.className = "dl-btn";
+        dlBtn.textContent = "Download";
+        dlBtn.download = file.name;
+        dlBtn.href = getDownloadUri(file);
+        header.appendChild(dlBtn);
+        fileDiv.appendChild(header);
+
+        const fc = document.createElement("div");
+        fc.className = "output-file-content";
+
+        if (file.type === "text") {
+          const pre = document.createElement("pre");
+          pre.textContent = file.content;
+          fc.appendChild(pre);
+        } else if (file.type === "image") {
+          const img = document.createElement("img");
+          img.src = file.data_uri;
+          img.alt = file.name;
+          fc.appendChild(img);
+        } else if (file.type === "pdf") {
+          const iframe = document.createElement("iframe");
+          iframe.src = file.data_uri;
+          fc.appendChild(iframe);
+        } else if (file.type === "xlsx") {
+          renderXlsx(fc, file.data_b64);
+        } else if (file.type === "binary") {
+          const a = document.createElement("a");
+          a.className = "download-link";
+          a.href = file.data_uri;
+          a.download = file.name;
+          a.textContent = "Download " + file.name;
+          fc.appendChild(a);
+        }
+
+        fileDiv.appendChild(fc);
+        wrapper.appendChild(fileDiv);
+      }
+
+      content.appendChild(wrapper);
+    }
+
+    function togglePrevOutputs() {
+      const content = document.getElementById("prev-outputs-content");
+      const arrow = document.getElementById("prev-outputs-arrow");
+      content.classList.toggle("open");
+      arrow.classList.toggle("open");
+    }
+
+    // ---- Feedback (saved to server -> feedback.json) ----
+    function saveCurrentFeedback() {
+      const run = EMBEDDED_DATA.runs[currentIndex];
+      const text = document.getElementById("feedback").value;
+
+      if (text.trim() === "") {
+        delete feedbackMap[run.id];
+      } else {
+        feedbackMap[run.id] = text;
+      }
+
+      // Build reviews array from map
+      const reviews = [];
+      for (const [run_id, feedback] of Object.entries(feedbackMap)) {
+        if (feedback.trim()) {
+          reviews.push({ run_id, feedback, timestamp: new Date().toISOString() });
+        }
+      }
+
+      fetch("/api/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ reviews, status: "in_progress" }),
+      }).then(() => {
+        document.getElementById("feedback-status").textContent = "Saved";
+      }).catch(() => {
+        // Static mode or server unavailable — no-op on auto-save,
+        // feedback will be downloaded on final submit
+        document.getElementById("feedback-status").textContent = "Will download on submit";
+      });
+    }
+
+    // ---- Done ----
+    function showDoneDialog() {
+      // Save current textarea to feedbackMap (but don't POST yet)
+      const run = EMBEDDED_DATA.runs[currentIndex];
+      const text = document.getElementById("feedback").value;
+      if (text.trim() === "") {
+        delete feedbackMap[run.id];
+      } else {
+        feedbackMap[run.id] = text;
+      }
+
+      // POST once with status: complete — include ALL runs so the model
+      // can distinguish "no feedback" (looks good) from "not reviewed"
+      const reviews = [];
+      const ts = new Date().toISOString();
+      for (const r of EMBEDDED_DATA.runs) {
+        reviews.push({ run_id: r.id, feedback: feedbackMap[r.id] || "", timestamp: ts });
+      }
+      const payload = JSON.stringify({ reviews, status: "complete" }, null, 2);
+      fetch("/api/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: payload,
+      }).then(() => {
+        document.getElementById("done-overlay").classList.add("visible");
+      }).catch(() => {
+        // Server not available (static mode) — download as file
+        const blob = new Blob([payload], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "feedback.json";
+        a.click();
+        URL.revokeObjectURL(url);
+        document.getElementById("done-overlay").classList.add("visible");
+      });
+    }
+
+    function closeDoneDialog() {
+      // Reset status back to in_progress
+      saveCurrentFeedback();
+      document.getElementById("done-overlay").classList.remove("visible");
+    }
+
+    // ---- Toast ----
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      toast.textContent = message;
+      toast.classList.add("visible");
+      setTimeout(() => toast.classList.remove("visible"), 2000);
+    }
+
+    // ---- Keyboard nav ----
+    document.addEventListener("keydown", (e) => {
+      // Don't capture when typing in textarea
+      if (e.target.tagName === "TEXTAREA") return;
+
+      if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+        e.preventDefault();
+        navigate(-1);
+      } else if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+        e.preventDefault();
+        navigate(1);
+      }
+    });
+
+    // ---- Util ----
+    function getDownloadUri(file) {
+      if (file.data_uri) return file.data_uri;
+      if (file.data_b64) return "data:application/octet-stream;base64," + file.data_b64;
+      if (file.type === "text") return "data:text/plain;charset=utf-8," + encodeURIComponent(file.content);
+      return "#";
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement("div");
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    // ---- View switching ----
+    function switchView(view) {
+      document.querySelectorAll(".view-tab").forEach(t => t.classList.remove("active"));
+      document.querySelectorAll(".view-panel").forEach(p => p.classList.remove("active"));
+      document.querySelector(`[onclick="switchView('${view}')"]`).classList.add("active");
+      document.getElementById("panel-" + view).classList.add("active");
+    }
+
+    // ---- Benchmark rendering ----
+    function renderBenchmark() {
+      const data = EMBEDDED_DATA.benchmark;
+      if (!data) return;
+
+      // Show the tabs
+      document.getElementById("view-tabs").style.display = "flex";
+
+      const container = document.getElementById("benchmark-content");
+      const summary = data.run_summary || {};
+      const metadata = data.metadata || {};
+      const notes = data.notes || [];
+
+      let html = "";
+
+      // Header
+      html += "<h2 style='font-family: Poppins, sans-serif; margin-bottom: 0.5rem;'>Benchmark Results</h2>";
+      html += "<p style='color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1.25rem;'>";
+      if (metadata.skill_name) html += "<strong>" + escapeHtml(metadata.skill_name) + "</strong> &mdash; ";
+      if (metadata.timestamp) html += metadata.timestamp + " &mdash; ";
+      if (metadata.evals_run) html += "Evals: " + metadata.evals_run.join(", ") + " &mdash; ";
+      html += (metadata.runs_per_configuration || "?") + " runs per configuration";
+      html += "</p>";
+
+      // Summary table
+      html += '<table class="benchmark-table">';
+
+      function fmtStat(stat, pct) {
+        if (!stat) return "—";
+        const suffix = pct ? "%" : "";
+        const m = pct ? (stat.mean * 100).toFixed(0) : stat.mean.toFixed(1);
+        const s = pct ? (stat.stddev * 100).toFixed(0) : stat.stddev.toFixed(1);
+        return m + suffix + " ± " + s + suffix;
+      }
+
+      function deltaClass(val) {
+        if (!val) return "";
+        const n = parseFloat(val);
+        if (n > 0) return "benchmark-delta-positive";
+        if (n < 0) return "benchmark-delta-negative";
+        return "";
+      }
+
+      // Discover config names dynamically (everything except "delta")
+      const configs = Object.keys(summary).filter(k => k !== "delta");
+      const configA = configs[0] || "config_a";
+      const configB = configs[1] || "config_b";
+      const labelA = configA.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+      const labelB = configB.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+      const a = summary[configA] || {};
+      const b = summary[configB] || {};
+      const delta = summary.delta || {};
+
+      html += "<thead><tr><th>Metric</th><th>" + escapeHtml(labelA) + "</th><th>" + escapeHtml(labelB) + "</th><th>Delta</th></tr></thead>";
+      html += "<tbody>";
+
+      html += "<tr><td><strong>Pass Rate</strong></td>";
+      html += "<td>" + fmtStat(a.pass_rate, true) + "</td>";
+      html += "<td>" + fmtStat(b.pass_rate, true) + "</td>";
+      html += '<td class="' + deltaClass(delta.pass_rate) + '">' + (delta.pass_rate || "—") + "</td></tr>";
+
+      // Time (only show row if data exists)
+      if (a.time_seconds || b.time_seconds) {
+        html += "<tr><td><strong>Time (s)</strong></td>";
+        html += "<td>" + fmtStat(a.time_seconds, false) + "</td>";
+        html += "<td>" + fmtStat(b.time_seconds, false) + "</td>";
+        html += '<td class="' + deltaClass(delta.time_seconds) + '">' + (delta.time_seconds ? delta.time_seconds + "s" : "—") + "</td></tr>";
+      }
+
+      // Tokens (only show row if data exists)
+      if (a.tokens || b.tokens) {
+        html += "<tr><td><strong>Tokens</strong></td>";
+        html += "<td>" + fmtStat(a.tokens, false) + "</td>";
+        html += "<td>" + fmtStat(b.tokens, false) + "</td>";
+        html += '<td class="' + deltaClass(delta.tokens) + '">' + (delta.tokens || "—") + "</td></tr>";
+      }
+
+      html += "</tbody></table>";
+
+      // Per-eval breakdown (if runs data available)
+      const runs = data.runs || [];
+      if (runs.length > 0) {
+        const evalIds = [...new Set(runs.map(r => r.eval_id))].sort((a, b) => a - b);
+
+        html += "<h3 style='font-family: Poppins, sans-serif; margin-bottom: 0.75rem;'>Per-Eval Breakdown</h3>";
+
+        const hasTime = runs.some(r => r.result && r.result.time_seconds != null);
+        const hasErrors = runs.some(r => r.result && r.result.errors > 0);
+
+        for (const evalId of evalIds) {
+          const evalRuns = runs.filter(r => r.eval_id === evalId);
+          const evalName = evalRuns[0] && evalRuns[0].eval_name ? evalRuns[0].eval_name : "Eval " + evalId;
+
+          html += "<h4 style='font-family: Poppins, sans-serif; margin: 1rem 0 0.5rem; color: var(--text);'>" + escapeHtml(evalName) + "</h4>";
+          html += '<table class="benchmark-table">';
+          html += "<thead><tr><th>Config</th><th>Run</th><th>Pass Rate</th>";
+          if (hasTime) html += "<th>Time (s)</th>";
+          if (hasErrors) html += "<th>Crashes During Execution</th>";
+          html += "</tr></thead>";
+          html += "<tbody>";
+
+          // Group by config and render with average rows
+          const configGroups = [...new Set(evalRuns.map(r => r.configuration))];
+          for (let ci = 0; ci < configGroups.length; ci++) {
+            const config = configGroups[ci];
+            const configRuns = evalRuns.filter(r => r.configuration === config);
+            if (configRuns.length === 0) continue;
+
+            const rowClass = ci === 0 ? "benchmark-row-with" : "benchmark-row-without";
+            const configLabel = config.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+
+            for (const run of configRuns) {
+              const r = run.result || {};
+              const prClass = r.pass_rate >= 0.8 ? "benchmark-delta-positive" : r.pass_rate < 0.5 ? "benchmark-delta-negative" : "";
+              html += '<tr class="' + rowClass + '">';
+              html += "<td>" + configLabel + "</td>";
+              html += "<td>" + run.run_number + "</td>";
+              html += '<td class="' + prClass + '">' + ((r.pass_rate || 0) * 100).toFixed(0) + "% (" + (r.passed || 0) + "/" + (r.total || 0) + ")</td>";
+              if (hasTime) html += "<td>" + (r.time_seconds != null ? r.time_seconds.toFixed(1) : "—") + "</td>";
+              if (hasErrors) html += "<td>" + (r.errors || 0) + "</td>";
+              html += "</tr>";
+            }
+
+            // Average row
+            const rates = configRuns.map(r => (r.result || {}).pass_rate || 0);
+            const avgRate = rates.reduce((a, b) => a + b, 0) / rates.length;
+            const avgPrClass = avgRate >= 0.8 ? "benchmark-delta-positive" : avgRate < 0.5 ? "benchmark-delta-negative" : "";
+            html += '<tr class="benchmark-row-avg ' + rowClass + '">';
+            html += "<td>" + configLabel + "</td>";
+            html += "<td>Avg</td>";
+            html += '<td class="' + avgPrClass + '">' + (avgRate * 100).toFixed(0) + "%</td>";
+            if (hasTime) {
+              const times = configRuns.map(r => (r.result || {}).time_seconds).filter(t => t != null);
+              html += "<td>" + (times.length ? (times.reduce((a, b) => a + b, 0) / times.length).toFixed(1) : "—") + "</td>";
+            }
+            if (hasErrors) html += "<td></td>";
+            html += "</tr>";
+          }
+          html += "</tbody></table>";
+
+          // Per-assertion detail for this eval
+          const runsWithExpectations = {};
+          for (const config of configGroups) {
+            runsWithExpectations[config] = evalRuns.filter(r => r.configuration === config && r.expectations && r.expectations.length > 0);
+          }
+          const hasAnyExpectations = Object.values(runsWithExpectations).some(runs => runs.length > 0);
+          if (hasAnyExpectations) {
+            // Collect all unique assertion texts across all configs
+            const allAssertions = [];
+            const seen = new Set();
+            for (const config of configGroups) {
+              for (const run of runsWithExpectations[config]) {
+                for (const exp of (run.expectations || [])) {
+                  if (!seen.has(exp.text)) {
+                    seen.add(exp.text);
+                    allAssertions.push(exp.text);
+                  }
+                }
+              }
+            }
+
+            html += '<table class="benchmark-table" style="margin-top: 0.5rem;">';
+            html += "<thead><tr><th>Assertion</th>";
+            for (const config of configGroups) {
+              const label = config.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+              html += "<th>" + escapeHtml(label) + "</th>";
+            }
+            html += "</tr></thead><tbody>";
+
+            for (const assertionText of allAssertions) {
+              html += "<tr><td>" + escapeHtml(assertionText) + "</td>";
+
+              for (const config of configGroups) {
+                html += "<td>";
+                for (const run of runsWithExpectations[config]) {
+                  const exp = (run.expectations || []).find(e => e.text === assertionText);
+                  if (exp) {
+                    const cls = exp.passed ? "benchmark-delta-positive" : "benchmark-delta-negative";
+                    const icon = exp.passed ? "\u2713" : "\u2717";
+                    html += '<span class="' + cls + '" title="Run ' + run.run_number + ': ' + escapeHtml(exp.evidence || "") + '">' + icon + "</span> ";
+                  } else {
+                    html += "— ";
+                  }
+                }
+                html += "</td>";
+              }
+              html += "</tr>";
+            }
+            html += "</tbody></table>";
+          }
+        }
+      }
+
+      // Notes
+      if (notes.length > 0) {
+        html += '<div class="benchmark-notes">';
+        html += "<h3>Analysis Notes</h3>";
+        html += "<ul>";
+        for (const note of notes) {
+          html += "<li>" + escapeHtml(note) + "</li>";
+        }
+        html += "</ul></div>";
+      }
+
+      container.innerHTML = html;
+    }
+
+    // ---- Start ----
+    init();
+    renderBenchmark();
+  </script>
+</body>
+</html>

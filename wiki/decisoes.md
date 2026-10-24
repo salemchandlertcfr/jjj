@@ -77,3 +77,11 @@ Estas decisões organizam o conhecimento recebido. Não aprovam regras de produt
 **Decisão:** registrar primeiro o propósito de explicar o fenômeno, e implementar cartões, método e auxiliares portáteis. S15 detalha/alterou explicitamente árvores, rivais, validação da 2.3, projeção, casos e contraste de S08/S02. O validador recebe JSON ou bloco canônico no Markdown; não simula compreensão semântica. Cronologia usa snapshots Git, sem afirmar desconhecimento anterior do autor. Banco e semente ficam privados; pares de simetria permanecem juntos.
 
 **Consequência:** mecanismos podem ser testados agora, sem recriar dependências ou prometer integração. O contrato de especialistas não admite tipo lacuna K: inventário a preserva separada para ligação revisada, com a limitação explícita. Só a condutora persiste/fecha o tema. Escopo e avaliação em [implementação](implementacao-mapa.md).
+
+## D10 — Síntese por origem e aprovação separada
+
+**Contexto:** o usuário selecionou [S16](../sources/originais/plano-cir-sintese.md) para a próxima skill. O propósito foi registrado antes do código: consolidar sem inventar, promover ou perder conteúdo.
+
+**Decisão:** implementar seis CLIs portáteis de leitura e projeção, sem escrita no dossiê. A interface local usa JSON/projeção Markdown nos registros, relê objetos Git, compara inventário aos registros completos, preserva cópias e ligações separadas e vincula conferências à versão. Montagem permanece não aprovada; só consentimento explícito para o commit e ressalvas produz registro externo de aprovação. Critério tem fonte única em pronto.yaml (JSON válido).
+
+**Consequência:** integrações ausentes não foram recriadas como dublês de produção. Modelos, isolamento, semântica, pesquisa e pronto integrado exigem capacidades reais; o aceite do Motor continua com a pessoa. Notas entre projetos usam lista fechada de códigos, mais restrita que prosa livre, para impedir conteúdo do projeto. Estado e projeção não autenticam papéis. Escopo em [implementação](implementacao-sintese.md).

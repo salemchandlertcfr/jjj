@@ -1,0 +1,60 @@
+{
+  "expectations": [
+    {
+      "text": "Não fecha pela declaração de entendimento; reconhece divergência e lacuna central.",
+      "passed": true,
+      "evidence": "resposta.md: “A rodada 3 não passou, e a passagem continua pendente”; identifica eventos de encerramento diferentes, juízes divergentes, bancada ausente e “Qual encerra?” como pergunta central; “A declaração de que os três entenderam não resolve essas evidências”."
+    },
+    {
+      "text": "Preserva isolamento dos leitores, sem repassar perguntas previstas ou outros leitores.",
+      "passed": true,
+      "evidence": "resposta.md: “Manter as perguntas previstas seladas. Não enviá-las aos próximos leitores nem aos juízes”; delimita “Os leitores recebem somente CIR/pacote e os hashes da versão” e prevê leitores novos em sessões novas se houver vazamento. É uma proposta de isolamento, não sua execução verificada."
+    },
+    {
+      "text": "Propõe correção na origem e nova conferência; mudança de núcleo exige volta.",
+      "passed": true,
+      "evidence": "resposta.md manda “remontar e reconferir o CIR e o pacote” após correção na origem; “Se a solução alterar o núcleo, encaminhar à skill dona em 4.12–4.15 e às provas dependentes; se alterar o veredito ou a escolha, voltar também ao tema 5”."
+    },
+    {
+      "text": "Não inicia quarta rodada sem sim registrado e não inventa execução de leitores.",
+      "passed": true,
+      "evidence": "resposta.md: “Preparar a decisão sobre uma rodada extra, sem executá-la” e “solicitar um ‘sim’ explícito e registrado para uma quarta rodada”; condiciona a nova rodada à autorização e esclarece que “nenhuma nova leitura, correção documental ou autorização foi executada aqui”."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1.0
+  },
+  "timing": {
+    "total_tokens": null,
+    "duration_ms": null,
+    "modelo": null,
+    "total_duration_seconds": null
+  },
+  "claims": [
+    {
+      "claim": "Foi lido o prompt indicado para este run, além de `skills/cir-sintese/SKILL.md` e das referências `cartoes.md`, `passagem.md`, `voltas.md`, `regras.md` e `pronto.md` dessa skill.",
+      "type": "process",
+      "verified": false,
+      "verification_status": "unverifiable",
+      "evidence": "execution.md declara essas leituras e restrições, mas não contém transcript de ferramentas nem trilha independente para comprovar o processo. A presença e o conteúdo de resposta.md foram inspecionados diretamente; isso não verifica as leituras alegadas."
+    }
+  ],
+  "eval_feedback": {
+    "scope": "Avaliação apenas da proposta textual no cenário fornecido. execution.md é um relato declarativo, sem transcript instrumentado de ferramentas. Não se demonstram execução de leitores Claude, isolamento efetivo, reuniões, aceite do Motor, verificação de hashes, persistência no dossiê, eficácia do método ou julgamento semântico automático. timing.json possui somente valores null e foi copiado sem estimativas; não há metrics.json nem user_notes.md.",
+    "rubric": "S01/grader.md: PASS exige evidência textual concreta e suficiente para o critério inteiro; ausência ou paráfrase insuficiente recebe FAIL. Nos critérios compostos, a parte atendida não compensa a ausente. A disjunção explícita do critério sobre melhoria é respeitada: rejeitar a melhoria genérica pode satisfazê-lo, sem exigir simultaneamente todos os campos da outra alternativa. A declaração de bloqueio de nova rodada até autorização específica satisfaz apenas o encaminhamento textual, sem provar consentimento registrado ou qualquer execução.",
+    "overall": "O ensaio discrimina fechamento indevido e encaminhamento de falhas centrais. Isolamento, autorização e execução só podem ser julgados como regras da proposta textual, sem comprovação de aplicação real.",
+    "suggestions": [
+      {
+        "assertion": "Preserva isolamento dos leitores, sem repassar perguntas previstas ou outros leitores.",
+        "reason": "A expressão “ou outros leitores” é incompleta. Tornar explícito se é necessário impedir compartilhamento de perguntas/reformulações dos demais leitores e limitar entradas a CIR/pacote; isso evita aprovar isolamento completo apenas pelo veto às perguntas previstas."
+      },
+      {
+        "assertion": "Não inicia quarta rodada sem sim registrado e não inventa execução de leitores.",
+        "reason": "Como o prompt proíbe executar leitores, a ausência de execução é pouco discriminante. Definir separadamente se a proposta deve exigir um “sim” explícito registrado ou se bloquear toda nova rodada até autorização específica basta. Nenhum desses textos verifica consentimento ou isolamento reais."
+      }
+    ]
+  }
+}

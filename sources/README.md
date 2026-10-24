@@ -1,6 +1,6 @@
 # Fontes e proveniência
 
-Quinze arquivos distintos fornecidos pelo usuário, recebidos em **22 e 23/10/2026**. Essas datas não estabelecem quando foram escritos. Os nomes foram simplificados para caminhos estáveis; os bytes foram preservados. O [manifesto](manifest.json) registra ID, nome recebido, caminho, tamanho e SHA-256. O anexo repetido `SKILL.md` é igual a S01 byte a byte; não recebeu outro ID. S14 e S15 vieram em ZIP: o Markdown foi preservado sem alteração; nome/hash do contêiner e caminho interno também estão no manifesto.
+Dezesseis arquivos distintos fornecidos pelo usuário, recebidos em **22 a 24/10/2026**. Essas datas não estabelecem quando foram escritos. Os nomes foram simplificados para caminhos estáveis; os bytes foram preservados. O [manifesto](manifest.json) registra ID, nome recebido, caminho, tamanho e SHA-256. O anexo repetido `SKILL.md` é igual a S01 byte a byte; não recebeu outro ID. S14–S16 vieram em ZIP: o Markdown foi preservado sem alteração; nome/hash do contêiner e caminho interno também estão no manifesto.
 
 | ID | Arquivo preservado | Uso na síntese e estado |
 | --- | --- | --- |
@@ -19,6 +19,7 @@ Quinze arquivos distintos fornecidos pelo usuário, recebidos em **22 e 23/10/20
 | S13 | [Plano detalhado — especialistas](originais/plano-especialistas.md) | Selecionado para recrutamento, biblioteca, fichas e curadoria com teste de ganho. A primeira leva de `esp-*` é candidata, não conhecimento já admitido. |
 | S14 | [Plano detalhado — equipe-especialistas](originais/plano-equipe-especialistas.md) | Selecionado para reuniões com preparação individual, crítico, síntese rastreável e dissenso; ganho de equipe e transporte real continuam a avaliar. |
 | S15 | [Plano detalhado — cir-mapa](originais/plano-cir-mapa.md) | Selecionado para o diagnóstico do tema 2: cartões, causas rivais, contradições, K e guarda de casos. Apoio local implementado; aceite, pesquisa e integrações reais pendentes. |
+| S16 | [Plano detalhado — cir-sintese](originais/plano-cir-sintese.md) | Selecionado para montagem com origem, cópias literais, teste de passagem e pronto por evidência. Sessões reais, aceites e validação científica permanecem pendentes. |
 
 ## Como interpretar as fontes
 
@@ -26,7 +27,7 @@ S02 e S08 orientam a síntese da arquitetura e do fluxo; S06/S09 explicam o mét
 
 Links dos originais para páginas de Notion, outros planos ou estudos foram mantidos. O conteúdo de destinos não anexados não foi presumido como parte da análise. Alegações científicas e números citados nos planos não foram todos auditados externamente; a wiki evita promovê-los a resultados demonstrados deste projeto.
 
-Os textos em `originais/` são material de referência. Sua preservação não ativa instruções nem instala recursos. S01 foi invocado para o desenvolvimento e orienta também o trabalho sequencial do grill, especialistas, equipe e mapa, com S12–S15 selecionados pelo usuário. Seus bytes foram comparados com o [skill-creator oficial da Anthropic](https://github.com/anthropics/skills/tree/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/skill-creator), revisão `dbd4588f9e1033efb41dad4bef2f7947c8993d44`, sob Apache 2.0. Auxiliares oficiais foram usados externamente para avaliações, sem vendorização. Essa atribuição não define a licença do projeto inteiro.
+Os textos em `originais/` são material de referência. Sua preservação não ativa instruções nem instala recursos. S01 foi invocado para o desenvolvimento e orienta também o trabalho sequencial do grill, especialistas, equipe, mapa e síntese, com S12–S16 selecionados pelo usuário. Seus bytes foram comparados com o [skill-creator oficial da Anthropic](https://github.com/anthropics/skills/tree/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/skill-creator), revisão `dbd4588f9e1033efb41dad4bef2f7947c8993d44`, sob Apache 2.0. Auxiliares oficiais foram usados externamente para avaliações, sem vendorização. Essa atribuição não define a licença do projeto inteiro.
 
 ## Referências externas usadas na organização
 
@@ -37,3 +38,5 @@ Consultadas em 22/10/2026, sem copiar seus textos integrais:
 - [Diátaxis](https://diataxis.fr/): necessidades de aprendizado, tarefa, referência e explicação.
 
 A aplicação concreta desses princípios está em [manutenção](../wiki/manutencao.md). Para acrescentar fontes, siga seu procedimento de ingestão e execute o [verificador](../scripts/verificar_documentacao.py).
+
+S16 foi selecionado pelo usuário para desenvolver [cir-sintese](../wiki/implementacao-sintese.md), seguindo S01. O conteúdo do ZIP é evidência preservada; sua seleção define o requisito da tarefa, sem ativar instruções externas ou integrações por si só.

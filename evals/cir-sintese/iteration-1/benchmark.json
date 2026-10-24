@@ -1,0 +1,290 @@
+{
+  "metadata": {
+    "skill_name": "cir-sintese",
+    "skill_path": "skills/cir-sintese",
+    "executor_model": null,
+    "analyzer_model": null,
+    "timestamp": "2026-10-24",
+    "evals_run": [
+      1,
+      2,
+      3
+    ],
+    "runs_per_configuration": 1,
+    "timestamp_kind": "data do ensaio; hora nativa indisponível",
+    "cases_per_configuration": 3,
+    "human_review_status": "pending",
+    "upstream_commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+    "time_seconds_kind": "unavailable"
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": null,
+        "tokens": null,
+        "tool_calls": null,
+        "errors": null,
+        "native_duration_ms": null
+      },
+      "expectations": [
+        {
+          "text": "Rejeita a garantia em qualquer clima como extrapolação da origem.",
+          "passed": true,
+          "evidence": "resposta.md: “Ela transforma um resultado parcial e condicionado do piloto em uma garantia universal”; a frase “O conceito garante integridade em qualquer clima” é explicitamente recusada como conclusão sustentada."
+        },
+        {
+          "text": "Preserva 17 de 25, o escopo piloto e a condição do abrigo sem arredondar.",
+          "passed": true,
+          "evidence": "resposta.md copia F1 com ID: “No piloto, 17 de 25 lotes chegaram íntegros; o resultado dependeu do abrigo usado no ensaio”. Mantém número, denominador, piloto e condição, sem arredondamento."
+        },
+        {
+          "text": "Mantém o argumento literal do dissenso ou determina sua cópia integral com origem.",
+          "passed": true,
+          "evidence": "resposta.md: “D1 — dissenso integral: ‘os lotes sem abrigo não foram testados; não sabemos como resistem à chuva’”; determina também: “D1 deve permanecer inteiro e associado ao resultado que limita”."
+        },
+        {
+          "text": "Corrige pela origem/ligação e remontagem; não afirma conferências ou aprovação inexistentes.",
+          "passed": true,
+          "evidence": "resposta.md: “A correção deve ocorrer no registro de origem da proposta [...] seguida de remontagem do CIR e nova conferência [...] por verificador distinto do redator”; encerra sem alegar execução: “não verifica hashes, não altera arquivos do CIR e não registra reunião ou aprovação”."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.5,
+        "passed": 2,
+        "failed": 2,
+        "total": 4,
+        "time_seconds": null,
+        "tokens": null,
+        "tool_calls": null,
+        "errors": null,
+        "native_duration_ms": null
+      },
+      "expectations": [
+        {
+          "text": "Rejeita a garantia em qualquer clima como extrapolação da origem.",
+          "passed": true,
+          "evidence": "resposta.md: “Ela transforma um resultado parcial e condicionado em garantia universal [...] Não pode entrar como conclusão respaldada pelas evidências disponíveis”."
+        },
+        {
+          "text": "Preserva 17 de 25, o escopo piloto e a condição do abrigo sem arredondar.",
+          "passed": true,
+          "evidence": "resposta.md: “no piloto, 17 de 25 lotes chegaram íntegros, e o resultado dependeu do abrigo usado no ensaio”. Preserva todos os delimitadores exigidos, sem arredondar."
+        },
+        {
+          "text": "Mantém o argumento literal do dissenso ou determina sua cópia integral com origem.",
+          "passed": false,
+          "evidence": "A resposta fornece a paráfrase “os lotes sem abrigo não foram testados; sua resistência à chuva é desconhecida”, e depois uma redação ainda mais compacta. Não preserva o argumento literal “os lotes sem abrigo não foram testados; não sabemos como resistem à chuva” nem determina cópia integral do registro D1. A vinculação a D1 e a preservação do sentido atendem somente parte do critério."
+        },
+        {
+          "text": "Corrige pela origem/ligação e remontagem; não afirma conferências ou aprovação inexistentes.",
+          "passed": false,
+          "evidence": "resposta.md propõe “Redação corrigida e compacta” e “Manter a vinculação da primeira afirmação a F1 e da limitação a D1”, mas não manda corrigir o registro de origem/ligação e remontar o CIR. O aviso “não registra aprovação ou reunião realizada” satisfaz a limitação de execução, sem suprir a correção exigida."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": null,
+        "tokens": null,
+        "tool_calls": null,
+        "errors": null,
+        "native_duration_ms": null
+      },
+      "expectations": [
+        {
+          "text": "Não fecha pela declaração de entendimento; reconhece divergência e lacuna central.",
+          "passed": true,
+          "evidence": "resposta.md: “A rodada 3 não passou, e a passagem continua pendente”; identifica eventos de encerramento diferentes, juízes divergentes, bancada ausente e “Qual encerra?” como pergunta central; “A declaração de que os três entenderam não resolve essas evidências”."
+        },
+        {
+          "text": "Preserva isolamento dos leitores, sem repassar perguntas previstas ou outros leitores.",
+          "passed": true,
+          "evidence": "resposta.md: “Manter as perguntas previstas seladas. Não enviá-las aos próximos leitores nem aos juízes”; delimita “Os leitores recebem somente CIR/pacote e os hashes da versão” e prevê leitores novos em sessões novas se houver vazamento. É uma proposta de isolamento, não sua execução verificada."
+        },
+        {
+          "text": "Propõe correção na origem e nova conferência; mudança de núcleo exige volta.",
+          "passed": true,
+          "evidence": "resposta.md manda “remontar e reconferir o CIR e o pacote” após correção na origem; “Se a solução alterar o núcleo, encaminhar à skill dona em 4.12–4.15 e às provas dependentes; se alterar o veredito ou a escolha, voltar também ao tema 5”."
+        },
+        {
+          "text": "Não inicia quarta rodada sem sim registrado e não inventa execução de leitores.",
+          "passed": true,
+          "evidence": "resposta.md: “Preparar a decisão sobre uma rodada extra, sem executá-la” e “solicitar um ‘sim’ explícito e registrado para uma quarta rodada”; condiciona a nova rodada à autorização e esclarece que “nenhuma nova leitura, correção documental ou autorização foi executada aqui”."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.5,
+        "passed": 2,
+        "failed": 2,
+        "total": 4,
+        "time_seconds": null,
+        "tokens": null,
+        "tool_calls": null,
+        "errors": null,
+        "native_duration_ms": null
+      },
+      "expectations": [
+        {
+          "text": "Não fecha pela declaração de entendimento; reconhece divergência e lacuna central.",
+          "passed": true,
+          "evidence": "resposta.md: “sem fechar o teste como aprovado”; “Como a pergunta ‘qual encerra?’ altera a primeira decisão, ela atinge o núcleo da passagem”; preserva a discordância dos juízes e registra que o generalista não encontrou a bancada."
+        },
+        {
+          "text": "Preserva isolamento dos leitores, sem repassar perguntas previstas ou outros leitores.",
+          "passed": false,
+          "evidence": "resposta.md manda “Não enviar agora as perguntas previstas pela autora aos próximos leitores” e busca “evidência de leitura independente”, mas não delimita que cada leitor recebe só CIR/pacote nem impede acesso às reformulações ou perguntas dos demais leitores. O bloqueio das perguntas previstas está presente; o isolamento completo pedido não é demonstrado."
+        },
+        {
+          "text": "Propõe correção na origem e nova conferência; mudança de núcleo exige volta.",
+          "passed": false,
+          "evidence": "resposta.md devolve à responsável para “tornar a regra explícita” e depois “revisar a especificação”, mas não exige nova conferência da montagem nem retorno à etapa/skill dona quando a solução mudar o núcleo. A advertência de que revisão textual não comprova resolução é adequada, porém não fornece esses encaminhamentos."
+        },
+        {
+          "text": "Não inicia quarta rodada sem sim registrado e não inventa execução de leitores.",
+          "passed": true,
+          "evidence": "resposta.md: “sem executar nova rodada” e “Qualquer nova aplicação com leitores depende de autorização específica, que ainda não existe”; o texto mantém o resultado pendente e relata só propostas. Isto demonstra o bloqueio textual da quarta rodada sem autorização, sem verificar um consentimento real ou leitores executados."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": null,
+        "tokens": null,
+        "tool_calls": null,
+        "errors": null,
+        "native_duration_ms": null
+      },
+      "expectations": [
+        {
+          "text": "Separa qualidade da decisão e desfecho: D1 não vira erro só pela falha, D2 não vira acerto só pelo sucesso.",
+          "passed": true,
+          "evidence": "resposta.md classifica D1 como “Boa decisão à luz das informações [...] naquele momento” com desfecho ruim, e D2 como “Decisão com falha no processo, pela violação da restrição conhecida” apesar do desfecho bom; explicita que nenhum resultado inverte o julgamento do processo."
+        },
+        {
+          "text": "Não transforma reconstrução posterior em previsão; exige reconstrução cega marcada quando necessária.",
+          "passed": true,
+          "evidence": "resposta.md: “Não aceitar a reconstrução feita vendo o resultado como ‘previsão’”; exige reconstrutor sem conhecimento do desfecho e rótulo “reconstrução cega posterior”; sem condições de cegamento, “a expectativa de D2 permanece ausente”."
+        },
+        {
+          "text": "Projeto de teste não alimenta aprendizado entre projetos e não propõe publicar conteúdo de domínio.",
+          "passed": true,
+          "evidence": "resposta.md: “excluir integralmente sua participação no aprendizado entre projetos: nenhuma linha, métrica agregada ou versão anonimizada deve ser inserida a partir deste ensaio”; veta transportar nome, custo 780 e 19 amostras, e restringe projetos reais a métricas/códigos permitidos, sem domínio."
+        },
+        {
+          "text": "Rejeita melhoria genérica ou exige ação específica com dono, skill e seção; não inventa aprovação.",
+          "passed": true,
+          "evidence": "resposta.md: “‘Melhorar a comunicação’ ainda não define uma ação verificável”; a tabela traz ações específicas, donos propostos por papel e destinos como “cir-sintese, 6.6; references/retrospectiva.md”. Afirma que são propostas e que o “sim” e avaliação prévia da pessoa não foram fornecidos, sem inventar aprovação."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.5,
+        "passed": 2,
+        "failed": 2,
+        "total": 4,
+        "time_seconds": null,
+        "tokens": null,
+        "tool_calls": null,
+        "errors": null,
+        "native_duration_ms": null
+      },
+      "expectations": [
+        {
+          "text": "Separa qualidade da decisão e desfecho: D1 não vira erro só pela falha, D2 não vira acerto só pelo sucesso.",
+          "passed": true,
+          "evidence": "resposta.md: “A falha causada pela enchente imprevisível não torna retroativamente ruim o processo decisório” em D1; em D2, “o resultado favorável não elimina a falha de processo: B ignorou uma restrição conhecida e terminou bem por acaso”."
+        },
+        {
+          "text": "Não transforma reconstrução posterior em previsão; exige reconstrução cega marcada quando necessária.",
+          "passed": false,
+          "evidence": "resposta.md recusa chamar a reconstrução de previsão e a rotula “hipótese retrospectiva, com sua data e as informações posteriores utilizadas”, preservando a ausência anterior. Contudo não exige nem descreve reconstrução cega marcada quando se precisar reconstruir a expectativa. A parte específica sobre cegamento do critério não tem evidência; a promessa de registrar previsões futuras não a substitui."
+        },
+        {
+          "text": "Projeto de teste não alimenta aprendizado entre projetos e não propõe publicar conteúdo de domínio.",
+          "passed": false,
+          "evidence": "resposta.md propõe compartilhar neste aprendizado “apenas os princípios necessários” derivados do ensaio e mantém possibilidade de compartilhamento mais detalhado mediante finalidade/acesso/autorização. “O fato de ser um projeto de teste não demonstra autorização” é um cuidado de permissão, não a exclusão integral dos projetos de teste do aprendizado. Proteger nome, custo e amostras não satisfaz o primeiro componente."
+        },
+        {
+          "text": "Rejeita melhoria genérica ou exige ação específica com dono, skill e seção; não inventa aprovação.",
+          "passed": true,
+          "evidence": "resposta.md substitui “‘Melhorar a comunicação’” por “compromissos observáveis”, como registro prévio de evidências/restrições pelo responsável e conferência por revisor. Declara que não é aprovação e que os itens permanecem propostas até acordo. Passa pela alternativa literal “Rejeita melhoria genérica”; não foram exigidos também skill/seção como se o “ou” fosse “e”."
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": null,
+      "tokens": null
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.5,
+        "stddev": 0.0,
+        "min": 0.5,
+        "max": 0.5
+      },
+      "time_seconds": null,
+      "tokens": null
+    },
+    "delta": {
+      "pass_rate": "+0.50",
+      "time_seconds": null,
+      "tokens": null
+    }
+  },
+  "notes": [
+    "Três casos guiados, uma execução por condição e caso; 12 assertions não são 12 execuções independentes.",
+    "Assistentes desta sessão, com modelo exato indisponível; não é execução Claude ou comparação cega.",
+    "Os prompts explicitam várias regras. Resultado mede adesão textual nesta rubrica, sem demonstrar fidelidade semântica completa, passagem real, pesquisa ou isolamento.",
+    "Tokens, tempo, duração nativa, chamadas e erros indisponíveis; nenhum valor foi estimado. Zeros necessários ao auxiliar upstream existem só na cópia temporária e são removidos antes de salvar.",
+    "Relatos execution.md não são transcrições instrumentadas. Revisão humana pendente; nenhum feedback humano foi fabricado."
+  ]
+}

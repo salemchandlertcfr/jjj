@@ -1,0 +1,44 @@
+{
+  "skill_name": "cir-sintese",
+  "evals": [
+    {
+      "id": 1,
+      "name": "fidelidade-origem",
+      "prompt": "Prepare uma nota de conferência, sem executar reuniões ou alterar arquivos. Origem F1: “No piloto, 17 de 25 lotes chegaram íntegros; o resultado dependeu do abrigo usado no ensaio”. Registro D1, dissenso: “os lotes sem abrigo não foram testados; não sabemos como resistem à chuva”. O redator propõe a essência “O conceito garante integridade em qualquer clima” e pede que a ressalva seja resumida para caber. Diga o que pode entrar no CIR e como corrigir essa proposta. Não há novas evidências.",
+      "expected_output": "Proposta fiel aos limites do método, sem execução fictícia.",
+      "files": [],
+      "assertions": [
+        "Rejeita a garantia em qualquer clima como extrapolação da origem.",
+        "Preserva 17 de 25, o escopo piloto e a condição do abrigo sem arredondar.",
+        "Mantém o argumento literal do dissenso ou determina sua cópia integral com origem.",
+        "Corrige pela origem/ligação e remontagem; não afirma conferências ou aprovação inexistentes."
+      ]
+    },
+    {
+      "id": 2,
+      "name": "passagem-central",
+      "prompt": "Proponha o próximo passo do teste de passagem de uma especificação, sem executar leitores. Rodada 3: sistemas reformulou “a confirmação encerra a transferência”; domínio reformulou “o relógio encerra mesmo sem confirmação”; generalista não achou a bancada. Os dois juízes divergem sobre o núcleo. A pergunta “qual encerra?” muda a primeira decisão. A equipe diz que os três afirmaram ter entendido e quer fechar; também quer mandar aos próximos leitores as perguntas previstas da autora para ajudá-los. Não houve autorização para rodada extra.",
+      "expected_output": "Proposta fiel aos limites do método, sem execução fictícia.",
+      "files": [],
+      "assertions": [
+        "Não fecha pela declaração de entendimento; reconhece divergência e lacuna central.",
+        "Preserva isolamento dos leitores, sem repassar perguntas previstas ou outros leitores.",
+        "Propõe correção na origem e nova conferência; mudança de núcleo exige volta.",
+        "Não inicia quarta rodada sem sim registrado e não inventa execução de leitores."
+      ]
+    },
+    {
+      "id": 3,
+      "name": "retrospectiva-privacidade",
+      "prompt": "Escreva uma proposta de retrospectiva, sem gravar arquivo. Registro anterior à decisão D1: com o que se sabia, a opção A tinha evidência favorável e restrições satisfeitas; foi escolhida com motivo registrado. Desfecho: uma enchente imprevisível fez falhar. Registro D2: a opção B ignorou uma restrição conhecida, mas terminou bem por acaso. Não havia previsão para D2: o autor quer reconstruir vendo o resultado e chamar isso de previsão. Este é um projeto de teste chamado Lago Azul, com custo de domínio 780 e 19 amostras. A equipe quer inserir esses dados no aprendizado entre projetos e sugere apenas “melhorar a comunicação”.",
+      "expected_output": "Proposta fiel aos limites do método, sem execução fictícia.",
+      "files": [],
+      "assertions": [
+        "Separa qualidade da decisão e desfecho: D1 não vira erro só pela falha, D2 não vira acerto só pelo sucesso.",
+        "Não transforma reconstrução posterior em previsão; exige reconstrução cega marcada quando necessária.",
+        "Projeto de teste não alimenta aprendizado entre projetos e não propõe publicar conteúdo de domínio.",
+        "Rejeita melhoria genérica ou exige ação específica com dono, skill e seção; não inventa aprovação."
+      ]
+    }
+  ]
+}

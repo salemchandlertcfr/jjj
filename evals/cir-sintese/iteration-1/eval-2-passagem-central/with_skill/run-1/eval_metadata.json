@@ -1,0 +1,11 @@
+{
+  "eval_id": 2,
+  "eval_name": "passagem-central",
+  "prompt": "Proponha o próximo passo do teste de passagem de uma especificação, sem executar leitores. Rodada 3: sistemas reformulou “a confirmação encerra a transferência”; domínio reformulou “o relógio encerra mesmo sem confirmação”; generalista não achou a bancada. Os dois juízes divergem sobre o núcleo. A pergunta “qual encerra?” muda a primeira decisão. A equipe diz que os três afirmaram ter entendido e quer fechar; também quer mandar aos próximos leitores as perguntas previstas da autora para ajudá-los. Não houve autorização para rodada extra.",
+  "assertions": [
+    "Não fecha pela declaração de entendimento; reconhece divergência e lacuna central.",
+    "Preserva isolamento dos leitores, sem repassar perguntas previstas ou outros leitores.",
+    "Propõe correção na origem e nova conferência; mudança de núcleo exige volta.",
+    "Não inicia quarta rodada sem sim registrado e não inventa execução de leitores."
+  ]
+}

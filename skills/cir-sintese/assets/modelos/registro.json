@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "itens": [
+    {
+      "id": "PREENCHER",
+      "tipo": "temor",
+      "tema": 6,
+      "subetapa": "6.1",
+      "registro": "PREENCHER",
+      "texto": "PREENCHER_COM_TEXTO_LITERAL_DO_REGISTRO",
+      "dados": {}
+    }
+  ]
+}

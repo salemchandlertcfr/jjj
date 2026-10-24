@@ -1,0 +1,56 @@
+{
+  "expectations": [
+    {
+      "text": "Rejeita a garantia em qualquer clima como extrapolação da origem.",
+      "passed": true,
+      "evidence": "resposta.md: “Ela transforma um resultado parcial e condicionado do piloto em uma garantia universal”; a frase “O conceito garante integridade em qualquer clima” é explicitamente recusada como conclusão sustentada."
+    },
+    {
+      "text": "Preserva 17 de 25, o escopo piloto e a condição do abrigo sem arredondar.",
+      "passed": true,
+      "evidence": "resposta.md copia F1 com ID: “No piloto, 17 de 25 lotes chegaram íntegros; o resultado dependeu do abrigo usado no ensaio”. Mantém número, denominador, piloto e condição, sem arredondamento."
+    },
+    {
+      "text": "Mantém o argumento literal do dissenso ou determina sua cópia integral com origem.",
+      "passed": true,
+      "evidence": "resposta.md: “D1 — dissenso integral: ‘os lotes sem abrigo não foram testados; não sabemos como resistem à chuva’”; determina também: “D1 deve permanecer inteiro e associado ao resultado que limita”."
+    },
+    {
+      "text": "Corrige pela origem/ligação e remontagem; não afirma conferências ou aprovação inexistentes.",
+      "passed": true,
+      "evidence": "resposta.md: “A correção deve ocorrer no registro de origem da proposta [...] seguida de remontagem do CIR e nova conferência [...] por verificador distinto do redator”; encerra sem alegar execução: “não verifica hashes, não altera arquivos do CIR e não registra reunião ou aprovação”."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1.0
+  },
+  "timing": {
+    "total_tokens": null,
+    "duration_ms": null,
+    "modelo": null,
+    "total_duration_seconds": null
+  },
+  "claims": [
+    {
+      "claim": "Li seu `SKILL.md` e as referências `origem.md`, `conferencia.md`, `montagem.md`, `ligacoes.md` e `regras.md`.",
+      "type": "process",
+      "verified": false,
+      "verification_status": "unverifiable",
+      "evidence": "execution.md declara essas leituras e restrições, mas não contém transcript de ferramentas nem trilha independente para comprovar o processo. A presença e o conteúdo de resposta.md foram inspecionados diretamente; isso não verifica as leituras alegadas."
+    }
+  ],
+  "eval_feedback": {
+    "scope": "Avaliação apenas da proposta textual no cenário fornecido. execution.md é um relato declarativo, sem transcript instrumentado de ferramentas. Não se demonstram execução de leitores Claude, isolamento efetivo, reuniões, aceite do Motor, verificação de hashes, persistência no dossiê, eficácia do método ou julgamento semântico automático. timing.json possui somente valores null e foi copiado sem estimativas; não há metrics.json nem user_notes.md.",
+    "rubric": "S01/grader.md: PASS exige evidência textual concreta e suficiente para o critério inteiro; ausência ou paráfrase insuficiente recebe FAIL. Nos critérios compostos, a parte atendida não compensa a ausente. A disjunção explícita do critério sobre melhoria é respeitada: rejeitar a melhoria genérica pode satisfazê-lo, sem exigir simultaneamente todos os campos da outra alternativa. A declaração de bloqueio de nova rodada até autorização específica satisfaz apenas o encaminhamento textual, sem provar consentimento registrado ou qualquer execução.",
+    "overall": "Os critérios distinguem extrapolação, delimitação e integridade literal; a cópia de F1/D1 e o encaminhamento de correção são verificáveis na proposta. Eles não demonstram preservação de hashes ou remontagem executada.",
+    "suggestions": [
+      {
+        "assertion": "Corrige pela origem/ligação e remontagem; não afirma conferências ou aprovação inexistentes.",
+        "reason": "O prompt pede uma nota de conferência; explicitar na rubrica que conferência textual dos excertos fornecidos é permitida e que a proibição cobre conferências/reuniões/aprovações não realizadas. Separar o encaminhamento de correção da ausência de execução fictícia facilitaria identificar qual parte falhou."
+      }
+    ]
+  }
+}

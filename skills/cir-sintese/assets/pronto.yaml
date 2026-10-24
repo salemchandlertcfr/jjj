@@ -1,0 +1,216 @@
+{
+  "schema_version": 1,
+  "itens": [
+    {
+      "id": "I1",
+      "verificacoes": [
+        "congelado_1_7",
+        "descartadas_motivadas",
+        "igual_secao_2"
+      ],
+      "evidencia": [
+        "arquivo",
+        "secao",
+        "id",
+        "sha256",
+        "commit",
+        "hash_artefatos"
+      ]
+    },
+    {
+      "id": "I2",
+      "verificacoes": [
+        "todas_linhas_base_fontes_limites",
+        "custo_uso",
+        "dano"
+      ],
+      "evidencia": [
+        "arquivo",
+        "secao",
+        "id",
+        "sha256",
+        "commit",
+        "hash_artefatos"
+      ]
+    },
+    {
+      "id": "I3",
+      "verificacoes": [
+        "teste_impossivel",
+        "rfi_secao_4"
+      ],
+      "evidencia": [
+        "arquivo",
+        "secao",
+        "id",
+        "sha256",
+        "commit",
+        "hash_artefatos"
+      ]
+    },
+    {
+      "id": "I4",
+      "verificacoes": [
+        "distancia_conferida"
+      ],
+      "evidencia": [
+        "arquivo",
+        "secao",
+        "id",
+        "sha256",
+        "commit",
+        "hash_artefatos"
+      ]
+    },
+    {
+      "id": "I5",
+      "verificacoes": [
+        "tangentes_classificadas",
+        "taxa_estado_e_secao_17"
+      ],
+      "evidencia": [
+        "arquivo",
+        "secao",
+        "id",
+        "sha256",
+        "commit",
+        "hash_artefatos"
+      ]
+    },
+    {
+      "id": "I6",
+      "verificacoes": [
+        "conflitos",
+        "sinergias",
+        "dependencias"
+      ],
+      "evidencia": [
+        "arquivo",
+        "secao",
+        "id",
+        "sha256",
+        "commit",
+        "hash_artefatos"
+      ]
+    },
+    {
+      "id": "I7",
+      "verificacoes": [
+        "todos_elementos_classificados",
+        "experiencia_funcao"
+      ],
+      "evidencia": [
+        "arquivo",
+        "secao",
+        "id",
+        "sha256",
+        "commit",
+        "hash_artefatos"
+      ]
+    },
+    {
+      "id": "I8",
+      "verificacoes": [
+        "restricoes_origem_onde_refuta",
+        "estacionamento_motivado"
+      ],
+      "evidencia": [
+        "arquivo",
+        "secao",
+        "id",
+        "sha256",
+        "commit",
+        "hash_artefatos"
+      ]
+    },
+    {
+      "id": "I9",
+      "verificacoes": [
+        "capacidades",
+        "nucleo"
+      ],
+      "evidencia": [
+        "arquivo",
+        "secao",
+        "id",
+        "sha256",
+        "commit",
+        "hash_artefatos"
+      ]
+    },
+    {
+      "id": "I10",
+      "verificacoes": [
+        "cenarios_registrados"
+      ],
+      "evidencia": [
+        "arquivo",
+        "secao",
+        "id",
+        "sha256",
+        "commit",
+        "hash_artefatos"
+      ]
+    },
+    {
+      "id": "I11",
+      "verificacoes": [
+        "caminhos_hashes_saidas"
+      ],
+      "evidencia": [
+        "arquivo",
+        "secao",
+        "id",
+        "sha256",
+        "commit",
+        "hash_artefatos"
+      ]
+    },
+    {
+      "id": "I12",
+      "verificacoes": [
+        "pre_mortem",
+        "red_team"
+      ],
+      "evidencia": [
+        "arquivo",
+        "secao",
+        "id",
+        "sha256",
+        "commit",
+        "hash_artefatos"
+      ]
+    },
+    {
+      "id": "I13",
+      "verificacoes": [
+        "todos_registros_confianca_base"
+      ],
+      "evidencia": [
+        "arquivo",
+        "secao",
+        "id",
+        "sha256",
+        "commit",
+        "hash_artefatos"
+      ]
+    },
+    {
+      "id": "I14",
+      "verificacoes": [
+        "pacote_mesmo_snapshot",
+        "conselho_passagem",
+        "zero_centrais",
+        "reformulacoes_batem"
+      ],
+      "evidencia": [
+        "arquivo",
+        "secao",
+        "id",
+        "sha256",
+        "commit",
+        "hash_artefatos"
+      ]
+    }
+  ]
+}

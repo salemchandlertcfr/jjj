@@ -119,6 +119,17 @@
       "container_filename": "cir-mapa.zip",
       "container_sha256": "ec0cdb94e0095c57185e25ae4836945877984aba08347676373e6595a6a6a9d7",
       "archive_member": "Private & Shared/Plano detalhado — cir-mapa 0a6cb08f4a134d098db6935513cc991b.md"
+    },
+    {
+      "id": "S16",
+      "original_filename": "Plano detalhado — cir-sintese a55cdaffd3464ca7841ea00be5c637e1.md",
+      "path": "sources/originais/plano-cir-sintese.md",
+      "sha256": "9c79919073aa3ccf11193b6f3f14ddee10b936d6d63c11d5339dec6a598a370a",
+      "bytes": 146611,
+      "received_on": "2026-10-24",
+      "container_filename": "1c767fca-8d4c-4671-a057-cfdf806deb2e_ExportBlock-0353a383-be31-46b7-b656-df97cdb9702b.zip",
+      "container_sha256": "e8e089b003ba4724dc243b3223c6ddf03658d5bd8ca8073ffe0c74b81019dbf4",
+      "archive_member": "Private & Shared/Plano detalhado — cir-sintese a55cdaffd3464ca7841ea00be5c637e1.md"
     }
   ]
 }

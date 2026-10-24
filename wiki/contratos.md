@@ -27,6 +27,10 @@ Equipe devolve `equipe/<reuniao>/` com pauta, preparações, ata literal, posiç
 
 O mapa do tema 2 devolve `02-mapa.md` e banco privado separado `casos/candidatos.md`, além do inventário para especialistas. O mapa público contém só contagens; previsões de causas usam referências a commits anteriores à busca. A projeção JSON dentro do Markdown é contrato local dos verificadores, sem substituir exame da prosa ou inventar a transação da condutora ausente. Pacote e contrastes têm sete linhas, até 600 palavras, sem autoria. Ver [formatos do mapa](../skills/cir-mapa/references/formatos.md); fonte: [S15 §§4, 8 e 10](../sources/originais/plano-cir-mapa.md).
 
+## Consolidação rastreável
+
+A síntese retorna CIR, pacote Markdown/JSON, estacionamento e relatórios externos. `06-blocos.md` é fonte de montagem; `06-cir.md` é gerado, nunca editado à mão. O inventário é comparado aos registros de origem completos, e cada cópia vem de objeto Git. Ligações têm spans de afirmações e vereditos ligados ao texto/fontes atuais. A trava é o sim explícito ao commit apresentado e às ressalvas; a retrospectiva vem depois. Projeto de teste não gera linha entre projetos, e Notion é oferta posterior ao sim. S16 resolve no desenho as pendências do espelho/aprendizado; execução real continua pendente. Contratos implementados e diferenças do schema em [formatos](../skills/cir-sintese/references/formatos.md). Fonte: [S16 §§4/6/8](../sources/originais/plano-cir-sintese.md).
+
 ## CIR: conteúdo em 17 seções
 
 O CIR consolida a referência conceitual. Cada seção precisa ter origem no dossiê e ser compatível com as decisões; pode referenciar evidências detalhadas. ([S09, §8](../sources/originais/concepcao-ideal-solucao.md); [S08, sub-etapa 6.1](../sources/originais/fluxograma-completo-ideal.md))

@@ -1,6 +1,6 @@
 # Índice da wiki
 
-Síntese dos quinze anexos recebidos e registro das implementações alpha, revisados em 23/10/2026. Os estados distinguem o desenho proposto do comportamento já verificado.
+Síntese dos dezesseis anexos recebidos e registro das implementações alpha, revisados em 24/10/2026. Os estados distinguem o desenho proposto do comportamento já verificado.
 
 | Página | Quando consultar |
 | --- | --- |
@@ -12,6 +12,7 @@ Síntese dos quinze anexos recebidos e registro das implementações alpha, revi
 | [Implementação de especialistas](implementacao-especialistas.md) | Recrutar pelo problema, validar fichas/blocos e preparar a curadoria separada de especialidades. |
 | [Implementação da equipe](implementacao-equipe.md) | Preparar reuniões, registrar falas e conferir sínteses, pareceres, integração e fusão; consultar avaliações e limites. |
 | [Implementação do mapa](implementacao-mapa.md) | Diagnosticar o fenômeno no tema 2, conferir causas/contradições, proteger casos e consultar limites. |
+| [Implementação da síntese](implementacao-sintese.md) | Montagem do CIR, passagem, pronto por evidência, aprovação e retrospectiva; limites e avaliações. |
 | [Método IDEAL](metodo-ideal.md) | Entender propósito, fases, idealidade e fronteiras da Etapa 1. |
 | [Fluxo da Etapa 1](fluxo-etapa1.md) | Percorrer temas, ciclos, doses, travas e retornos. |
 | [Arquitetura](arquitetura.md) | Distribuir responsabilidades entre as 13 skills e consultar o estado das implementações. |
